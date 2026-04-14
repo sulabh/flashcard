@@ -1,0 +1,15 @@
+import 'package:flutter/material.dart';
+import 'flavor_config.dart';
+import 'main.dart' as app;
+
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  FlavorConfig.initialize(
+    FlavorConfig(
+      flavor: AppFlavor.paid,
+      appTitle: 'Flashcard Paid',
+      showAds: false,
+    ),
+  );
+  app.main();
+}

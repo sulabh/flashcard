@@ -1,0 +1,21 @@
+{
+  "@@locale": "en",
+  "appTitle": "Flashcard App",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "login": "Login",
+  "username": "Username",
+  "password": "Password",
+  "loginError": "Invalid username or password",
+  "home": "Home",
+  "settings": "Settings",
+  "deck": "Deck",
+  "study": "Study",
+  "startSession": "Start Session",
+  "ageGroup": "Age Group",
+  "unit": "Unit",
+  "timer": "Timer",
+  "repetition": "Repetition",
+  "correctCount": "Correct Count"
+}

@@ -1,0 +1,18 @@
+{
+  "@@locale": "ja",
+  "appTitle": "フラッシュカード・アプリ",
+  "login": "ログイン",
+  "username": "ユーザー名",
+  "password": "パスワード",
+  "loginError": "ユーザー名またはパスワードが無効です",
+  "home": "ホーム",
+  "settings": "設定",
+  "deck": "デッキ",
+  "study": "学習",
+  "startSession": "セッション開始",
+  "ageGroup": "年齢グループ",
+  "unit": "ユニット",
+  "timer": "タイマー",
+  "repetition": "繰り返し",
+  "correctCount": "正解数"
+}
