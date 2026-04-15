@@ -95,6 +95,28 @@ class DatabaseHelper {
     );
   }
 
+  Future<Map<String, double>> getCategoryMasteryStats() async {
+    final db = await instance.database;
+    // Query to get sum of correctCount and repetitions per category
+    final List<Map<String, dynamic>> result = await db.rawQuery('''
+      SELECT category, SUM(correctCount) as totalCorrect, SUM(repetitions) as totalReps
+      FROM flashcards
+      GROUP BY category
+    ''');
+
+    Map<String, double> stats = {};
+    for (var row in result) {
+      final category = row['category'] as String;
+      final totalCorrect = row['totalCorrect'] as int? ?? 0;
+      final totalReps = row['totalReps'] as int? ?? 0;
+      
+      // Calculate percentage, default to 0 if no reps yet
+      final mastery = totalReps == 0 ? 0.0 : (totalCorrect / totalReps);
+      stats[category] = mastery;
+    }
+    return stats;
+  }
+
   Future close() async {
     final db = await instance.database;
     db.close();

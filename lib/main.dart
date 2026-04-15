@@ -43,9 +43,10 @@ class MyApp extends ConsumerWidget {
       debugShowCheckedModeBanner: false,
       
       // Theme
-      theme: AppTheme.lightTheme(),
-      darkTheme: AppTheme.darkTheme(),
+      theme: AppTheme.light,
+      darkTheme: AppTheme.dark,
       themeMode: themeMode,
+
 
       // Localization
       locale: locale,

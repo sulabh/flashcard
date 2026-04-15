@@ -3,6 +3,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../data/providers/flashcard_provider.dart';
 
+import '../../data/providers/progress_provider.dart';
+
 class SubjectScreen extends ConsumerWidget {
   const SubjectScreen({super.key});
 
@@ -16,6 +18,9 @@ class SubjectScreen extends ConsumerWidget {
       {'name': 'General Knowledge', 'icon': Icons.public, 'color': Colors.red},
     ];
 
+    // Refresh mastery stats when entering the screen
+    ref.listen(masteryStatsProvider, (_, __) {});
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Choose Subject'),
@@ -28,7 +33,7 @@ class SubjectScreen extends ConsumerWidget {
             crossAxisCount: 2,
             crossAxisSpacing: 16,
             mainAxisSpacing: 16,
-            childAspectRatio: 1.1,
+            childAspectRatio: 0.9, // Adjusted for progress bar
           ),
           itemCount: subjects.length,
           itemBuilder: (context, index) {
@@ -36,6 +41,15 @@ class SubjectScreen extends ConsumerWidget {
             final name = subject['name'] as String;
             final icon = subject['icon'] as IconData;
             final color = subject['color'] as Color;
+            
+            final mastery = ref.watch(categoryMasteryProvider(name));
+            final masteryPercentage = (mastery * 100).toInt();
+
+            // Color threshold logic
+            Color progressColor;
+            if (mastery < 0.4) progressColor = Colors.redAccent;
+            else if (mastery < 0.7) progressColor = Colors.orangeAccent;
+            else progressColor = Colors.greenAccent;
 
             return InkWell(
               onTap: () {
@@ -61,15 +75,37 @@ class SubjectScreen extends ConsumerWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(icon, size: 48, color: Colors.white),
-                      const SizedBox(height: 12),
+                      Icon(icon, size: 40, color: Colors.white),
+                      const SizedBox(height: 8),
                       Text(
                         name,
                         textAlign: TextAlign.center,
                         style: const TextStyle(
-                          fontSize: 18,
+                          fontSize: 16,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
+                        ),
+                      ),
+                      const SizedBox(height: 12),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                        child: Column(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                              child: LinearProgressIndicator(
+                                value: mastery,
+                                backgroundColor: Colors.white24,
+                                valueColor: AlwaysStoppedAnimation<Color>(progressColor),
+                                minHeight: 6,
+                              ),
+                            ),
+                            const SizedBox(height: 4),
+                            Text(
+                              '$masteryPercentage% Mastered',
+                              style: const TextStyle(fontSize: 10, color: Colors.white70),
+                            ),
+                          ],
                         ),
                       ),
                     ],
@@ -83,3 +119,4 @@ class SubjectScreen extends ConsumerWidget {
     );
   }
 }
+
