@@ -9,6 +9,7 @@ import '../../data/providers/flashcard_provider.dart';
 import '../../data/providers/settings_provider.dart';
 import '../../l10n/app_localizations.dart';
 import '../widgets/ad_banner_widget.dart';
+import '../widgets/app_flashcard_html.dart';
 import '../controllers/study_controller.dart';
 
 
@@ -267,7 +268,7 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Html(
+            AppFlashcardHtml(
               data: card.frontHtml,
               style: {
                 "body": Style(
@@ -291,7 +292,7 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
           width: double.infinity,
           height: double.infinity,
           alignment: Alignment.center,
-          child: Html(
+          child: AppFlashcardHtml(
             data: card.frontHtml,
             style: {
               "body": Style(
@@ -318,7 +319,7 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
             const SizedBox(height: 12),
           ],
   
-          Html(
+          AppFlashcardHtml(
             data: card.backHtml,
             style: {
               "body": Style(

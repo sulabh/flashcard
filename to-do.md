@@ -29,5 +29,14 @@
 
 ## Remaining 🔲
 
-- [ ] [HIGH PRIORITY] **3. Furigana (Ruby Text) Support**
+- [x] [HIGH PRIORITY] **3. Furigana (Ruby Text) Support**
     - Implement custom HTML rendering for Kanji readings.
+- [ ] **12. CSV Data Management (Settings)**
+    - Add button to download current questions as CSV.
+    - Add button to clear database.
+    - Add button to validate and import questions via CSV.
+- [ ] **13. Comprehensive Testing of Furigana & Custom Syntax**
+    - Verify all edge cases for `_{base}_(_ruby)_` and `|<num/den>|`.
+    - Test long sentences with multiple ruby tags.
+    - Test wrapping and alignment on different screen sizes.
+
