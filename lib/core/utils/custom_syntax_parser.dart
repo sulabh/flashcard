@@ -10,10 +10,10 @@ class CustomSyntaxParser {
     var result = input;
 
     // 1. Parse Furigana/Ruby syntax
-    // Pattern: _{base}_(_ruby)_
-    // Note: Allowing optional whitespace within the delimiters for robustness.
+    // Pattern: _{base}_(_ruby_) OR _{base}_(_ruby)_
+    // More robust regex to handle the user's screenshot format: _{base}_(_ruby_)
     result = result.replaceAllMapped(
-      RegExp(r'_\{[ \t\n]*(.*?)[ \t\n]*\}_[ \t\n]*\(_[ \t\n]*(.*?)[ \t\n]*\)_', dotAll: true),
+      RegExp(r'_\{[ \t\n]*(.*?)[ \t\n]*\}_[ \t\n]*\(_[ \t\n]*(.*?)[ \t\n]*_?\)', dotAll: true),
       (match) {
         final base = match[1];
         final ruby = match[2];
@@ -22,9 +22,9 @@ class CustomSyntaxParser {
     );
 
     // 2. Parse Fraction syntax
-    // Pattern: |<num/den>|
+    // Pattern: |num/den|
     result = result.replaceAllMapped(
-      RegExp(r'\|<[ \t\n]*(.*?)[ \t\n]*/[ \t\n]*(.*?)[ \t\n]*>\|', dotAll: true),
+      RegExp(r'\|[ \t\n]*(.+?)[ \t\n]*/[ \t\n]*(.+?)[ \t\n]*\|', dotAll: true),
       (match) {
         final num = match[1];
         final den = match[2];

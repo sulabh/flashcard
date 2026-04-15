@@ -379,13 +379,18 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
             child: Row(
               children: [
                 Expanded(
-                  child: Text(
-                    option,
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-                      color: theme.textTheme.bodyLarge?.color,
-                    ),
+                  child: AppFlashcardHtml(
+                    data: option,
+                    textAlign: TextAlign.start,
+                    style: {
+                      "body": Style(
+                        fontSize: FontSize(16.0),
+                        fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+                        color: theme.textTheme.bodyLarge?.color,
+                        margin: Margins.zero,
+                        padding: HtmlPaddings.zero,
+                      )
+                    },
                   ),
                 ),
                 if (isSelected) Icon(Icons.touch_app, color: theme.colorScheme.primary),
