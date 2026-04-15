@@ -117,7 +117,35 @@ class DatabaseHelper {
     return stats;
   }
 
+  Future<Map<String, dynamic>> getGlobalStats() async {
+    final db = await instance.database;
+    final stats = await db.rawQuery('''
+      SELECT 
+        COUNT(*) as total,
+        SUM(CASE WHEN repetitions > 0 THEN 1 ELSE 0 END) as studied,
+        SUM(CASE WHEN (repetitions > 0 AND (correctCount * 1.0 / repetitions) >= 0.7) THEN 1 ELSE 0 END) as mastered,
+        SUM(correctCount) as totalCorrect,
+        SUM(repetitions) as totalReps
+      FROM flashcards
+    ''');
+
+    if (stats.isEmpty) return {'total': 0, 'studied': 0, 'mastered': 0, 'accuracy': 0.0};
+
+    final row = stats.first;
+    final totalReps = row['totalReps'] as int? ?? 0;
+    final totalCorrect = row['totalCorrect'] as int? ?? 0;
+    final accuracy = totalReps == 0 ? 0.0 : (totalCorrect / totalReps);
+
+    return {
+      'total': row['total'] as int? ?? 0,
+      'studied': row['studied'] as int? ?? 0,
+      'mastered': row['mastered'] as int? ?? 0,
+      'accuracy': accuracy,
+    };
+  }
+
   Future close() async {
+
     final db = await instance.database;
     db.close();
   }

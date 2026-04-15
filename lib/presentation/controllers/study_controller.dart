@@ -2,6 +2,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../data/models/flashcard.dart';
 import '../../data/providers/flashcard_provider.dart';
 import '../../data/providers/progress_provider.dart';
+import '../../data/providers/stats_provider.dart';
 
 class StudyState {
   final List<Flashcard> cards;
@@ -13,6 +14,8 @@ class StudyState {
   final String? mcqSelectedOption;
   final bool? isMcqCorrect;
 
+  final double initialAccuracy;
+
   StudyState({
     this.cards = const [],
     this.sessionChoices = const [],
@@ -22,6 +25,7 @@ class StudyState {
     this.isFlipped = false,
     this.mcqSelectedOption,
     this.isMcqCorrect,
+    this.initialAccuracy = 0.0,
   });
 
   Flashcard? get currentCard => cards.isNotEmpty && currentIndex < cards.length 
@@ -41,6 +45,7 @@ class StudyState {
     bool? isFlipped,
     String? mcqSelectedOption,
     bool? isMcqCorrect,
+    double? initialAccuracy,
   }) {
     return StudyState(
       cards: cards ?? this.cards,
@@ -51,16 +56,18 @@ class StudyState {
       isFlipped: isFlipped ?? this.isFlipped,
       mcqSelectedOption: mcqSelectedOption ?? this.mcqSelectedOption,
       isMcqCorrect: isMcqCorrect ?? this.isMcqCorrect,
+      initialAccuracy: initialAccuracy ?? this.initialAccuracy,
     );
   }
 }
+
 
 class StudyController extends StateNotifier<StudyState> {
   final Ref ref;
 
   StudyController(this.ref) : super(StudyState());
 
-  void startSession(List<Flashcard> originalCards) {
+  void startSession(List<Flashcard> originalCards) async {
     // 1. Randomize and take only 20
     final pool = List<Flashcard>.from(originalCards)..shuffle();
     final sessionCards = pool.take(20).toList();
@@ -73,11 +80,21 @@ class StudyController extends StateNotifier<StudyState> {
       return <String>[];
     }).toList();
 
+    // 3. Capture initial global accuracy for summary comparison
+    double initialAcc = 0.0;
+    try {
+      final db = ref.read(databaseHelperProvider);
+      final stats = await db.getGlobalStats();
+      initialAcc = stats['accuracy'] as double? ?? 0.0;
+    } catch (_) {}
+
     state = StudyState(
       cards: sessionCards,
       sessionChoices: sessionChoices,
+      initialAccuracy: initialAcc,
     );
   }
+
 
   void flipCard() {
     state = state.copyWith(isFlipped: true);
@@ -147,8 +164,11 @@ class StudyController extends StateNotifier<StudyState> {
         isFlipped: false,
         mcqSelectedOption: null,
         isMcqCorrect: null,
+        initialAccuracy: state.initialAccuracy, // PRESERVE THIS
       );
     } else {
+      // Finalize session. Refresh global stats so Summary Screen has latest.
+      ref.invalidate(globalStatsProvider);
       state = state.copyWith(isCompleted: true);
     }
   }
