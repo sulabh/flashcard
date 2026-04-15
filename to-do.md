@@ -1,12 +1,7 @@
 # Project To-Do List
 
-- [ ] **1. Flavor-Specific Logic (Free vs. Paid)**
-    - Implement Ad-removal logic for `paid` flavor.
-    - Unlock "Premium Only" categories (if any).
-- [ ] **2. AdMob Banner Implementation**
-    - Place actual Banner unit placeholders in the `free` flavor UI.
-- [ ] [HIGH PRIORITY] **3. Furigana (Ruby Text) Support**
-    - Implement custom HTML rendering for Kanji readings.
+## Completed ✅
+
 - [x] **4. Summary Screen "Wow" Factor**
     - Add "Mastery Gained" visuals.
     - Add Confetti/Premium finishers.
@@ -25,5 +20,15 @@
     - Allow user to end quiz during retry phase, marking remaining cards as wrong.
 - [x] [HIGH PRIORITY] **11. Japanese Translation & Language Switcher**
     - Add language toggle (EN/JA) to top-right of Home Screen.
-    - Translate all UI strings to Japanese.
-    - Persist language preference.
+    - Translate all UI strings to Japanese across all screens (Home, Settings, Study, Summary, Selection, Subjects, Stats, Deck List).
+    - Persist language preference via SharedPreferences.
+
+## Remaining 🔲
+
+- [ ] [HIGH PRIORITY] **3. Furigana (Ruby Text) Support**
+    - Implement custom HTML rendering for Kanji readings.
+- [ ] **1. Flavor-Specific Logic (Free vs. Paid)**
+    - Implement Ad-removal logic for `paid` flavor.
+    - Unlock "Premium Only" categories (if any).
+- [ ] **2. AdMob Banner Implementation**
+    - Place actual Banner unit placeholders in the `free` flavor UI.
