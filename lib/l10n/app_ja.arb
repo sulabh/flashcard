@@ -106,5 +106,10 @@
   "clearConfirm": "すべてのデータを削除してもよろしいですか？",
   "cancel": "キャンセル",
   "clear": "削除",
-  "downloadSample": "サンプルCSVをダウンロード"
+  "downloadSample": "サンプルCSVをダウンロード",
+  "correct": "正解",
+  "incorrect": "不正解",
+  "nextCard": "次のカードへ",
+  "selfEvalNote": "自己評価：回答を確認し、正解・不正解を選択してください。（音声認識機能は次期バージョンで搭載予定です）",
+  "classicStudyNote": "頭の中で答えを思い浮かべてから、カードをタップして正解を確認してください。"
 }

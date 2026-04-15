@@ -292,15 +292,32 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
           width: double.infinity,
           height: double.infinity,
           alignment: Alignment.center,
-          child: AppFlashcardHtml(
-            data: card.frontHtml,
-            style: {
-              "body": Style(
-                fontSize: FontSize(26.0), 
+          padding: const EdgeInsets.all(24),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              AppFlashcardHtml(
+                data: card.frontHtml,
+                style: {
+                  "body": Style(
+                    fontSize: FontSize(26.0), 
+                    textAlign: TextAlign.center,
+                    color: textColor,
+                    margin: Margins.zero,
+                  )
+                },
+              ),
+              const SizedBox(height: 64),
+              Text(
+                l10n.classicStudyNote,
                 textAlign: TextAlign.center,
-                color: textColor,
-              )
-            },
+                style: const TextStyle(
+                  color: Colors.grey,
+                  fontSize: 14,
+                  fontStyle: FontStyle.italic,
+                ),
+              ),
+            ],
           ),
         ),
       );
@@ -314,7 +331,7 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          if (state.currentCard?.isMcq == true) ...[
+          if (card.isMcq) ...[
             Text(l10n.answer, style: const TextStyle(color: Colors.grey, letterSpacing: 2, fontWeight: FontWeight.bold)),
             const SizedBox(height: 12),
           ],
@@ -330,16 +347,37 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
               )
             },
           ),
-          const SizedBox(height: 32),
-          if (!card.isMcq) ...[
-            Text(l10n.howWasIt, style: const TextStyle(color: Colors.grey)),
-            const SizedBox(height: 12),
+          const SizedBox(height: 48),
+          
+          if (card.isMcq) ...[
+             // Next button for MCQ after reveal
+             ElevatedButton.icon(
+                onPressed: () => ref.read(studyControllerProvider.notifier).proceedToNext(),
+                icon: const Icon(Icons.arrow_forward_rounded),
+                label: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+                  child: Text(l10n.nextCard, style: const TextStyle(fontSize: 18)),
+                ),
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+                ),
+             ),
+          ] else ...[
+            // Self-evaluation note
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24.0),
+              child: Text(
+                l10n.selfEvalNote,
+                textAlign: TextAlign.center,
+                style: const TextStyle(color: Colors.grey, fontSize: 13, fontStyle: FontStyle.italic),
+              ),
+            ),
+            const SizedBox(height: 24),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                _buildAnkiButton(label: l10n.hard, color: Colors.red, weight: 1),
-                _buildAnkiButton(label: l10n.normal, color: Colors.orange, weight: 2),
-                _buildAnkiButton(label: l10n.easy, color: Colors.green, weight: 3),
+                _buildAnkiButton(label: l10n.incorrect, color: Colors.red, weight: 1),
+                _buildAnkiButton(label: l10n.correct, color: Colors.green, weight: 2),
               ],
             ),
           ],
@@ -449,14 +487,21 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
   }
 
   Widget _buildAnkiButton({required String label, required Color color, required int weight}) {
-    return ElevatedButton(
-      onPressed: () => ref.read(studyControllerProvider.notifier).submittedClassicResult(weight),
-      style: ElevatedButton.styleFrom(
-        backgroundColor: color,
-        foregroundColor: Colors.white,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+    return Expanded(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 12.0),
+        child: ElevatedButton(
+          onPressed: () => ref.read(studyControllerProvider.notifier).submittedClassicResult(weight),
+          style: ElevatedButton.styleFrom(
+            backgroundColor: color,
+            foregroundColor: Colors.white,
+            padding: const EdgeInsets.symmetric(vertical: 16),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+            elevation: 4,
+          ),
+          child: Text(label, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+        ),
       ),
-      child: Text(label),
     );
   }
 }

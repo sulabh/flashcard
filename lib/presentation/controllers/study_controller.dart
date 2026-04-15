@@ -174,6 +174,7 @@ class StudyController extends StateNotifier<StudyState> {
     final card = state.currentCard;
     if (card == null) return;
 
+    // Weight 1 = Incorrect, Weight > 1 = Correct
     final isCorrect = weight > 1; 
     
     final db = ref.read(databaseHelperProvider);
@@ -186,6 +187,9 @@ class StudyController extends StateNotifier<StudyState> {
       correctCount: state.correctCount + (isCorrect ? 1 : 0),
       totalAnsweredCount: state.totalAnsweredCount + 1,
     );
+
+    // Auto-advance after classic evaluation
+    proceedToNext();
   }
 
   Future<void> selectMcqOption(String option) async {

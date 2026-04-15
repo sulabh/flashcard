@@ -109,5 +109,10 @@
   "clearConfirm": "Are you sure you want to clear all data?",
   "cancel": "Cancel",
   "clear": "Clear",
-  "downloadSample": "Download Sample CSV"
+  "downloadSample": "Download Sample CSV",
+  "correct": "Correct",
+  "incorrect": "Incorrect",
+  "nextCard": "Next Card",
+  "selfEvalNote": "Self-evaluation: Check your answer and mark it accordingly. (Speech-to-text coming soon!)",
+  "classicStudyNote": "Recall the answer mentally, then tap the card to reveal."
 }

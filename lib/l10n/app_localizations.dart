@@ -583,6 +583,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Download Sample CSV'**
   String get downloadSample;
+
+  /// No description provided for @correct.
+  ///
+  /// In en, this message translates to:
+  /// **'Correct'**
+  String get correct;
+
+  /// No description provided for @incorrect.
+  ///
+  /// In en, this message translates to:
+  /// **'Incorrect'**
+  String get incorrect;
+
+  /// No description provided for @nextCard.
+  ///
+  /// In en, this message translates to:
+  /// **'Next Card'**
+  String get nextCard;
+
+  /// No description provided for @selfEvalNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Self-evaluation: Check your answer and mark it accordingly. (Speech-to-text coming soon!)'**
+  String get selfEvalNote;
+
+  /// No description provided for @classicStudyNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Recall the answer mentally, then tap the card to reveal.'**
+  String get classicStudyNote;
 }
 
 class _AppLocalizationsDelegate

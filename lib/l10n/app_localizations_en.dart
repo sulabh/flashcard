@@ -263,4 +263,21 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get downloadSample => 'Download Sample CSV';
+
+  @override
+  String get correct => 'Correct';
+
+  @override
+  String get incorrect => 'Incorrect';
+
+  @override
+  String get nextCard => 'Next Card';
+
+  @override
+  String get selfEvalNote =>
+      'Self-evaluation: Check your answer and mark it accordingly. (Speech-to-text coming soon!)';
+
+  @override
+  String get classicStudyNote =>
+      'Recall the answer mentally, then tap the card to reveal.';
 }

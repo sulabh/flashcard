@@ -260,4 +260,20 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get downloadSample => 'サンプルCSVをダウンロード';
+
+  @override
+  String get correct => '正解';
+
+  @override
+  String get incorrect => '不正解';
+
+  @override
+  String get nextCard => '次のカードへ';
+
+  @override
+  String get selfEvalNote =>
+      '自己評価：回答を確認し、正解・不正解を選択してください。（音声認識機能は次期バージョンで搭載予定です）';
+
+  @override
+  String get classicStudyNote => '頭の中で答えを思い浮かべてから、カードをタップして正解を確認してください。';
 }
