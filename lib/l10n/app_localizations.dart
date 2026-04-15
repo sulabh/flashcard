@@ -187,6 +187,336 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Correct Count'**
   String get correctCount;
+
+  /// No description provided for @greeting.
+  ///
+  /// In en, this message translates to:
+  /// **'Kon\'nichiwa!'**
+  String get greeting;
+
+  /// No description provided for @yourLearning.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Learning'**
+  String get yourLearning;
+
+  /// No description provided for @overallMastery.
+  ///
+  /// In en, this message translates to:
+  /// **'Overall Mastery'**
+  String get overallMastery;
+
+  /// No description provided for @cardsMastered.
+  ///
+  /// In en, this message translates to:
+  /// **'{mastered} / {total} cards mastered'**
+  String cardsMastered(int mastered, int total);
+
+  /// No description provided for @startPractice.
+  ///
+  /// In en, this message translates to:
+  /// **'Start Practice'**
+  String get startPractice;
+
+  /// No description provided for @startPracticeSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Dive back into your personalized card pool.'**
+  String get startPracticeSubtitle;
+
+  /// No description provided for @subjects.
+  ///
+  /// In en, this message translates to:
+  /// **'Subjects'**
+  String get subjects;
+
+  /// No description provided for @subjectsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Browse cards by category and unit.'**
+  String get subjectsSubtitle;
+
+  /// No description provided for @settingsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Customization, appearance, and data.'**
+  String get settingsSubtitle;
+
+  /// No description provided for @studySession.
+  ///
+  /// In en, this message translates to:
+  /// **'Study Session'**
+  String get studySession;
+
+  /// No description provided for @retryPhase.
+  ///
+  /// In en, this message translates to:
+  /// **'Retry Phase'**
+  String get retryPhase;
+
+  /// No description provided for @retrying.
+  ///
+  /// In en, this message translates to:
+  /// **'Retrying'**
+  String get retrying;
+
+  /// No description provided for @endQuiz.
+  ///
+  /// In en, this message translates to:
+  /// **'End Quiz'**
+  String get endQuiz;
+
+  /// No description provided for @shuffle.
+  ///
+  /// In en, this message translates to:
+  /// **'Shuffle'**
+  String get shuffle;
+
+  /// No description provided for @skip.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip'**
+  String get skip;
+
+  /// No description provided for @tapToReveal.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap the card to reveal the answer'**
+  String get tapToReveal;
+
+  /// No description provided for @chooseCorrect.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose the correct answer'**
+  String get chooseCorrect;
+
+  /// No description provided for @howWasIt.
+  ///
+  /// In en, this message translates to:
+  /// **'How was it?'**
+  String get howWasIt;
+
+  /// No description provided for @hard.
+  ///
+  /// In en, this message translates to:
+  /// **'Hard'**
+  String get hard;
+
+  /// No description provided for @normal.
+  ///
+  /// In en, this message translates to:
+  /// **'Normal'**
+  String get normal;
+
+  /// No description provided for @easy.
+  ///
+  /// In en, this message translates to:
+  /// **'Easy'**
+  String get easy;
+
+  /// No description provided for @answer.
+  ///
+  /// In en, this message translates to:
+  /// **'ANSWER'**
+  String get answer;
+
+  /// No description provided for @sessionComplete.
+  ///
+  /// In en, this message translates to:
+  /// **'Session Complete!'**
+  String get sessionComplete;
+
+  /// No description provided for @greatJob.
+  ///
+  /// In en, this message translates to:
+  /// **'Great job! Here is how you did.'**
+  String get greatJob;
+
+  /// No description provided for @accuracy.
+  ///
+  /// In en, this message translates to:
+  /// **'Accuracy'**
+  String get accuracy;
+
+  /// No description provided for @sessionAccuracy.
+  ///
+  /// In en, this message translates to:
+  /// **'Session Accuracy'**
+  String get sessionAccuracy;
+
+  /// No description provided for @cardsStudied.
+  ///
+  /// In en, this message translates to:
+  /// **'Cards Studied'**
+  String get cardsStudied;
+
+  /// No description provided for @correctAnswers.
+  ///
+  /// In en, this message translates to:
+  /// **'Correct Answers'**
+  String get correctAnswers;
+
+  /// No description provided for @globalMasteryGained.
+  ///
+  /// In en, this message translates to:
+  /// **'Global Mastery Gained'**
+  String get globalMasteryGained;
+
+  /// No description provided for @cardsPerSet.
+  ///
+  /// In en, this message translates to:
+  /// **'Cards per Set'**
+  String get cardsPerSet;
+
+  /// No description provided for @cardsPerSession.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} cards per practice session'**
+  String cardsPerSession(int count);
+
+  /// No description provided for @sessionTimer.
+  ///
+  /// In en, this message translates to:
+  /// **'Session Timer'**
+  String get sessionTimer;
+
+  /// No description provided for @autoFinish.
+  ///
+  /// In en, this message translates to:
+  /// **'Auto-finish session when time runs out'**
+  String get autoFinish;
+
+  /// No description provided for @noTimer.
+  ///
+  /// In en, this message translates to:
+  /// **'No Timer'**
+  String get noTimer;
+
+  /// No description provided for @minutes.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} min'**
+  String minutes(int count);
+
+  /// No description provided for @minutesFull.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} Minutes'**
+  String minutesFull(int count);
+
+  /// No description provided for @themeMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Theme Mode'**
+  String get themeMode;
+
+  /// No description provided for @system.
+  ///
+  /// In en, this message translates to:
+  /// **'System'**
+  String get system;
+
+  /// No description provided for @light.
+  ///
+  /// In en, this message translates to:
+  /// **'Light'**
+  String get light;
+
+  /// No description provided for @dark.
+  ///
+  /// In en, this message translates to:
+  /// **'Dark'**
+  String get dark;
+
+  /// No description provided for @language.
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
+  String get language;
+
+  /// No description provided for @english.
+  ///
+  /// In en, this message translates to:
+  /// **'English'**
+  String get english;
+
+  /// No description provided for @japanese.
+  ///
+  /// In en, this message translates to:
+  /// **'日本語'**
+  String get japanese;
+
+  /// No description provided for @stats.
+  ///
+  /// In en, this message translates to:
+  /// **'Statistics'**
+  String get stats;
+
+  /// No description provided for @globalStats.
+  ///
+  /// In en, this message translates to:
+  /// **'Global Stats'**
+  String get globalStats;
+
+  /// No description provided for @totalCards.
+  ///
+  /// In en, this message translates to:
+  /// **'Total Cards'**
+  String get totalCards;
+
+  /// No description provided for @mastered.
+  ///
+  /// In en, this message translates to:
+  /// **'Mastered'**
+  String get mastered;
+
+  /// No description provided for @accuracy_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Accuracy'**
+  String get accuracy_label;
+
+  /// No description provided for @backToHome.
+  ///
+  /// In en, this message translates to:
+  /// **'Back to Home'**
+  String get backToHome;
+
+  /// No description provided for @setupSession.
+  ///
+  /// In en, this message translates to:
+  /// **'Setup Your Session'**
+  String get setupSession;
+
+  /// No description provided for @nextChooseSubject.
+  ///
+  /// In en, this message translates to:
+  /// **'Next: Choose Subject'**
+  String get nextChooseSubject;
+
+  /// No description provided for @chooseSubject.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose Subject'**
+  String get chooseSubject;
+
+  /// No description provided for @noSubjectData.
+  ///
+  /// In en, this message translates to:
+  /// **'No subject data available yet. Start practicing!'**
+  String get noSubjectData;
+
+  /// No description provided for @randomSetMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'A random set of 20 questions will be prepared.'**
+  String get randomSetMessage;
+
+  /// No description provided for @appVersion.
+  ///
+  /// In en, this message translates to:
+  /// **'App Version 1.0.0'**
+  String get appVersion;
 }
 
 class _AppLocalizationsDelegate

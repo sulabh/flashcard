@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../data/providers/flashcard_provider.dart';
-
+import '../../l10n/app_localizations.dart';
 import '../../data/providers/progress_provider.dart';
 
 class SubjectScreen extends ConsumerWidget {
@@ -21,9 +21,11 @@ class SubjectScreen extends ConsumerWidget {
     // Refresh mastery stats when entering the screen
     ref.listen(masteryStatsProvider, (_, __) {});
 
+    final l10n = AppLocalizations.of(context)!;
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Choose Subject'),
+        title: Text(l10n.chooseSubject),
         centerTitle: true,
       ),
       body: Padding(

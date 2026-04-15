@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../data/providers/settings_provider.dart';
 import '../../core/providers/core_providers.dart';
+import '../../l10n/app_localizations.dart';
 
 class SettingsScreen extends ConsumerWidget {
   const SettingsScreen({super.key});
@@ -11,19 +12,20 @@ class SettingsScreen extends ConsumerWidget {
     final sessionSize = ref.watch(sessionSizeProvider);
     final sessionTimer = ref.watch(sessionTimerProvider);
     final themeMode = ref.watch(themeModeProvider);
+    final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Settings'),
+        title: Text(l10n.settings),
       ),
       body: ListView(
         children: [
-          const _SectionHeader(title: 'Study Session'),
+          _SectionHeader(title: l10n.studySession),
           
           // Slider for Session Size
           ListTile(
-            title: const Text('Cards per Set'),
-            subtitle: Text('$sessionSize cards per practice session'),
+            title: Text(l10n.cardsPerSet),
+            subtitle: Text(l10n.cardsPerSession(sessionSize)),
             trailing: Text('$sessionSize', style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
           ),
           Padding(
@@ -42,16 +44,16 @@ class SettingsScreen extends ConsumerWidget {
 
           // Timer Options
           ListTile(
-            title: const Text('Session Timer'),
-            subtitle: const Text('Auto-finish session when time runs out'),
+            title: Text(l10n.sessionTimer),
+            subtitle: Text(l10n.autoFinish),
             trailing: DropdownButton<int>(
               value: sessionTimer,
               underline: const SizedBox(),
-              items: const [
-                DropdownMenuItem(value: 0, child: Text('No Timer')),
-                DropdownMenuItem(value: 5, child: Text('5 Minutes')),
-                DropdownMenuItem(value: 10, child: Text('10 Minutes')),
-                DropdownMenuItem(value: 30, child: Text('30 Minutes')),
+              items: [
+                DropdownMenuItem(value: 0, child: Text(l10n.noTimer)),
+                DropdownMenuItem(value: 5, child: Text(l10n.minutesFull(5))),
+                DropdownMenuItem(value: 10, child: Text(l10n.minutesFull(10))),
+                DropdownMenuItem(value: 30, child: Text(l10n.minutesFull(30))),
               ],
               onChanged: (value) {
                 if (value != null) {
@@ -62,16 +64,16 @@ class SettingsScreen extends ConsumerWidget {
           ),
 
           const SizedBox(height: 24),
-          const _SectionHeader(title: 'Appearance'),
+          _SectionHeader(title: l10n.themeMode),
 
           ListTile(
-            title: const Text('Theme Mode'),
+            title: Text(l10n.themeMode),
             subtitle: Text(themeMode.toString().split('.').last.toUpperCase()),
             trailing: SegmentedButton<ThemeMode>(
-              segments: const [
-                ButtonSegment(value: ThemeMode.light, icon: Icon(Icons.light_mode)),
-                ButtonSegment(value: ThemeMode.dark, icon: Icon(Icons.dark_mode)),
-                ButtonSegment(value: ThemeMode.system, icon: Icon(Icons.settings)),
+              segments: [
+                ButtonSegment(value: ThemeMode.light, icon: const Icon(Icons.light_mode), label: Text(l10n.light)),
+                ButtonSegment(value: ThemeMode.dark, icon: const Icon(Icons.dark_mode), label: Text(l10n.dark)),
+                ButtonSegment(value: ThemeMode.system, icon: const Icon(Icons.settings), label: Text(l10n.system)),
               ],
               selected: {themeMode},
               onSelectionChanged: (value) => ref.read(themeModeProvider.notifier).state = value.first,
@@ -81,7 +83,7 @@ class SettingsScreen extends ConsumerWidget {
           const SizedBox(height: 48),
           Center(
             child: Text(
-              'App Version 1.0.0',
+              l10n.appVersion,
               style: TextStyle(color: Colors.grey[500], fontSize: 12),
             ),
           ),

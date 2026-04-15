@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:flutter_html/flutter_html.dart';
 import 'package:go_router/go_router.dart';
-
-
 import '../../data/providers/flashcard_provider.dart';
-import '../../data/models/flashcard.dart';
+import '../../l10n/app_localizations.dart';
 
 class DeckListScreen extends ConsumerWidget {
   const DeckListScreen({super.key});
@@ -16,6 +13,7 @@ class DeckListScreen extends ConsumerWidget {
     final subject = ref.watch(selectedSubjectProvider);
     final age = ref.watch(selectedAgeGroupProvider);
     final unit = ref.watch(selectedUnitProvider);
+    final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
       appBar: AppBar(
@@ -34,12 +32,12 @@ class DeckListScreen extends ConsumerWidget {
                 const SizedBox(height: 24),
                 Text('${cards.length} Flashcards Available', style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
                 const SizedBox(height: 12),
-                const Text('A random set of 20 questions will be prepared.', style: TextStyle(color: Colors.grey, fontSize: 16)),
+                Text(l10n.randomSetMessage, style: const TextStyle(color: Colors.grey, fontSize: 16)),
                 const SizedBox(height: 40),
                 ElevatedButton.icon(
                   onPressed: () => context.push('/study'),
                   icon: const Icon(Icons.play_arrow),
-                  label: const Text('Start Practice', style: TextStyle(fontSize: 20)),
+                  label: Text(l10n.startPractice, style: const TextStyle(fontSize: 20)),
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 16),
                     backgroundColor: Colors.blue,

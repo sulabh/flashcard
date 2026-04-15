@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../data/providers/flashcard_provider.dart';
+import '../../l10n/app_localizations.dart';
 
 class SelectionScreen extends ConsumerWidget {
   const SelectionScreen({super.key});
@@ -11,9 +12,11 @@ class SelectionScreen extends ConsumerWidget {
     final selectedAge = ref.watch(selectedAgeGroupProvider);
     final selectedUnit = ref.watch(selectedUnitProvider);
 
+    final l10n = AppLocalizations.of(context)!;
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Setup Your Session'),
+        title: Text(l10n.setupSession),
         centerTitle: true,
       ),
       body: Padding(
@@ -22,7 +25,7 @@ class SelectionScreen extends ConsumerWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              _buildSectionTitle('Choose Age Group'),
+              _buildSectionTitle(l10n.ageGroup),
               const SizedBox(height: 12),
               Row(
                 children: [
@@ -42,7 +45,7 @@ class SelectionScreen extends ConsumerWidget {
                 ],
               ),
               const SizedBox(height: 32),
-              _buildSectionTitle('Choose Unit'),
+              _buildSectionTitle(l10n.unit),
               const SizedBox(height: 12),
               Row(
                 children: [
@@ -71,7 +74,7 @@ class SelectionScreen extends ConsumerWidget {
                   elevation: 4,
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                 ),
-                child: const Text('Next: Choose Subject', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                child: Text(l10n.nextChooseSubject, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
               ),
             ],
           ),

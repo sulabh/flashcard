@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../data/providers/stats_provider.dart';
-import '../../data/providers/flashcard_provider.dart';
+import '../../data/providers/settings_provider.dart';
+import '../../l10n/app_localizations.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
@@ -10,6 +11,7 @@ class HomeScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final statsAsync = ref.watch(globalStatsProvider);
+    final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
       body: SafeArea(
@@ -18,19 +20,19 @@ class HomeScreen extends ConsumerWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Header
-              _buildHeader(),
+              // Header with Language Switcher
+              _buildHeader(context, ref, l10n),
               const SizedBox(height: 32),
 
               // Global Progress Bar (Top)
-              _buildGlobalProgress(context, statsAsync),
+              _buildGlobalProgress(context, statsAsync, l10n),
               const SizedBox(height: 40),
 
               // Main Actions
               _buildMenuCard(
                 context,
-                title: 'Start Practice',
-                subtitle: 'Dive back into your personalized card pool.',
+                title: l10n.startPractice,
+                subtitle: l10n.startPracticeSubtitle,
                 icon: Icons.play_arrow_rounded,
                 color: Theme.of(context).colorScheme.primary,
                 onTap: () => context.push('/selection'),
@@ -38,8 +40,8 @@ class HomeScreen extends ConsumerWidget {
               const SizedBox(height: 16),
               _buildMenuCard(
                 context,
-                title: 'Subjects',
-                subtitle: 'Browse cards by category and unit.',
+                title: l10n.subjects,
+                subtitle: l10n.subjectsSubtitle,
                 icon: Icons.grid_view_rounded,
                 color: Colors.orange,
                 onTap: () => context.push('/subjects'),
@@ -47,8 +49,8 @@ class HomeScreen extends ConsumerWidget {
               const SizedBox(height: 16),
               _buildMenuCard(
                 context,
-                title: 'Settings',
-                subtitle: 'Customization, appearance, and data.',
+                title: l10n.settings,
+                subtitle: l10n.settingsSubtitle,
                 icon: Icons.settings_rounded,
                 color: Colors.blueGrey,
                 onTap: () => context.push('/settings'),
@@ -60,30 +62,98 @@ class HomeScreen extends ConsumerWidget {
     );
   }
 
-  Widget _buildHeader() {
-    return Column(
+  Widget _buildHeader(BuildContext context, WidgetRef ref, AppLocalizations l10n) {
+    final currentLocale = ref.watch(persistedLocaleProvider);
+
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          "Kon'nichiwa!",
-          style: TextStyle(
-            fontSize: 16,
-            color: Colors.grey[600],
-            letterSpacing: 1.2,
-          ),
+        // Greeting
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              l10n.greeting,
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.grey[600],
+                letterSpacing: 1.2,
+              ),
+            ),
+            Text(
+              l10n.yourLearning,
+              style: const TextStyle(
+                fontSize: 32,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
         ),
-        const Text(
-          'Your Learning',
-          style: TextStyle(
-            fontSize: 32,
-            fontWeight: FontWeight.bold,
+        // Language Switcher
+        Container(
+          decoration: BoxDecoration(
+            color: Theme.of(context).colorScheme.primaryContainer.withAlpha(100),
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: PopupMenuButton<String>(
+            initialValue: currentLocale,
+            onSelected: (code) {
+              ref.read(persistedLocaleProvider.notifier).setLocale(code);
+            },
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+            offset: const Offset(0, 40),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Icon(Icons.language_rounded, size: 20),
+                  const SizedBox(width: 6),
+                  Text(
+                    currentLocale == 'ja' ? 'JA' : 'EN',
+                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+                  ),
+                ],
+              ),
+            ),
+            itemBuilder: (context) => [
+              PopupMenuItem(
+                value: 'en',
+                child: Row(
+                  children: [
+                    Icon(
+                      currentLocale == 'en' ? Icons.check_circle : Icons.circle_outlined,
+                      size: 18,
+                      color: currentLocale == 'en' ? Theme.of(context).colorScheme.primary : Colors.grey,
+                    ),
+                    const SizedBox(width: 10),
+                    const Text('English'),
+                  ],
+                ),
+              ),
+              PopupMenuItem(
+                value: 'ja',
+                child: Row(
+                  children: [
+                    Icon(
+                      currentLocale == 'ja' ? Icons.check_circle : Icons.circle_outlined,
+                      size: 18,
+                      color: currentLocale == 'ja' ? Theme.of(context).colorScheme.primary : Colors.grey,
+                    ),
+                    const SizedBox(width: 10),
+                    const Text('日本語'),
+                  ],
+                ),
+              ),
+            ],
           ),
         ),
       ],
     );
   }
 
-  Widget _buildGlobalProgress(BuildContext context, AsyncValue<Map<String, dynamic>> statsAsync) {
+  Widget _buildGlobalProgress(BuildContext context, AsyncValue<Map<String, dynamic>> statsAsync, AppLocalizations l10n) {
     return statsAsync.when(
       data: (stats) {
         final mastery = stats['accuracy'] as double? ?? 0.0;
@@ -119,9 +189,9 @@ class HomeScreen extends ConsumerWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
-                      'Overall Mastery',
-                      style: TextStyle(
+                    Text(
+                      l10n.overallMastery,
+                      style: const TextStyle(
                         color: Colors.white,
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
@@ -149,7 +219,7 @@ class HomeScreen extends ConsumerWidget {
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  '$mastered / $total cards mastered',
+                  l10n.cardsMastered(mastered, total),
                   style: const TextStyle(
                     color: Colors.white70,
                     fontSize: 14,

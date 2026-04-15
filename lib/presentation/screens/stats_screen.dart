@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../data/providers/stats_provider.dart';
 import '../../data/providers/progress_provider.dart';
+import '../../l10n/app_localizations.dart';
 
 class StatsScreen extends ConsumerWidget {
   const StatsScreen({super.key});
@@ -10,10 +11,11 @@ class StatsScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final statsAsync = ref.watch(globalStatsProvider);
     final masteryAsync = ref.watch(masteryStatsProvider);
+    final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Global Stats'),
+        title: Text(l10n.globalStats),
       ),
       body: statsAsync.when(
         data: (stats) {
@@ -27,14 +29,14 @@ class StatsScreen extends ConsumerWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                _buildOverviewCard(context, total, studied, mastered, accuracy),
+                _buildOverviewCard(context, total, studied, mastered, accuracy, l10n),
                 const SizedBox(height: 32),
-                const Text(
-                  'Subject Mastery',
-                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                Text(
+                  l10n.subjects,
+                  style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 16),
-                _buildSubjectBreakdown(masteryAsync),
+                _buildSubjectBreakdown(masteryAsync, l10n),
               ],
             ),
           );
@@ -45,7 +47,7 @@ class StatsScreen extends ConsumerWidget {
     );
   }
 
-  Widget _buildOverviewCard(BuildContext context, int total, int studied, int mastered, double accuracy) {
+  Widget _buildOverviewCard(BuildContext context, int total, int studied, int mastered, double accuracy, AppLocalizations l10n) {
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(24.0),
@@ -54,17 +56,17 @@ class StatsScreen extends ConsumerWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                _buildStatRing('Accuracy', accuracy),
-                _buildStatRing('Mastered', total == 0 ? 0.0 : mastered / total, color: Colors.green),
-                _buildStatRing('Studied', total == 0 ? 0.0 : studied / total, color: Colors.orange),
+                _buildStatRing(l10n.accuracy, accuracy),
+                _buildStatRing(l10n.mastered, total == 0 ? 0.0 : mastered / total, color: Colors.green),
+                _buildStatRing(l10n.study, total == 0 ? 0.0 : studied / total, color: Colors.orange),
               ],
             ),
             const SizedBox(height: 32),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                _buildStatText('Total Cards', '$total'),
-                _buildStatText('Mastered', '$mastered'),
+                _buildStatText(l10n.totalCards, '$total'),
+                _buildStatText(l10n.mastered, '$mastered'),
                 _buildStatText('New', '${total - studied}'),
               ],
             ),
@@ -114,11 +116,11 @@ class StatsScreen extends ConsumerWidget {
     );
   }
 
-  Widget _buildSubjectBreakdown(AsyncValue<Map<String, double>> masteryAsync) {
+  Widget _buildSubjectBreakdown(AsyncValue<Map<String, double>> masteryAsync, AppLocalizations l10n) {
     return masteryAsync.when(
       data: (subjectMastery) {
         if (subjectMastery.isEmpty) {
-          return const Text('No subject data available yet. Start practicing!');
+          return Text(l10n.noSubjectData);
         }
         
         return Column(

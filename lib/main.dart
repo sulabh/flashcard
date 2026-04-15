@@ -45,7 +45,8 @@ class MyApp extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final router = ref.watch(routerProvider);
     final themeMode = ref.watch(themeModeProvider);
-    final locale = ref.watch(localeProvider);
+    final localeCode = ref.watch(persistedLocaleProvider);
+    final locale = Locale(localeCode);
 
     return MaterialApp.router(
       title: FlavorConfig.instance.appTitle,

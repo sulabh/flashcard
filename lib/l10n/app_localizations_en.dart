@@ -52,4 +52,180 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get correctCount => 'Correct Count';
+
+  @override
+  String get greeting => 'Kon\'nichiwa!';
+
+  @override
+  String get yourLearning => 'Your Learning';
+
+  @override
+  String get overallMastery => 'Overall Mastery';
+
+  @override
+  String cardsMastered(int mastered, int total) {
+    return '$mastered / $total cards mastered';
+  }
+
+  @override
+  String get startPractice => 'Start Practice';
+
+  @override
+  String get startPracticeSubtitle =>
+      'Dive back into your personalized card pool.';
+
+  @override
+  String get subjects => 'Subjects';
+
+  @override
+  String get subjectsSubtitle => 'Browse cards by category and unit.';
+
+  @override
+  String get settingsSubtitle => 'Customization, appearance, and data.';
+
+  @override
+  String get studySession => 'Study Session';
+
+  @override
+  String get retryPhase => 'Retry Phase';
+
+  @override
+  String get retrying => 'Retrying';
+
+  @override
+  String get endQuiz => 'End Quiz';
+
+  @override
+  String get shuffle => 'Shuffle';
+
+  @override
+  String get skip => 'Skip';
+
+  @override
+  String get tapToReveal => 'Tap the card to reveal the answer';
+
+  @override
+  String get chooseCorrect => 'Choose the correct answer';
+
+  @override
+  String get howWasIt => 'How was it?';
+
+  @override
+  String get hard => 'Hard';
+
+  @override
+  String get normal => 'Normal';
+
+  @override
+  String get easy => 'Easy';
+
+  @override
+  String get answer => 'ANSWER';
+
+  @override
+  String get sessionComplete => 'Session Complete!';
+
+  @override
+  String get greatJob => 'Great job! Here is how you did.';
+
+  @override
+  String get accuracy => 'Accuracy';
+
+  @override
+  String get sessionAccuracy => 'Session Accuracy';
+
+  @override
+  String get cardsStudied => 'Cards Studied';
+
+  @override
+  String get correctAnswers => 'Correct Answers';
+
+  @override
+  String get globalMasteryGained => 'Global Mastery Gained';
+
+  @override
+  String get cardsPerSet => 'Cards per Set';
+
+  @override
+  String cardsPerSession(int count) {
+    return '$count cards per practice session';
+  }
+
+  @override
+  String get sessionTimer => 'Session Timer';
+
+  @override
+  String get autoFinish => 'Auto-finish session when time runs out';
+
+  @override
+  String get noTimer => 'No Timer';
+
+  @override
+  String minutes(int count) {
+    return '$count min';
+  }
+
+  @override
+  String minutesFull(int count) {
+    return '$count Minutes';
+  }
+
+  @override
+  String get themeMode => 'Theme Mode';
+
+  @override
+  String get system => 'System';
+
+  @override
+  String get light => 'Light';
+
+  @override
+  String get dark => 'Dark';
+
+  @override
+  String get language => 'Language';
+
+  @override
+  String get english => 'English';
+
+  @override
+  String get japanese => '日本語';
+
+  @override
+  String get stats => 'Statistics';
+
+  @override
+  String get globalStats => 'Global Stats';
+
+  @override
+  String get totalCards => 'Total Cards';
+
+  @override
+  String get mastered => 'Mastered';
+
+  @override
+  String get accuracy_label => 'Accuracy';
+
+  @override
+  String get backToHome => 'Back to Home';
+
+  @override
+  String get setupSession => 'Setup Your Session';
+
+  @override
+  String get nextChooseSubject => 'Next: Choose Subject';
+
+  @override
+  String get chooseSubject => 'Choose Subject';
+
+  @override
+  String get noSubjectData =>
+      'No subject data available yet. Start practicing!';
+
+  @override
+  String get randomSetMessage =>
+      'A random set of 20 questions will be prepared.';
+
+  @override
+  String get appVersion => 'App Version 1.0.0';
 }

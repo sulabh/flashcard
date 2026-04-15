@@ -38,3 +38,20 @@ final sessionTimerProvider = StateNotifierProvider<SessionTimerNotifier, int>((r
   final prefs = ref.watch(sharedPreferencesProvider);
   return SessionTimerNotifier(prefs);
 });
+
+// Locale Provider - persisted language selection
+class LocaleNotifier extends StateNotifier<String> {
+  final SharedPreferences prefs;
+
+  LocaleNotifier(this.prefs) : super(prefs.getString('locale') ?? 'en');
+
+  void setLocale(String languageCode) {
+    state = languageCode;
+    prefs.setString('locale', languageCode);
+  }
+}
+
+final persistedLocaleProvider = StateNotifierProvider<LocaleNotifier, String>((ref) {
+  final prefs = ref.watch(sharedPreferencesProvider);
+  return LocaleNotifier(prefs);
+});

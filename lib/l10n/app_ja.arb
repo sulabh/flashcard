@@ -14,5 +14,81 @@
   "unit": "ユニット",
   "timer": "タイマー",
   "repetition": "繰り返し",
-  "correctCount": "正解数"
+  "correctCount": "正解数",
+  "greeting": "こんにちは！",
+  "yourLearning": "あなたの学習",
+  "overallMastery": "総合マスタリー",
+  "cardsMastered": "{mastered} / {total} カードマスター済み",
+  "@cardsMastered": {
+    "placeholders": {
+      "mastered": {"type": "int"},
+      "total": {"type": "int"}
+    }
+  },
+  "startPractice": "練習を始める",
+  "startPracticeSubtitle": "パーソナライズされたカードプールに戻りましょう。",
+  "subjects": "科目",
+  "subjectsSubtitle": "カテゴリとユニットでカードを閲覧。",
+  "settingsSubtitle": "カスタマイズ、外観、データ。",
+  "studySession": "学習セッション",
+  "retryPhase": "リトライフェーズ",
+  "retrying": "リトライ中",
+  "endQuiz": "クイズ終了",
+  "shuffle": "シャッフル",
+  "skip": "スキップ",
+  "tapToReveal": "カードをタップして答えを表示",
+  "chooseCorrect": "正しい答えを選んでください",
+  "howWasIt": "どうでしたか？",
+  "hard": "難しい",
+  "normal": "普通",
+  "easy": "簡単",
+  "answer": "解答",
+  "sessionComplete": "セッション完了！",
+  "greatJob": "よくできました！結果を見てみましょう。",
+  "accuracy": "正確さ",
+  "sessionAccuracy": "セッション正確さ",
+  "cardsStudied": "学習カード数",
+  "correctAnswers": "正解数",
+  "globalMasteryGained": "グローバルマスタリー変化",
+  "cardsPerSet": "1セットのカード数",
+  "cardsPerSession": "1回の練習に{count}枚のカード",
+  "@cardsPerSession": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "sessionTimer": "セッションタイマー",
+  "autoFinish": "タイマー終了でセッション自動終了",
+  "noTimer": "タイマーなし",
+  "minutes": "{count}分",
+  "@minutes": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "minutesFull": "{count}分",
+  "@minutesFull": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "themeMode": "テーマモード",
+  "system": "システム",
+  "light": "ライト",
+  "dark": "ダーク",
+  "language": "言語",
+  "english": "English",
+  "japanese": "日本語",
+  "stats": "統計",
+  "globalStats": "グローバル統計",
+  "totalCards": "合計カード数",
+  "mastered": "マスター済み",
+  "accuracy_label": "正確さ",
+  "backToHome": "ホームに戻る",
+  "setupSession": "セッション設定",
+  "nextChooseSubject": "次へ：科目を選択",
+  "chooseSubject": "科目を選択",
+  "noSubjectData": "まだ科目データがありません。練習を始めましょう！",
+  "randomSetMessage": "ランダムな20問が用意されます。",
+  "appVersion": "アプリバージョン 1.0.0"
 }

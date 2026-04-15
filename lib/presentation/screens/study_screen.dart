@@ -7,6 +7,7 @@ import 'package:go_router/go_router.dart';
 import '../../data/models/flashcard.dart';
 import '../../data/providers/flashcard_provider.dart';
 import '../../data/providers/settings_provider.dart';
+import '../../l10n/app_localizations.dart';
 import '../controllers/study_controller.dart';
 
 
@@ -20,6 +21,8 @@ class StudyScreen extends ConsumerStatefulWidget {
 class _StudyScreenState extends ConsumerState<StudyScreen> {
   Timer? _timer;
   int _secondsRemaining = 0;
+
+  AppLocalizations get l10n => AppLocalizations.of(context)!;
 
   @override
   void initState() {
@@ -78,7 +81,7 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
 
     if (card == null) {
       return Scaffold(
-        appBar: AppBar(title: const Text('Study Session')),
+        appBar: AppBar(title: Text(l10n.studySession)),
         body: const Center(child: CircularProgressIndicator()),
       );
     }
@@ -89,7 +92,7 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              state.isRetryPhase ? 'Retry Phase' : 'Study Session',
+              state.isRetryPhase ? l10n.retryPhase : l10n.studySession,
               style: TextStyle(
                 fontSize: 14, 
                 color: state.isRetryPhase ? Colors.orange : Colors.grey,
@@ -98,12 +101,21 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
             ),
             Text(
               state.isRetryPhase
-                ? 'Card ${state.currentIndex + 1} / ${state.cards.length} (Retrying)'
+                ? 'Card ${state.currentIndex + 1} / ${state.cards.length} (${l10n.retrying})'
                 : 'Card ${state.currentIndex + 1} / ${state.originalCardsCount}',
             ),
           ],
         ),
         actions: [
+          if (state.isRetryPhase)
+            TextButton.icon(
+              onPressed: () {
+                _timer?.cancel();
+                ref.read(studyControllerProvider.notifier).forceFinishSession();
+              },
+              icon: const Icon(Icons.stop_circle_outlined, color: Colors.red, size: 20),
+              label: Text(l10n.endQuiz, style: const TextStyle(color: Colors.red, fontWeight: FontWeight.bold)),
+            ),
           if (_secondsRemaining > 0)
             Padding(
               padding: const EdgeInsets.only(right: 16.0),
@@ -300,7 +312,7 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           if (state.currentCard?.isMcq == true) ...[
-            const Text('ANSWER', style: TextStyle(color: Colors.grey, letterSpacing: 2, fontWeight: FontWeight.bold)),
+            Text(l10n.answer, style: const TextStyle(color: Colors.grey, letterSpacing: 2, fontWeight: FontWeight.bold)),
             const SizedBox(height: 12),
           ],
   
@@ -317,14 +329,14 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
           ),
           const SizedBox(height: 32),
           if (!card.isMcq) ...[
-            const Text('How was it?', style: TextStyle(color: Colors.grey)),
+            Text(l10n.howWasIt, style: const TextStyle(color: Colors.grey)),
             const SizedBox(height: 12),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                _buildAnkiButton(label: 'Hard', color: Colors.red, weight: 1),
-                _buildAnkiButton(label: 'Normal', color: Colors.orange, weight: 2),
-                _buildAnkiButton(label: 'Easy', color: Colors.green, weight: 3),
+                _buildAnkiButton(label: l10n.hard, color: Colors.red, weight: 1),
+                _buildAnkiButton(label: l10n.normal, color: Colors.orange, weight: 2),
+                _buildAnkiButton(label: l10n.easy, color: Colors.green, weight: 3),
               ],
             ),
           ],
@@ -399,7 +411,7 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
                       ? () => ref.read(studyControllerProvider.notifier).shuffleCurrentCard()
                       : null,
                 ),
-                const Text('Shuffle', style: TextStyle(fontSize: 10, color: Colors.grey)),
+                Text(l10n.shuffle, style: const TextStyle(fontSize: 10, color: Colors.grey)),
               ],
             ),
             
@@ -412,7 +424,7 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
                     color: Colors.orange,
                     onPressed: () => ref.read(studyControllerProvider.notifier).skipCurrentCard(),
                   ),
-                  const Text('Skip', style: TextStyle(fontSize: 10, color: Colors.grey)),
+                  Text(l10n.skip, style: const TextStyle(fontSize: 10, color: Colors.grey)),
                 ],
               ),
           ],
@@ -420,8 +432,8 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
         const SizedBox(height: 16),
         Text(
           state.currentCard?.isMcq == true 
-              ? 'Choose the correct answer' 
-              : 'Tap the card to reveal the answer',
+              ? l10n.chooseCorrect 
+              : l10n.tapToReveal,
           style: const TextStyle(color: Colors.grey, fontSize: 13),
         ),
       ],

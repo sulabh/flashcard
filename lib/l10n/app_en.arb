@@ -17,5 +17,81 @@
   "unit": "Unit",
   "timer": "Timer",
   "repetition": "Repetition",
-  "correctCount": "Correct Count"
+  "correctCount": "Correct Count",
+  "greeting": "Kon'nichiwa!",
+  "yourLearning": "Your Learning",
+  "overallMastery": "Overall Mastery",
+  "cardsMastered": "{mastered} / {total} cards mastered",
+  "@cardsMastered": {
+    "placeholders": {
+      "mastered": {"type": "int"},
+      "total": {"type": "int"}
+    }
+  },
+  "startPractice": "Start Practice",
+  "startPracticeSubtitle": "Dive back into your personalized card pool.",
+  "subjects": "Subjects",
+  "subjectsSubtitle": "Browse cards by category and unit.",
+  "settingsSubtitle": "Customization, appearance, and data.",
+  "studySession": "Study Session",
+  "retryPhase": "Retry Phase",
+  "retrying": "Retrying",
+  "endQuiz": "End Quiz",
+  "shuffle": "Shuffle",
+  "skip": "Skip",
+  "tapToReveal": "Tap the card to reveal the answer",
+  "chooseCorrect": "Choose the correct answer",
+  "howWasIt": "How was it?",
+  "hard": "Hard",
+  "normal": "Normal",
+  "easy": "Easy",
+  "answer": "ANSWER",
+  "sessionComplete": "Session Complete!",
+  "greatJob": "Great job! Here is how you did.",
+  "accuracy": "Accuracy",
+  "sessionAccuracy": "Session Accuracy",
+  "cardsStudied": "Cards Studied",
+  "correctAnswers": "Correct Answers",
+  "globalMasteryGained": "Global Mastery Gained",
+  "cardsPerSet": "Cards per Set",
+  "cardsPerSession": "{count} cards per practice session",
+  "@cardsPerSession": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "sessionTimer": "Session Timer",
+  "autoFinish": "Auto-finish session when time runs out",
+  "noTimer": "No Timer",
+  "minutes": "{count} min",
+  "@minutes": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "minutesFull": "{count} Minutes",
+  "@minutesFull": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "themeMode": "Theme Mode",
+  "system": "System",
+  "light": "Light",
+  "dark": "Dark",
+  "language": "Language",
+  "english": "English",
+  "japanese": "日本語",
+  "stats": "Statistics",
+  "globalStats": "Global Stats",
+  "totalCards": "Total Cards",
+  "mastered": "Mastered",
+  "accuracy_label": "Accuracy",
+  "backToHome": "Back to Home",
+  "setupSession": "Setup Your Session",
+  "nextChooseSubject": "Next: Choose Subject",
+  "chooseSubject": "Choose Subject",
+  "noSubjectData": "No subject data available yet. Start practicing!",
+  "randomSetMessage": "A random set of 20 questions will be prepared.",
+  "appVersion": "App Version 1.0.0"
 }

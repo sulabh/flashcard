@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:confetti/confetti.dart';
 import '../controllers/study_controller.dart';
 import '../../data/providers/stats_provider.dart';
+import '../../l10n/app_localizations.dart';
 
 class SessionSummaryScreen extends ConsumerStatefulWidget {
   const SessionSummaryScreen({super.key});
@@ -35,8 +36,9 @@ class _SessionSummaryScreenState extends ConsumerState<SessionSummaryScreen> {
   Widget build(BuildContext context) {
     final state = ref.watch(studyControllerProvider);
     final statsAsync = ref.watch(globalStatsProvider);
+    final l10n = AppLocalizations.of(context)!;
     
-    final total = state.cards.length;
+    final total = state.originalCardsCount > 0 ? state.originalCardsCount : state.cards.length;
     final correct = state.correctCount;
     final sessionAccuracy = total == 0 ? 0.0 : (correct / total);
 
@@ -60,13 +62,13 @@ class _SessionSummaryScreenState extends ConsumerState<SessionSummaryScreen> {
                     child: const Icon(Icons.emoji_events_rounded, size: 80, color: Colors.amber),
                   ),
                   const SizedBox(height: 32),
-                  const Text(
-                    'Session Complete!',
-                    style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+                  Text(
+                    l10n.sessionComplete,
+                    style: const TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    'Great job! Here is how you did.',
+                    l10n.greatJob,
                     style: TextStyle(fontSize: 16, color: Colors.grey[600]),
                   ),
                   const SizedBox(height: 48),
@@ -80,11 +82,11 @@ class _SessionSummaryScreenState extends ConsumerState<SessionSummaryScreen> {
                       padding: const EdgeInsets.all(32.0),
                       child: Column(
                         children: [
-                          _buildBigStat('Session Accuracy', sessionAccuracy),
+                          _buildBigStat(l10n.sessionAccuracy, sessionAccuracy),
                           const Divider(height: 48),
-                          _buildStatRow('Cards Studied', '$total'),
+                          _buildStatRow(l10n.cardsStudied, '$total'),
                           const SizedBox(height: 16),
-                          _buildStatRow('Correct Answers', '$correct'),
+                          _buildStatRow(l10n.correctAnswers, '$correct'),
                           const SizedBox(height: 16),
                           
                           // Show progression against initial accuracy
@@ -97,7 +99,7 @@ class _SessionSummaryScreenState extends ConsumerState<SessionSummaryScreen> {
                                 children: [
                                   const SizedBox(height: 16),
                                   _buildStatRow(
-                                    'Global Mastery Gained', 
+                                    l10n.globalMasteryGained, 
                                     '${gained > 0 ? '+' : ''}${(gained * 100).toStringAsFixed(1)}%',
                                     color: gained > 0 ? Colors.green : (gained < 0 ? Colors.red : Colors.grey),
                                   ),
@@ -125,7 +127,7 @@ class _SessionSummaryScreenState extends ConsumerState<SessionSummaryScreen> {
                       backgroundColor: Theme.of(context).colorScheme.primary,
                       foregroundColor: Colors.white,
                     ),
-                    child: const Text('Back to Home', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                    child: Text(l10n.backToHome, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                   ),
                 ],
               ),
@@ -193,7 +195,7 @@ class _SessionSummaryScreenState extends ConsumerState<SessionSummaryScreen> {
           style: TextStyle(
             fontSize: 18, 
             fontWeight: FontWeight.bold,
-            color: color ?? Colors.black87,
+            color: color ?? Theme.of(context).textTheme.bodyLarge?.color,
           ),
         ),
       ],

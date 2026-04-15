@@ -21,3 +21,9 @@
     - Add Skip Button to delay answering. Skipped questions reappear at the end without the skip option.
 - [x] [HIGH PRIORITY] **9. Custom Session Size**
     - Slider in settings: 10 (min) to 40 (max). Default: 20.
+- [x] [HIGH PRIORITY] **10. End Quiz Button (Retry Phase)**
+    - Allow user to end quiz during retry phase, marking remaining cards as wrong.
+- [x] [HIGH PRIORITY] **11. Japanese Translation & Language Switcher**
+    - Add language toggle (EN/JA) to top-right of Home Screen.
+    - Translate all UI strings to Japanese.
+    - Persist language preference.
