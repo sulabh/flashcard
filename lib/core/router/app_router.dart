@@ -8,6 +8,7 @@ import '../../presentation/screens/subject_screen.dart';
 import '../../presentation/screens/deck_list_screen.dart';
 import '../../presentation/screens/study_screen.dart';
 import '../../presentation/screens/session_summary_screen.dart';
+import '../../presentation/screens/settings_screen.dart';
 import '../../presentation/screens/home_screen.dart';
 import '../../presentation/screens/stats_screen.dart';
 
@@ -41,11 +42,6 @@ class LoginScreen extends ConsumerWidget {
   }
 }
 
-class SettingsScreen extends StatelessWidget {
-  const SettingsScreen({super.key});
-  @override
-  Widget build(BuildContext context) => Scaffold(appBar: AppBar(title: const Text('Settings')));
-}
 
 final routerProvider = Provider<GoRouter>((ref) {
   return GoRouter(

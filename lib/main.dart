@@ -9,7 +9,10 @@ import 'data/providers/flashcard_provider.dart';
 import 'flavor_config.dart';
 
 
-void main() {
+import 'package:shared_preferences/shared_preferences.dart';
+import 'data/providers/settings_provider.dart';
+
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   
   // Default flavor if not initialized (fallback)
@@ -22,12 +25,18 @@ void main() {
     );
   }
 
+  final prefs = await SharedPreferences.getInstance();
+
   runApp(
-    const ProviderScope(
-      child: MyApp(),
+    ProviderScope(
+      overrides: [
+        sharedPreferencesProvider.overrideWithValue(prefs),
+      ],
+      child: const MyApp(),
     ),
   );
 }
+
 
 class MyApp extends ConsumerWidget {
   const MyApp({super.key});

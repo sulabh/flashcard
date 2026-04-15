@@ -13,3 +13,11 @@
 - [x] **5. Global Stats Dashboard**
     - Create a comprehensive progress overview.
     - Total cards mastered vs. pending.
+- [x] [HIGH PRIORITY] **6. Timer Functionality**
+    - Add setting for Session Timer (5m, 10m, 30m, No Timer).
+- [x] [HIGH PRIORITY] **7. Shuffle Unanswered Cards**
+    - Add a Shuffle Button to skip a card without failing it, shuffling it back into the unanswered pool.
+- [x] [HIGH PRIORITY] **8. Skip Card Logic**
+    - Add Skip Button to delay answering. Skipped questions reappear at the end without the skip option.
+- [x] [HIGH PRIORITY] **9. Custom Session Size**
+    - Slider in settings: 10 (min) to 40 (max). Default: 20.
