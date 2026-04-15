@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import '../../data/providers/stats_provider.dart';
 import '../../data/providers/settings_provider.dart';
 import '../../l10n/app_localizations.dart';
+import '../widgets/ad_banner_widget.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
@@ -59,6 +60,7 @@ class HomeScreen extends ConsumerWidget {
           ),
         ),
       ),
+      bottomNavigationBar: const AdBannerWidget(),
     );
   }
 

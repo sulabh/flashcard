@@ -22,13 +22,12 @@
     - Add language toggle (EN/JA) to top-right of Home Screen.
     - Translate all UI strings to Japanese across all screens (Home, Settings, Study, Summary, Selection, Subjects, Stats, Deck List).
     - Persist language preference via SharedPreferences.
+- [x] **1. Flavor-Specific Logic (Free vs. Paid)**
+    - Implement Ad-removal logic for `paid` flavor.
+- [x] **2. AdMob Banner Implementation**
+    - Place actual Banner unit placeholders in the `free` flavor UI.
 
 ## Remaining 🔲
 
 - [ ] [HIGH PRIORITY] **3. Furigana (Ruby Text) Support**
     - Implement custom HTML rendering for Kanji readings.
-- [ ] **1. Flavor-Specific Logic (Free vs. Paid)**
-    - Implement Ad-removal logic for `paid` flavor.
-    - Unlock "Premium Only" categories (if any).
-- [ ] **2. AdMob Banner Implementation**
-    - Place actual Banner unit placeholders in the `free` flavor UI.

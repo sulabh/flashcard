@@ -8,6 +8,7 @@ import '../../data/models/flashcard.dart';
 import '../../data/providers/flashcard_provider.dart';
 import '../../data/providers/settings_provider.dart';
 import '../../l10n/app_localizations.dart';
+import '../widgets/ad_banner_widget.dart';
 import '../controllers/study_controller.dart';
 
 
@@ -175,6 +176,7 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
           ],
         ),
       ),
+      bottomNavigationBar: const AdBannerWidget(),
     );
   }
 

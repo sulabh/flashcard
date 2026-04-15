@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'l10n/app_localizations.dart';
@@ -7,7 +8,8 @@ import 'core/providers/core_providers.dart';
 import 'core/router/app_router.dart';
 import 'data/providers/flashcard_provider.dart';
 import 'flavor_config.dart';
-
+import 'dart:async';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 import 'data/providers/settings_provider.dart';
@@ -23,6 +25,10 @@ void main() async {
         appTitle: 'Flashcard App',
       ),
     );
+  }
+
+  if (!kIsWeb && FlavorConfig.instance.showAds) {
+    unawaited(MobileAds.instance.initialize());
   }
 
   final prefs = await SharedPreferences.getInstance();

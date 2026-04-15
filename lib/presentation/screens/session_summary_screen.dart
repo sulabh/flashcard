@@ -6,6 +6,7 @@ import 'package:confetti/confetti.dart';
 import '../controllers/study_controller.dart';
 import '../../data/providers/stats_provider.dart';
 import '../../l10n/app_localizations.dart';
+import '../widgets/ad_banner_widget.dart';
 
 class SessionSummaryScreen extends ConsumerStatefulWidget {
   const SessionSummaryScreen({super.key});
@@ -152,6 +153,7 @@ class _SessionSummaryScreenState extends ConsumerState<SessionSummaryScreen> {
           ),
         ],
       ),
+      bottomNavigationBar: const AdBannerWidget(),
     );
   }
 
