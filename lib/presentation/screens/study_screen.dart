@@ -152,16 +152,18 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
 
   Widget _buildFrontContent(Flashcard card, StudyState state) {
     if (card.isMcq) {
-      return Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Html(
-            data: card.frontHtml,
-            style: {"body": Style(fontSize: FontSize(22.0), textAlign: TextAlign.center, fontWeight: FontWeight.bold)},
-          ),
-          const SizedBox(height: 32),
-          ...state.currentChoices.map((option) => _buildMcqOption(option, state)),
-        ],
+      return SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Html(
+              data: card.frontHtml,
+              style: {"body": Style(fontSize: FontSize(22.0), textAlign: TextAlign.center, fontWeight: FontWeight.bold)},
+            ),
+            const SizedBox(height: 32),
+            ...state.currentChoices.map((option) => _buildMcqOption(option, state)),
+          ],
+        ),
       );
     } else {
       return GestureDetector(
@@ -181,32 +183,34 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
   }
 
   Widget _buildBackContent(Flashcard card, StudyState state) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        if (state.currentCard?.isMcq == true) ...[
-          const Text('ANSWER', style: TextStyle(color: Colors.grey, letterSpacing: 2, fontWeight: FontWeight.bold)),
-          const SizedBox(height: 12),
-        ],
-
-        Html(
-          data: card.backHtml,
-          style: {"body": Style(fontSize: FontSize(28.0), textAlign: TextAlign.center, fontWeight: FontWeight.bold)},
-        ),
-        const SizedBox(height: 32),
-        if (!card.isMcq) ...[
-          const Text('How was it?', style: TextStyle(color: Colors.grey)),
-          const SizedBox(height: 12),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              _buildAnkiButton(label: 'Hard', color: Colors.red, weight: 1),
-              _buildAnkiButton(label: 'Normal', color: Colors.orange, weight: 2),
-              _buildAnkiButton(label: 'Easy', color: Colors.green, weight: 3),
-            ],
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          if (state.currentCard?.isMcq == true) ...[
+            const Text('ANSWER', style: TextStyle(color: Colors.grey, letterSpacing: 2, fontWeight: FontWeight.bold)),
+            const SizedBox(height: 12),
+          ],
+  
+          Html(
+            data: card.backHtml,
+            style: {"body": Style(fontSize: FontSize(28.0), textAlign: TextAlign.center, fontWeight: FontWeight.bold)},
           ),
+          const SizedBox(height: 32),
+          if (!card.isMcq) ...[
+            const Text('How was it?', style: TextStyle(color: Colors.grey)),
+            const SizedBox(height: 12),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                _buildAnkiButton(label: 'Hard', color: Colors.red, weight: 1),
+                _buildAnkiButton(label: 'Normal', color: Colors.orange, weight: 2),
+                _buildAnkiButton(label: 'Easy', color: Colors.green, weight: 3),
+              ],
+            ),
+          ],
         ],
-      ],
+      ),
     );
   }
 

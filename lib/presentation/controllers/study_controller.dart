@@ -1,6 +1,7 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../data/models/flashcard.dart';
 import '../../data/providers/flashcard_provider.dart';
+import '../../data/providers/progress_provider.dart';
 
 class StudyState {
   final List<Flashcard> cards;
@@ -96,6 +97,9 @@ class StudyController extends StateNotifier<StudyState> {
       card.correctCount + (isCorrect ? 1 : 0)
     );
 
+    // Invalidate progress to refresh UI bars
+    ref.invalidate(masteryStatsProvider);
+
     // Update state but DON'T advance yet (user must click Proceed)
     state = state.copyWith(
       isFlipped: true,
@@ -116,6 +120,9 @@ class StudyController extends StateNotifier<StudyState> {
       card.repetitions + 1, 
       card.correctCount + (isCorrect ? 1 : 0)
     );
+
+    // Invalidate progress to refresh UI bars
+    ref.invalidate(masteryStatsProvider);
 
     state = state.copyWith(
       mcqSelectedOption: option,
