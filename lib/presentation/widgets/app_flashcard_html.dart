@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
-import '../core/utils/custom_syntax_parser.dart';
+import '../../core/utils/custom_syntax_parser.dart';
 import 'custom_html_extensions.dart';
 
 class AppFlashcardHtml extends StatelessWidget {

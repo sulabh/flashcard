@@ -517,6 +517,72 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'App Version 1.0.0'**
   String get appVersion;
+
+  /// No description provided for @dataManagement.
+  ///
+  /// In en, this message translates to:
+  /// **'Data Management'**
+  String get dataManagement;
+
+  /// No description provided for @importCsv.
+  ///
+  /// In en, this message translates to:
+  /// **'Import CSV'**
+  String get importCsv;
+
+  /// No description provided for @exportCsv.
+  ///
+  /// In en, this message translates to:
+  /// **'Export CSV'**
+  String get exportCsv;
+
+  /// No description provided for @clearDatabase.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear Database'**
+  String get clearDatabase;
+
+  /// No description provided for @dbClearedSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Database cleared successfully'**
+  String get dbClearedSuccess;
+
+  /// No description provided for @importedSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Imported {count} cards successfully'**
+  String importedSuccess(int count);
+
+  /// No description provided for @exportedSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Exported successfully'**
+  String get exportedSuccess;
+
+  /// No description provided for @clearConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to clear all data?'**
+  String get clearConfirm;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// No description provided for @clear.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear'**
+  String get clear;
+
+  /// No description provided for @downloadSample.
+  ///
+  /// In en, this message translates to:
+  /// **'Download Sample CSV'**
+  String get downloadSample;
 }
 
 class _AppLocalizationsDelegate

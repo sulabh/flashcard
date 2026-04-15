@@ -228,4 +228,39 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get appVersion => 'App Version 1.0.0';
+
+  @override
+  String get dataManagement => 'Data Management';
+
+  @override
+  String get importCsv => 'Import CSV';
+
+  @override
+  String get exportCsv => 'Export CSV';
+
+  @override
+  String get clearDatabase => 'Clear Database';
+
+  @override
+  String get dbClearedSuccess => 'Database cleared successfully';
+
+  @override
+  String importedSuccess(int count) {
+    return 'Imported $count cards successfully';
+  }
+
+  @override
+  String get exportedSuccess => 'Exported successfully';
+
+  @override
+  String get clearConfirm => 'Are you sure you want to clear all data?';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get clear => 'Clear';
+
+  @override
+  String get downloadSample => 'Download Sample CSV';
 }

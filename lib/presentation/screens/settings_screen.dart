@@ -1,6 +1,14 @@
+import 'dart:convert';
+import 'package:flutter/foundation.dart'; // For kIsWeb
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:file_picker/file_picker.dart';
+import '../../core/utils/file_saver.dart';
 import '../../data/providers/settings_provider.dart';
+import '../../core/utils/csv_helper.dart';
+import '../../data/providers/flashcard_provider.dart';
+import '../../data/providers/stats_provider.dart';
+import '../../data/providers/progress_provider.dart';
 import '../../core/providers/core_providers.dart';
 import '../../l10n/app_localizations.dart';
 
@@ -80,6 +88,37 @@ class SettingsScreen extends ConsumerWidget {
             ),
           ),
 
+          const SizedBox(height: 24),
+          _SectionHeader(title: l10n.dataManagement),
+
+          // Export CSV
+          ListTile(
+            leading: const Icon(Icons.file_upload_rounded, color: Colors.blue),
+            title: Text(l10n.exportCsv),
+            onTap: () => _handleExport(context, ref, l10n),
+          ),
+
+          // Download Sample CSV
+          ListTile(
+            leading: const Icon(Icons.help_outline_rounded, color: Colors.orange),
+            title: Text(l10n.downloadSample),
+            onTap: () => _handleDownloadSample(context, ref, l10n),
+          ),
+
+          // Import CSV
+          ListTile(
+            leading: const Icon(Icons.file_download_rounded, color: Colors.green),
+            title: Text(l10n.importCsv),
+            onTap: () => _handleImport(context, ref, l10n),
+          ),
+
+          // Clear Database
+          ListTile(
+            leading: const Icon(Icons.delete_forever_rounded, color: Colors.red),
+            title: Text(l10n.clearDatabase),
+            onTap: () => _handleClear(context, ref, l10n),
+          ),
+
           const SizedBox(height: 48),
           Center(
             child: Text(
@@ -90,6 +129,100 @@ class SettingsScreen extends ConsumerWidget {
         ],
       ),
     );
+  }
+
+  Future<void> _handleExport(BuildContext context, WidgetRef ref, AppLocalizations l10n) async {
+    final db = ref.read(databaseHelperProvider);
+    final cards = await db.getAllFlashcards();
+    
+    final csvString = CsvHelper.exportToCsv(cards);
+    
+    await FileSaver.saveAndShare(
+      fileName: 'flashcards_export.csv',
+      content: csvString,
+    );
+  }
+
+  Future<void> _handleDownloadSample(BuildContext context, WidgetRef ref, AppLocalizations l10n) async {
+    final csvString = CsvHelper.generateSampleCsv();
+    
+    await FileSaver.saveAndShare(
+      fileName: 'ruby_study_sample.csv',
+      content: csvString,
+    );
+  }
+
+  Future<void> _handleImport(BuildContext context, WidgetRef ref, AppLocalizations l10n) async {
+    FilePickerResult? result = await FilePicker.pickFiles(
+      type: FileType.custom,
+      allowedExtensions: ['csv'],
+      withData: true, // Required for Web to get bytes
+    );
+
+    if (result != null) {
+      final bytes = result.files.first.bytes;
+      if (bytes == null) return;
+      
+      final content = const Utf8Decoder().convert(bytes);
+      final cards = CsvHelper.importFromCsv(content);
+
+      if (cards.isNotEmpty) {
+        final db = ref.read(databaseHelperProvider);
+        await db.insertMultipleFlashcards(cards);
+        
+        // Invalidate all related providers to force UI refresh
+        ref.invalidate(totalFlashcardsCountProvider);
+        ref.invalidate(globalStatsProvider);
+        ref.invalidate(masteryStatsProvider);
+        ref.invalidate(filteredFlashcardsProvider);
+        ref.invalidate(selectedSubjectProvider); // Clear selection if any
+
+        if (context.mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text(l10n.importedSuccess(cards.length))),
+          );
+        }
+      }
+    }
+  }
+
+  Future<void> _handleClear(BuildContext context, WidgetRef ref, AppLocalizations l10n) async {
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(l10n.clearDatabase),
+        content: Text(l10n.clearConfirm),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context, false),
+            child: Text(l10n.cancel),
+          ),
+          TextButton(
+            onPressed: () => Navigator.pop(context, true),
+            style: TextButton.styleFrom(foregroundColor: Colors.red),
+            child: Text(l10n.clear),
+          ),
+        ],
+      ),
+    );
+
+    if (confirmed == true) {
+      final db = ref.read(databaseHelperProvider);
+      await db.clearAllData();
+      
+      // Invalidate all related providers to force UI refresh
+      ref.invalidate(totalFlashcardsCountProvider);
+      ref.invalidate(globalStatsProvider);
+      ref.invalidate(masteryStatsProvider);
+      ref.invalidate(filteredFlashcardsProvider);
+      ref.invalidate(selectedSubjectProvider); // Clear selection on wipe
+
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(l10n.dbClearedSuccess)),
+        );
+      }
+    }
   }
 }
 

@@ -31,7 +31,7 @@
 
 - [x] [HIGH PRIORITY] **3. Furigana (Ruby Text) Support**
     - Implement custom HTML rendering for Kanji readings.
-- [ ] **12. CSV Data Management (Settings)**
+- [x] **12. CSV Data Management (Settings)**
     - Add button to download current questions as CSV.
     - Add button to clear database.
     - Add button to validate and import questions via CSV.

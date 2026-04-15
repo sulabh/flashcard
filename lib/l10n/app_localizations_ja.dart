@@ -225,4 +225,39 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get appVersion => 'アプリバージョン 1.0.0';
+
+  @override
+  String get dataManagement => 'データ管理';
+
+  @override
+  String get importCsv => 'CSVインポート';
+
+  @override
+  String get exportCsv => 'CSVエクスポート';
+
+  @override
+  String get clearDatabase => 'データベースをクリア';
+
+  @override
+  String get dbClearedSuccess => 'データベースがクリアされました';
+
+  @override
+  String importedSuccess(int count) {
+    return '$count枚のカードをインポートしました';
+  }
+
+  @override
+  String get exportedSuccess => 'エクスポートに成功しました';
+
+  @override
+  String get clearConfirm => 'すべてのデータを削除してもよろしいですか？';
+
+  @override
+  String get cancel => 'キャンセル';
+
+  @override
+  String get clear => '削除';
+
+  @override
+  String get downloadSample => 'サンプルCSVをダウンロード';
 }

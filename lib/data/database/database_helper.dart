@@ -49,6 +49,22 @@ class DatabaseHelper {
     return result.map((json) => Flashcard.fromMap(json)).toList();
   }
 
+  Future<void> clearAllData() async {
+    final db = await instance.database;
+    await db.delete('flashcards');
+  }
+
+  Future<void> insertMultipleFlashcards(List<Flashcard> cards) async {
+    final db = await instance.database;
+    await db.transaction((txn) async {
+      final batch = txn.batch();
+      for (var card in cards) {
+        batch.insert('flashcards', card.toMap());
+      }
+      await batch.commit(noResult: true);
+    });
+  }
+
   Future<List<Flashcard>> getFilteredFlashcards({
     String? category,
     String? unit,

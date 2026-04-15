@@ -90,5 +90,21 @@
   "chooseSubject": "科目を選択",
   "noSubjectData": "まだ科目データがありません。練習を始めましょう！",
   "randomSetMessage": "ランダムな20問が用意されます。",
-  "appVersion": "アプリバージョン 1.0.0"
+  "appVersion": "アプリバージョン 1.0.0",
+  "dataManagement": "データ管理",
+  "importCsv": "CSVインポート",
+  "exportCsv": "CSVエクスポート",
+  "clearDatabase": "データベースをクリア",
+  "dbClearedSuccess": "データベースがクリアされました",
+  "importedSuccess": "{count}枚のカードをインポートしました",
+  "@importedSuccess": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "exportedSuccess": "エクスポートに成功しました",
+  "clearConfirm": "すべてのデータを削除してもよろしいですか？",
+  "cancel": "キャンセル",
+  "clear": "削除",
+  "downloadSample": "サンプルCSVをダウンロード"
 }

@@ -93,5 +93,21 @@
   "chooseSubject": "Choose Subject",
   "noSubjectData": "No subject data available yet. Start practicing!",
   "randomSetMessage": "A random set of 20 questions will be prepared.",
-  "appVersion": "App Version 1.0.0"
+  "appVersion": "App Version 1.0.0",
+  "dataManagement": "Data Management",
+  "importCsv": "Import CSV",
+  "exportCsv": "Export CSV",
+  "clearDatabase": "Clear Database",
+  "dbClearedSuccess": "Database cleared successfully",
+  "importedSuccess": "Imported {count} cards successfully",
+  "@importedSuccess": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "exportedSuccess": "Exported successfully",
+  "clearConfirm": "Are you sure you want to clear all data?",
+  "cancel": "Cancel",
+  "clear": "Clear",
+  "downloadSample": "Download Sample CSV"
 }
