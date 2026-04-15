@@ -1,0 +1,102 @@
+import 'package:flutter/foundation.dart';
+import 'package:sqflite_common/sqlite_api.dart';
+
+import 'package:path/path.dart';
+import '../models/flashcard.dart';
+import 'db_platform_helper.dart';
+
+class DatabaseHelper {
+  static final DatabaseHelper instance = DatabaseHelper._init();
+  static Database? _database;
+
+  DatabaseHelper._init();
+
+  Future<Database> get database async {
+    if (_database != null) return _database!;
+    _database = await _initDB('flashcards.db');
+    return _database!;
+  }
+
+  Future<Database> _initDB(String filePath) async {
+    final helper = DbPlatformHelper.instance;
+    await helper.initialize();
+
+    final dbPath = await helper.factory.getDatabasesPath();
+    final path = join(dbPath, filePath);
+
+    // Initial load from assets if database doesn't exist
+    final exists = await helper.factory.databaseExists(path);
+    if (!exists) {
+      debugPrint('Database not found in local storage. Copying from assets...');
+      await helper.copyFromAssets(path, join('assets', filePath));
+    }
+
+    return await helper.factory.openDatabase(
+      path,
+      options: OpenDatabaseOptions(version: 1),
+    );
+  }
+
+
+  Future<int> insertFlashcard(Flashcard card) async {
+    final db = await instance.database;
+    return await db.insert('flashcards', card.toMap());
+  }
+
+  Future<List<Flashcard>> getAllFlashcards() async {
+    final db = await instance.database;
+    final result = await db.query('flashcards');
+    return result.map((json) => Flashcard.fromMap(json)).toList();
+  }
+
+  Future<List<Flashcard>> getFilteredFlashcards({
+    String? category,
+    String? unit,
+    int? ageGroup,
+  }) async {
+    final db = await instance.database;
+    String whereClause = '';
+    List<dynamic> whereArgs = [];
+
+    if (category != null) {
+      whereClause += 'category = ?';
+      whereArgs.add(category);
+    }
+    if (unit != null) {
+      if (whereClause.isNotEmpty) whereClause += ' AND ';
+      whereClause += 'unit = ?';
+      whereArgs.add(unit);
+    }
+    if (ageGroup != null) {
+      if (whereClause.isNotEmpty) whereClause += ' AND ';
+      whereClause += 'ageGroup = ?';
+      whereArgs.add(ageGroup);
+    }
+
+    final result = await db.query(
+      'flashcards',
+      where: whereClause.isEmpty ? null : whereClause,
+      whereArgs: whereArgs.isEmpty ? null : whereArgs,
+    );
+
+    return result.map((json) => Flashcard.fromMap(json)).toList();
+  }
+
+  Future<int> updateFlashcardStats(String id, int repetitions, int correctCount) async {
+    final db = await instance.database;
+    return await db.update(
+      'flashcards',
+      {
+        'repetitions': repetitions,
+        'correctCount': correctCount,
+      },
+      where: 'id = ?',
+      whereArgs: [id],
+    );
+  }
+
+  Future close() async {
+    final db = await instance.database;
+    db.close();
+  }
+}

@@ -2,6 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../providers/core_providers.dart';
+import '../../data/providers/flashcard_provider.dart';
+import '../../presentation/screens/selection_screen.dart';
+import '../../presentation/screens/subject_screen.dart';
+import '../../presentation/screens/deck_list_screen.dart';
+import '../../presentation/screens/study_screen.dart';
+import '../../presentation/screens/session_summary_screen.dart';
 
 // Placeholder Screens
 class LoginScreen extends ConsumerWidget {
@@ -32,36 +38,45 @@ class LoginScreen extends ConsumerWidget {
   }
 }
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final countAsync = ref.watch(totalFlashcardsCountProvider);
+
     return Scaffold(
       appBar: AppBar(title: const Text('Home')),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('Welcome!'),
-            ElevatedButton(onPressed: () => context.push('/selection'), child: const Text('Start Session')),
-            ElevatedButton(onPressed: () => context.push('/deck'), child: const Text('Deck List')),
-            ElevatedButton(onPressed: () => context.push('/settings'), child: const Text('Settings')),
+            const Text('Welcome!', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+            const SizedBox(height: 20),
+            countAsync.when(
+              data: (count) => Text(
+                'Database Status: $count Flashcards loaded.',
+                style: const TextStyle(color: Colors.green, fontSize: 18),
+              ),
+              loading: () => const CircularProgressIndicator(),
+              error: (err, stack) => Text('Database Error: $err', style: const TextStyle(color: Colors.red)),
+            ),
+            const SizedBox(height: 40),
+            ElevatedButton(
+              onPressed: () => context.push('/selection'), 
+              style: ElevatedButton.styleFrom(minimumSize: const Size(200, 50)),
+              child: const Text('Start Session'),
+            ),
+            const SizedBox(height: 12),
+            ElevatedButton(
+              onPressed: () => context.push('/settings'), 
+              style: ElevatedButton.styleFrom(minimumSize: const Size(200, 50)),
+              child: const Text('Settings'),
+            ),
           ],
         ),
       ),
     );
   }
-}
-
-class SelectionScreen extends StatelessWidget {
-  const SelectionScreen({super.key});
-  @override
-  Widget build(BuildContext context) => Scaffold(appBar: AppBar(title: const Text('Selection')));
-}
-
-class DeckScreen extends StatelessWidget {
-  const DeckScreen({super.key});
-  @override
-  Widget build(BuildContext context) => Scaffold(appBar: AppBar(title: const Text('Deck List')));
 }
 
 class SettingsScreen extends StatelessWidget {
@@ -71,23 +86,16 @@ class SettingsScreen extends StatelessWidget {
 }
 
 final routerProvider = Provider<GoRouter>((ref) {
-  final authState = ref.watch(authProvider);
-
   return GoRouter(
-    initialLocation: '/login',
-    redirect: (context, state) {
-      final loggedIn = authState.isAuthenticated;
-      final loggingIn = state.matchedLocation == '/login';
-
-      if (!loggedIn && !loggingIn) return '/login';
-      if (loggedIn && loggingIn) return '/';
-      return null;
-    },
+    initialLocation: '/',
     routes: [
       GoRoute(path: '/login', builder: (context, state) => const LoginScreen()),
       GoRoute(path: '/', builder: (context, state) => const HomeScreen()),
       GoRoute(path: '/selection', builder: (context, state) => const SelectionScreen()),
-      GoRoute(path: '/deck', builder: (context, state) => const DeckScreen()),
+      GoRoute(path: '/subjects', builder: (context, state) => const SubjectScreen()),
+      GoRoute(path: '/deck', builder: (context, state) => const DeckListScreen()),
+      GoRoute(path: '/study', builder: (context, state) => const StudyScreen()),
+      GoRoute(path: '/summary', builder: (context, state) => const SessionSummaryScreen()),
       GoRoute(path: '/settings', builder: (context, state) => const SettingsScreen()),
     ],
   );

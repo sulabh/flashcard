@@ -5,7 +5,9 @@ import 'l10n/app_localizations.dart';
 import 'core/theme/app_theme.dart';
 import 'core/providers/core_providers.dart';
 import 'core/router/app_router.dart';
+import 'data/providers/flashcard_provider.dart';
 import 'flavor_config.dart';
+
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
