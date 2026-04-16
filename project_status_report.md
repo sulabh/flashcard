@@ -7,44 +7,46 @@ This report details the technical implementation and feature completion status o
 ## ✅ Completed Features
 
 ### 1. Robust Study & Progression Engine
-* **Spaced Repetition System (SRS):** Implemented an Anki-style feedback mechanism (Hard, Normal, Easy) on classic flashcards.
-* **MCQ Support:** Cards automatically adapt into Multiple Choice options based on their database flags and lock their state correctly upon selection.
-* **Skip & Retry Logic:** 
-    * Users can **Skip** cards to delay answering.
-    * A dedicated **Retry Phase** automatically initiates for skipped cards at the end of the session.
-    * An **"End Quiz"** button allows users to abort the retry phase and correctly scores unattempted cards as incorrect.
-* **Session Shuffling:** Users can shuffle unanswered cards if they feel stuck.
-* **Custom Session Sizes:** Users can define their batch sizes (10 to 40 cards) directly in their persistent settings.
-* **Session Timers:** Configurable timer (5, 10, or 30 mins) that automatically triggers the end-of-session evaluation when time expires.
-* **Dynamic Content Filtering:** Filtering by `Age Group` and `Unit` natively queries the SQLite database.
+* **Self-Evaluation System**: Implemented a binary "Correct/Incorrect" self-evaluation model for classic flashcards, streamlining the MVP experience.
+* **MCQ Support**: 
+    * Cards automatically adapt into Multiple Choice options.
+    * **Rich Rendering**: MCQ options now support Furigana and Fractions using `AppFlashcardHtml`.
+* **Manual Navigation**: Manual "Next Card" button on MCQ cards allows for review before proceeding.
+* **Auto-Advance**: Classic cards automatically proceed to the next card after self-evaluation.
+* **Session Shuffling**: Users can shuffle unanswered cards.
+* **Custom Session Sizes**: Users can define batch sizes (10 to 40 cards) in persistent settings.
+* **Session Timers**: Configurable timer (5, 10, or 30 mins) with auto-evaluation on expiry.
+* **Subject-First Navigation**: The study setup flow now prioritizes Subject Selection followed by Age and Unit filters.
 
-### 2. Comprehensive Statistics & Analytics
-* **Summary Screen "Wow Factor":** Visual Confetti finishes and a beautiful progression read-out showing "Accuracy" and "Global Mastery Gained" after a session.
-* **Global Stats Dashboard:** A full-screen statistical overview showcasing:
-    * Total Cards vs. Cards Mastered vs. New Cards.
-    * Real-time radial rings for Accuracy and Study Progress.
-    * Detailed Subject Mastery bars tracking individual category progressions (e.g., Kanji, Arithmetic, English).
+### 2. Rich Content & Formatting
+* **Furigana (Ruby Text)**: Custom syntax `_{base}_(_ruby_)` is fully supported across all cards and MCQ options.
+* **Fraction Rendering**: Mathematical fractions `|num/den|` are rendered beautifully using custom HTML extensions.
+* **Initial Database**: The app is pre-populated with **240 realistic questions** across 5 subjects (Kanji, Arithmetic, English, Vocabulary, General Knowledge).
+* **CSV-Based Initialization**: The app builds its internal database from an `assets/initial_data.csv` on the first run, making content updates trivial.
 
-### 3. Internationalization (i18n) & UI
-* **Full Bilingual Support:** Complete English (EN) and Japanese (JA) translations via `flutter_localizations`.
-* **Persistent Language Switcher:** Users can toggle languages seamlessly on the Home Screen, and the preference is persisted via SharedPreferences.
-* **Theme Support:** Polished UI logic that dynamically responds to Light, Dark, and System display modes without causing contrast issues.
+### 3. Data Management & Logistics
+* **Dual-Platform File Saving**: Custom `FileSaver` utility supports both Web downloads and Native shares.
+* **Sample CSV Downloads**: Users can download the full 240-card master template directly from the Settings menu.
+* **CSV Import/Export**: Fully functional import logic that parses Furigana and Fraction tags correctly.
+
+### 4. Comprehensive Statistics & Analytics
+* **Summary Screen**: Visual Confetti and detailed session read-outs (Accuracy, Cards Studied).
+* **Global Stats Dashboard**: Real-time tracking of mastery progress per category.
+
+### 5. Internationalization (i18n) & UI
+* **Full Bilingual Support**: English (EN) and Japanese (JA) translations via `flutter_localizations`.
+* **Persistent Preference**: Language and theme selections are persisted via `SharedPreferences`.
 
 ---
 
 ## 🔲 Remaining Features
 
-### 1. Furigana (Ruby Text) Support (High Priority)
-* **What needs to be done:** Right now, HTML displays standard bold/italic text. We need to implement custom HTML rendering logic (via `flutter_html` extensions or custom parsing) to correctly display `<ruby>` and `<rt>` tags for Japanese Kanji readings over the cards.
+### 1. Flavor-Specific Logic (Free vs Paid)
+* **What needs to be done**: Implement UI locks/unlocks based on `FlavorConfig` (e.g., locking specific units or removing ad-free options in the Free flavor).
 
-### 2. Flavor-Specific Logic (Free vs Paid)
-* **What needs to be done:** 
-    * The project has `main_free.dart` and `main_paid.dart` entry points set up, along with a `FlavorConfig` class.
-    * We need to implement logic across the UI (e.g., Settings, Selection Screen) that reads `FlavorConfig.instance.flavor` to lock/unlock specific "Premium Only" categories, decks, or advanced app features.
+### 2. AdMob Integration
+* **What needs to be done**: Initialize MobileAds SDK and place `BannerAd` placeholders in the `free` flavor. Logic is already partially prepared in `AdBannerWidget`.
 
-### 3. AdMob Integration
-* **What needs to be done:** 
-    * The `google_mobile_ads` package is in `pubspec.yaml`, but the implementation is missing.
-    * We need to initialize the MobileAds SDK and place `BannerAd` placeholders (bottom of the screen / summary screens) exclusively when running the `free` flavor.
-
-### 4. Import of Questions and Answers
+### 3. Polish & Production Readiness
+* **Static Analysis**: Addressing remaining deprecated member usage and lint warnings.
+* **Final Localization Sweep**: Ensuring all new guidance notes (e.g., self-evaluation notes) are perfectly translated.
