@@ -5,6 +5,7 @@ import '../../data/providers/flashcard_provider.dart';
 import '../../l10n/app_localizations.dart';
 import 'dart:math' as math;
 import '../../data/providers/progress_provider.dart';
+import '../../flavor_config.dart';
 
 class SubjectScreen extends ConsumerWidget {
   const SubjectScreen({super.key});
@@ -73,71 +74,117 @@ class SubjectScreen extends ConsumerWidget {
                   else if (mastery < 0.7) progressColor = Colors.orangeAccent;
                   else progressColor = Colors.greenAccent;
 
+                  final isLocked = FlavorConfig.instance.flavor == AppFlavor.free && index >= 2;
+
                   return InkWell(
                     onTap: () {
+                      if (isLocked) {
+                        showDialog(
+                          context: context,
+                          builder: (context) => AlertDialog(
+                            title: Row(
+                              children: [
+                                const Icon(Icons.workspace_premium, color: Colors.orange),
+                                const SizedBox(width: 8),
+                                Expanded(child: Text(l10n.premiumFeature)),
+                              ],
+                            ),
+                            content: Text(l10n.premiumRequiredMsg),
+                            actions: [
+                              TextButton(
+                                onPressed: () => Navigator.pop(context),
+                                child: Text(l10n.cancel),
+                              ),
+                            ],
+                          ),
+                        );
+                        return;
+                      }
+                      
                       ref.read(selectedSubjectProvider.notifier).state = name;
                       ref.read(selectedAgeGroupProvider.notifier).state = null;
                       ref.read(selectedUnitProvider.notifier).state = null;
                       context.push('/selection');
                     },
                     borderRadius: BorderRadius.circular(20),
-                    child: Card(
-                      elevation: 4,
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          gradient: LinearGradient(
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                            colors: [
-                              color.withAlpha(200),
-                              color,
-                            ],
-                          ),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(icon, size: 40, color: Colors.white),
-                            const SizedBox(height: 8),
-                            Text(
-                              name,
-                              textAlign: TextAlign.center,
-                              style: const TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                              ),
+                    child: Opacity(
+                      opacity: isLocked ? 0.6 : 1.0,
+                      child: Card(
+                        elevation: isLocked ? 1 : 4,
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            gradient: LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                              colors: isLocked
+                                  ? [Colors.grey.withAlpha(200), Colors.blueGrey]
+                                  : [color.withAlpha(200), color],
                             ),
-                            const SizedBox(height: 12),
-                            Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                              child: Column(
+                          ),
+                          child: Stack(
+                            alignment: Alignment.center,
+                            children: [
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(10),
-                                    child: LinearProgressIndicator(
-                                      value: mastery,
-                                      backgroundColor: Colors.white24,
-                                      valueColor: AlwaysStoppedAnimation<Color>(progressColor),
-                                      minHeight: 6,
+                                  Icon(icon, size: 40, color: Colors.white),
+                                  const SizedBox(height: 8),
+                                  Text(
+                                    name,
+                                    textAlign: TextAlign.center,
+                                    style: const TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
                                     ),
                                   ),
-                                  const SizedBox(height: 4),
-                                  Text(
-                                    '$masteryPercentage% Mastered',
-                                    style: const TextStyle(fontSize: 10, color: Colors.white70),
+                                  const SizedBox(height: 12),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                                    child: Column(
+                                      children: [
+                                        ClipRRect(
+                                          borderRadius: BorderRadius.circular(10),
+                                          child: LinearProgressIndicator(
+                                            value: mastery,
+                                            backgroundColor: Colors.white24,
+                                            valueColor: AlwaysStoppedAnimation<Color>(progressColor),
+                                            minHeight: 6,
+                                          ),
+                                        ),
+                                        const SizedBox(height: 4),
+                                        Text(
+                                          '$masteryPercentage% Mastered',
+                                          style: const TextStyle(fontSize: 10, color: Colors.white70),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ],
                               ),
-                            ),
-                          ],
+                              if (isLocked)
+                                Positioned(
+                                  top: 8,
+                                  right: 8,
+                                  child: Container(
+                                    padding: const EdgeInsets.all(4),
+                                    decoration: const BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: Colors.white24,
+                                    ),
+                                    child: const Icon(Icons.lock, color: Colors.white, size: 20),
+                                  ),
+                                ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
                   );
                 },
+
               ),
             ),
           );

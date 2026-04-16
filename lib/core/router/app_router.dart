@@ -46,6 +46,18 @@ class LoginScreen extends ConsumerWidget {
 final routerProvider = Provider<GoRouter>((ref) {
   return GoRouter(
     initialLocation: '/',
+    redirect: (context, state) {
+      // Protect downstream sub-routes from unauthorized access
+      final protectedRoutes = ['/selection', '/deck', '/study'];
+      if (protectedRoutes.contains(state.matchedLocation)) {
+        final isLocked = ref.read(isCurrentSubjectLockedProvider);
+        if (isLocked) {
+          // Bounce back to subjects screen if trying to bypass lock
+          return '/subjects';
+        }
+      }
+      return null;
+    },
     routes: [
       GoRoute(path: '/login', builder: (context, state) => const LoginScreen()),
       GoRoute(path: '/', builder: (context, state) => const HomeScreen()),

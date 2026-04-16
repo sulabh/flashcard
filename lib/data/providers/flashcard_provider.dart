@@ -1,6 +1,7 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../database/database_helper.dart';
 import '../models/flashcard.dart';
+import '../../flavor_config.dart';
 
 final databaseHelperProvider = Provider<DatabaseHelper>((ref) {
   return DatabaseHelper.instance;
@@ -27,6 +28,22 @@ class FlashcardFilter {
 final selectedAgeGroupProvider = StateProvider<int?>((ref) => null);
 final selectedUnitProvider = StateProvider<String?>((ref) => null);
 final selectedSubjectProvider = StateProvider<String?>((ref) => null);
+
+// Flavor Guard state
+final isCurrentSubjectLockedProvider = Provider<bool>((ref) {
+  // Paid flavor gets everything unlocked
+  if (FlavorConfig.instance.flavor != AppFlavor.free) return false;
+  
+  final subject = ref.watch(selectedSubjectProvider);
+  if (subject == null) return false;
+
+  final categoriesList = ref.watch(categoriesProvider).value;
+  if (categoriesList == null) return false;
+
+  final index = categoriesList.indexOf(subject);
+  // Subjects from index 2 onwards are locked in the free flavor
+  return index >= 2;
+});
 
 // Dynamic categories provider
 final categoriesProvider = FutureProvider<List<String>>((ref) async {
