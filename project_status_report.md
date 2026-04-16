@@ -43,11 +43,23 @@ This report details the technical implementation and feature completion status o
 
 ---
 
-## 🔲 Remaining Features
+## 🔲 Remaining Features & Requirement Gaps
+Based on the original Phase 1 requirements, the following items are still pending or require alignment:
 
-### 1. Flavor-Specific Logic (Content Locking)
-* **What needs to be done**: Implement conditional rendering or route guarding to lock premium units in the `free` flavor. The infrastructure via `FlavorConfig` is already in place.
+### 1. Audio Function (OS Standard TTS)
+* **Status**: ❌ Missing (Mismatch with Requirement)
+* **Gap**: The requirement specifies "incorporating OS standard TTS (text-to-speech)" for Plan A. This has not yet been implemented in the Study Screen.
+* **Action Required**: Integrate `flutter_tts` to read card content aloud.
 
-### 2. Polish & Production Readiness
-* **Static Analysis**: Addressing remaining deprecated member usage (e.g., `surfaceVariant`) in some themes.
-* **Voice Integration**: As noted in the app, voice recognition for automatic answer validation is a future roadmap item.
+### 2. Flavor-Specific Logic (Feature/Content Locking)
+* **Status**: 🔲 In Progress
+* **Gap**: The requirement mentions "limited functionality" for the free version. While the AdMob infrastructure is in place, no specific functional limits (e.g., locking certain units or capping daily cards) have been enforced.
+* **Action Required**: Implement route guards or UI indicators to restrict access to premium content in the `free` flavor.
+
+### 3. Bulk Deletion & Data Management
+* **Status**: 🔲 Pending refinement
+* **Gap**: While "Clear Database" is available, the requirement for "deletion functions" (plural) suggests more granular management (e.g., deleting specific subjects or imported sets).
+
+### 4. Documentation & Delivery Preparation
+* **Status**: 🔲 Pending
+* **Requirement**: "Simple documentation for maintenance and environment setup (a guide to enable smooth maintenance and building at your company)".
