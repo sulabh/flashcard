@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Manual | Flashcard App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;600;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #111827;
+            --surface: #1f2937;
+            --accent: #3b82f6;
+            --text: #f9fafb;
+            --text-muted: #9ca3af;
+            --code-bg: #030712;
+            --border: #374151;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans JP', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .header {
+            background-color: var(--surface);
+            padding: 40px 20px;
+            border-bottom: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2rem;
+            letter-spacing: -0.025em;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            background-color: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 40px;
+            padding: 30px;
+        }
+
+        .section h2 {
+            margin-top: 0;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 10px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+
+        pre {
+            background-color: var(--code-bg);
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            border: 1px solid var(--border);
+            color: #60a5fa;
+        }
+
+        code {
+            font-family: 'Fira Code', monospace;
+            background-color: var(--code-bg);
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: #fb923c;
+        }
+
+        .labels {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .label-ja { background-color: #fef3c7; color: #92400e; }
+        .label-en { background-color: #dbeafe; color: #1e40af; }
+
+        .meta-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .meta-list li {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .meta-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .alert {
+            background-color: rgba(239, 68, 68, 0.1);
+            border: 1px solid #ef4444;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 800px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Handover Technical Manual</h1>
+        <p style="color: var(--text-muted);">Development & Environment Setup | 開発環境・セットアップマニュアル</p>
+    </div>
+
+    <div class="container">
+
+        <!-- 1. PREREQUISITES -->
+        <div class="section">
+            <h2>01. Prerequisites | 開発環境</h2>
+            <div class="grid">
+                <div class="pane">
+                    <div class="labels"><span class="label label-ja">日本語</span></div>
+                    <ul class="meta-list">
+                        <li><strong>Flutter SDK:</strong> 3.10.x 以上 推奨。</li>
+                        <li><strong>Dart SDK:</strong> 3.x 以上。</li>
+                        <li><strong>IDE:</strong> VS Code または Android Studio (Flutterプラグイン必須)。</li>
+                        <li><strong>Flavor設定:</strong> Android/iOSともに `free` と `paid` の2つのFlavorが構築済みです。</li>
+                    </ul>
+                </div>
+                <div class="pane">
+                    <div class="labels"><span class="label label-en">English</span></div>
+                    <ul class="meta-list">
+                        <li><strong>Flutter SDK:</strong> 3.10.x+ recommended.</li>
+                        <li><strong>Dart SDK:</strong> 3.x+.</li>
+                        <li><strong>IDE:</strong> VS Code or Android Studio with Flutter plugin.</li>
+                        <li><strong>Flavors:</strong> Bi-flavor architecture (`free`, `paid`) is fully configured for Android and iOS.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. COMMAND LIST -->
+        <div class="section">
+            <h2>02. Essential Commands | 主要コマンド</h2>
+            <div class="grid">
+                <div class="pane">
+                    <div class="labels"><span class="label label-ja">日本語</span></div>
+                    <h3>デバッグ実行</h3>
+                    <p>Free版（広告あり）の実行:</p>
+                    <pre>flutter run --flavor free -t lib/main_free.dart</pre>
+                    <p>Paid版（広告なし）の実行:</p>
+                    <pre>flutter run --flavor paid -t lib/main_paid.dart</pre>
+                    <h3>ビルド</h3>
+                    <pre>flutter build apk --flavor free -t lib/main_free.dart
+flutter build web --no-wasm-dry-run</pre>
+                </div>
+                <div class="pane">
+                    <div class="labels"><span class="label label-en">English</span></div>
+                    <h3>Debug Run</h3>
+                    <p>Execute Free Version (with Ads):</p>
+                    <pre>flutter run --flavor free -t lib/main_free.dart</pre>
+                    <p>Execute Paid Version (No Ads):</p>
+                    <pre>flutter run --flavor paid -t lib/main_paid.dart</pre>
+                    <h3>Production Build</h3>
+                    <pre>flutter build apk --flavor free -t lib/main_free.dart
+flutter build web --no-wasm-dry-run</pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. ARCHITECTURE -->
+        <div class="section">
+            <h2>03. Architecture | アーキテクチャ</h2>
+            <div class="grid">
+                <div class="pane">
+                    <div class="labels"><span class="label label-ja">日本語</span></div>
+                    <ul class="meta-list">
+                        <li><strong>State Management:</strong> <code>hooks_riverpod</code> を使用。</li>
+                        <li><strong>Database:</strong> <code>sqflite</code> (SQLite) によるローカル永続化。</li>
+                        <li><strong>Localization:</strong> <code>l10n.yaml</code> と <code>.arb</code> ファイルによる多言語管理。</li>
+                        <li><strong>Routing:</strong> <code>go_router</code> による宣言的ルーティング。</li>
+                    </ul>
+                </div>
+                <div class="pane">
+                    <div class="labels"><span class="label label-en">English</span></div>
+                    <ul class="meta-list">
+                        <li><strong>State Management:</strong> Powered by <code>hooks_riverpod</code>.</li>
+                        <li><strong>Database:</strong> Local persistence via <code>sqflite</code> (SQLite).</li>
+                        <li><strong>Localization:</strong> Managed via <code>l10n.yaml</code> and <code>.arb</code> template files.</li>
+                        <li><strong>Routing:</strong> Declarative routing using <code>go_router</code>.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. DATA SCHEMA -->
+        <div class="section">
+            <h2>04. Data Schema | データベース構造</h2>
+            <div class="grid">
+                <div class="pane">
+                    <div class="labels"><span class="label label-ja">日本語</span></div>
+                    <p><code>flashcards</code> テーブルの主なカラム:</p>
+                    <ul>
+                        <li><code>id</code>: ユニークID。</li>
+                        <li><code>frontHtml</code>: カード表面（Furigana/Fraction対応）。</li>
+                        <li><code>backHtml</code>: カード裏面。</li>
+                        <li><code>category</code>: 大分類（科目）。</li>
+                        <li><code>ageGroup</code>: 中分類（年齢）。</li>
+                        <li><code>unit</code>: 小分類（第1期/第2期など）。</li>
+                    </ul>
+                </div>
+                <div class="pane">
+                    <div class="labels"><span class="label label-en">English</span></div>
+                    <p>Key Columns in <code>flashcards</code> table:</p>
+                    <ul>
+                        <li><code>id</code>: Unique identifier.</li>
+                        <li><code>frontHtml</code>: Card front content (tags allowed).</li>
+                        <li><code>backHtml</code>: Card back content.</li>
+                        <li><code>category</code>: Subject level.</li>
+                        <li><code>ageGroup</code>: Middle filter level.</li>
+                        <li><code>unit</code>: Specific units/chapters.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. DEPLOYMENT -->
+        <div class="section">
+            <h2>05. Deployment | ストア配信ガイド</h2>
+            <div class="grid">
+                <div class="pane">
+                    <div class="labels"><span class="label label-ja">日本語</span></div>
+                    <h3>Androidアプリの署名</h3>
+                    <p>1. <code>keytool</code> を使用してリリース用のKeystoreを生成します。</p>
+                    <p>2. <code>android/key.properties</code> ファイルを作成し、パスワード等を記述します。</p>
+                    <p>3. 以下のコマンドでApp Bundleを生成し、Google Playにアップロードします。</p>
+                    <pre>flutter build appbundle --flavor free -t lib/main_free.dart</pre>
+                    <h3>iOSアプリの配信</h3>
+                    <p>1. Xcodeで <code>Runner.xcworkspace</code> を開きます。</p>
+                    <p>2. 各Flavorの <code>Signing & Capabilities</code> を設定します。</p>
+                    <p>3. <code>Product > Archive</code> を実行し、App Store Connectへアップロードします。</p>
+                </div>
+                <div class="pane">
+                    <div class="labels"><span class="label label-en">English</span></div>
+                    <h3>Android Release</h3>
+                    <p>1. Generate a release Keystore using <code>keytool</code>.</p>
+                    <p>2. Create <code>android/key.properties</code> with your key details.</p>
+                    <p>3. Generate the Android App Bundle (AAB):</p>
+                    <pre>flutter build appbundle --flavor free -t lib/main_free.dart</pre>
+                    <h3>iOS Release</h3>
+                    <p>1. Open <code>Runner.xcworkspace</code> in Xcode.</p>
+                    <p>2. Configure <code>Signing & Capabilities</code> for the desired flavor.</p>
+                    <p>3. Perform <code>Product > Archive</code> and upload to App Store Connect.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Flashcard App Development Team. Handover Reference.
+    </div>
+
+</body>
+</html>
