@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcard App ユーザーガイド | User Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-light: #eff6ff;
+            --bg: #f8fafc;
+            --card-bg: rgba(255, 255, 255, 0.8);
+            --text-main: #1e293b;
+            --text-sub: #64748b;
+            --border: #e2e8f0;
+            --accent: #f59e0b;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 1.1rem;
+            margin-top: 10px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            margin-bottom: 40px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        }
+
+        .section-header {
+            background-color: white;
+            padding: 20px 30px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-header h2 {
+            margin: 0;
+            font-size: 1.4rem;
+            color: var(--primary);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px;
+            background-color: var(--border);
+        }
+
+        .pane {
+            background-color: white;
+            padding: 30px;
+        }
+
+        /* Japanese is now primary (first pane) */
+        .pane.ja {
+            background-color: #fafcfe;
+        }
+
+        .pane.en {
+            border-left: 1px solid var(--border);
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            margin-top: 0;
+            color: #0f172a;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        ul, ol {
+            padding-left: 20px;
+            color: #334155;
+        }
+
+        .en ul, .en ol {
+            color: var(--text-sub);
+        }
+
+        li {
+            margin-bottom: 12px;
+        }
+
+        code {
+            background-color: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            color: #e11d48;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .badge-ja { background-color: #fef3c7; color: #92400e; }
+        .badge-en { background-color: #dbeafe; color: #1e40af; }
+
+        .tag-block {
+            background-color: #f8fafc;
+            border-left: 4px solid var(--primary);
+            padding: 15px;
+            border-radius: 0 8px 8px 0;
+            margin: 20px 0;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-sub);
+            font-size: 0.9rem;
+        }
+
+        .highlight-box {
+            background-color: #fffbeb;
+            border: 1px solid #fde68a;
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 15px;
+        }
+
+        @media (max-width: 900px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            .pane.en {
+                border-left: none;
+                border-top: 1px solid var(--border);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Flashcard App</h1>
+        <p>Operation & Testing Manual | 操作・テストマニュアル</p>
+    </div>
+
+    <div class="container">
+        
+        <!-- SECTION 1: INTRODUCTION -->
+        <div class="section">
+            <div class="section-header">
+                <h2>1. Introduction | はじめに</h2>
+            </div>
+            <div class="grid">
+                <div class="pane ja">
+                    <span class="badge badge-ja">日本語</span>
+                    <h3>基本コンセプト</h3>
+                    <p>「Flashcard App」は、言語学習や科目の習得に特化したオフラインファーストの学習アプリです。学生が集中できる「カチッとした」UIが特徴です。</p>
+                    <ul>
+                        <li><strong>クラシックモード:</strong> 記憶の想起と自己採点による学習。</li>
+                        <li><strong>4択モード (MCQ):</strong> 選択肢から正解を選ぶアクティブレコー呼。</li>
+                        <li><strong>柔軟な分類:</strong> 科目、年齢、ユニットごとにカードを絞り込めます。</li>
+                    </ul>
+                </div>
+                <div class="pane en">
+                    <span class="badge badge-en">English</span>
+                    <h3>Core Philosophy</h3>
+                    <p>Flashcard App is an offline-first tool designed for mastery across various subjects. It uses a rigid, focused UI to keep users on task.</p>
+                    <ul>
+                        <li><strong>Classic Mode:</strong> Mental recall with manual self-evaluation.</li>
+                        <li><strong>MCQ Mode:</strong> Multiple-choice active recall.</li>
+                        <li><strong>Flexible Taxonomy:</strong> Filter by Subject, Age, and Unit.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 2: STUDY FLOW -->
+        <div class="section">
+            <div class="section-header">
+                <h2>2. Study Setup & Flow | 学習の流れと分類</h2>
+            </div>
+            <div class="grid">
+                <div class="pane ja">
+                    <span class="badge badge-ja">日本語</span>
+                    <h3>ステップバイステップ</h3>
+                    <ol>
+                        <li><strong>科目選択:</strong> ホーム画面で「漢字」や「算数」などの科目を選びます。</li>
+                        <li><strong>年齢・ユニット選択:</strong> 
+                            <ul>
+                                <li><strong>サブカテゴリ:</strong> 年齢（5歳、6歳など）を選ぶと、その年齢に対応したユニット（第1期、第2期など）が表示されます。</li>
+                                <li>データベースに存在する組み合わせのみが表示されるため、空のセットが選ばれることはありません。</li>
+                            </ul>
+                        </li>
+                        <li><strong>開始:</strong> 「Start Practice」をタップして学習を開始します。</li>
+                    </ol>
+                </div>
+                <div class="pane en">
+                    <span class="badge badge-en">English</span>
+                    <h3>Step-by-Step Flow</h3>
+                    <ol>
+                        <li><strong>Subject Selection:</strong> Choose a subject (e.g., Kanji, Arithmetic) from the home screen.</li>
+                        <li><strong>Subcategories:</strong> 
+                            <ul>
+                                <li>Select an **Age Group** first. The **Unit** selection will dynamically update to show only chapters available for that age.</li>
+                                <li>The UI prevents "empty sessions" by only showing valid combinations from the database.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Execution:</strong> Tap "Start Practice" to begin your session.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 3: SESSION CONTROLS -->
+        <div class="section">
+            <div class="section-header">
+                <h2>3. In-Session Controls | 学習中の操作</h2>
+            </div>
+            <div class="grid">
+                <div class="pane ja">
+                    <span class="badge badge-ja">日本語</span>
+                    <h3>画面上の機能</h3>
+                    <ul>
+                        <li><strong>Shuffle (シャッフル):</strong> 
+                            タップすると、まだ回答していない残りカードの順番をランダムに入れ替えます。
+                        </li>
+                        <li><strong>Skip (スキップ):</strong> 
+                            現在のカードを回答せずに飛ばします。このカードの成績は記録されず、最後に回されます。
+                        </li>
+                        <li><strong>Timer (タイマー):</strong> 
+                            設定で有効にした場合、画面上部に残り時間が表示されます。**時間がゼロになると強制的に終了**し、そこまでの結果が集計されます。
+                        </li>
+                        <li><strong>End Quiz (終了):</strong> 
+                            学習を途中で切り上げたい場合に使用します。中断時点での正解率を確認できます。
+                        </li>
+                    </ul>
+                </div>
+                <div class="pane en">
+                    <span class="badge badge-en">English</span>
+                    <h3>Interactive Functions</h3>
+                    <ul>
+                        <li><strong>Shuffle:</strong> 
+                            Randomizes the order of the remaining unstudied cards in the current set.
+                        </li>
+                        <li><strong>Skip:</strong> 
+                            Moves the current card to the end of the line without recording a result for it.
+                        </li>
+                        <li><strong>Timer:</strong> 
+                            Visible at the top if enabled. **When it reaches zero, the session forces completion**, taking you straight to the summary results.
+                        </li>
+                        <li><strong>End Quiz:</strong> 
+                            Exits the session early. You will still see the performance results for the cards you completed.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 4: EVALUATION LOGIC -->
+        <div class="section">
+            <div class="section-header">
+                <h2>4. Evaluation Logic | 正解・不正解の判定</h2>
+            </div>
+            <div class="grid">
+                <div class="pane ja">
+                    <span class="badge badge-ja">日本語</span>
+                    <h3>習得度の記録</h3>
+                    <ul>
+                        <li><strong>クラシック学習:</strong> 
+                            カードをタップして「答え」を表示した後、**自己申告**で「正解」か「不正解」を選びます。
+                        </li>
+                        <li><strong>4択学習 (MCQ):</strong> 
+                            選択肢をタップすると即座に判定されます。正解なら「次へ」進めます。
+                        </li>
+                    </ul>
+                    <div class="highlight-box">
+                        <strong>統計への反映:</strong> 特定のカードで70%以上の正解率（蓄積データ）を達成すると、統計画面で「Mastered（習得済み）」としてカウントされます。
+                    </div>
+                </div>
+                <div class="pane en">
+                    <span class="badge badge-en">English</span>
+                    <h3>Tracking Progress</h3>
+                    <ul>
+                        <li><strong>Classic Study:</strong> 
+                            After tapping to reveal the answer, choose **"Correct"** or **"Incorrect"** based on your mental recall.
+                        </li>
+                        <li><strong>MCQ Study:</strong> 
+                            Grading is instant upon tapping an option. A manual "Next" button appears after reveal to allow for review.
+                        </li>
+                    </ul>
+                    <div class="highlight-box">
+                        <strong>Mastery Rule:</strong> Once a card achieves a 70% or higher cumulative correctness rate across sessions, it is marked as "Mastered" in your Global Stats.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 5: DATA MANAGEMENT -->
+        <div class="section">
+            <div class="section-header">
+                <h2 style="color: #dc2626;">5. Data Management | データの管理と削除</h2>
+            </div>
+            <div class="grid">
+                <div class="pane ja">
+                    <span class="badge badge-ja" style="background-color: #fee2e2; color: #991b1b;">重要</span>
+                    <h3>CSV管理サイクル</h3>
+                    <p>特定の科目を削除したり内容を大幅に変更したりする場合は、以下のサイクルで行います：</p>
+                    <ol>
+                        <li><strong>Export:</strong> 現在のデータをCSVとしてエクスポート。</li>
+                        <li><strong>Edit:</strong> Excel等で開き、不要な行を削除。</li>
+                        <li><strong>Clear:</strong> アプリで「Clear Database」を実行。</li>
+                        <li><strong>Import:</strong> 編集したCSVを読み込む。</li>
+                    </ol>
+                </div>
+                <div class="pane en">
+                    <span class="badge badge-en" style="background-color: #fee2e2; color: #991b1b;">Crucial</span>
+                    <h3>CSV Editing Cycle</h3>
+                    <p>To safely delete specific subjects or cards, use the atomic workflow:</p>
+                    <ol>
+                        <li><strong>Export:</strong> Export your current data pool to CSV.</li>
+                        <li><strong>Edit:</strong> Delete rows/subjects in Excel.</li>
+                        <li><strong>Clear:</strong> Use "Clear Database" in Settings.</li>
+                        <li><strong>Import:</strong> Import the modified CSV.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 6: TAG SYNTAX -->
+        <div class="section">
+            <div class="section-header">
+                <h2>6. Content Tagging | 特殊タグの使い方</h2>
+            </div>
+            <div class="grid">
+                <div class="pane ja">
+                    <span class="badge badge-ja">日本語</span>
+                    <h3>入力ルール</h3>
+                    <div class="tag-block">
+                        <strong>ふりがな (ルビ):</strong><br>
+                        <code>_{基底文字}_(_るび_)</code><br>
+                        例: <code>_{漢}_(_かん_)_{字}_(_じ_)</code>
+                    </div>
+                    <div class="tag-block">
+                        <strong>分数:</strong><br>
+                        <code>|分子/分母|</code><br>
+                        例: <code>|1/2|</code>
+                    </div>
+                </div>
+                <div class="pane en">
+                    <span class="badge badge-en">English</span>
+                    <h3>Input Rules</h3>
+                    <div class="tag-block">
+                        <strong>Furigana (Ruby):</strong><br>
+                        <code>_{base}_(_ruby_)</code><br>
+                        Example: <code>_{漢}_(_kan_)_{字}_(_ji_)</code>
+                    </div>
+                    <div class="tag-block">
+                        <strong>Fractions:</strong><br>
+                        <code>|num/den|</code><br>
+                        Example: <code>|1/2|</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Flashcard App Development Team. Internal Document.
+    </div>
+
+</body>
+</html>
