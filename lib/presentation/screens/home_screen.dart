@@ -16,47 +16,51 @@ class HomeScreen extends ConsumerWidget {
 
     return Scaffold(
       body: SafeArea(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 20.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // Header with Language Switcher
-              _buildHeader(context, ref, l10n),
-              const SizedBox(height: 32),
-
-              // Global Progress Bar (Top)
-              _buildGlobalProgress(context, statsAsync, l10n),
-              const SizedBox(height: 40),
-
-              // Main Actions
-              _buildMenuCard(
-                context,
-                title: l10n.startPractice,
-                subtitle: l10n.startPracticeSubtitle,
-                icon: Icons.play_arrow_rounded,
-                color: Theme.of(context).colorScheme.primary,
-                onTap: () => context.push('/subjects'),
-              ),
-              const SizedBox(height: 16),
-              _buildMenuCard(
-                context,
-                title: l10n.subjects,
-                subtitle: l10n.subjectsSubtitle,
-                icon: Icons.grid_view_rounded,
-                color: Colors.orange,
-                onTap: () => context.push('/subjects'),
-              ),
-              const SizedBox(height: 16),
-              _buildMenuCard(
-                context,
-                title: l10n.settings,
-                subtitle: l10n.settingsSubtitle,
-                icon: Icons.settings_rounded,
-                color: Colors.blueGrey,
-                onTap: () => context.push('/settings'),
-              ),
-            ],
+        child: Scrollbar(
+          thumbVisibility: true,
+          child: SingleChildScrollView(
+            physics: const ClampingScrollPhysics(),
+            padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 20.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Header with Language Switcher
+                _buildHeader(context, ref, l10n),
+                const SizedBox(height: 32),
+  
+                // Global Progress Bar (Top)
+                _buildGlobalProgress(context, statsAsync, l10n),
+                const SizedBox(height: 40),
+  
+                // Main Actions
+                _buildMenuCard(
+                  context,
+                  title: l10n.startPractice,
+                  subtitle: l10n.startPracticeSubtitle,
+                  icon: Icons.play_arrow_rounded,
+                  color: Theme.of(context).colorScheme.primary,
+                  onTap: () => context.push('/subjects'),
+                ),
+                const SizedBox(height: 16),
+                _buildMenuCard(
+                  context,
+                  title: l10n.subjects,
+                  subtitle: l10n.subjectsSubtitle,
+                  icon: Icons.grid_view_rounded,
+                  color: Colors.orange,
+                  onTap: () => context.push('/subjects'),
+                ),
+                const SizedBox(height: 16),
+                _buildMenuCard(
+                  context,
+                  title: l10n.settings,
+                  subtitle: l10n.settingsSubtitle,
+                  icon: Icons.settings_rounded,
+                  color: Colors.blueGrey,
+                  onTap: () => context.push('/settings'),
+                ),
+              ],
+            ),
           ),
         ),
       ),

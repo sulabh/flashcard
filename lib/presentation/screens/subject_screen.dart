@@ -30,15 +30,18 @@ class SubjectScreen extends ConsumerWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: GridView.builder(
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 16,
-            mainAxisSpacing: 16,
-            childAspectRatio: 0.9, // Adjusted for progress bar
-          ),
-          itemCount: subjects.length,
-          itemBuilder: (context, index) {
+        child: Scrollbar(
+          thumbVisibility: true,
+          child: GridView.builder(
+            physics: const ClampingScrollPhysics(),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              crossAxisSpacing: 16,
+              mainAxisSpacing: 16,
+              childAspectRatio: 0.9, // Adjusted for progress bar
+            ),
+            itemCount: subjects.length,
+            itemBuilder: (context, index) {
             final subject = subjects[index];
             final name = subject['name'] as String;
             final icon = subject['icon'] as IconData;
@@ -116,6 +119,7 @@ class SubjectScreen extends ConsumerWidget {
               ),
             );
           },
+        ),
         ),
       ),
     );

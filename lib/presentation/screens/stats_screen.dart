@@ -24,20 +24,24 @@ class StatsScreen extends ConsumerWidget {
           final mastered = stats['mastered'] as int? ?? 0;
           final accuracy = stats['accuracy'] as double? ?? 0.0;
           
-          return SingleChildScrollView(
-            padding: const EdgeInsets.all(24.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _buildOverviewCard(context, total, studied, mastered, accuracy, l10n),
-                const SizedBox(height: 32),
-                Text(
-                  l10n.subjects,
-                  style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: 16),
-                _buildSubjectBreakdown(masteryAsync, l10n),
-              ],
+          return Scrollbar(
+            thumbVisibility: true,
+            child: SingleChildScrollView(
+              physics: const ClampingScrollPhysics(),
+              padding: const EdgeInsets.all(24.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _buildOverviewCard(context, total, studied, mastered, accuracy, l10n),
+                  const SizedBox(height: 32),
+                  Text(
+                    l10n.subjects,
+                    style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(height: 16),
+                  _buildSubjectBreakdown(masteryAsync, l10n),
+                ],
+              ),
             ),
           );
         },

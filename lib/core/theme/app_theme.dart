@@ -56,6 +56,12 @@ class AppTheme {
           elevation: 0,
         ),
       ),
+      scrollbarTheme: ScrollbarThemeData(
+        thumbVisibility: MaterialStateProperty.all(true),
+        thickness: MaterialStateProperty.all(6),
+        radius: const Radius.circular(10),
+        thumbColor: MaterialStateProperty.all(primaryColor.withOpacity(0.5)),
+      ),
     );
   }
 
@@ -94,6 +100,12 @@ class AppTheme {
         titleLarge: GoogleFonts.outfit(color: Colors.white, fontWeight: FontWeight.w600),
         bodyLarge: GoogleFonts.outfit(color: Colors.white70),
         bodyMedium: GoogleFonts.outfit(color: Colors.white60),
+      ),
+      scrollbarTheme: ScrollbarThemeData(
+        thumbVisibility: MaterialStateProperty.all(true),
+        thickness: MaterialStateProperty.all(6),
+        radius: const Radius.circular(10),
+        thumbColor: MaterialStateProperty.all(primaryColor.withOpacity(0.5)),
       ),
     );
   }

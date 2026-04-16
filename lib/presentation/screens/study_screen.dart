@@ -264,8 +264,11 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
     final textColor = Theme.of(context).textTheme.bodyLarge?.color ?? Colors.black;
 
     if (card.isMcq) {
-      return SingleChildScrollView(
-        child: Column(
+      return Scrollbar(
+        thumbVisibility: true,
+        child: SingleChildScrollView(
+          physics: const ClampingScrollPhysics(),
+          child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             AppFlashcardHtml(
@@ -282,6 +285,7 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
             const SizedBox(height: 32),
             ...state.currentChoices.map((option) => _buildMcqOption(option, state)),
           ],
+        ),
         ),
       );
     } else {
@@ -327,8 +331,11 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
   Widget _buildBackContent(Flashcard card, StudyState state) {
     final textColor = Theme.of(context).textTheme.bodyLarge?.color ?? Colors.black;
 
-    return SingleChildScrollView(
-      child: Column(
+    return Scrollbar(
+      thumbVisibility: true,
+      child: SingleChildScrollView(
+        physics: const ClampingScrollPhysics(),
+        child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           if (card.isMcq) ...[
@@ -382,6 +389,7 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
             ),
           ],
         ],
+      ),
       ),
     );
   }

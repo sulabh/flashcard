@@ -48,10 +48,13 @@ class _SessionSummaryScreenState extends ConsumerState<SessionSummaryScreen> {
         alignment: Alignment.center,
         children: [
           SafeArea(
-            child: SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 40.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+            child: Scrollbar(
+              thumbVisibility: true,
+              child: SingleChildScrollView(
+                physics: const ClampingScrollPhysics(),
+                padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 40.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // Applaud Icon
                   Container(
@@ -132,6 +135,7 @@ class _SessionSummaryScreenState extends ConsumerState<SessionSummaryScreen> {
                   ),
                 ],
               ),
+            ),
             ),
           ),
           

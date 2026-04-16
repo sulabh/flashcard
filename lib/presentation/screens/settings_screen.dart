@@ -26,107 +26,143 @@ class SettingsScreen extends ConsumerWidget {
       appBar: AppBar(
         title: Text(l10n.settings),
       ),
-      body: ListView(
-        children: [
-          _SectionHeader(title: l10n.studySession),
-          
-          // Slider for Session Size
-          ListTile(
-            title: Text(l10n.cardsPerSet),
-            subtitle: Text(l10n.cardsPerSession(sessionSize)),
-            trailing: Text('$sessionSize', style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: Slider(
-              value: sessionSize.toDouble(),
-              min: 10,
-              max: 40,
-              divisions: 6, // 10, 15, 20, 25, 30, 35, 40
-              label: sessionSize.toString(),
-              onChanged: (value) => ref.read(sessionSizeProvider.notifier).setSessionSize(value.toInt()),
+      body: Scrollbar(
+        thumbVisibility: true,
+        child: ListView(
+          physics: const ClampingScrollPhysics(),
+          children: [
+            _SectionHeader(title: l10n.studySession),
+            
+            // Slider for Session Size
+            ListTile(
+              title: Text(l10n.cardsPerSet),
+              subtitle: Text(l10n.cardsPerSession(sessionSize)),
+              trailing: Text('$sessionSize', style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
             ),
-          ),
-          
-          const Divider(),
-
-          // Timer Options
-          ListTile(
-            title: Text(l10n.sessionTimer),
-            subtitle: Text(l10n.autoFinish),
-            trailing: DropdownButton<int>(
-              value: sessionTimer,
-              underline: const SizedBox(),
-              items: [
-                DropdownMenuItem(value: 0, child: Text(l10n.noTimer)),
-                DropdownMenuItem(value: 5, child: Text(l10n.minutesFull(5))),
-                DropdownMenuItem(value: 10, child: Text(l10n.minutesFull(10))),
-                DropdownMenuItem(value: 30, child: Text(l10n.minutesFull(30))),
-              ],
-              onChanged: (value) {
-                if (value != null) {
-                  ref.read(sessionTimerProvider.notifier).setSessionTimer(value);
-                }
-              },
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: Slider(
+                value: sessionSize.toDouble(),
+                min: 10,
+                max: 40,
+                divisions: 6, // 10, 15, 20, 25, 30, 35, 40
+                label: sessionSize.toString(),
+                onChanged: (value) => ref.read(sessionSizeProvider.notifier).setSessionSize(value.toInt()),
+              ),
             ),
-          ),
-
-          const SizedBox(height: 24),
-          _SectionHeader(title: l10n.themeMode),
-
-          ListTile(
-            title: Text(l10n.themeMode),
-            subtitle: Text(themeMode.toString().split('.').last.toUpperCase()),
-            trailing: SegmentedButton<ThemeMode>(
-              segments: [
-                ButtonSegment(value: ThemeMode.light, icon: const Icon(Icons.light_mode), label: Text(l10n.light)),
-                ButtonSegment(value: ThemeMode.dark, icon: const Icon(Icons.dark_mode), label: Text(l10n.dark)),
-                ButtonSegment(value: ThemeMode.system, icon: const Icon(Icons.settings), label: Text(l10n.system)),
-              ],
-              selected: {themeMode},
-              onSelectionChanged: (value) => ref.read(themeModeProvider.notifier).state = value.first,
+            
+            const Divider(),
+  
+            // Timer Options
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(l10n.sessionTimer, style: Theme.of(context).textTheme.titleMedium),
+                  Text(l10n.autoFinish, style: Theme.of(context).textTheme.bodySmall),
+                  const SizedBox(height: 8),
+                  DropdownButton<int>(
+                    value: sessionTimer,
+                    isExpanded: true,
+                    underline: Container(height: 1, color: Theme.of(context).dividerColor),
+                    items: [
+                      DropdownMenuItem(value: 0, child: Text(l10n.noTimer)),
+                      DropdownMenuItem(value: 5, child: Text(l10n.minutesFull(5))),
+                      DropdownMenuItem(value: 10, child: Text(l10n.minutesFull(10))),
+                      DropdownMenuItem(value: 30, child: Text(l10n.minutesFull(30))),
+                    ],
+                    onChanged: (value) {
+                      if (value != null) {
+                        ref.read(sessionTimerProvider.notifier).setSessionTimer(value);
+                      }
+                    },
+                  ),
+                ],
+              ),
             ),
-          ),
-
-          const SizedBox(height: 24),
-          _SectionHeader(title: l10n.dataManagement),
-
-          // Export CSV
-          ListTile(
-            leading: const Icon(Icons.file_upload_rounded, color: Colors.blue),
-            title: Text(l10n.exportCsv),
-            onTap: () => _handleExport(context, ref, l10n),
-          ),
-
-          // Download Sample CSV
-          ListTile(
-            leading: const Icon(Icons.help_outline_rounded, color: Colors.orange),
-            title: Text(l10n.downloadSample),
-            onTap: () => _handleDownloadSample(context, ref, l10n),
-          ),
-
-          // Import CSV
-          ListTile(
-            leading: const Icon(Icons.file_download_rounded, color: Colors.green),
-            title: Text(l10n.importCsv),
-            onTap: () => _handleImport(context, ref, l10n),
-          ),
-
-          // Clear Database
-          ListTile(
-            leading: const Icon(Icons.delete_forever_rounded, color: Colors.red),
-            title: Text(l10n.clearDatabase),
-            onTap: () => _handleClear(context, ref, l10n),
-          ),
-
-          const SizedBox(height: 48),
-          Center(
-            child: Text(
-              l10n.appVersion,
-              style: TextStyle(color: Colors.grey[500], fontSize: 12),
+  
+            const SizedBox(height: 24),
+            _SectionHeader(title: l10n.themeMode),
+  
+            // Fixed Theme Selection: Using vertical layout for better mobile responsiveness
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Icon(
+                        themeMode == ThemeMode.light ? Icons.light_mode : 
+                        themeMode == ThemeMode.dark ? Icons.dark_mode : Icons.settings_brightness,
+                        color: Theme.of(context).colorScheme.primary,
+                        size: 20,
+                      ),
+                      const SizedBox(width: 8),
+                      Text(l10n.themeMode, style: Theme.of(context).textTheme.titleMedium),
+                    ],
+                  ),
+                  const SizedBox(height: 8),
+                  DropdownButton<ThemeMode>(
+                    value: themeMode,
+                    isExpanded: true,
+                    underline: Container(height: 1, color: Theme.of(context).dividerColor),
+                    items: [
+                      DropdownMenuItem(value: ThemeMode.light, child: Text(l10n.light)),
+                      DropdownMenuItem(value: ThemeMode.dark, child: Text(l10n.dark)),
+                      DropdownMenuItem(value: ThemeMode.system, child: Text(l10n.system)),
+                    ],
+                    onChanged: (value) {
+                      if (value != null) {
+                        ref.read(themeModeProvider.notifier).state = value;
+                      }
+                    },
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+  
+            const SizedBox(height: 24),
+            _SectionHeader(title: l10n.dataManagement),
+  
+            // Export CSV
+            ListTile(
+              leading: const Icon(Icons.file_upload_rounded, color: Colors.blue),
+              title: Text(l10n.exportCsv),
+              onTap: () => _handleExport(context, ref, l10n),
+            ),
+  
+            // Download Sample CSV
+            ListTile(
+              leading: const Icon(Icons.help_outline_rounded, color: Colors.orange),
+              title: Text(l10n.downloadSample),
+              onTap: () => _handleDownloadSample(context, ref, l10n),
+            ),
+  
+            // Import CSV
+            ListTile(
+              leading: const Icon(Icons.file_download_rounded, color: Colors.green),
+              title: Text(l10n.importCsv),
+              onTap: () => _handleImport(context, ref, l10n),
+            ),
+  
+            // Clear Database
+            ListTile(
+              leading: const Icon(Icons.delete_forever_rounded, color: Colors.red),
+              title: Text(l10n.clearDatabase),
+              onTap: () => _handleClear(context, ref, l10n),
+            ),
+  
+            const SizedBox(height: 48),
+            Center(
+              child: Text(
+                l10n.appVersion,
+                style: TextStyle(color: Colors.grey[500], fontSize: 12),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

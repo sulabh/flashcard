@@ -76,7 +76,25 @@ class MyApp extends ConsumerWidget {
 
       // Router
       routerConfig: router,
+
+      // Remove all bouncy/stretchy scroll effects globally
+      scrollBehavior: const NoGlowScrollBehavior(),
     );
+  }
+}
+
+/// Custom scroll behavior to disable overscroll glow/stretch and force clamping physics globally
+class NoGlowScrollBehavior extends MaterialScrollBehavior {
+  const NoGlowScrollBehavior();
+
+  @override
+  Widget buildOverscrollIndicator(BuildContext context, Widget child, ScrollableDetails details) {
+    return child;
+  }
+
+  @override
+  ScrollPhysics getScrollPhysics(BuildContext context) {
+    return const ClampingScrollPhysics();
   }
 }
 
