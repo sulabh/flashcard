@@ -210,6 +210,7 @@ class SettingsScreen extends ConsumerWidget {
         ref.invalidate(globalStatsProvider);
         ref.invalidate(masteryStatsProvider);
         ref.invalidate(filteredFlashcardsProvider);
+        ref.invalidate(categoriesProvider); // Force Subject Screen to reload dynamic subjects
         ref.invalidate(selectedSubjectProvider); // Clear selection if any
 
         if (context.mounted) {
@@ -250,6 +251,7 @@ class SettingsScreen extends ConsumerWidget {
       ref.invalidate(globalStatsProvider);
       ref.invalidate(masteryStatsProvider);
       ref.invalidate(filteredFlashcardsProvider);
+      ref.invalidate(categoriesProvider); // Force Subject Screen to reload dynamic subjects
       ref.invalidate(selectedSubjectProvider); // Clear selection on wipe
 
       if (context.mounted) {

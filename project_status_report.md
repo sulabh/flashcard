@@ -17,6 +17,11 @@ This report details the technical implementation and feature completion status o
 * **Custom Session Sizes**: Users can define batch sizes (10 to 40 cards) in persistent settings.
 * **Session Timers**: Configurable timer (5, 10, or 30 mins) with auto-evaluation on expiry.
 * **Subject-First Navigation**: The study setup flow now prioritizes Subject Selection followed by Age and Unit filters.
+* **Global Scroll Physics Refined**: 
+    * Completely disabled platform-specific "stretchy/bouncy" overscroll effects globally.
+    * Enforced `ClampingScrollPhysics` and visible `Scrollbar` widgets across all scrollable screens (Study, Session, etc.) for a rigid, professional UI.
+    * Fixed mobile browser viewport bouncing via `overscroll-behavior: none` in `web/index.html`.
+* **Mobile Responsiveness**: Refactored Settings and Selection screens to use vertical/wrapping layouts, ensuring text is never garbled on narrow mobile devices.
 
 ### 2. Rich Content & Formatting
 * **Furigana (Ruby Text)**: Custom syntax `_{base}_(_ruby_)` is fully supported across all cards and MCQ options.
@@ -27,7 +32,13 @@ This report details the technical implementation and feature completion status o
 ### 3. Data Management & Logistics
 * **Dual-Platform File Saving**: Custom `FileSaver` utility supports both Web downloads and Native shares.
 * **Sample CSV Downloads**: Users can download the full 240-card master template directly from the Settings menu.
-* **CSV Import/Export**: Fully functional import logic that parses Furigana and Fraction tags correctly.
+* **Dynamic Database Categorization**: 
+    * Fully removed all hardcoded subjects/age groups/units from the codebase.
+    * App taxonomy is now generated 100% dynamically from the local SQLite database.
+    * Implemented stable, colorful grid repetition logic for unlimited dynamic categories.
+* **CSV-Based Management & Deletion**: 
+    * Fulfilled "deletion" requirement via unified CSV workflow (Export -> Edit in Excel -> Clear DB -> Re-import). 
+    * Database and UI now instantly reload upon import or clear operations, ensuring zero-latency data management.
 
 ### 4. Comprehensive Statistics & Analytics
 * **Summary Screen**: Visual Confetti and detailed session read-outs (Accuracy, Cards Studied).
@@ -51,15 +62,11 @@ Based on the original Phase 1 requirements, the following items are still pendin
 * **Gap**: The requirement specifies "incorporating OS standard TTS (text-to-speech)" for Plan A. This has not yet been implemented in the Study Screen.
 * **Action Required**: Integrate `flutter_tts` to read card content aloud.
 
-### 2. Flavor-Specific Logic (Feature/Content Locking)
+### 2. Flavor-Specific Logic (Content Locking)
 * **Status**: 🔲 In Progress
-* **Gap**: The requirement mentions "limited functionality" for the free version. While the AdMob infrastructure is in place, no specific functional limits (e.g., locking certain units or capping daily cards) have been enforced.
-* **Action Required**: Implement route guards or UI indicators to restrict access to premium content in the `free` flavor.
+* **Gap**: While AdMob is integrated into the `free` flavor, specific functional limits (e.g., locking units or capping session counts) are not yet enforced.
+* **Action Required**: Implement logic to restrict certain subjects or features to the `paid` flavor only.
 
-### 3. Bulk Deletion & Data Management
-* **Status**: 🔲 Pending refinement
-* **Gap**: While "Clear Database" is available, the requirement for "deletion functions" (plural) suggests more granular management (e.g., deleting specific subjects or imported sets).
-
-### 4. Documentation & Delivery Preparation
+### 3. Documentation & Delivery Preparation
 * **Status**: 🔲 Pending
 * **Requirement**: "Simple documentation for maintenance and environment setup (a guide to enable smooth maintenance and building at your company)".

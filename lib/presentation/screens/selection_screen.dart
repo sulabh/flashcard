@@ -11,8 +11,17 @@ class SelectionScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final selectedAge = ref.watch(selectedAgeGroupProvider);
     final selectedUnit = ref.watch(selectedUnitProvider);
+    final ageGroupsAsync = ref.watch(availableAgeGroupsProvider);
+    final unitsAsync = ref.watch(availableUnitsProvider);
 
     final l10n = AppLocalizations.of(context)!;
+    
+    // Attempt localizing common units
+    String localizeUnit(String unit) {
+      if (unit == 'first_half') return l10n.firstHalf;
+      if (unit == 'second_half') return l10n.secondHalf;
+      return unit;
+    }
 
     return Scaffold(
       appBar: AppBar(
@@ -27,46 +36,58 @@ class SelectionScreen extends ConsumerWidget {
             children: [
               _buildSectionTitle(l10n.ageGroup),
               const SizedBox(height: 12),
-              Row(
-                children: [
-                   _buildOptionCard(
-                    context: context,
-                    label: l10n.ageLabel(5),
-                    isSelected: selectedAge == 5,
-                    onTap: () => ref.read(selectedAgeGroupProvider.notifier).state = 5,
-                  ),
-                  const SizedBox(width: 16),
-                  _buildOptionCard(
-                    context: context,
-                    label: l10n.ageLabel(6),
-                    isSelected: selectedAge == 6,
-                    onTap: () => ref.read(selectedAgeGroupProvider.notifier).state = 6,
-                  ),
-                ],
+              ageGroupsAsync.when(
+                data: (ages) {
+                  if (ages.isEmpty) return const Text('No age groups available');
+                  return Wrap(
+                    spacing: 16,
+                    runSpacing: 16,
+                    children: ages.map((age) {
+                      return _buildOptionCard(
+                        context: context,
+                        label: l10n.ageLabel(age),
+                        isSelected: selectedAge == age,
+                        onTap: () {
+                          ref.read(selectedAgeGroupProvider.notifier).state = age;
+                          ref.read(selectedUnitProvider.notifier).state = null;
+                        },
+                      );
+                    }).toList(),
+                  );
+                },
+                loading: () => const Center(child: CircularProgressIndicator()),
+                error: (e, _) => Text('Error: $e'),
               ),
               const SizedBox(height: 32),
               _buildSectionTitle(l10n.unit),
               const SizedBox(height: 12),
-              Row(
-                children: [
-                  _buildOptionCard(
-                    context: context,
-                    label: l10n.firstHalf,
-                    isSelected: selectedUnit == 'first_half',
-                    onTap: () => ref.read(selectedUnitProvider.notifier).state = 'first_half',
-                  ),
-                  const SizedBox(width: 16),
-                  _buildOptionCard(
-                    context: context,
-                    label: l10n.secondHalf,
-                    isSelected: selectedUnit == 'second_half',
-                    onTap: () => ref.read(selectedUnitProvider.notifier).state = 'second_half',
-                  ),
-                ],
-              ),
+              if (selectedAge == null)
+                const Text('Please select an age group first', style: TextStyle(color: Colors.grey, fontStyle: FontStyle.italic))
+              else
+                unitsAsync.when(
+                  data: (units) {
+                    if (units.isEmpty) return const Text('No units available');
+                    return Wrap(
+                      spacing: 16,
+                      runSpacing: 16,
+                      children: units.map((unit) {
+                        return _buildOptionCard(
+                          context: context,
+                          label: localizeUnit(unit),
+                          isSelected: selectedUnit == unit,
+                          onTap: () => ref.read(selectedUnitProvider.notifier).state = unit,
+                        );
+                      }).toList(),
+                    );
+                  },
+                  loading: () => const Center(child: CircularProgressIndicator()),
+                  error: (e, _) => Text('Error: $e'),
+                ),
               const Spacer(),
               ElevatedButton(
-                onPressed: () => context.push('/deck'),
+                onPressed: (selectedAge != null && selectedUnit != null) 
+                    ? () => context.push('/deck')
+                    : null,
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(vertical: 16),
                   backgroundColor: Theme.of(context).colorScheme.primary,
@@ -98,32 +119,32 @@ class SelectionScreen extends ConsumerWidget {
     required VoidCallback onTap,
   }) {
     final theme = Theme.of(context);
-    return Expanded(
-      child: InkWell(
-        onTap: onTap,
-        borderRadius: BorderRadius.circular(16),
-        child: AnimatedContainer(
-          duration: const Duration(milliseconds: 200),
-          padding: const EdgeInsets.symmetric(vertical: 32),
-          decoration: BoxDecoration(
-            color: isSelected ? theme.colorScheme.primary : theme.cardColor,
-            borderRadius: BorderRadius.circular(16),
-            border: Border.all(
-              color: isSelected ? theme.colorScheme.primary : theme.dividerColor,
-              width: 2,
-            ),
-            boxShadow: isSelected
-                ? [BoxShadow(color: theme.colorScheme.primary.withAlpha(80), blurRadius: 8, offset: const Offset(0, 4))]
-                : [],
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(16),
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 200),
+        width: 140, // Fixed width to replace Expanded in Wrap
+        padding: const EdgeInsets.symmetric(vertical: 24),
+        decoration: BoxDecoration(
+          color: isSelected ? theme.colorScheme.primary : theme.cardColor,
+          borderRadius: BorderRadius.circular(16),
+          border: Border.all(
+            color: isSelected ? theme.colorScheme.primary : theme.dividerColor,
+            width: 2,
           ),
-          child: Center(
-            child: Text(
-              label,
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                color: isSelected ? Colors.white : theme.textTheme.bodyLarge?.color,
-              ),
+          boxShadow: isSelected
+              ? [BoxShadow(color: theme.colorScheme.primary.withAlpha(80), blurRadius: 8, offset: const Offset(0, 4))]
+              : [],
+        ),
+        child: Center(
+          child: Text(
+            label,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: isSelected ? Colors.white : theme.textTheme.bodyLarge?.color,
             ),
           ),
         ),

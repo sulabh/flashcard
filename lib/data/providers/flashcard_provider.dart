@@ -24,9 +24,32 @@ class FlashcardFilter {
 }
 
 // Current selection state
-final selectedAgeGroupProvider = StateProvider<int>((ref) => 5);
-final selectedUnitProvider = StateProvider<String>((ref) => 'first_half');
+final selectedAgeGroupProvider = StateProvider<int?>((ref) => null);
+final selectedUnitProvider = StateProvider<String?>((ref) => null);
 final selectedSubjectProvider = StateProvider<String?>((ref) => null);
+
+// Dynamic categories provider
+final categoriesProvider = FutureProvider<List<String>>((ref) async {
+  final db = ref.watch(databaseHelperProvider);
+  return await db.getDistinctCategories();
+});
+
+// Dynamic age groups provider based on selected subject
+final availableAgeGroupsProvider = FutureProvider<List<int>>((ref) async {
+  final db = ref.watch(databaseHelperProvider);
+  final subject = ref.watch(selectedSubjectProvider);
+  if (subject == null) return [];
+  return await db.getDistinctAgeGroups(subject);
+});
+
+// Dynamic units provider based on selected subject and age group
+final availableUnitsProvider = FutureProvider<List<String>>((ref) async {
+  final db = ref.watch(databaseHelperProvider);
+  final subject = ref.watch(selectedSubjectProvider);
+  final ageGroup = ref.watch(selectedAgeGroupProvider);
+  if (subject == null || ageGroup == null) return [];
+  return await db.getDistinctUnits(subject, ageGroup);
+});
 
 // Flashcards provider based on selection
 final filteredFlashcardsProvider = FutureProvider<List<Flashcard>>((ref) async {
@@ -35,7 +58,7 @@ final filteredFlashcardsProvider = FutureProvider<List<Flashcard>>((ref) async {
   final unit = ref.watch(selectedUnitProvider);
   final subject = ref.watch(selectedSubjectProvider);
   
-  if (subject == null) return [];
+  if (subject == null || ageGroup == null || unit == null) return [];
 
   return await db.getFilteredFlashcards(
     category: subject,

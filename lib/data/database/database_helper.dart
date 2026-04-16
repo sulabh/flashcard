@@ -111,6 +111,30 @@ class DatabaseHelper {
     });
   }
 
+  Future<List<String>> getDistinctCategories() async {
+    final db = await instance.database;
+    final result = await db.rawQuery('SELECT DISTINCT category FROM flashcards ORDER BY category ASC');
+    return result.map((json) => json['category'] as String).toList();
+  }
+
+  Future<List<int>> getDistinctAgeGroups(String category) async {
+    final db = await instance.database;
+    final result = await db.rawQuery(
+      'SELECT DISTINCT ageGroup FROM flashcards WHERE category = ? ORDER BY ageGroup ASC',
+      [category]
+    );
+    return result.map((json) => json['ageGroup'] as int).toList();
+  }
+
+  Future<List<String>> getDistinctUnits(String category, int ageGroup) async {
+    final db = await instance.database;
+    final result = await db.rawQuery(
+      'SELECT DISTINCT unit FROM flashcards WHERE category = ? AND ageGroup = ? ORDER BY unit ASC',
+      [category, ageGroup]
+    );
+    return result.map((json) => json['unit'] as String).toList();
+  }
+
   Future<List<Flashcard>> getFilteredFlashcards({
     String? category,
     String? unit,

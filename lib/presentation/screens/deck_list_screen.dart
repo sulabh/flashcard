@@ -15,9 +15,15 @@ class DeckListScreen extends ConsumerWidget {
     final unit = ref.watch(selectedUnitProvider);
     final l10n = AppLocalizations.of(context)!;
 
+    String localizeUnit(String? u) {
+      if (u == 'first_half') return l10n.firstHalf;
+      if (u == 'second_half') return l10n.secondHalf;
+      return u ?? '';
+    }
+
     return Scaffold(
       appBar: AppBar(
-        title: Text('${subject} (${l10n.ageLabel(age)}, ${unit == 'first_half' ? l10n.unitLabel(1) : l10n.unitLabel(2)})'),
+        title: Text('${subject ?? ''} (${age != null ? l10n.ageLabel(age) : ''}, ${localizeUnit(unit)})'),
       ),
       body: cardsAsync.when(
         data: (cards) {
