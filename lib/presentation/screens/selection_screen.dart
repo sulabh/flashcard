@@ -29,16 +29,16 @@ class SelectionScreen extends ConsumerWidget {
               const SizedBox(height: 12),
               Row(
                 children: [
-                  _buildOptionCard(
+                   _buildOptionCard(
                     context: context,
-                    label: 'Age 5',
+                    label: l10n.ageLabel(5),
                     isSelected: selectedAge == 5,
                     onTap: () => ref.read(selectedAgeGroupProvider.notifier).state = 5,
                   ),
                   const SizedBox(width: 16),
                   _buildOptionCard(
                     context: context,
-                    label: 'Age 6',
+                    label: l10n.ageLabel(6),
                     isSelected: selectedAge == 6,
                     onTap: () => ref.read(selectedAgeGroupProvider.notifier).state = 6,
                   ),
@@ -51,14 +51,14 @@ class SelectionScreen extends ConsumerWidget {
                 children: [
                   _buildOptionCard(
                     context: context,
-                    label: 'First Half',
+                    label: l10n.firstHalf,
                     isSelected: selectedUnit == 'first_half',
                     onTap: () => ref.read(selectedUnitProvider.notifier).state = 'first_half',
                   ),
                   const SizedBox(width: 16),
                   _buildOptionCard(
                     context: context,
-                    label: 'Second Half',
+                    label: l10n.secondHalf,
                     isSelected: selectedUnit == 'second_half',
                     onTap: () => ref.read(selectedUnitProvider.notifier).state = 'second_half',
                   ),

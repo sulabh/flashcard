@@ -42,7 +42,7 @@ class StatsScreen extends ConsumerWidget {
           );
         },
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (e, __) => Center(child: Text('Error loading stats: $e')),
+        error: (e, __) => Center(child: Text(l10n.errorLoadingStats(e.toString()))),
       ),
     );
   }
@@ -67,7 +67,7 @@ class StatsScreen extends ConsumerWidget {
               children: [
                 _buildStatText(l10n.totalCards, '$total'),
                 _buildStatText(l10n.mastered, '$mastered'),
-                _buildStatText('New', '${total - studied}'),
+                _buildStatText(l10n.newCards, '${total - studied}'),
               ],
             ),
           ],
@@ -159,7 +159,7 @@ class StatsScreen extends ConsumerWidget {
         );
       },
       loading: () => const CircularProgressIndicator(),
-      error: (e, __) => Text('Error loading subjects: $e'),
+      error: (e, __) => Text(l10n.errorLoading(e.toString())),
     );
   }
 }

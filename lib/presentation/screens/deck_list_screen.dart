@@ -17,12 +17,12 @@ class DeckListScreen extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('$subject (Age $age, ${unit == 'first_half' ? 'Unit 1' : 'Unit 2'})'),
+        title: Text('${subject} (${l10n.ageLabel(age)}, ${unit == 'first_half' ? l10n.unitLabel(1) : l10n.unitLabel(2)})'),
       ),
       body: cardsAsync.when(
         data: (cards) {
           if (cards.isEmpty) {
-            return const Center(child: Text('No cards found for this selection.'));
+            return Center(child: Text(l10n.noCardsFound));
           }
           return Center(
             child: Column(
@@ -30,7 +30,7 @@ class DeckListScreen extends ConsumerWidget {
               children: [
                 const Icon(Icons.library_books, size: 80, color: Colors.blue),
                 const SizedBox(height: 24),
-                Text('${cards.length} Flashcards Available', style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+                Text(l10n.flashcardsAvailable(cards.length), style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
                 const SizedBox(height: 12),
                 Text(l10n.randomSetMessage, style: const TextStyle(color: Colors.grey, fontSize: 16)),
                 const SizedBox(height: 40),
@@ -50,10 +50,8 @@ class DeckListScreen extends ConsumerWidget {
           );
         },
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (err, stack) => Center(child: Text('Error: $err')),
+        error: (err, stack) => Center(child: Text(l10n.errorLoading(err.toString()))),
       ),
     );
   }
 }
-
-

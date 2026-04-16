@@ -613,6 +613,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Recall the answer mentally, then tap the card to reveal.'**
   String get classicStudyNote;
+
+  /// No description provided for @noCardsFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No cards found for this selection.'**
+  String get noCardsFound;
+
+  /// No description provided for @flashcardsAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} Flashcards Available'**
+  String flashcardsAvailable(int count);
+
+  /// No description provided for @errorLoading.
+  ///
+  /// In en, this message translates to:
+  /// **'Error: {error}'**
+  String errorLoading(String error);
+
+  /// No description provided for @errorLoadingStats.
+  ///
+  /// In en, this message translates to:
+  /// **'Error loading statistics: {error}'**
+  String errorLoadingStats(String error);
+
+  /// No description provided for @newCards.
+  ///
+  /// In en, this message translates to:
+  /// **'New'**
+  String get newCards;
+
+  /// No description provided for @unitLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Unit {number}'**
+  String unitLabel(int number);
+
+  /// No description provided for @ageLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Age {age}'**
+  String ageLabel(int age);
+
+  /// No description provided for @firstHalf.
+  ///
+  /// In en, this message translates to:
+  /// **'First Half'**
+  String get firstHalf;
+
+  /// No description provided for @secondHalf.
+  ///
+  /// In en, this message translates to:
+  /// **'Second Half'**
+  String get secondHalf;
+
+  /// No description provided for @cardProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'Card {current} / {total}'**
+  String cardProgress(int current, int total);
 }
 
 class _AppLocalizationsDelegate

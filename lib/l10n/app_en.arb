@@ -114,5 +114,46 @@
   "incorrect": "Incorrect",
   "nextCard": "Next Card",
   "selfEvalNote": "Self-evaluation: Check your answer and mark it accordingly. (Speech-to-text coming soon!)",
-  "classicStudyNote": "Recall the answer mentally, then tap the card to reveal."
+  "classicStudyNote": "Recall the answer mentally, then tap the card to reveal.",
+  "noCardsFound": "No cards found for this selection.",
+  "flashcardsAvailable": "{count} Flashcards Available",
+  "@flashcardsAvailable": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "errorLoading": "Error: {error}",
+  "@errorLoading": {
+    "placeholders": {
+      "error": {"type": "String"}
+    }
+  },
+  "errorLoadingStats": "Error loading statistics: {error}",
+  "@errorLoadingStats": {
+    "placeholders": {
+      "error": {"type": "String"}
+    }
+  },
+  "newCards": "New",
+  "unitLabel": "Unit {number}",
+  "@unitLabel": {
+    "placeholders": {
+      "number": {"type": "int"}
+    }
+  },
+  "ageLabel": "Age {age}",
+  "@ageLabel": {
+    "placeholders": {
+      "age": {"type": "int"}
+    }
+  },
+  "firstHalf": "First Half",
+  "secondHalf": "Second Half",
+  "cardProgress": "Card {current} / {total}",
+  "@cardProgress": {
+    "placeholders": {
+      "current": {"type": "int"},
+      "total": {"type": "int"}
+    }
+  }
 }

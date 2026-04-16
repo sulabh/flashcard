@@ -276,4 +276,46 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get classicStudyNote => '頭の中で答えを思い浮かべてから、カードをタップして正解を確認してください。';
+
+  @override
+  String get noCardsFound => 'この条件に一致するカードが見つかりませんでした。';
+
+  @override
+  String flashcardsAvailable(int count) {
+    return '$count枚のフラッシュカードが利用可能です';
+  }
+
+  @override
+  String errorLoading(String error) {
+    return 'エラー: $error';
+  }
+
+  @override
+  String errorLoadingStats(String error) {
+    return '統計データの読み込みエラー: $error';
+  }
+
+  @override
+  String get newCards => '新規';
+
+  @override
+  String unitLabel(int number) {
+    return 'ユニット $number';
+  }
+
+  @override
+  String ageLabel(int age) {
+    return '$age歳';
+  }
+
+  @override
+  String get firstHalf => '前半';
+
+  @override
+  String get secondHalf => '後半';
+
+  @override
+  String cardProgress(int current, int total) {
+    return 'カード $current / $total';
+  }
 }

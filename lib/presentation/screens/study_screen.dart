@@ -103,8 +103,8 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
             ),
             Text(
               state.isRetryPhase
-                ? 'Card ${state.currentIndex + 1} / ${state.cards.length} (${l10n.retrying})'
-                : 'Card ${state.currentIndex + 1} / ${state.originalCardsCount}',
+                ? '${l10n.cardProgress(state.currentIndex + 1, state.cards.length)} (${l10n.retrying})'
+                : l10n.cardProgress(state.currentIndex + 1, state.originalCardsCount),
             ),
           ],
         ),

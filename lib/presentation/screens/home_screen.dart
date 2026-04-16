@@ -233,7 +233,7 @@ class HomeScreen extends ConsumerWidget {
         );
       },
       loading: () => const Center(child: CircularProgressIndicator()),
-      error: (e, __) => Text('Error loading stats: $e'),
+      error: (e, __) => Text(l10n.errorLoadingStats(e.toString())),
     );
   }
 

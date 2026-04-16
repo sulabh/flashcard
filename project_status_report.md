@@ -34,19 +34,20 @@ This report details the technical implementation and feature completion status o
 * **Global Stats Dashboard**: Real-time tracking of mastery progress per category.
 
 ### 5. Internationalization (i18n) & UI
-* **Full Bilingual Support**: English (EN) and Japanese (JA) translations via `flutter_localizations`.
+* **Full Bilingual Support**: English (EN) and Japanese (JA) translations via `flutter_localizations`. All hardcoded strings removed.
 * **Persistent Preference**: Language and theme selections are persisted via `SharedPreferences`.
+
+### 6. Monetization & Flavors
+* **AdMob Integration**: `BannerAd` placeholders are fully integrated and functional in the `free` flavor. Logic is centrally managed via `AdBannerWidget`.
+* **Flavor Architecture**: Multi-flavor setup (`free`, `paid`) is complete with distinct entry points and configurations.
 
 ---
 
 ## 🔲 Remaining Features
 
-### 1. Flavor-Specific Logic (Free vs Paid)
-* **What needs to be done**: Implement UI locks/unlocks based on `FlavorConfig` (e.g., locking specific units or removing ad-free options in the Free flavor).
+### 1. Flavor-Specific Logic (Content Locking)
+* **What needs to be done**: Implement conditional rendering or route guarding to lock premium units in the `free` flavor. The infrastructure via `FlavorConfig` is already in place.
 
-### 2. AdMob Integration
-* **What needs to be done**: Initialize MobileAds SDK and place `BannerAd` placeholders in the `free` flavor. Logic is already partially prepared in `AdBannerWidget`.
-
-### 3. Polish & Production Readiness
-* **Static Analysis**: Addressing remaining deprecated member usage and lint warnings.
-* **Final Localization Sweep**: Ensuring all new guidance notes (e.g., self-evaluation notes) are perfectly translated.
+### 2. Polish & Production Readiness
+* **Static Analysis**: Addressing remaining deprecated member usage (e.g., `surfaceVariant`) in some themes.
+* **Voice Integration**: As noted in the app, voice recognition for automatic answer validation is a future roadmap item.

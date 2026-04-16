@@ -111,5 +111,21 @@
   "incorrect": "不正解",
   "nextCard": "次のカードへ",
   "selfEvalNote": "自己評価：回答を確認し、正解・不正解を選択してください。（音声認識機能は次期バージョンで搭載予定です）",
-  "classicStudyNote": "頭の中で答えを思い浮かべてから、カードをタップして正解を確認してください。"
+  "classicStudyNote": "頭の中で答えを思い浮かべてから、カードをタップして正解を確認してください。",
+  "noCardsFound": "この条件に一致するカードが見つかりませんでした。",
+  "flashcardsAvailable": "{count}枚のフラッシュカードが利用可能です",
+  "errorLoading": "エラー: {error}",
+  "errorLoadingStats": "統計データの読み込みエラー: {error}",
+  "newCards": "新規",
+  "unitLabel": "ユニット {number}",
+  "ageLabel": "{age}歳",
+  "firstHalf": "前半",
+  "secondHalf": "後半",
+  "cardProgress": "カード {current} / {total}",
+  "@cardProgress": {
+    "placeholders": {
+      "current": {"type": "int"},
+      "total": {"type": "int"}
+    }
+  }
 }

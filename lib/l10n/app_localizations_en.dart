@@ -280,4 +280,46 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get classicStudyNote =>
       'Recall the answer mentally, then tap the card to reveal.';
+
+  @override
+  String get noCardsFound => 'No cards found for this selection.';
+
+  @override
+  String flashcardsAvailable(int count) {
+    return '$count Flashcards Available';
+  }
+
+  @override
+  String errorLoading(String error) {
+    return 'Error: $error';
+  }
+
+  @override
+  String errorLoadingStats(String error) {
+    return 'Error loading statistics: $error';
+  }
+
+  @override
+  String get newCards => 'New';
+
+  @override
+  String unitLabel(int number) {
+    return 'Unit $number';
+  }
+
+  @override
+  String ageLabel(int age) {
+    return 'Age $age';
+  }
+
+  @override
+  String get firstHalf => 'First Half';
+
+  @override
+  String get secondHalf => 'Second Half';
+
+  @override
+  String cardProgress(int current, int total) {
+    return 'Card $current / $total';
+  }
 }
