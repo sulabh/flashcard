@@ -331,4 +331,11 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get autoPlayAudioSub => 'Automatically read cards aloud';
+
+  @override
+  String get premiumFeature => 'Premium Feature';
+
+  @override
+  String get premiumRequiredMsg =>
+      'Unlock all subjects and features by upgrading to the Premium version!';
 }

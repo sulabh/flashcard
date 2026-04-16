@@ -158,5 +158,7 @@
   },
   "audioSettings": "Audio Settings",
   "autoPlayAudio": "Auto-play Audio",
-  "autoPlayAudioSub": "Automatically read cards aloud"
+  "autoPlayAudioSub": "Automatically read cards aloud",
+  "premiumFeature": "Premium Feature",
+  "premiumRequiredMsg": "Unlock all subjects and features by upgrading to the Premium version!"
 }

@@ -327,4 +327,10 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get autoPlayAudioSub => 'カードを自動的に音声で読み上げます';
+
+  @override
+  String get premiumFeature => 'プレミアム機能';
+
+  @override
+  String get premiumRequiredMsg => 'すべての科目と機能を利用するには、プレミアム版にアップグレードしてください！';
 }

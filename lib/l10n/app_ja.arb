@@ -130,5 +130,8 @@
   },
   "audioSettings": "音声設定",
   "autoPlayAudio": "自動再生",
-  "autoPlayAudioSub": "カードを自動的に音声で読み上げます"
+  "autoPlayAudioSub": "カードを自動的に音声で読み上げます",
+  "premiumFeature": "プレミアム機能",
+  "premiumRequiredMsg": "すべての科目と機能を利用するには、プレミアム版にアップグレードしてください！"
 }
+

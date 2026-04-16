@@ -7,12 +7,16 @@ final ttsServiceProvider = Provider((ref) => TtsService());
 
 class TtsService {
   final FlutterTts _flutterTts = FlutterTts();
+  List<dynamic>? _cachedVoices;
+  bool _hasFetchedVoices = false;
 
   TtsService() {
     _initTts();
   }
 
   Future<void> _initTts() async {
+    await _flutterTts.awaitSpeakCompletion(true);
+    
     // For iOS/Android, we might need some specific init
     if (!kIsWeb) {
       if (Platform.isIOS) {
@@ -24,6 +28,10 @@ class TtsService {
   }
 
   Future<void> speak(String text, String languageCode) async {
+    // Attempt to cleanly stop any previous utterance before starting a new one
+    await stop();
+
+
     // Detect if text contains any Japanese characters (Hiragana, Katakana, Kanji)
     // If it does, we MUST force the TTS to Japanese; otherwise English TTS completely skips them.
     final hasJapaneseChars = RegExp(r'[\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FAF]').hasMatch(text);
@@ -49,9 +57,13 @@ class TtsService {
     
     // Attempt to pick a formal, high-quality voice if available
     try {
-      final voices = await _flutterTts.getVoices;
-      if (voices != null) {
-        for (var voice in voices) {
+      if (!_hasFetchedVoices) {
+        _cachedVoices = await _flutterTts.getVoices;
+        _hasFetchedVoices = true;
+      }
+      
+      if (_cachedVoices != null) {
+        for (var voice in _cachedVoices!) {
           final voiceName = voice['name']?.toString().toLowerCase() ?? '';
           final voiceLocale = voice['locale']?.toString() ?? '';
           

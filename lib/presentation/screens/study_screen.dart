@@ -94,7 +94,7 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
       final flipChanged = previous?.isFlipped != next.isFlipped;
 
       if (cardChanged || flipChanged) {
-        ref.read(ttsServiceProvider).stop();
+        // TtsService now safely awaits stop() intrinsically.
         _speakCurrentSide(next.currentCard, next.isFlipped);
       }
     });

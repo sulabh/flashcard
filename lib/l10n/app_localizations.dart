@@ -691,6 +691,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Automatically read cards aloud'**
   String get autoPlayAudioSub;
+
+  /// No description provided for @premiumFeature.
+  ///
+  /// In en, this message translates to:
+  /// **'Premium Feature'**
+  String get premiumFeature;
+
+  /// No description provided for @premiumRequiredMsg.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock all subjects and features by upgrading to the Premium version!'**
+  String get premiumRequiredMsg;
 }
 
 class _AppLocalizationsDelegate
