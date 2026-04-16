@@ -56,7 +56,7 @@ class SubjectScreen extends ConsumerWidget {
             return InkWell(
               onTap: () {
                 ref.read(selectedSubjectProvider.notifier).state = name;
-                context.push('/deck');
+                context.push('/selection');
               },
               borderRadius: BorderRadius.circular(20),
               child: Card(

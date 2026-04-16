@@ -36,7 +36,7 @@ class HomeScreen extends ConsumerWidget {
                 subtitle: l10n.startPracticeSubtitle,
                 icon: Icons.play_arrow_rounded,
                 color: Theme.of(context).colorScheme.primary,
-                onTap: () => context.push('/selection'),
+                onTap: () => context.push('/subjects'),
               ),
               const SizedBox(height: 16),
               _buildMenuCard(

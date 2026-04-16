@@ -66,7 +66,7 @@ class SelectionScreen extends ConsumerWidget {
               ),
               const Spacer(),
               ElevatedButton(
-                onPressed: () => context.push('/subjects'),
+                onPressed: () => context.push('/deck'),
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(vertical: 16),
                   backgroundColor: Theme.of(context).colorScheme.primary,
@@ -74,7 +74,7 @@ class SelectionScreen extends ConsumerWidget {
                   elevation: 4,
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                 ),
-                child: Text(l10n.nextChooseSubject, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                child: Text(l10n.nextCard, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
               ),
             ],
           ),
