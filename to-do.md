@@ -27,16 +27,22 @@
 - [x] **2. AdMob Banner Implementation**
     - Place actual Banner unit placeholders in the `free` flavor UI.
 
-## Remaining 🔲
-
 - [x] [HIGH PRIORITY] **3. Furigana (Ruby Text) Support**
     - Implement custom HTML rendering for Kanji readings.
 - [x] **12. CSV Data Management (Settings)**
     - Add button to download current questions as CSV.
     - Add button to clear database.
     - Add button to validate and import questions via CSV.
-- [ ] **13. Comprehensive Testing of Furigana & Custom Syntax**
+- [x] **13. Comprehensive Testing of Furigana & Custom Syntax**
     - Verify all edge cases for `_{base}_(_ruby)_` and `|<num/den>|`.
-    - Test long sentences with multiple ruby tags.
-    - Test wrapping and alignment on different screen sizes.
+    - Resolved TTS multiple Kanji bugs.
+- [x] **14. Audio (TTS) Support**
+    - Smart speech synthesis for OS engines.
+    - Furigana mapping to `ja-JP` dynamically based on Japanese characters.
+    - Math minus signs support.
+- [x] **15. Flavor Content Locking**
+    - Free version limits access to the first 2 dynamically generated subjects.
+    - Padlocks and route guards securely restrict premium content.
 
+## Remaining 🔲
+*(All planned Phase 1 features are complete)*

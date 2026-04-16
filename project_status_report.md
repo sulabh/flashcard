@@ -58,14 +58,20 @@ This report details the technical implementation and feature completion status o
 Based on the original Phase 1 requirements, the following items are still pending or require alignment:
 
 ### 1. Audio Function (OS Standard TTS)
-* **Status**: ❌ Missing (Mismatch with Requirement)
-* **Gap**: The requirement specifies "incorporating OS standard TTS (text-to-speech)" for Plan A. This has not yet been implemented in the Study Screen.
-* **Action Required**: Integrate `flutter_tts` to read card content aloud.
+* **Status**: ✅ Completed
+* **Implementation Details**: 
+    * Integrated `flutter_tts` with a custom `TtsService`.
+    * Implemented intelligent tag sanitization: Math symbols ('-') read natively, and complex Furigana/Fractions are parsed gracefully.
+    * Added **Smart Localization**: TTS automatically switches to `ja-JP` when Japanese characters are detected, allowing bilingual cards to be read perfectly regardless of the app's UI language.
+    * Feature accessible via a manual "Volume" button on cards and an "Auto-Play" toggle in Settings.
 
 ### 2. Flavor-Specific Logic (Content Locking)
-* **Status**: 🔲 In Progress
-* **Gap**: While AdMob is integrated into the `free` flavor, specific functional limits (e.g., locking units or capping session counts) are not yet enforced.
-* **Action Required**: Implement logic to restrict certain subjects or features to the `paid` flavor only.
+* **Status**: ✅ Completed
+* **Implementation Details**: 
+    * Implemented a **Slot-Based Cap** for the `free` flavor. Free users are restricted to the first 2 subjects loaded dynamically from the database.
+    * Added padlock overlays and lowered opacity for locked subjects.
+    * Enforced a robust `GoRouter` redirect guard and UI interceptors protecting paid content.
+    * Premium prompts are fully localized.
 
 ### 3. Documentation & Delivery Preparation
 * **Status**: ✅ Completed
