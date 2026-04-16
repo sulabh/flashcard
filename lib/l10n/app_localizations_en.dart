@@ -322,4 +322,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String cardProgress(int current, int total) {
     return 'Card $current / $total';
   }
+
+  @override
+  String get audioSettings => 'Audio Settings';
+
+  @override
+  String get autoPlayAudio => 'Auto-play Audio';
+
+  @override
+  String get autoPlayAudioSub => 'Automatically read cards aloud';
 }

@@ -673,6 +673,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Card {current} / {total}'**
   String cardProgress(int current, int total);
+
+  /// No description provided for @audioSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Audio Settings'**
+  String get audioSettings;
+
+  /// No description provided for @autoPlayAudio.
+  ///
+  /// In en, this message translates to:
+  /// **'Auto-play Audio'**
+  String get autoPlayAudio;
+
+  /// No description provided for @autoPlayAudioSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Automatically read cards aloud'**
+  String get autoPlayAudioSub;
 }
 
 class _AppLocalizationsDelegate

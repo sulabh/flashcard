@@ -124,6 +124,16 @@ class SettingsScreen extends ConsumerWidget {
             ),
   
             const SizedBox(height: 24),
+            _SectionHeader(title: l10n.audioSettings),
+            SwitchListTile(
+              title: Text(l10n.autoPlayAudio),
+              subtitle: Text(l10n.autoPlayAudioSub),
+              secondary: Icon(Icons.volume_up, color: Theme.of(context).colorScheme.primary),
+              value: ref.watch(autoPlayAudioProvider),
+              onChanged: (value) => ref.read(autoPlayAudioProvider.notifier).setAutoPlay(value),
+            ),
+
+            const SizedBox(height: 24),
             _SectionHeader(title: l10n.dataManagement),
   
             // Export CSV

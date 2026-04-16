@@ -155,5 +155,8 @@
       "current": {"type": "int"},
       "total": {"type": "int"}
     }
-  }
+  },
+  "audioSettings": "Audio Settings",
+  "autoPlayAudio": "Auto-play Audio",
+  "autoPlayAudioSub": "Automatically read cards aloud"
 }

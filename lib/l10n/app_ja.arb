@@ -127,5 +127,8 @@
       "current": {"type": "int"},
       "total": {"type": "int"}
     }
-  }
+  },
+  "audioSettings": "音声設定",
+  "autoPlayAudio": "自動再生",
+  "autoPlayAudioSub": "カードを自動的に音声で読み上げます"
 }

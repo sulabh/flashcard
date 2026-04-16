@@ -11,6 +11,9 @@ import '../../l10n/app_localizations.dart';
 import '../widgets/ad_banner_widget.dart';
 import '../widgets/app_flashcard_html.dart';
 import '../controllers/study_controller.dart';
+import '../../core/services/tts_service.dart';
+import '../../data/providers/settings_provider.dart';
+import '../controllers/study_controller.dart' show StudyState;
 
 
 class StudyScreen extends ConsumerStatefulWidget {
@@ -69,10 +72,32 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
     return '${m.toString().padLeft(2, '0')}:${s.toString().padLeft(2, '0')}';
   }
 
+  void _speakCurrentSide(Flashcard? card, bool isFlipped) {
+    if (card == null) return;
+    
+    final localeCode = ref.read(persistedLocaleProvider);
+    final textToSpeak = isFlipped ? card.backHtml : card.frontHtml;
+    
+    ref.read(ttsServiceProvider).speak(textToSpeak, localeCode);
+  }
+
   @override
   Widget build(BuildContext context) {
     final state = ref.watch(studyControllerProvider);
     final card = state.currentCard;
+
+    // Listen for state changes to trigger auto-play
+    ref.listen(studyControllerProvider, (previous, next) {
+      if (!ref.read(autoPlayAudioProvider)) return;
+
+      final cardChanged = previous?.currentCard != next.currentCard;
+      final flipChanged = previous?.isFlipped != next.isFlipped;
+
+      if (cardChanged || flipChanged) {
+        ref.read(ttsServiceProvider).stop();
+        _speakCurrentSide(next.currentCard, next.isFlipped);
+      }
+    });
 
     if (state.isCompleted) {
       Future.delayed(Duration.zero, () {
@@ -241,6 +266,17 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
                   ? _buildBackContent(card, state)
                   : _buildFrontContent(card, state),
             ),
+            
+            // Manual Speak Button
+            Positioned(
+              top: 0,
+              right: 0,
+              child: IconButton(
+                icon: const Icon(Icons.volume_up, color: Colors.blueGrey, size: 28),
+                onPressed: () => _speakCurrentSide(card, isBack),
+              ),
+            ),
+
             if (state.isFlipped)
               Positioned(
                 bottom: 0,
@@ -264,9 +300,7 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
     final textColor = Theme.of(context).textTheme.bodyLarge?.color ?? Colors.black;
 
     if (card.isMcq) {
-      return Scrollbar(
-        thumbVisibility: true,
-        child: SingleChildScrollView(
+      return SingleChildScrollView(
           physics: const ClampingScrollPhysics(),
           child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -285,7 +319,6 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
             const SizedBox(height: 32),
             ...state.currentChoices.map((option) => _buildMcqOption(option, state)),
           ],
-        ),
         ),
       );
     } else {
@@ -331,9 +364,7 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
   Widget _buildBackContent(Flashcard card, StudyState state) {
     final textColor = Theme.of(context).textTheme.bodyLarge?.color ?? Colors.black;
 
-    return Scrollbar(
-      thumbVisibility: true,
-      child: SingleChildScrollView(
+    return SingleChildScrollView(
         physics: const ClampingScrollPhysics(),
         child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -389,7 +420,6 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
             ),
           ],
         ],
-      ),
       ),
     );
   }

@@ -55,3 +55,20 @@ final persistedLocaleProvider = StateNotifierProvider<LocaleNotifier, String>((r
   final prefs = ref.watch(sharedPreferencesProvider);
   return LocaleNotifier(prefs);
 });
+
+// Auto-play Audio Provider
+class AutoPlayAudioNotifier extends StateNotifier<bool> {
+  final SharedPreferences prefs;
+
+  AutoPlayAudioNotifier(this.prefs) : super(prefs.getBool('auto_play_audio') ?? false);
+
+  void setAutoPlay(bool value) {
+    state = value;
+    prefs.setBool('auto_play_audio', value);
+  }
+}
+
+final autoPlayAudioProvider = StateNotifierProvider<AutoPlayAudioNotifier, bool>((ref) {
+  final prefs = ref.watch(sharedPreferencesProvider);
+  return AutoPlayAudioNotifier(prefs);
+});
