@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/services.dart';
 import 'package:csv/csv.dart';
 import '../../data/models/flashcard.dart';
 
@@ -77,6 +78,15 @@ class CsvHelper {
     }
 
     return cards;
+  }
+
+  static Future<String> getSampleCsvFromAssets() async {
+    try {
+      return await rootBundle.loadString('assets/initial_data.csv');
+    } catch (e) {
+      // Fallback to minimal sample if asset fails
+      return generateSampleCsv();
+    }
   }
 
   static String generateSampleCsv() {

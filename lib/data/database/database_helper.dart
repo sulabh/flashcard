@@ -1,8 +1,10 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
 import 'package:sqflite_common/sqlite_api.dart';
 
 import 'package:path/path.dart';
 import '../models/flashcard.dart';
+import '../../core/utils/csv_helper.dart';
 import 'db_platform_helper.dart';
 
 class DatabaseHelper {
@@ -26,15 +28,59 @@ class DatabaseHelper {
 
     // Initial load from assets if database doesn't exist
     final exists = await helper.factory.databaseExists(path);
-    if (!exists) {
-      debugPrint('Database not found in local storage. Copying from assets...');
-      await helper.copyFromAssets(path, join('assets', filePath));
+    bool isNew = !exists;
+
+    final db = await helper.factory.openDatabase(
+      path,
+      options: OpenDatabaseOptions(
+        version: 1,
+        onCreate: (db, version) async {
+          await _createDB(db);
+        },
+      ),
+    );
+
+    if (isNew) {
+      debugPrint('Fresh database created. Populating from assets/initial_data.csv...');
+      await _populateInitialData(db);
     }
 
-    return await helper.factory.openDatabase(
-      path,
-      options: OpenDatabaseOptions(version: 1),
-    );
+    return db;
+  }
+
+  Future<void> _createDB(Database db) async {
+    await db.execute('''
+      CREATE TABLE flashcards (
+        id TEXT PRIMARY KEY,
+        frontHtml TEXT NOT NULL,
+        backHtml TEXT NOT NULL,
+        category TEXT NOT NULL,
+        unit TEXT NOT NULL,
+        ageGroup INTEGER NOT NULL,
+        repetitions INTEGER DEFAULT 0,
+        correctCount INTEGER DEFAULT 0,
+        isMcq INTEGER DEFAULT 0,
+        choices TEXT DEFAULT '[]'
+      )
+    ''');
+  }
+
+  Future<void> _populateInitialData(Database db) async {
+    try {
+      final csvString = await rootBundle.loadString('assets/initial_data.csv');
+      final cards = CsvHelper.importFromCsv(csvString);
+      
+      await db.transaction((txn) async {
+        final batch = txn.batch();
+        for (var card in cards) {
+          batch.insert('flashcards', card.toMap());
+        }
+        await batch.commit(noResult: true);
+      });
+      debugPrint('Successfully populated ${cards.length} cards.');
+    } catch (e) {
+      debugPrint('Error populating initial data: $e');
+    }
   }
 
 

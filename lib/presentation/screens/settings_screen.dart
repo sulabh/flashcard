@@ -144,8 +144,7 @@ class SettingsScreen extends ConsumerWidget {
   }
 
   Future<void> _handleDownloadSample(BuildContext context, WidgetRef ref, AppLocalizations l10n) async {
-    final csvString = CsvHelper.generateSampleCsv();
-    
+    final csvString = await CsvHelper.getSampleCsvFromAssets();
     await FileSaver.saveAndShare(
       fileName: 'ruby_study_sample.csv',
       content: csvString,

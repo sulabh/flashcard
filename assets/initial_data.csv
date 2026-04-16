@@ -1,0 +1,241 @@
+id,frontHtml,backHtml,category,unit,ageGroup,isMcq,choices
+,Read the Kanji: _{一}_(_いち_),One,Kanji,first_half,5,1,"[""One"",""Mountain"",""Fish"",""River""]"
+,Read the Kanji: _{二}_(_に_),Two,Kanji,first_half,5,0,[]
+,Read the Kanji: _{三}_(_さん_),Three,Kanji,first_half,5,1,"[""Three"",""Bird"",""Mountain"",""Two""]"
+,Read the Kanji: _{山}_(_やま_),Mountain,Kanji,first_half,5,0,[]
+,Read the Kanji: _{川}_(_かわ_),River,Kanji,first_half,5,1,"[""Sky"",""Mountain"",""Two"",""River""]"
+,Read the Kanji: _{木}_(_き_),Tree,Kanji,first_half,5,0,[]
+,Read the Kanji: _{空}_(_そら_),Sky,Kanji,first_half,5,1,"[""River"",""Mountain"",""Bird"",""Sky""]"
+,Read the Kanji: _{海}_(_うみ_),Sea,Kanji,first_half,5,0,[]
+,Read the Kanji: _{一}_(_いち_),One,Kanji,first_half,5,1,"[""Sea"",""Sky"",""Book"",""One""]"
+,Read the Kanji: _{二}_(_に_),Two,Kanji,first_half,5,0,[]
+,Read the Kanji: _{三}_(_さん_),Three,Kanji,first_half,5,1,"[""Four"",""Book"",""One"",""Three""]"
+,Read the Kanji: _{山}_(_やま_),Mountain,Kanji,first_half,5,0,[]
+,Read the Kanji: _{一}_(_いち_),One,Kanji,second_half,5,1,"[""Three"",""Mountain"",""Four"",""One""]"
+,Read the Kanji: _{二}_(_に_),Two,Kanji,second_half,5,0,[]
+,Read the Kanji: _{三}_(_さん_),Three,Kanji,second_half,5,1,"[""Sky"",""River"",""Three"",""Fish""]"
+,Read the Kanji: _{山}_(_やま_),Mountain,Kanji,second_half,5,0,[]
+,Read the Kanji: _{川}_(_かわ_),River,Kanji,second_half,5,1,"[""Three"",""Two"",""Fish"",""River""]"
+,Read the Kanji: _{木}_(_き_),Tree,Kanji,second_half,5,0,[]
+,Read the Kanji: _{空}_(_そら_),Sky,Kanji,second_half,5,1,"[""Sky"",""Sea"",""Bird"",""River""]"
+,Read the Kanji: _{海}_(_うみ_),Sea,Kanji,second_half,5,0,[]
+,Read the Kanji: _{一}_(_いち_),One,Kanji,second_half,5,1,"[""One"",""Mountain"",""Three"",""School""]"
+,Read the Kanji: _{二}_(_に_),Two,Kanji,second_half,5,0,[]
+,Read the Kanji: _{三}_(_さん_),Three,Kanji,second_half,5,1,"[""Fish"",""Four"",""Mountain"",""Three""]"
+,Read the Kanji: _{山}_(_やま_),Mountain,Kanji,second_half,5,0,[]
+,Read the Kanji: _{学校}_(_がっこう_),School,Kanji,first_half,6,1,"[""Four"",""One"",""Bird"",""School""]"
+,Read the Kanji: _{先生}_(_せんせい_),Teacher,Kanji,first_half,6,0,[]
+,Read the Kanji: _{学生}_(_がくせい_),Student,Kanji,first_half,6,1,"[""Fish"",""Bird"",""Student"",""One""]"
+,Read the Kanji: _{友達}_(_ともだち_),Friend,Kanji,first_half,6,0,[]
+,Read the Kanji: _{時間}_(_じかん_),Time,Kanji,first_half,6,1,"[""Three"",""Time"",""Sky"",""School""]"
+,Read the Kanji: _{天気}_(_てんき_),Weather,Kanji,first_half,6,0,[]
+,Read the Kanji: _{学校}_(_がっこう_),School,Kanji,first_half,6,1,"[""Three"",""Two"",""River"",""School""]"
+,Read the Kanji: _{先生}_(_せんせい_),Teacher,Kanji,first_half,6,0,[]
+,Read the Kanji: _{学生}_(_がくせい_),Student,Kanji,first_half,6,1,"[""One"",""Book"",""Mountain"",""Student""]"
+,Read the Kanji: _{友達}_(_ともだち_),Friend,Kanji,first_half,6,0,[]
+,Read the Kanji: _{時間}_(_じかん_),Time,Kanji,first_half,6,1,"[""Time"",""Sea"",""One"",""Bird""]"
+,Read the Kanji: _{天気}_(_てんき_),Weather,Kanji,first_half,6,0,[]
+,Read the Kanji: _{学校}_(_がっこう_),School,Kanji,second_half,6,1,"[""One"",""Sky"",""School"",""Four""]"
+,Read the Kanji: _{先生}_(_せんせい_),Teacher,Kanji,second_half,6,0,[]
+,Read the Kanji: _{学生}_(_がくせい_),Student,Kanji,second_half,6,1,"[""Book"",""Four"",""Sea"",""Student""]"
+,Read the Kanji: _{友達}_(_ともだち_),Friend,Kanji,second_half,6,0,[]
+,Read the Kanji: _{時間}_(_じかん_),Time,Kanji,second_half,6,1,"[""Sky"",""School"",""Time"",""Book""]"
+,Read the Kanji: _{天気}_(_てんき_),Weather,Kanji,second_half,6,0,[]
+,Read the Kanji: _{学校}_(_がっこう_),School,Kanji,second_half,6,1,"[""Two"",""Sea"",""School"",""Mountain""]"
+,Read the Kanji: _{先生}_(_せんせい_),Teacher,Kanji,second_half,6,0,[]
+,Read the Kanji: _{学生}_(_がくせい_),Student,Kanji,second_half,6,1,"[""School"",""Bird"",""Student"",""Two""]"
+,Read the Kanji: _{友達}_(_ともだち_),Friend,Kanji,second_half,6,0,[]
+,Read the Kanji: _{時間}_(_じかん_),Time,Kanji,second_half,6,1,"[""Fish"",""Mountain"",""Time"",""Sky""]"
+,Read the Kanji: _{天気}_(_てんき_),Weather,Kanji,second_half,6,0,[]
+,What is |3/4| + |1/4|?,|4/4|,Arithmetic,first_half,5,1,"[""|4/4|"",""|1/1|"",""|1/4|"",""|5/4|""]"
+,2 + 3 = ?,5,Arithmetic,first_half,5,0,[]
+,5 + 4 = ?,9,Arithmetic,first_half,5,1,"[""9"",""26"",""28"",""0""]"
+,What is |3/4| + |1/4|?,|4/4|,Arithmetic,first_half,5,0,[]
+,6 + 4 = ?,10,Arithmetic,first_half,5,1,"[""23"",""10"",""18"",""15""]"
+,5 + 5 = ?,10,Arithmetic,first_half,5,0,[]
+,What is |1/4| + |1/4|?,|2/4|,Arithmetic,first_half,5,1,"[""|1/2|"",""|3/4|"",""|2/4|"",""|1/1|""]"
+,2 - 1 = ?,1,Arithmetic,first_half,5,0,[]
+,7 - 4 = ?,3,Arithmetic,first_half,5,1,"[""23"",""26"",""3"",""29""]"
+,What is |3/4| + |1/4|?,|4/4|,Arithmetic,first_half,5,0,[]
+,2 + 5 = ?,7,Arithmetic,first_half,5,1,"[""16"",""7"",""5"",""6""]"
+,7 + 5 = ?,12,Arithmetic,first_half,5,0,[]
+,What is |2/4| + |1/4|?,|3/4|,Arithmetic,second_half,5,1,"[""|1/2|"",""|3/4|"",""|1/4|"",""|5/4|""]"
+,3 - 1 = ?,2,Arithmetic,second_half,5,0,[]
+,5 - 4 = ?,1,Arithmetic,second_half,5,1,"[""24"",""1"",""10"",""4""]"
+,What is |3/4| + |1/4|?,|4/4|,Arithmetic,second_half,5,0,[]
+,1 + 4 = ?,5,Arithmetic,second_half,5,1,"[""8"",""27"",""5"",""21""]"
+,4 - 4 = ?,0,Arithmetic,second_half,5,0,[]
+,What is |1/4| + |1/4|?,|2/4|,Arithmetic,second_half,5,1,"[""|1/4|"",""|3/4|"",""|1/2|"",""|2/4|""]"
+,5 - 5 = ?,0,Arithmetic,second_half,5,0,[]
+,2 - 1 = ?,1,Arithmetic,second_half,5,1,"[""1"",""2"",""20"",""15""]"
+,What is |2/4| + |1/4|?,|3/4|,Arithmetic,second_half,5,0,[]
+,7 - 2 = ?,5,Arithmetic,second_half,5,1,"[""5"",""9"",""15"",""12""]"
+,4 - 4 = ?,0,Arithmetic,second_half,5,0,[]
+,What is |2/4| + |1/4|?,|3/4|,Arithmetic,first_half,6,1,"[""|3/4|"",""|1/2|"",""|5/4|"",""|1/4|""]"
+,7 - 3 = ?,4,Arithmetic,first_half,6,0,[]
+,10 + 6 = ?,16,Arithmetic,first_half,6,1,"[""16"",""6"",""9"",""20""]"
+,What is |1/4| + |1/4|?,|2/4|,Arithmetic,first_half,6,0,[]
+,7 - 1 = ?,6,Arithmetic,first_half,6,1,"[""7"",""17"",""6"",""23""]"
+,7 - 1 = ?,6,Arithmetic,first_half,6,0,[]
+,What is |2/4| + |1/4|?,|3/4|,Arithmetic,first_half,6,1,"[""|3/4|"",""|1/4|"",""|1/2|"",""|1/1|""]"
+,4 - 1 = ?,3,Arithmetic,first_half,6,0,[]
+,4 + 1 = ?,5,Arithmetic,first_half,6,1,"[""2"",""13"",""5"",""28""]"
+,What is |2/4| + |1/4|?,|3/4|,Arithmetic,first_half,6,0,[]
+,6 + 3 = ?,9,Arithmetic,first_half,6,1,"[""6"",""21"",""27"",""9""]"
+,4 + 2 = ?,6,Arithmetic,first_half,6,0,[]
+,What is |3/4| + |1/4|?,|4/4|,Arithmetic,second_half,6,1,"[""|3/4|"",""|4/4|"",""|1/4|"",""|1/1|""]"
+,6 - 2 = ?,4,Arithmetic,second_half,6,0,[]
+,5 - 3 = ?,2,Arithmetic,second_half,6,1,"[""2"",""23"",""27"",""15""]"
+,What is |2/4| + |1/4|?,|3/4|,Arithmetic,second_half,6,0,[]
+,9 + 4 = ?,13,Arithmetic,second_half,6,1,"[""16"",""4"",""0"",""13""]"
+,12 + 2 = ?,14,Arithmetic,second_half,6,0,[]
+,What is |1/4| + |1/4|?,|2/4|,Arithmetic,second_half,6,1,"[""|1/2|"",""|1/1|"",""|2/4|"",""|5/4|""]"
+,11 - 5 = ?,6,Arithmetic,second_half,6,0,[]
+,11 + 4 = ?,15,Arithmetic,second_half,6,1,"[""15"",""12"",""24"",""14""]"
+,What is |1/4| + |1/4|?,|2/4|,Arithmetic,second_half,6,0,[]
+,4 + 6 = ?,10,Arithmetic,second_half,6,1,"[""13"",""17"",""6"",""10""]"
+,2 + 5 = ?,7,Arithmetic,second_half,6,0,[]
+,"What animal is a ""Cat""?",猫 (Neko),English,first_half,5,1,"[""猫 (Neko)"",""Yellow"",""Cold"",""Green""]"
+,"What animal is a ""Dog""?",犬 (Inu),English,first_half,5,0,[]
+,"Color of the ""Sun""?",Yellow,English,first_half,5,1,"[""Red"",""Up"",""Yellow"",""Cold""]"
+,"Color of the ""Sky""?",Blue,English,first_half,5,0,[]
+,"Opposite of ""Big""?",Small,English,first_half,5,1,"[""Hot"",""犬 (Inu)"",""Green"",""Small""]"
+,"Opposite of ""Hot""?",Cold,English,first_half,5,0,[]
+,"What animal is a ""Cat""?",猫 (Neko),English,first_half,5,1,"[""猫 (Neko)"",""Hot"",""Blue"",""犬 (Inu)""]"
+,"What animal is a ""Dog""?",犬 (Inu),English,first_half,5,0,[]
+,"Color of the ""Sun""?",Yellow,English,first_half,5,1,"[""Blue"",""Yellow"",""Red"",""犬 (Inu)""]"
+,"Color of the ""Sky""?",Blue,English,first_half,5,0,[]
+,"Opposite of ""Big""?",Small,English,first_half,5,1,"[""Small"",""猫 (Neko)"",""Red"",""Down""]"
+,"Opposite of ""Hot""?",Cold,English,first_half,5,0,[]
+,"What animal is a ""Cat""?",猫 (Neko),English,second_half,5,1,"[""Cold"",""Red"",""犬 (Inu)"",""猫 (Neko)""]"
+,"What animal is a ""Dog""?",犬 (Inu),English,second_half,5,0,[]
+,"Color of the ""Sun""?",Yellow,English,second_half,5,1,"[""Yellow"",""Up"",""Green"",""Cold""]"
+,"Color of the ""Sky""?",Blue,English,second_half,5,0,[]
+,"Opposite of ""Big""?",Small,English,second_half,5,1,"[""Blue"",""Big"",""Small"",""Down""]"
+,"Opposite of ""Hot""?",Cold,English,second_half,5,0,[]
+,"What animal is a ""Cat""?",猫 (Neko),English,second_half,5,1,"[""猫 (Neko)"",""犬 (Inu)"",""Red"",""Up""]"
+,"What animal is a ""Dog""?",犬 (Inu),English,second_half,5,0,[]
+,"Color of the ""Sun""?",Yellow,English,second_half,5,1,"[""Hot"",""Yellow"",""猫 (Neko)"",""Up""]"
+,"Color of the ""Sky""?",Blue,English,second_half,5,0,[]
+,"Opposite of ""Big""?",Small,English,second_half,5,1,"[""Yellow"",""Small"",""Blue"",""犬 (Inu)""]"
+,"Opposite of ""Hot""?",Cold,English,second_half,5,0,[]
+,"What animal is a ""Cat""?",猫 (Neko),English,first_half,6,1,"[""Yellow"",""Cold"",""Red"",""猫 (Neko)""]"
+,"What animal is a ""Dog""?",犬 (Inu),English,first_half,6,0,[]
+,"Color of the ""Sun""?",Yellow,English,first_half,6,1,"[""Yellow"",""Red"",""Blue"",""Down""]"
+,"Color of the ""Sky""?",Blue,English,first_half,6,0,[]
+,"Opposite of ""Big""?",Small,English,first_half,6,1,"[""Small"",""猫 (Neko)"",""Cold"",""鳥 (Tori)""]"
+,"Opposite of ""Hot""?",Cold,English,first_half,6,0,[]
+,"What animal is a ""Cat""?",猫 (Neko),English,first_half,6,1,"[""猫 (Neko)"",""Small"",""Down"",""Blue""]"
+,"What animal is a ""Dog""?",犬 (Inu),English,first_half,6,0,[]
+,"Color of the ""Sun""?",Yellow,English,first_half,6,1,"[""Small"",""Cold"",""Yellow"",""Blue""]"
+,"Color of the ""Sky""?",Blue,English,first_half,6,0,[]
+,"Opposite of ""Big""?",Small,English,first_half,6,1,"[""Small"",""Blue"",""鳥 (Tori)"",""Up""]"
+,"Opposite of ""Hot""?",Cold,English,first_half,6,0,[]
+,"What animal is a ""Cat""?",猫 (Neko),English,second_half,6,1,"[""Green"",""Yellow"",""Down"",""猫 (Neko)""]"
+,"What animal is a ""Dog""?",犬 (Inu),English,second_half,6,0,[]
+,"Color of the ""Sun""?",Yellow,English,second_half,6,1,"[""Yellow"",""Up"",""Down"",""猫 (Neko)""]"
+,"Color of the ""Sky""?",Blue,English,second_half,6,0,[]
+,"Opposite of ""Big""?",Small,English,second_half,6,1,"[""Down"",""Blue"",""Small"",""Red""]"
+,"Opposite of ""Hot""?",Cold,English,second_half,6,0,[]
+,"What animal is a ""Cat""?",猫 (Neko),English,second_half,6,1,"[""猫 (Neko)"",""鳥 (Tori)"",""犬 (Inu)"",""Yellow""]"
+,"What animal is a ""Dog""?",犬 (Inu),English,second_half,6,0,[]
+,"Color of the ""Sun""?",Yellow,English,second_half,6,1,"[""Up"",""Cold"",""Yellow"",""Small""]"
+,"Color of the ""Sky""?",Blue,English,second_half,6,0,[]
+,"Opposite of ""Big""?",Small,English,second_half,6,1,"[""猫 (Neko)"",""Cold"",""Small"",""Green""]"
+,"Opposite of ""Hot""?",Cold,English,second_half,6,0,[]
+,Meaning of: _{林檎}_(_りんご_),Apple,Vocabulary,first_half,5,1,"[""Library"",""Grape"",""Apple"",""Bicycle""]"
+,Meaning of: _{蜜柑}_(_みかん_),Orange,Vocabulary,first_half,5,0,[]
+,Meaning of: _{西瓜}_(_すいか_),Watermelon,Vocabulary,first_half,5,1,"[""Breakfast"",""Car"",""Train"",""Watermelon""]"
+,Meaning of: _{林檎}_(_りんご_),Apple,Vocabulary,first_half,5,0,[]
+,Meaning of: _{蜜柑}_(_みかん_),Orange,Vocabulary,first_half,5,1,"[""Orange"",""Grape"",""Car"",""Bicycle""]"
+,Meaning of: _{西瓜}_(_すいか_),Watermelon,Vocabulary,first_half,5,0,[]
+,Meaning of: _{林檎}_(_りんご_),Apple,Vocabulary,first_half,5,1,"[""Library"",""Car"",""Bicycle"",""Apple""]"
+,Meaning of: _{蜜柑}_(_みかん_),Orange,Vocabulary,first_half,5,0,[]
+,Meaning of: _{西瓜}_(_すいか_),Watermelon,Vocabulary,first_half,5,1,"[""School"",""Watermelon"",""Breakfast"",""Train""]"
+,Meaning of: _{林檎}_(_りんご_),Apple,Vocabulary,first_half,5,0,[]
+,Meaning of: _{蜜柑}_(_みかん_),Orange,Vocabulary,first_half,5,1,"[""Train"",""Orange"",""Car"",""School""]"
+,Meaning of: _{西瓜}_(_すいか_),Watermelon,Vocabulary,first_half,5,0,[]
+,Meaning of: _{林檎}_(_りんご_),Apple,Vocabulary,second_half,5,1,"[""Apple"",""Dinner"",""Grape"",""Library""]"
+,Meaning of: _{蜜柑}_(_みかん_),Orange,Vocabulary,second_half,5,0,[]
+,Meaning of: _{西瓜}_(_すいか_),Watermelon,Vocabulary,second_half,5,1,"[""Car"",""Watermelon"",""Train"",""Breakfast""]"
+,Meaning of: _{林檎}_(_りんご_),Apple,Vocabulary,second_half,5,0,[]
+,Meaning of: _{蜜柑}_(_みかん_),Orange,Vocabulary,second_half,5,1,"[""Train"",""School"",""Orange"",""Grape""]"
+,Meaning of: _{西瓜}_(_すいか_),Watermelon,Vocabulary,second_half,5,0,[]
+,Meaning of: _{林檎}_(_りんご_),Apple,Vocabulary,second_half,5,1,"[""Breakfast"",""Library"",""Bicycle"",""Apple""]"
+,Meaning of: _{蜜柑}_(_みかん_),Orange,Vocabulary,second_half,5,0,[]
+,Meaning of: _{西瓜}_(_すいか_),Watermelon,Vocabulary,second_half,5,1,"[""Train"",""Apple"",""Library"",""Watermelon""]"
+,Meaning of: _{林檎}_(_りんご_),Apple,Vocabulary,second_half,5,0,[]
+,Meaning of: _{蜜柑}_(_みかん_),Orange,Vocabulary,second_half,5,1,"[""Train"",""Car"",""Dinner"",""Orange""]"
+,Meaning of: _{西瓜}_(_すいか_),Watermelon,Vocabulary,second_half,5,0,[]
+,Meaning of: _{朝御飯}_(_あさごはん_),Breakfast,Vocabulary,first_half,6,1,"[""Grape"",""Train"",""Bicycle"",""Breakfast""]"
+,Meaning of: _{図書館}_(_としょかん_),Library,Vocabulary,first_half,6,0,[]
+,Meaning of: _{自転車}_(_じてんしゃ_),Bicycle,Vocabulary,first_half,6,1,"[""Bicycle"",""Apple"",""Breakfast"",""Grape""]"
+,Meaning of: _{朝御飯}_(_あさごはん_),Breakfast,Vocabulary,first_half,6,0,[]
+,Meaning of: _{図書館}_(_としょかん_),Library,Vocabulary,first_half,6,1,"[""Train"",""Dinner"",""Library"",""Grape""]"
+,Meaning of: _{自転車}_(_じてんしゃ_),Bicycle,Vocabulary,first_half,6,0,[]
+,Meaning of: _{朝御飯}_(_あさごはん_),Breakfast,Vocabulary,first_half,6,1,"[""Library"",""Breakfast"",""Bicycle"",""Dinner""]"
+,Meaning of: _{図書館}_(_としょかん_),Library,Vocabulary,first_half,6,0,[]
+,Meaning of: _{自転車}_(_じてんしゃ_),Bicycle,Vocabulary,first_half,6,1,"[""Grape"",""Car"",""Bicycle"",""Breakfast""]"
+,Meaning of: _{朝御飯}_(_あさごはん_),Breakfast,Vocabulary,first_half,6,0,[]
+,Meaning of: _{図書館}_(_としょかん_),Library,Vocabulary,first_half,6,1,"[""Library"",""Car"",""Train"",""Grape""]"
+,Meaning of: _{自転車}_(_じてんしゃ_),Bicycle,Vocabulary,first_half,6,0,[]
+,Meaning of: _{朝御飯}_(_あさごはん_),Breakfast,Vocabulary,second_half,6,1,"[""Train"",""Breakfast"",""Grape"",""Apple""]"
+,Meaning of: _{図書館}_(_としょかん_),Library,Vocabulary,second_half,6,0,[]
+,Meaning of: _{自転車}_(_じてんしゃ_),Bicycle,Vocabulary,second_half,6,1,"[""Apple"",""Bicycle"",""Library"",""Dinner""]"
+,Meaning of: _{朝御飯}_(_あさごはん_),Breakfast,Vocabulary,second_half,6,0,[]
+,Meaning of: _{図書館}_(_としょかん_),Library,Vocabulary,second_half,6,1,"[""Library"",""Apple"",""Orange"",""Bicycle""]"
+,Meaning of: _{自転車}_(_じてんしゃ_),Bicycle,Vocabulary,second_half,6,0,[]
+,Meaning of: _{朝御飯}_(_あさごはん_),Breakfast,Vocabulary,second_half,6,1,"[""Breakfast"",""School"",""Train"",""Apple""]"
+,Meaning of: _{図書館}_(_としょかん_),Library,Vocabulary,second_half,6,0,[]
+,Meaning of: _{自転車}_(_じてんしゃ_),Bicycle,Vocabulary,second_half,6,1,"[""Car"",""Bicycle"",""Breakfast"",""Dinner""]"
+,Meaning of: _{朝御飯}_(_あさごはん_),Breakfast,Vocabulary,second_half,6,0,[]
+,Meaning of: _{図書館}_(_としょかん_),Library,Vocabulary,second_half,6,1,"[""Orange"",""Library"",""Apple"",""Bicycle""]"
+,Meaning of: _{自転車}_(_じてんしゃ_),Bicycle,Vocabulary,second_half,6,0,[]
+,"Which planet is known as the ""Red Planet""?",Mars,General Knowledge,first_half,5,1,"[""Chicken"",""Mars"",""Honey"",""Ice""]"
+,What do bees make?,Honey,General Knowledge,first_half,5,0,[]
+,How many legs does a spider have?,8,General Knowledge,first_half,5,1,"[""Ice"",""8"",""10"",""Cow""]"
+,What is the frozen form of water?,Ice,General Knowledge,first_half,5,0,[]
+,Which animal gives us milk?,Cow,General Knowledge,first_half,5,1,"[""Ice"",""Chicken"",""Cow"",""Earth""]"
+,"Which planet is known as the ""Red Planet""?",Mars,General Knowledge,first_half,5,0,[]
+,What do bees make?,Honey,General Knowledge,first_half,5,1,"[""Earth"",""Ice"",""Honey"",""8""]"
+,How many legs does a spider have?,8,General Knowledge,first_half,5,0,[]
+,What is the frozen form of water?,Ice,General Knowledge,first_half,5,1,"[""Ice"",""Cow"",""Steam"",""8""]"
+,Which animal gives us milk?,Cow,General Knowledge,first_half,5,0,[]
+,"Which planet is known as the ""Red Planet""?",Mars,General Knowledge,first_half,5,1,"[""Chicken"",""Cow"",""Venus"",""Mars""]"
+,What do bees make?,Honey,General Knowledge,first_half,5,0,[]
+,"Which planet is known as the ""Red Planet""?",Mars,General Knowledge,second_half,5,1,"[""6"",""Steam"",""8"",""Mars""]"
+,What do bees make?,Honey,General Knowledge,second_half,5,0,[]
+,How many legs does a spider have?,8,General Knowledge,second_half,5,1,"[""Mars"",""8"",""Venus"",""Milk""]"
+,What is the frozen form of water?,Ice,General Knowledge,second_half,5,0,[]
+,Which animal gives us milk?,Cow,General Knowledge,second_half,5,1,"[""Cow"",""Venus"",""Sheep"",""6""]"
+,"Which planet is known as the ""Red Planet""?",Mars,General Knowledge,second_half,5,0,[]
+,What do bees make?,Honey,General Knowledge,second_half,5,1,"[""Sheep"",""Milk"",""Honey"",""Mars""]"
+,How many legs does a spider have?,8,General Knowledge,second_half,5,0,[]
+,What is the frozen form of water?,Ice,General Knowledge,second_half,5,1,"[""Honey"",""Steam"",""6"",""Ice""]"
+,Which animal gives us milk?,Cow,General Knowledge,second_half,5,0,[]
+,"Which planet is known as the ""Red Planet""?",Mars,General Knowledge,second_half,5,1,"[""Earth"",""Mars"",""8"",""Cow""]"
+,What do bees make?,Honey,General Knowledge,second_half,5,0,[]
+,"Which planet is known as the ""Red Planet""?",Mars,General Knowledge,first_half,6,1,"[""6"",""8"",""Mars"",""Ice""]"
+,What do bees make?,Honey,General Knowledge,first_half,6,0,[]
+,How many legs does a spider have?,8,General Knowledge,first_half,6,1,"[""Steam"",""10"",""8"",""Cow""]"
+,What is the frozen form of water?,Ice,General Knowledge,first_half,6,0,[]
+,Which animal gives us milk?,Cow,General Knowledge,first_half,6,1,"[""Chicken"",""Ice"",""Cow"",""Venus""]"
+,"Which planet is known as the ""Red Planet""?",Mars,General Knowledge,first_half,6,0,[]
+,What do bees make?,Honey,General Knowledge,first_half,6,1,"[""Earth"",""Honey"",""Sheep"",""Ice""]"
+,How many legs does a spider have?,8,General Knowledge,first_half,6,0,[]
+,What is the frozen form of water?,Ice,General Knowledge,first_half,6,1,"[""10"",""Ice"",""Venus"",""Mars""]"
+,Which animal gives us milk?,Cow,General Knowledge,first_half,6,0,[]
+,"Which planet is known as the ""Red Planet""?",Mars,General Knowledge,first_half,6,1,"[""Mars"",""Cow"",""Earth"",""Honey""]"
+,What do bees make?,Honey,General Knowledge,first_half,6,0,[]
+,"Which planet is known as the ""Red Planet""?",Mars,General Knowledge,second_half,6,1,"[""Mars"",""Chicken"",""8"",""Sheep""]"
+,What do bees make?,Honey,General Knowledge,second_half,6,0,[]
+,How many legs does a spider have?,8,General Knowledge,second_half,6,1,"[""8"",""Mars"",""Honey"",""Venus""]"
+,What is the frozen form of water?,Ice,General Knowledge,second_half,6,0,[]
+,Which animal gives us milk?,Cow,General Knowledge,second_half,6,1,"[""Milk"",""Cow"",""Chicken"",""Honey""]"
+,"Which planet is known as the ""Red Planet""?",Mars,General Knowledge,second_half,6,0,[]
+,What do bees make?,Honey,General Knowledge,second_half,6,1,"[""Milk"",""Honey"",""10"",""Steam""]"
+,How many legs does a spider have?,8,General Knowledge,second_half,6,0,[]
+,What is the frozen form of water?,Ice,General Knowledge,second_half,6,1,"[""Ice"",""8"",""Cow"",""Chicken""]"
+,Which animal gives us milk?,Cow,General Knowledge,second_half,6,0,[]
+,"Which planet is known as the ""Red Planet""?",Mars,General Knowledge,second_half,6,1,"[""Chicken"",""Mars"",""Ice"",""8""]"
+,What do bees make?,Honey,General Knowledge,second_half,6,0,[]
