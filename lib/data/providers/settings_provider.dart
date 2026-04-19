@@ -1,4 +1,5 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:flutter/widgets.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 final sharedPreferencesProvider = Provider<SharedPreferences>((ref) {
@@ -40,10 +41,25 @@ final sessionTimerProvider = StateNotifierProvider<SessionTimerNotifier, int>((r
 });
 
 // Locale Provider - persisted language selection
+// On first launch, uses the device's system language if supported, otherwise English.
 class LocaleNotifier extends StateNotifier<String> {
   final SharedPreferences prefs;
 
-  LocaleNotifier(this.prefs) : super(prefs.getString('locale') ?? 'en');
+  static const _supportedLocales = ['en', 'ja'];
+
+  LocaleNotifier(this.prefs) : super(_resolveInitialLocale(prefs));
+
+  static String _resolveInitialLocale(SharedPreferences prefs) {
+    final saved = prefs.getString('locale');
+    if (saved != null) return saved;
+
+    // No saved preference — detect system language
+    final systemLocale = WidgetsBinding.instance.platformDispatcher.locale.languageCode;
+    if (_supportedLocales.contains(systemLocale)) {
+      return systemLocale;
+    }
+    return 'en'; // Fallback
+  }
 
   void setLocale(String languageCode) {
     state = languageCode;
