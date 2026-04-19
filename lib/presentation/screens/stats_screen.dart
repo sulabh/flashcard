@@ -27,6 +27,7 @@ class StatsScreen extends ConsumerWidget {
           return Scrollbar(
             thumbVisibility: true,
             child: SingleChildScrollView(
+              primary: true,
               physics: const ClampingScrollPhysics(),
               padding: const EdgeInsets.all(24.0),
               child: Column(

@@ -11,8 +11,7 @@ import '../../presentation/screens/session_summary_screen.dart';
 import '../../presentation/screens/settings_screen.dart';
 import '../../presentation/screens/home_screen.dart';
 import '../../presentation/screens/stats_screen.dart';
-
-// Placeholder Screens
+import '../../presentation/screens/card_maintenance_screen.dart';
 
 class LoginScreen extends ConsumerWidget {
   const LoginScreen({super.key});
@@ -42,7 +41,6 @@ class LoginScreen extends ConsumerWidget {
   }
 }
 
-
 final routerProvider = Provider<GoRouter>((ref) {
   return GoRouter(
     initialLocation: '/',
@@ -61,13 +59,26 @@ final routerProvider = Provider<GoRouter>((ref) {
     routes: [
       GoRoute(path: '/login', builder: (context, state) => const LoginScreen()),
       GoRoute(path: '/', builder: (context, state) => const HomeScreen()),
-      GoRoute(path: '/selection', builder: (context, state) => const SelectionScreen()),
-      GoRoute(path: '/subjects', builder: (context, state) => const SubjectScreen()),
+      GoRoute(
+        path: '/selection', 
+        builder: (context, state) {
+          final mode = state.uri.queryParameters['mode'] ?? 'study';
+          return SelectionScreen(mode: mode);
+        }
+      ),
+      GoRoute(
+        path: '/subjects', 
+        builder: (context, state) {
+          final mode = state.uri.queryParameters['mode'] ?? 'study';
+          return SubjectScreen(mode: mode);
+        }
+      ),
       GoRoute(path: '/deck', builder: (context, state) => const DeckListScreen()),
       GoRoute(path: '/study', builder: (context, state) => const StudyScreen()),
       GoRoute(path: '/summary', builder: (context, state) => const SessionSummaryScreen()),
       GoRoute(path: '/settings', builder: (context, state) => const SettingsScreen()),
       GoRoute(path: '/stats', builder: (context, state) => const StatsScreen()),
+      GoRoute(path: '/maintenance', builder: (context, state) => const CardMaintenanceScreen()),
     ],
   );
 });

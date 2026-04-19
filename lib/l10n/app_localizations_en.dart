@@ -81,6 +81,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get subjectsSubtitle => 'Browse cards by category and unit.';
 
   @override
+  String get cardMaintenance => 'Card Maintenance';
+
+  @override
+  String get cardMaintenanceSubtitle =>
+      'Manage flashcards, import, and export CSV data.';
+
+  @override
   String get settingsSubtitle => 'Customization, appearance, and data.';
 
   @override
@@ -263,6 +270,15 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get downloadSample => 'Download Sample CSV';
+
+  @override
+  String get exportFlashcards => 'Export Flashcards (CSV)';
+
+  @override
+  String get viewAllCards => 'View All Cards';
+
+  @override
+  String get viewCards => 'View Cards';
 
   @override
   String get correct => 'Correct';

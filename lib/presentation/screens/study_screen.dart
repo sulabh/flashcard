@@ -207,31 +207,7 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
   }
 
   Widget _buildFlipCard(Flashcard card, StudyState state) {
-    return TweenAnimationBuilder<double>(
-      key: ValueKey('card_${state.isRetryPhase ? "retry_" : ""}${state.currentIndex}'),
-      tween: Tween<double>(begin: 0, end: state.isFlipped ? 1.0 : 0),
-      duration: const Duration(milliseconds: 600),
-      curve: Curves.easeInOutBack,
-
-      builder: (context, value, child) {
-        final rotation = value * pi;
-        final isBack = rotation > pi / 2;
-
-        return Transform(
-          transform: Matrix4.identity()
-            ..setEntry(3, 2, 0.001) // perspective
-            ..rotateY(rotation),
-          alignment: Alignment.center,
-          child: isBack
-              ? Transform(
-                  alignment: Alignment.center,
-                  transform: Matrix4.identity()..rotateY(pi),
-                  child: _buildCardContent(card, state, true),
-                )
-              : _buildCardContent(card, state, false),
-        );
-      },
-    );
+    return _buildCardContent(card, state, state.isFlipped);
   }
 
   Widget _buildCardContent(Flashcard card, StudyState state, bool isBack) {

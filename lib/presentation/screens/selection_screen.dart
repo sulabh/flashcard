@@ -5,7 +5,8 @@ import '../../data/providers/flashcard_provider.dart';
 import '../../l10n/app_localizations.dart';
 
 class SelectionScreen extends ConsumerWidget {
-  const SelectionScreen({super.key});
+  final String mode;
+  const SelectionScreen({super.key, this.mode = 'study'});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -95,7 +96,10 @@ class SelectionScreen extends ConsumerWidget {
                   elevation: 4,
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                 ),
-                child: Text(l10n.nextCard, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                child: Text(
+                  mode == 'maintenance' ? l10n.viewCards : l10n.nextCard,
+                  style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
               ),
             ],
           ),

@@ -29,6 +29,7 @@ class AppFlashcardHtml extends StatelessWidget {
           textAlign: textAlign ?? TextAlign.center,
           padding: HtmlPaddings.zero,
           margin: Margins.zero,
+          lineHeight: LineHeight.number(1.6),
         ),
       },
     );

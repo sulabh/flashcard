@@ -8,7 +8,8 @@ import '../../data/providers/progress_provider.dart';
 import '../../flavor_config.dart';
 
 class SubjectScreen extends ConsumerWidget {
-  const SubjectScreen({super.key});
+  final String mode;
+  const SubjectScreen({super.key, this.mode = 'study'});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -33,6 +34,7 @@ class SubjectScreen extends ConsumerWidget {
             child: Scrollbar(
               thumbVisibility: true,
               child: GridView.builder(
+                primary: true,
                 physics: const ClampingScrollPhysics(),
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
@@ -104,7 +106,7 @@ class SubjectScreen extends ConsumerWidget {
                       ref.read(selectedSubjectProvider.notifier).state = name;
                       ref.read(selectedAgeGroupProvider.notifier).state = null;
                       ref.read(selectedUnitProvider.notifier).state = null;
-                      context.push('/selection');
+                      context.push('/selection?mode=$mode');
                     },
                     borderRadius: BorderRadius.circular(20),
                     child: Opacity(

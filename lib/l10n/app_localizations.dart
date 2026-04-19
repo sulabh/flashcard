@@ -236,6 +236,18 @@ abstract class AppLocalizations {
   /// **'Browse cards by category and unit.'**
   String get subjectsSubtitle;
 
+  /// No description provided for @cardMaintenance.
+  ///
+  /// In en, this message translates to:
+  /// **'Card Maintenance'**
+  String get cardMaintenance;
+
+  /// No description provided for @cardMaintenanceSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Manage flashcards, import, and export CSV data.'**
+  String get cardMaintenanceSubtitle;
+
   /// No description provided for @settingsSubtitle.
   ///
   /// In en, this message translates to:
@@ -583,6 +595,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Download Sample CSV'**
   String get downloadSample;
+
+  /// No description provided for @exportFlashcards.
+  ///
+  /// In en, this message translates to:
+  /// **'Export Flashcards (CSV)'**
+  String get exportFlashcards;
+
+  /// No description provided for @viewAllCards.
+  ///
+  /// In en, this message translates to:
+  /// **'View All Cards'**
+  String get viewAllCards;
+
+  /// No description provided for @viewCards.
+  ///
+  /// In en, this message translates to:
+  /// **'View Cards'**
+  String get viewCards;
 
   /// No description provided for @correct.
   ///

@@ -38,13 +38,16 @@ class CustomHtmlExtensions {
                   ruby: rubyText,
                 ),
               ],
+              textAlign: TextAlign.center,
               style: TextStyle(
                 color: color,
                 fontSize: fontSize,
+                height: 1.0,
               ),
               rubyStyle: TextStyle(
                 color: color.withAlpha(200),
                 fontSize: fontSize * 0.5,
+                height: 1.0,
               ),
             );
           },

@@ -51,6 +51,7 @@ class _SessionSummaryScreenState extends ConsumerState<SessionSummaryScreen> {
             child: Scrollbar(
               thumbVisibility: true,
               child: SingleChildScrollView(
+                primary: true,
                 physics: const ClampingScrollPhysics(),
                 padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 40.0),
                 child: Column(

@@ -80,6 +80,12 @@ class AppLocalizationsJa extends AppLocalizations {
   String get subjectsSubtitle => 'カテゴリとユニットでカードを閲覧。';
 
   @override
+  String get cardMaintenance => 'カードメンテナンス';
+
+  @override
+  String get cardMaintenanceSubtitle => 'フラッシュカードの管理、CSVのインポート・エクスポート。';
+
+  @override
   String get settingsSubtitle => 'カスタマイズ、外観、データ。';
 
   @override
@@ -260,6 +266,15 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get downloadSample => 'サンプルCSVをダウンロード';
+
+  @override
+  String get exportFlashcards => 'フラッシュカードをエクスポート（CSV）';
+
+  @override
+  String get viewAllCards => 'すべてのカードを表示';
+
+  @override
+  String get viewCards => 'カードを表示';
 
   @override
   String get correct => '正解';

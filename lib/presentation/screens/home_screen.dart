@@ -19,6 +19,7 @@ class HomeScreen extends ConsumerWidget {
         child: Scrollbar(
           thumbVisibility: true,
           child: SingleChildScrollView(
+            primary: true,
             physics: const ClampingScrollPhysics(),
             padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 20.0),
             child: Column(
@@ -39,7 +40,7 @@ class HomeScreen extends ConsumerWidget {
                   subtitle: l10n.startPracticeSubtitle,
                   icon: Icons.play_arrow_rounded,
                   color: Theme.of(context).colorScheme.primary,
-                  onTap: () => context.push('/subjects'),
+                  onTap: () => context.push('/subjects?mode=study'),
                 ),
                 const SizedBox(height: 16),
                 _buildMenuCard(
@@ -48,7 +49,16 @@ class HomeScreen extends ConsumerWidget {
                   subtitle: l10n.subjectsSubtitle,
                   icon: Icons.grid_view_rounded,
                   color: Colors.orange,
-                  onTap: () => context.push('/subjects'),
+                  onTap: () => context.push('/subjects?mode=study'),
+                ),
+                const SizedBox(height: 16),
+                _buildMenuCard(
+                  context,
+                  title: l10n.cardMaintenance,
+                  subtitle: l10n.cardMaintenanceSubtitle,
+                  icon: Icons.build_rounded,
+                  color: Colors.teal,
+                  onTap: () => context.push('/maintenance'),
                 ),
                 const SizedBox(height: 16),
                 _buildMenuCard(
