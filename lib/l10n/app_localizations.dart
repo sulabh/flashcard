@@ -751,6 +751,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Loading audio engine...'**
   String get loadingAudioEngine;
+
+  /// No description provided for @goBack.
+  ///
+  /// In en, this message translates to:
+  /// **'Go Back'**
+  String get goBack;
 }
 
 class _AppLocalizationsDelegate

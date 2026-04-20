@@ -357,4 +357,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get loadingAudioEngine => '音声エンジンを起動中...';
+
+  @override
+  String get goBack => '戻る';
 }

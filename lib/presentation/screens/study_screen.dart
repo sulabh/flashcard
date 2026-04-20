@@ -32,11 +32,8 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
   @override
   void initState() {
     super.initState();
+    // Initialize Timer if already set in settings, but we wait for cards to trigger session start
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      final cards = ref.read(filteredFlashcardsProvider).value ?? [];
-      ref.read(studyControllerProvider.notifier).startSession(cards);
-
-      // Initialize Timer
       final timerMinutes = ref.read(sessionTimerProvider);
       if (timerMinutes > 0) {
         setState(() {
@@ -63,6 +60,8 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
   @override
   void dispose() {
     _timer?.cancel();
+    // Stop any ongoing speech when leaving the study screen
+    ref.read(ttsServiceProvider).stop();
     super.dispose();
   }
 
@@ -83,8 +82,18 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final cardsAsync = ref.watch(filteredFlashcardsProvider);
     final state = ref.watch(studyControllerProvider);
     final card = state.currentCard;
+
+    // Handle initialization when data is ready
+    ref.listen<AsyncValue<List<Flashcard>>>(filteredFlashcardsProvider, (previous, next) {
+      next.whenData((cards) {
+        if (cards.isNotEmpty && state.cards.isEmpty) {
+          ref.read(studyControllerProvider.notifier).startSession(cards);
+        }
+      });
+    });
 
     // Listen for state changes to trigger auto-play
     ref.listen(studyControllerProvider, (previous, next) {
@@ -94,7 +103,6 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
       final flipChanged = previous?.isFlipped != next.isFlipped;
 
       if (cardChanged || flipChanged) {
-        // TtsService now safely awaits stop() intrinsically.
         _speakCurrentSide(next.currentCard, next.isFlipped);
       }
     });
@@ -106,12 +114,51 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
       return const Scaffold(body: Center(child: CircularProgressIndicator()));
     }
 
-    if (card == null) {
-      return Scaffold(
+    return cardsAsync.when(
+      loading: () => Scaffold(
         appBar: AppBar(title: Text(l10n.studySession)),
         body: const Center(child: CircularProgressIndicator()),
-      );
-    }
+      ),
+      error: (err, stack) => Scaffold(
+        appBar: AppBar(title: Text(l10n.studySession)),
+        body: Center(child: Text('Error: $err')),
+      ),
+      data: (cards) {
+        if (cards.isEmpty) {
+          return Scaffold(
+            appBar: AppBar(title: Text(l10n.studySession)),
+            body: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Icon(Icons.search_off_rounded, size: 64, color: Colors.grey),
+                  const SizedBox(height: 16),
+                  Text(l10n.noCardsFound, style: const TextStyle(fontSize: 18, color: Colors.grey)),
+                  const SizedBox(height: 24),
+                  ElevatedButton(
+                    onPressed: () => context.pop(),
+                    child: Text(l10n.goBack),
+                  ),
+                ],
+              ),
+            ),
+          );
+        }
+
+        // Check if session actually started
+        if (card == null) {
+          // If we have data but state is empty, it means initialization hasn't happened or was bypassed
+          // We trigger it here just in case ref.listen was missed during first build
+          Future.delayed(Duration.zero, () {
+            if (mounted && state.cards.isEmpty) {
+              ref.read(studyControllerProvider.notifier).startSession(cards);
+            }
+          });
+          return Scaffold(
+            appBar: AppBar(title: Text(l10n.studySession)),
+            body: const Center(child: CircularProgressIndicator()),
+          );
+        }
 
     return Scaffold(
       appBar: AppBar(
@@ -177,6 +224,7 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
         leading: IconButton(
           icon: const Icon(Icons.close),
           onPressed: () {
+            ref.read(ttsServiceProvider).stop(); // Kill audio on exit
             ref.read(studyControllerProvider.notifier).reset();
             context.pop();
           },
@@ -197,14 +245,15 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
             Expanded(
               child: _buildFlipCard(card, state),
             ),
-            const SizedBox(height: 20),
             _buildControls(state),
-          ],
+            ],
+          ),
         ),
-      ),
-      bottomNavigationBar: const AdBannerWidget(),
-    );
-  }
+        bottomNavigationBar: const AdBannerWidget(),
+      );
+    },
+  );
+}
 
   Widget _buildFlipCard(Flashcard card, StudyState state) {
     return _buildCardContent(card, state, state.isFlipped);

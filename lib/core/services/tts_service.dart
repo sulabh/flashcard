@@ -17,6 +17,9 @@ class TtsService {
   // Session cache: once we find a good formal voice for a language, we stick to it for consistency
   final Map<String, Map<String, String>> _sessionVoiceCache = {};
 
+  // Flag to handle immediate termination of multi-segment speech
+  bool _isStopped = false;
+
   TtsService(this._ref) {
     _initTts();
   }
@@ -38,8 +41,8 @@ class TtsService {
 
     // Formal speech parameters
     // Hardcoded to 0.5 across all platforms as per previous successful resolution
-    // Normal speech rate (1.0)
-    await _flutterTts.setSpeechRate(1.0);
+    // Formal speech rate (0.5)
+    await _flutterTts.setSpeechRate(0.5);
     await _flutterTts.setPitch(1.0);
     await _flutterTts.setVolume(1.0);
 
@@ -51,8 +54,11 @@ class TtsService {
     // This allows us to use the Japanese voice ONLY for Japanese characters
     final RegExp jpRegex = RegExp(r'[\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FAF]+');
     final segments = _splitByLanguage(sanitizedText, jpRegex);
+    
+    _isStopped = false;
 
     for (final segment in segments) {
+      if (_isStopped) break;
       final isJp = jpRegex.hasMatch(segment);
       final lang = isJp ? 'ja-JP' : 'en-US';
       
@@ -185,6 +191,7 @@ class TtsService {
   }
 
   Future<void> stop() async {
+    _isStopped = true;
     await _flutterTts.stop();
   }
 

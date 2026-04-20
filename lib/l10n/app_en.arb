@@ -168,5 +168,6 @@
   "premiumRequiredMsg": "Unlock all subjects and features by upgrading to the Premium version!",
   "categoryLabel": "Category",
   "selectCategoryFirst": "Please select a category first",
-  "loadingAudioEngine": "Loading audio engine..."
+  "loadingAudioEngine": "Loading audio engine...",
+  "goBack": "Go Back"
 }

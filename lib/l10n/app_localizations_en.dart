@@ -363,4 +363,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get loadingAudioEngine => 'Loading audio engine...';
+
+  @override
+  String get goBack => 'Go Back';
 }

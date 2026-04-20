@@ -140,6 +140,7 @@
   "premiumRequiredMsg": "すべての科目と機能を利用するには、プレミアム版にアップグレードしてください！",
   "categoryLabel": "カテゴリ",
   "selectCategoryFirst": "まずカテゴリを選択してください",
-  "loadingAudioEngine": "音声エンジンを起動中..."
+  "loadingAudioEngine": "音声エンジンを起動中...",
+  "goBack": "戻る"
 }
 
