@@ -18,24 +18,21 @@ class DataSeeder {
       for (int i = 1; i <= 1000; i++) {
         final isMcq = i % 2 == 0; // Alternating Classic and MCQ for variety
         final unit = i <= 500 ? 'first_half' : 'second_half';
-        final ageGroup = i % 2 == 0 ? 5 : 6;
+        final categoryStr = i % 2 == 0 ? 'Grade 1' : 'Grade 2';
 
         final card = Flashcard(
-          frontHtml: 'Question $i for $subject in $unit for Age $ageGroup',
-          backHtml: 'Answer $i for $subject',
-          category: subject,
+          type: isMcq ? 2 : 1,
+          subject: subject,
+          category: categoryStr,
           unit: unit,
-          ageGroup: ageGroup,
-          isMcq: isMcq,
-          choices: isMcq
-              ? [
-                  'Answer $i for $subject',
-                  'Wrong option ${i + 1}',
-                  'Wrong option ${i + 2}',
-                  'Wrong option ${i + 3}',
-                  'Wrong option ${i + 4}',
-                ]
-              : const [],
+          title: 'Question $i for $subject',
+          problem: 'Problem details for $subject in $unit',
+          answer: 'Answer $i for $subject',
+          correctAnswer: isMcq ? 'Answer $i for $subject' : '',
+          incorrectAnswer1: isMcq ? 'Wrong option ${i + 1}' : '',
+          incorrectAnswer2: isMcq ? 'Wrong option ${i + 2}' : '',
+          incorrectAnswer3: isMcq ? 'Wrong option ${i + 3}' : '',
+          incorrectAnswer4: isMcq ? 'Wrong option ${i + 4}' : '',
         );
 
         batch.insert('flashcards', card.toMap());
@@ -44,11 +41,13 @@ class DataSeeder {
 
     // Unicode/Japanese Compatibility Test Entry
     batch.insert('flashcards', Flashcard(
-      frontHtml: '<ruby>日本語<rt>にほんご</rt></ruby> Test',
-      backHtml: 'Japanese Language',
-      category: 'Vocabulary',
+      type: 1,
+      subject: 'Vocabulary',
+      category: 'Grade 1',
       unit: 'first_half',
-      ageGroup: 5,
+      title: '<ruby>日本語<rt>にほんご</rt></ruby> Test',
+      problem: 'What does this mean?',
+      answer: 'Japanese Language',
     ).toMap());
 
     await batch.commit(noResult: true);

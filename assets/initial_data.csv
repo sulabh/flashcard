@@ -1,241 +1,501 @@
-id,frontHtml,backHtml,category,unit,ageGroup,isMcq,choices
-,Read the Kanji: _{一}_(_いち_),One,Kanji,first_half,5,1,"[""One"",""Mountain"",""Fish"",""River""]"
-,Read the Kanji: _{二}_(_に_),Two,Kanji,first_half,5,0,[]
-,Read the Kanji: _{三}_(_さん_),Three,Kanji,first_half,5,1,"[""Three"",""Bird"",""Mountain"",""Two""]"
-,Read the Kanji: _{山}_(_やま_),Mountain,Kanji,first_half,5,0,[]
-,Read the Kanji: _{川}_(_かわ_),River,Kanji,first_half,5,1,"[""Sky"",""Mountain"",""Two"",""River""]"
-,Read the Kanji: _{木}_(_き_),Tree,Kanji,first_half,5,0,[]
-,Read the Kanji: _{空}_(_そら_),Sky,Kanji,first_half,5,1,"[""River"",""Mountain"",""Bird"",""Sky""]"
-,Read the Kanji: _{海}_(_うみ_),Sea,Kanji,first_half,5,0,[]
-,Read the Kanji: _{一}_(_いち_),One,Kanji,first_half,5,1,"[""Sea"",""Sky"",""Book"",""One""]"
-,Read the Kanji: _{二}_(_に_),Two,Kanji,first_half,5,0,[]
-,Read the Kanji: _{三}_(_さん_),Three,Kanji,first_half,5,1,"[""Four"",""Book"",""One"",""Three""]"
-,Read the Kanji: _{山}_(_やま_),Mountain,Kanji,first_half,5,0,[]
-,Read the Kanji: _{一}_(_いち_),One,Kanji,second_half,5,1,"[""Three"",""Mountain"",""Four"",""One""]"
-,Read the Kanji: _{二}_(_に_),Two,Kanji,second_half,5,0,[]
-,Read the Kanji: _{三}_(_さん_),Three,Kanji,second_half,5,1,"[""Sky"",""River"",""Three"",""Fish""]"
-,Read the Kanji: _{山}_(_やま_),Mountain,Kanji,second_half,5,0,[]
-,Read the Kanji: _{川}_(_かわ_),River,Kanji,second_half,5,1,"[""Three"",""Two"",""Fish"",""River""]"
-,Read the Kanji: _{木}_(_き_),Tree,Kanji,second_half,5,0,[]
-,Read the Kanji: _{空}_(_そら_),Sky,Kanji,second_half,5,1,"[""Sky"",""Sea"",""Bird"",""River""]"
-,Read the Kanji: _{海}_(_うみ_),Sea,Kanji,second_half,5,0,[]
-,Read the Kanji: _{一}_(_いち_),One,Kanji,second_half,5,1,"[""One"",""Mountain"",""Three"",""School""]"
-,Read the Kanji: _{二}_(_に_),Two,Kanji,second_half,5,0,[]
-,Read the Kanji: _{三}_(_さん_),Three,Kanji,second_half,5,1,"[""Fish"",""Four"",""Mountain"",""Three""]"
-,Read the Kanji: _{山}_(_やま_),Mountain,Kanji,second_half,5,0,[]
-,Read the Kanji: _{学校}_(_がっこう_),School,Kanji,first_half,6,1,"[""Four"",""One"",""Bird"",""School""]"
-,Read the Kanji: _{先生}_(_せんせい_),Teacher,Kanji,first_half,6,0,[]
-,Read the Kanji: _{学生}_(_がくせい_),Student,Kanji,first_half,6,1,"[""Fish"",""Bird"",""Student"",""One""]"
-,Read the Kanji: _{友達}_(_ともだち_),Friend,Kanji,first_half,6,0,[]
-,Read the Kanji: _{時間}_(_じかん_),Time,Kanji,first_half,6,1,"[""Three"",""Time"",""Sky"",""School""]"
-,Read the Kanji: _{天気}_(_てんき_),Weather,Kanji,first_half,6,0,[]
-,Read the Kanji: _{学校}_(_がっこう_),School,Kanji,first_half,6,1,"[""Three"",""Two"",""River"",""School""]"
-,Read the Kanji: _{先生}_(_せんせい_),Teacher,Kanji,first_half,6,0,[]
-,Read the Kanji: _{学生}_(_がくせい_),Student,Kanji,first_half,6,1,"[""One"",""Book"",""Mountain"",""Student""]"
-,Read the Kanji: _{友達}_(_ともだち_),Friend,Kanji,first_half,6,0,[]
-,Read the Kanji: _{時間}_(_じかん_),Time,Kanji,first_half,6,1,"[""Time"",""Sea"",""One"",""Bird""]"
-,Read the Kanji: _{天気}_(_てんき_),Weather,Kanji,first_half,6,0,[]
-,Read the Kanji: _{学校}_(_がっこう_),School,Kanji,second_half,6,1,"[""One"",""Sky"",""School"",""Four""]"
-,Read the Kanji: _{先生}_(_せんせい_),Teacher,Kanji,second_half,6,0,[]
-,Read the Kanji: _{学生}_(_がくせい_),Student,Kanji,second_half,6,1,"[""Book"",""Four"",""Sea"",""Student""]"
-,Read the Kanji: _{友達}_(_ともだち_),Friend,Kanji,second_half,6,0,[]
-,Read the Kanji: _{時間}_(_じかん_),Time,Kanji,second_half,6,1,"[""Sky"",""School"",""Time"",""Book""]"
-,Read the Kanji: _{天気}_(_てんき_),Weather,Kanji,second_half,6,0,[]
-,Read the Kanji: _{学校}_(_がっこう_),School,Kanji,second_half,6,1,"[""Two"",""Sea"",""School"",""Mountain""]"
-,Read the Kanji: _{先生}_(_せんせい_),Teacher,Kanji,second_half,6,0,[]
-,Read the Kanji: _{学生}_(_がくせい_),Student,Kanji,second_half,6,1,"[""School"",""Bird"",""Student"",""Two""]"
-,Read the Kanji: _{友達}_(_ともだち_),Friend,Kanji,second_half,6,0,[]
-,Read the Kanji: _{時間}_(_じかん_),Time,Kanji,second_half,6,1,"[""Fish"",""Mountain"",""Time"",""Sky""]"
-,Read the Kanji: _{天気}_(_てんき_),Weather,Kanji,second_half,6,0,[]
-,What is |3/4| + |1/4|?,|4/4|,Arithmetic,first_half,5,1,"[""|4/4|"",""|1/1|"",""|1/4|"",""|5/4|""]"
-,2 + 3 = ?,5,Arithmetic,first_half,5,0,[]
-,5 + 4 = ?,9,Arithmetic,first_half,5,1,"[""9"",""26"",""28"",""0""]"
-,What is |3/4| + |1/4|?,|4/4|,Arithmetic,first_half,5,0,[]
-,6 + 4 = ?,10,Arithmetic,first_half,5,1,"[""23"",""10"",""18"",""15""]"
-,5 + 5 = ?,10,Arithmetic,first_half,5,0,[]
-,What is |1/4| + |1/4|?,|2/4|,Arithmetic,first_half,5,1,"[""|1/2|"",""|3/4|"",""|2/4|"",""|1/1|""]"
-,2 - 1 = ?,1,Arithmetic,first_half,5,0,[]
-,7 - 4 = ?,3,Arithmetic,first_half,5,1,"[""23"",""26"",""3"",""29""]"
-,What is |3/4| + |1/4|?,|4/4|,Arithmetic,first_half,5,0,[]
-,2 + 5 = ?,7,Arithmetic,first_half,5,1,"[""16"",""7"",""5"",""6""]"
-,7 + 5 = ?,12,Arithmetic,first_half,5,0,[]
-,What is |2/4| + |1/4|?,|3/4|,Arithmetic,second_half,5,1,"[""|1/2|"",""|3/4|"",""|1/4|"",""|5/4|""]"
-,3 - 1 = ?,2,Arithmetic,second_half,5,0,[]
-,5 - 4 = ?,1,Arithmetic,second_half,5,1,"[""24"",""1"",""10"",""4""]"
-,What is |3/4| + |1/4|?,|4/4|,Arithmetic,second_half,5,0,[]
-,1 + 4 = ?,5,Arithmetic,second_half,5,1,"[""8"",""27"",""5"",""21""]"
-,4 - 4 = ?,0,Arithmetic,second_half,5,0,[]
-,What is |1/4| + |1/4|?,|2/4|,Arithmetic,second_half,5,1,"[""|1/4|"",""|3/4|"",""|1/2|"",""|2/4|""]"
-,5 - 5 = ?,0,Arithmetic,second_half,5,0,[]
-,2 - 1 = ?,1,Arithmetic,second_half,5,1,"[""1"",""2"",""20"",""15""]"
-,What is |2/4| + |1/4|?,|3/4|,Arithmetic,second_half,5,0,[]
-,7 - 2 = ?,5,Arithmetic,second_half,5,1,"[""5"",""9"",""15"",""12""]"
-,4 - 4 = ?,0,Arithmetic,second_half,5,0,[]
-,What is |2/4| + |1/4|?,|3/4|,Arithmetic,first_half,6,1,"[""|3/4|"",""|1/2|"",""|5/4|"",""|1/4|""]"
-,7 - 3 = ?,4,Arithmetic,first_half,6,0,[]
-,10 + 6 = ?,16,Arithmetic,first_half,6,1,"[""16"",""6"",""9"",""20""]"
-,What is |1/4| + |1/4|?,|2/4|,Arithmetic,first_half,6,0,[]
-,7 - 1 = ?,6,Arithmetic,first_half,6,1,"[""7"",""17"",""6"",""23""]"
-,7 - 1 = ?,6,Arithmetic,first_half,6,0,[]
-,What is |2/4| + |1/4|?,|3/4|,Arithmetic,first_half,6,1,"[""|3/4|"",""|1/4|"",""|1/2|"",""|1/1|""]"
-,4 - 1 = ?,3,Arithmetic,first_half,6,0,[]
-,4 + 1 = ?,5,Arithmetic,first_half,6,1,"[""2"",""13"",""5"",""28""]"
-,What is |2/4| + |1/4|?,|3/4|,Arithmetic,first_half,6,0,[]
-,6 + 3 = ?,9,Arithmetic,first_half,6,1,"[""6"",""21"",""27"",""9""]"
-,4 + 2 = ?,6,Arithmetic,first_half,6,0,[]
-,What is |3/4| + |1/4|?,|4/4|,Arithmetic,second_half,6,1,"[""|3/4|"",""|4/4|"",""|1/4|"",""|1/1|""]"
-,6 - 2 = ?,4,Arithmetic,second_half,6,0,[]
-,5 - 3 = ?,2,Arithmetic,second_half,6,1,"[""2"",""23"",""27"",""15""]"
-,What is |2/4| + |1/4|?,|3/4|,Arithmetic,second_half,6,0,[]
-,9 + 4 = ?,13,Arithmetic,second_half,6,1,"[""16"",""4"",""0"",""13""]"
-,12 + 2 = ?,14,Arithmetic,second_half,6,0,[]
-,What is |1/4| + |1/4|?,|2/4|,Arithmetic,second_half,6,1,"[""|1/2|"",""|1/1|"",""|2/4|"",""|5/4|""]"
-,11 - 5 = ?,6,Arithmetic,second_half,6,0,[]
-,11 + 4 = ?,15,Arithmetic,second_half,6,1,"[""15"",""12"",""24"",""14""]"
-,What is |1/4| + |1/4|?,|2/4|,Arithmetic,second_half,6,0,[]
-,4 + 6 = ?,10,Arithmetic,second_half,6,1,"[""13"",""17"",""6"",""10""]"
-,2 + 5 = ?,7,Arithmetic,second_half,6,0,[]
-,"What animal is a ""Cat""?",猫 (Neko),English,first_half,5,1,"[""猫 (Neko)"",""Yellow"",""Cold"",""Green""]"
-,"What animal is a ""Dog""?",犬 (Inu),English,first_half,5,0,[]
-,"Color of the ""Sun""?",Yellow,English,first_half,5,1,"[""Red"",""Up"",""Yellow"",""Cold""]"
-,"Color of the ""Sky""?",Blue,English,first_half,5,0,[]
-,"Opposite of ""Big""?",Small,English,first_half,5,1,"[""Hot"",""犬 (Inu)"",""Green"",""Small""]"
-,"Opposite of ""Hot""?",Cold,English,first_half,5,0,[]
-,"What animal is a ""Cat""?",猫 (Neko),English,first_half,5,1,"[""猫 (Neko)"",""Hot"",""Blue"",""犬 (Inu)""]"
-,"What animal is a ""Dog""?",犬 (Inu),English,first_half,5,0,[]
-,"Color of the ""Sun""?",Yellow,English,first_half,5,1,"[""Blue"",""Yellow"",""Red"",""犬 (Inu)""]"
-,"Color of the ""Sky""?",Blue,English,first_half,5,0,[]
-,"Opposite of ""Big""?",Small,English,first_half,5,1,"[""Small"",""猫 (Neko)"",""Red"",""Down""]"
-,"Opposite of ""Hot""?",Cold,English,first_half,5,0,[]
-,"What animal is a ""Cat""?",猫 (Neko),English,second_half,5,1,"[""Cold"",""Red"",""犬 (Inu)"",""猫 (Neko)""]"
-,"What animal is a ""Dog""?",犬 (Inu),English,second_half,5,0,[]
-,"Color of the ""Sun""?",Yellow,English,second_half,5,1,"[""Yellow"",""Up"",""Green"",""Cold""]"
-,"Color of the ""Sky""?",Blue,English,second_half,5,0,[]
-,"Opposite of ""Big""?",Small,English,second_half,5,1,"[""Blue"",""Big"",""Small"",""Down""]"
-,"Opposite of ""Hot""?",Cold,English,second_half,5,0,[]
-,"What animal is a ""Cat""?",猫 (Neko),English,second_half,5,1,"[""猫 (Neko)"",""犬 (Inu)"",""Red"",""Up""]"
-,"What animal is a ""Dog""?",犬 (Inu),English,second_half,5,0,[]
-,"Color of the ""Sun""?",Yellow,English,second_half,5,1,"[""Hot"",""Yellow"",""猫 (Neko)"",""Up""]"
-,"Color of the ""Sky""?",Blue,English,second_half,5,0,[]
-,"Opposite of ""Big""?",Small,English,second_half,5,1,"[""Yellow"",""Small"",""Blue"",""犬 (Inu)""]"
-,"Opposite of ""Hot""?",Cold,English,second_half,5,0,[]
-,"What animal is a ""Cat""?",猫 (Neko),English,first_half,6,1,"[""Yellow"",""Cold"",""Red"",""猫 (Neko)""]"
-,"What animal is a ""Dog""?",犬 (Inu),English,first_half,6,0,[]
-,"Color of the ""Sun""?",Yellow,English,first_half,6,1,"[""Yellow"",""Red"",""Blue"",""Down""]"
-,"Color of the ""Sky""?",Blue,English,first_half,6,0,[]
-,"Opposite of ""Big""?",Small,English,first_half,6,1,"[""Small"",""猫 (Neko)"",""Cold"",""鳥 (Tori)""]"
-,"Opposite of ""Hot""?",Cold,English,first_half,6,0,[]
-,"What animal is a ""Cat""?",猫 (Neko),English,first_half,6,1,"[""猫 (Neko)"",""Small"",""Down"",""Blue""]"
-,"What animal is a ""Dog""?",犬 (Inu),English,first_half,6,0,[]
-,"Color of the ""Sun""?",Yellow,English,first_half,6,1,"[""Small"",""Cold"",""Yellow"",""Blue""]"
-,"Color of the ""Sky""?",Blue,English,first_half,6,0,[]
-,"Opposite of ""Big""?",Small,English,first_half,6,1,"[""Small"",""Blue"",""鳥 (Tori)"",""Up""]"
-,"Opposite of ""Hot""?",Cold,English,first_half,6,0,[]
-,"What animal is a ""Cat""?",猫 (Neko),English,second_half,6,1,"[""Green"",""Yellow"",""Down"",""猫 (Neko)""]"
-,"What animal is a ""Dog""?",犬 (Inu),English,second_half,6,0,[]
-,"Color of the ""Sun""?",Yellow,English,second_half,6,1,"[""Yellow"",""Up"",""Down"",""猫 (Neko)""]"
-,"Color of the ""Sky""?",Blue,English,second_half,6,0,[]
-,"Opposite of ""Big""?",Small,English,second_half,6,1,"[""Down"",""Blue"",""Small"",""Red""]"
-,"Opposite of ""Hot""?",Cold,English,second_half,6,0,[]
-,"What animal is a ""Cat""?",猫 (Neko),English,second_half,6,1,"[""猫 (Neko)"",""鳥 (Tori)"",""犬 (Inu)"",""Yellow""]"
-,"What animal is a ""Dog""?",犬 (Inu),English,second_half,6,0,[]
-,"Color of the ""Sun""?",Yellow,English,second_half,6,1,"[""Up"",""Cold"",""Yellow"",""Small""]"
-,"Color of the ""Sky""?",Blue,English,second_half,6,0,[]
-,"Opposite of ""Big""?",Small,English,second_half,6,1,"[""猫 (Neko)"",""Cold"",""Small"",""Green""]"
-,"Opposite of ""Hot""?",Cold,English,second_half,6,0,[]
-,Meaning of: _{林檎}_(_りんご_),Apple,Vocabulary,first_half,5,1,"[""Library"",""Grape"",""Apple"",""Bicycle""]"
-,Meaning of: _{蜜柑}_(_みかん_),Orange,Vocabulary,first_half,5,0,[]
-,Meaning of: _{西瓜}_(_すいか_),Watermelon,Vocabulary,first_half,5,1,"[""Breakfast"",""Car"",""Train"",""Watermelon""]"
-,Meaning of: _{林檎}_(_りんご_),Apple,Vocabulary,first_half,5,0,[]
-,Meaning of: _{蜜柑}_(_みかん_),Orange,Vocabulary,first_half,5,1,"[""Orange"",""Grape"",""Car"",""Bicycle""]"
-,Meaning of: _{西瓜}_(_すいか_),Watermelon,Vocabulary,first_half,5,0,[]
-,Meaning of: _{林檎}_(_りんご_),Apple,Vocabulary,first_half,5,1,"[""Library"",""Car"",""Bicycle"",""Apple""]"
-,Meaning of: _{蜜柑}_(_みかん_),Orange,Vocabulary,first_half,5,0,[]
-,Meaning of: _{西瓜}_(_すいか_),Watermelon,Vocabulary,first_half,5,1,"[""School"",""Watermelon"",""Breakfast"",""Train""]"
-,Meaning of: _{林檎}_(_りんご_),Apple,Vocabulary,first_half,5,0,[]
-,Meaning of: _{蜜柑}_(_みかん_),Orange,Vocabulary,first_half,5,1,"[""Train"",""Orange"",""Car"",""School""]"
-,Meaning of: _{西瓜}_(_すいか_),Watermelon,Vocabulary,first_half,5,0,[]
-,Meaning of: _{林檎}_(_りんご_),Apple,Vocabulary,second_half,5,1,"[""Apple"",""Dinner"",""Grape"",""Library""]"
-,Meaning of: _{蜜柑}_(_みかん_),Orange,Vocabulary,second_half,5,0,[]
-,Meaning of: _{西瓜}_(_すいか_),Watermelon,Vocabulary,second_half,5,1,"[""Car"",""Watermelon"",""Train"",""Breakfast""]"
-,Meaning of: _{林檎}_(_りんご_),Apple,Vocabulary,second_half,5,0,[]
-,Meaning of: _{蜜柑}_(_みかん_),Orange,Vocabulary,second_half,5,1,"[""Train"",""School"",""Orange"",""Grape""]"
-,Meaning of: _{西瓜}_(_すいか_),Watermelon,Vocabulary,second_half,5,0,[]
-,Meaning of: _{林檎}_(_りんご_),Apple,Vocabulary,second_half,5,1,"[""Breakfast"",""Library"",""Bicycle"",""Apple""]"
-,Meaning of: _{蜜柑}_(_みかん_),Orange,Vocabulary,second_half,5,0,[]
-,Meaning of: _{西瓜}_(_すいか_),Watermelon,Vocabulary,second_half,5,1,"[""Train"",""Apple"",""Library"",""Watermelon""]"
-,Meaning of: _{林檎}_(_りんご_),Apple,Vocabulary,second_half,5,0,[]
-,Meaning of: _{蜜柑}_(_みかん_),Orange,Vocabulary,second_half,5,1,"[""Train"",""Car"",""Dinner"",""Orange""]"
-,Meaning of: _{西瓜}_(_すいか_),Watermelon,Vocabulary,second_half,5,0,[]
-,Meaning of: _{朝御飯}_(_あさごはん_),Breakfast,Vocabulary,first_half,6,1,"[""Grape"",""Train"",""Bicycle"",""Breakfast""]"
-,Meaning of: _{図書館}_(_としょかん_),Library,Vocabulary,first_half,6,0,[]
-,Meaning of: _{自転車}_(_じてんしゃ_),Bicycle,Vocabulary,first_half,6,1,"[""Bicycle"",""Apple"",""Breakfast"",""Grape""]"
-,Meaning of: _{朝御飯}_(_あさごはん_),Breakfast,Vocabulary,first_half,6,0,[]
-,Meaning of: _{図書館}_(_としょかん_),Library,Vocabulary,first_half,6,1,"[""Train"",""Dinner"",""Library"",""Grape""]"
-,Meaning of: _{自転車}_(_じてんしゃ_),Bicycle,Vocabulary,first_half,6,0,[]
-,Meaning of: _{朝御飯}_(_あさごはん_),Breakfast,Vocabulary,first_half,6,1,"[""Library"",""Breakfast"",""Bicycle"",""Dinner""]"
-,Meaning of: _{図書館}_(_としょかん_),Library,Vocabulary,first_half,6,0,[]
-,Meaning of: _{自転車}_(_じてんしゃ_),Bicycle,Vocabulary,first_half,6,1,"[""Grape"",""Car"",""Bicycle"",""Breakfast""]"
-,Meaning of: _{朝御飯}_(_あさごはん_),Breakfast,Vocabulary,first_half,6,0,[]
-,Meaning of: _{図書館}_(_としょかん_),Library,Vocabulary,first_half,6,1,"[""Library"",""Car"",""Train"",""Grape""]"
-,Meaning of: _{自転車}_(_じてんしゃ_),Bicycle,Vocabulary,first_half,6,0,[]
-,Meaning of: _{朝御飯}_(_あさごはん_),Breakfast,Vocabulary,second_half,6,1,"[""Train"",""Breakfast"",""Grape"",""Apple""]"
-,Meaning of: _{図書館}_(_としょかん_),Library,Vocabulary,second_half,6,0,[]
-,Meaning of: _{自転車}_(_じてんしゃ_),Bicycle,Vocabulary,second_half,6,1,"[""Apple"",""Bicycle"",""Library"",""Dinner""]"
-,Meaning of: _{朝御飯}_(_あさごはん_),Breakfast,Vocabulary,second_half,6,0,[]
-,Meaning of: _{図書館}_(_としょかん_),Library,Vocabulary,second_half,6,1,"[""Library"",""Apple"",""Orange"",""Bicycle""]"
-,Meaning of: _{自転車}_(_じてんしゃ_),Bicycle,Vocabulary,second_half,6,0,[]
-,Meaning of: _{朝御飯}_(_あさごはん_),Breakfast,Vocabulary,second_half,6,1,"[""Breakfast"",""School"",""Train"",""Apple""]"
-,Meaning of: _{図書館}_(_としょかん_),Library,Vocabulary,second_half,6,0,[]
-,Meaning of: _{自転車}_(_じてんしゃ_),Bicycle,Vocabulary,second_half,6,1,"[""Car"",""Bicycle"",""Breakfast"",""Dinner""]"
-,Meaning of: _{朝御飯}_(_あさごはん_),Breakfast,Vocabulary,second_half,6,0,[]
-,Meaning of: _{図書館}_(_としょかん_),Library,Vocabulary,second_half,6,1,"[""Orange"",""Library"",""Apple"",""Bicycle""]"
-,Meaning of: _{自転車}_(_じてんしゃ_),Bicycle,Vocabulary,second_half,6,0,[]
-,"Which planet is known as the ""Red Planet""?",Mars,General Knowledge,first_half,5,1,"[""Chicken"",""Mars"",""Honey"",""Ice""]"
-,What do bees make?,Honey,General Knowledge,first_half,5,0,[]
-,How many legs does a spider have?,8,General Knowledge,first_half,5,1,"[""Ice"",""8"",""10"",""Cow""]"
-,What is the frozen form of water?,Ice,General Knowledge,first_half,5,0,[]
-,Which animal gives us milk?,Cow,General Knowledge,first_half,5,1,"[""Ice"",""Chicken"",""Cow"",""Earth""]"
-,"Which planet is known as the ""Red Planet""?",Mars,General Knowledge,first_half,5,0,[]
-,What do bees make?,Honey,General Knowledge,first_half,5,1,"[""Earth"",""Ice"",""Honey"",""8""]"
-,How many legs does a spider have?,8,General Knowledge,first_half,5,0,[]
-,What is the frozen form of water?,Ice,General Knowledge,first_half,5,1,"[""Ice"",""Cow"",""Steam"",""8""]"
-,Which animal gives us milk?,Cow,General Knowledge,first_half,5,0,[]
-,"Which planet is known as the ""Red Planet""?",Mars,General Knowledge,first_half,5,1,"[""Chicken"",""Cow"",""Venus"",""Mars""]"
-,What do bees make?,Honey,General Knowledge,first_half,5,0,[]
-,"Which planet is known as the ""Red Planet""?",Mars,General Knowledge,second_half,5,1,"[""6"",""Steam"",""8"",""Mars""]"
-,What do bees make?,Honey,General Knowledge,second_half,5,0,[]
-,How many legs does a spider have?,8,General Knowledge,second_half,5,1,"[""Mars"",""8"",""Venus"",""Milk""]"
-,What is the frozen form of water?,Ice,General Knowledge,second_half,5,0,[]
-,Which animal gives us milk?,Cow,General Knowledge,second_half,5,1,"[""Cow"",""Venus"",""Sheep"",""6""]"
-,"Which planet is known as the ""Red Planet""?",Mars,General Knowledge,second_half,5,0,[]
-,What do bees make?,Honey,General Knowledge,second_half,5,1,"[""Sheep"",""Milk"",""Honey"",""Mars""]"
-,How many legs does a spider have?,8,General Knowledge,second_half,5,0,[]
-,What is the frozen form of water?,Ice,General Knowledge,second_half,5,1,"[""Honey"",""Steam"",""6"",""Ice""]"
-,Which animal gives us milk?,Cow,General Knowledge,second_half,5,0,[]
-,"Which planet is known as the ""Red Planet""?",Mars,General Knowledge,second_half,5,1,"[""Earth"",""Mars"",""8"",""Cow""]"
-,What do bees make?,Honey,General Knowledge,second_half,5,0,[]
-,"Which planet is known as the ""Red Planet""?",Mars,General Knowledge,first_half,6,1,"[""6"",""8"",""Mars"",""Ice""]"
-,What do bees make?,Honey,General Knowledge,first_half,6,0,[]
-,How many legs does a spider have?,8,General Knowledge,first_half,6,1,"[""Steam"",""10"",""8"",""Cow""]"
-,What is the frozen form of water?,Ice,General Knowledge,first_half,6,0,[]
-,Which animal gives us milk?,Cow,General Knowledge,first_half,6,1,"[""Chicken"",""Ice"",""Cow"",""Venus""]"
-,"Which planet is known as the ""Red Planet""?",Mars,General Knowledge,first_half,6,0,[]
-,What do bees make?,Honey,General Knowledge,first_half,6,1,"[""Earth"",""Honey"",""Sheep"",""Ice""]"
-,How many legs does a spider have?,8,General Knowledge,first_half,6,0,[]
-,What is the frozen form of water?,Ice,General Knowledge,first_half,6,1,"[""10"",""Ice"",""Venus"",""Mars""]"
-,Which animal gives us milk?,Cow,General Knowledge,first_half,6,0,[]
-,"Which planet is known as the ""Red Planet""?",Mars,General Knowledge,first_half,6,1,"[""Mars"",""Cow"",""Earth"",""Honey""]"
-,What do bees make?,Honey,General Knowledge,first_half,6,0,[]
-,"Which planet is known as the ""Red Planet""?",Mars,General Knowledge,second_half,6,1,"[""Mars"",""Chicken"",""8"",""Sheep""]"
-,What do bees make?,Honey,General Knowledge,second_half,6,0,[]
-,How many legs does a spider have?,8,General Knowledge,second_half,6,1,"[""8"",""Mars"",""Honey"",""Venus""]"
-,What is the frozen form of water?,Ice,General Knowledge,second_half,6,0,[]
-,Which animal gives us milk?,Cow,General Knowledge,second_half,6,1,"[""Milk"",""Cow"",""Chicken"",""Honey""]"
-,"Which planet is known as the ""Red Planet""?",Mars,General Knowledge,second_half,6,0,[]
-,What do bees make?,Honey,General Knowledge,second_half,6,1,"[""Milk"",""Honey"",""10"",""Steam""]"
-,How many legs does a spider have?,8,General Knowledge,second_half,6,0,[]
-,What is the frozen form of water?,Ice,General Knowledge,second_half,6,1,"[""Ice"",""8"",""Cow"",""Chicken""]"
-,Which animal gives us milk?,Cow,General Knowledge,second_half,6,0,[]
-,"Which planet is known as the ""Red Planet""?",Mars,General Knowledge,second_half,6,1,"[""Chicken"",""Mars"",""Ice"",""8""]"
-,What do bees make?,Honey,General Knowledge,second_half,6,0,[]
+id,type,subject,category,unit,title,problem,answer,correct_answer,incorrect_answer_1,incorrect_answer_2,incorrect_answer_3,incorrect_answer_4,supplement_problem,supplement_answer,no_of_times_shown,no_of_times_attempted,completion_flag,need_for_review,note_1,note_2
+,1,Arithmetic,Grade 1,Unit 1,Arithmetic Exercise #1,What is |4/5| + |3/3|?,|27/15|,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 1,English Exercise #2,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 2,English Exercise #3,What is 'Banana' in Japanese?,バナナ,,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 2,Kanji Exercise #4,How do you read _{川}_(_かわ_)?,River,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 1,Unit 1,Arithmetic Exercise #5,What is |2/4| + |2/3|?,|14/12|,|14/12|,|1/5|,|2/4|,|8/8|,|9/6|,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 1,English Exercise #6,What is 'Cat' in Japanese?,_{猫}_(_ねこ_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 2,English Exercise #7,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 2,Unit 2,Arithmetic Exercise #8,What is |3/5| + |4/3|?,|29/15|,|29/15|,|5/2|,|7/7|,|6/9|,|9/6|,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 1,Kanji Exercise #9,How do you read _{日}_(_ひ_)?,Sun,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 1,Kanji Exercise #10,How do you read _{川}_(_かわ_)?,River,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 2,Science Exercise #11,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 2,Science Exercise #12,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 1,English Exercise #13,What is 'Moon' in Japanese?,_{月}_(_つき_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 1,Science Exercise #14,What is 'Cat' in Japanese?,_{猫}_(_ねこ_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 2,Kanji Exercise #15,How do you read _{川}_(_かわ_)?,River,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 2,English Exercise #16,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 1,English Exercise #17,What is 'Moon' in Japanese?,_{月}_(_つき_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 2,Unit 1,Arithmetic Exercise #18,What is 10 + 19?,29,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 2,Kanji Exercise #19,How do you read _{火}_(_ひ_)?,Fire,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 2,Science Exercise #20,What is 'Banana' in Japanese?,バナナ,,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 1,Kanji Exercise #21,How do you read _{一}_(_いち_)?,One,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 1,Kanji Exercise #22,How do you read _{火}_(_ひ_)?,Fire,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 2,English Exercise #23,What is 'Moon' in Japanese?,_{月}_(_つき_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 2,English Exercise #24,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 1,Science Exercise #25,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 1,English Exercise #26,What is 'Banana' in Japanese?,バナナ,,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 2,English Exercise #27,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 2,English Exercise #28,What is 'Moon' in Japanese?,_{月}_(_つき_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 1,Science Exercise #29,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 1,Kanji Exercise #30,How do you read _{山}_(_やま_)?,Mountain,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 2,Science Exercise #31,What is 'Moon' in Japanese?,_{月}_(_つき_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 2,English Exercise #32,What is 'Moon' in Japanese?,_{月}_(_つき_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 1,Unit 1,Arithmetic Exercise #33,What is 11 - 6?,5,5,3,4,0,10,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 1,Science Exercise #34,What is 'Cat' in Japanese?,_{猫}_(_ねこ_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 2,English Exercise #35,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 2,Unit 2,Arithmetic Exercise #36,What is |2/2| + |3/5|?,|16/10|,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 1,English Exercise #37,What is 'Moon' in Japanese?,_{月}_(_つき_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 2,Unit 1,Arithmetic Exercise #38,What is |1/3| + |4/2|?,|14/6|,|14/6|,|8/4|,|9/8|,|6/10|,|9/5|,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 2,English Exercise #39,What is 'Cat' in Japanese?,_{猫}_(_ねこ_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 2,Kanji Exercise #40,How do you read _{山}_(_やま_)?,Mountain,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 1,Science Exercise #41,What is 'Cat' in Japanese?,_{猫}_(_ねこ_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 2,Unit 1,Arithmetic Exercise #42,What is 20 - 1?,19,19,18,15,23,17,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 2,English Exercise #43,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 2,Science Exercise #44,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 1,Science Exercise #45,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 1,English Exercise #46,What is 'Cat' in Japanese?,_{猫}_(_ねこ_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 2,Kanji Exercise #47,How do you read _{月}_(_つき_)?,Moon,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 2,Kanji Exercise #48,How do you read _{川}_(_かわ_)?,River,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 1,Science Exercise #49,What is 'Moon' in Japanese?,_{月}_(_つき_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 2,Unit 1,Arithmetic Exercise #50,What is |3/2| + |1/4|?,|14/8|,|14/8|,|8/5|,|2/7|,|6/4|,|10/7|,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 2,Kanji Exercise #51,How do you read _{一}_(_いち_)?,One,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 2,English Exercise #52,What is 'Moon' in Japanese?,_{月}_(_つき_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 1,Science Exercise #53,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 2,Unit 1,Arithmetic Exercise #54,What is 7 - 5?,2,2,1,4,5,7,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 1,Unit 2,Arithmetic Exercise #55,What is 7 + 8?,15,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 2,Unit 2,Arithmetic Exercise #56,What is |4/2| + |2/3|?,|16/6|,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 1,Science Exercise #57,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 2,Unit 1,Arithmetic Exercise #58,What is |4/5| + |1/4|?,|21/20|,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 2,Science Exercise #59,What is 'Cat' in Japanese?,_{猫}_(_ねこ_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 2,Unit 2,Arithmetic Exercise #60,What is 12 - 8?,4,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 1,Kanji Exercise #61,How do you read _{二}_(_に_)?,Two,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 1,Kanji Exercise #62,How do you read _{日}_(_ひ_)?,Sun,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 1,Unit 2,Arithmetic Exercise #63,What is 11 - 7?,4,4,9,3,1,8,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 2,English Exercise #64,What is 'Banana' in Japanese?,バナナ,,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 1,Unit 1,Arithmetic Exercise #65,What is |1/4| + |3/5|?,|17/20|,|17/20|,|5/8|,|4/3|,|2/8|,|2/7|,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 1,English Exercise #66,What is 'Banana' in Japanese?,バナナ,,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 2,English Exercise #67,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 2,Unit 2,Arithmetic Exercise #68,What is |2/2| + |3/3|?,|12/6|,|12/6|,|10/2|,|6/7|,|4/2|,|1/6|,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 1,Science Exercise #69,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 2,Unit 1,Arithmetic Exercise #70,What is 18 - 7?,11,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 2,Science Exercise #71,What is 'Banana' in Japanese?,バナナ,,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 2,Kanji Exercise #72,How do you read _{三}_(_さん_)?,Three,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 1,Unit 1,Arithmetic Exercise #73,What is 7 + 7?,14,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 1,Kanji Exercise #74,How do you read _{月}_(_つき_)?,Moon,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 2,Kanji Exercise #75,How do you read _{日}_(_ひ_)?,Sun,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 2,Science Exercise #76,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 1,Kanji Exercise #77,How do you read _{三}_(_さん_)?,Three,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 1,Science Exercise #78,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 2,Science Exercise #79,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 2,Science Exercise #80,What is 'Cat' in Japanese?,_{猫}_(_ねこ_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 1,Kanji Exercise #81,How do you read _{水}_(_みず_)?,Water,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 1,Kanji Exercise #82,How do you read _{山}_(_やま_)?,Mountain,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 1,Unit 2,Arithmetic Exercise #83,What is 3 + 20?,23,23,24,19,21,20,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 2,Kanji Exercise #84,How do you read _{川}_(_かわ_)?,River,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 1,Science Exercise #85,What is 'Cat' in Japanese?,_{猫}_(_ねこ_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 2,Unit 1,Arithmetic Exercise #86,What is |3/2| + |3/3|?,|15/6|,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 2,English Exercise #87,What is 'Moon' in Japanese?,_{月}_(_つき_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 2,Unit 2,Arithmetic Exercise #88,What is 18 - 14?,4,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 1,English Exercise #89,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 1,English Exercise #90,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 1,Unit 2,Arithmetic Exercise #91,What is |3/3| + |4/4|?,|24/12|,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 2,Unit 2,Arithmetic Exercise #92,What is |1/4| + |2/4|?,|12/16|,|12/16|,|7/6|,|2/3|,|7/7|,|2/8|,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 1,Unit 1,Arithmetic Exercise #93,What is 3 + 7?,10,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 1,English Exercise #94,What is 'Cat' in Japanese?,_{猫}_(_ねこ_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 2,Science Exercise #95,What is 'Moon' in Japanese?,_{月}_(_つき_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 2,Science Exercise #96,What is 'Banana' in Japanese?,バナナ,,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 1,Science Exercise #97,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 1,Science Exercise #98,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 2,English Exercise #99,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 2,English Exercise #100,What is 'Banana' in Japanese?,バナナ,,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 1,Science Exercise #101,What is 'Cat' in Japanese?,_{猫}_(_ねこ_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 1,Kanji Exercise #102,How do you read _{二}_(_に_)?,Two,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 2,Science Exercise #103,What is 'Moon' in Japanese?,_{月}_(_つき_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 2,Science Exercise #104,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 1,English Exercise #105,What is 'Cat' in Japanese?,_{猫}_(_ねこ_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 1,Science Exercise #106,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 1,Unit 2,Arithmetic Exercise #107,What is |4/4| + |4/3|?,|28/12|,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 2,Science Exercise #108,What is 'Banana' in Japanese?,バナナ,,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 1,Science Exercise #109,What is 'Banana' in Japanese?,バナナ,,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 1,Kanji Exercise #110,How do you read _{田}_(_た_)?,Rice Field,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 2,English Exercise #111,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 2,Science Exercise #112,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 1,Kanji Exercise #113,How do you read _{月}_(_つき_)?,Moon,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 1,Science Exercise #114,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 1,Unit 2,Arithmetic Exercise #115,What is 12 - 10?,2,2,1,3,0,6,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 2,Unit 2,Arithmetic Exercise #116,What is 14 - 10?,4,4,8,1,9,5,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 1,English Exercise #117,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 2,Unit 1,Arithmetic Exercise #118,What is 7 - 6?,1,1,0,6,5,2,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 2,English Exercise #119,What is 'Banana' in Japanese?,バナナ,,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 2,Unit 2,Arithmetic Exercise #120,What is |2/3| + |1/2|?,|7/6|,|7/6|,|6/7|,|3/6|,|4/2|,|6/5|,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 1,English Exercise #121,What is 'Banana' in Japanese?,バナナ,,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 1,Kanji Exercise #122,How do you read _{水}_(_みず_)?,Water,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 1,Unit 2,Arithmetic Exercise #123,What is |2/2| + |4/5|?,|18/10|,|18/10|,|5/7|,|6/9|,|4/8|,|9/10|,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 2,English Exercise #124,What is 'Moon' in Japanese?,_{月}_(_つき_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 1,English Exercise #125,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 2,Unit 1,Arithmetic Exercise #126,What is 9 - 1?,8,8,6,12,7,3,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 2,English Exercise #127,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 2,Kanji Exercise #128,How do you read _{月}_(_つき_)?,Moon,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 1,Science Exercise #129,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 1,Kanji Exercise #130,How do you read _{川}_(_かわ_)?,River,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 1,Unit 2,Arithmetic Exercise #131,What is 10 + 12?,22,22,18,25,24,21,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 2,Kanji Exercise #132,How do you read _{一}_(_いち_)?,One,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 1,Kanji Exercise #133,How do you read _{山}_(_やま_)?,Mountain,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 1,Science Exercise #134,What is 'Cat' in Japanese?,_{猫}_(_ねこ_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 2,Science Exercise #135,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 2,Science Exercise #136,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 1,English Exercise #137,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 1,Science Exercise #138,What is 'Moon' in Japanese?,_{月}_(_つき_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 2,Kanji Exercise #139,How do you read _{田}_(_た_)?,Rice Field,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 2,English Exercise #140,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 1,Science Exercise #141,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 1,Science Exercise #142,What is 'Banana' in Japanese?,バナナ,,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 2,English Exercise #143,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 2,English Exercise #144,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 1,English Exercise #145,What is 'Moon' in Japanese?,_{月}_(_つき_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 1,Kanji Exercise #146,How do you read _{三}_(_さん_)?,Three,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 2,Kanji Exercise #147,How do you read _{山}_(_やま_)?,Mountain,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 2,Science Exercise #148,What is 'Banana' in Japanese?,バナナ,,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 1,Unit 1,Arithmetic Exercise #149,What is |4/2| + |2/4|?,|20/8|,|20/8|,|5/5|,|5/2|,|1/7|,|9/4|,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 1,English Exercise #150,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 2,English Exercise #151,What is 'Cat' in Japanese?,_{猫}_(_ねこ_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 2,Science Exercise #152,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 1,Unit 1,Arithmetic Exercise #153,What is 13 - 8?,5,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 1,Kanji Exercise #154,How do you read _{水}_(_みず_)?,Water,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 2,Kanji Exercise #155,How do you read _{二}_(_に_)?,Two,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 2,Unit 2,Arithmetic Exercise #156,What is |3/3| + |2/2|?,|12/6|,|12/6|,|4/5|,|4/3|,|7/4|,|3/8|,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 1,Kanji Exercise #157,How do you read _{山}_(_やま_)?,Mountain,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 1,English Exercise #158,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 2,English Exercise #159,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 2,Kanji Exercise #160,How do you read _{田}_(_た_)?,Rice Field,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 1,Unit 1,Arithmetic Exercise #161,What is 10 - 5?,5,5,3,10,2,6,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 2,Unit 1,Arithmetic Exercise #162,What is |1/3| + |1/3|?,|6/9|,|6/9|,|9/4|,|10/8|,|7/6|,|1/8|,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 2,Kanji Exercise #163,How do you read _{山}_(_やま_)?,Mountain,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 2,Science Exercise #164,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 1,English Exercise #165,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 1,English Exercise #166,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 2,Kanji Exercise #167,How do you read _{月}_(_つき_)?,Moon,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 2,English Exercise #168,What is 'Cat' in Japanese?,_{猫}_(_ねこ_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 1,Kanji Exercise #169,How do you read _{三}_(_さん_)?,Three,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 1,English Exercise #170,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 2,English Exercise #171,What is 'Banana' in Japanese?,バナナ,,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 2,Science Exercise #172,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 1,English Exercise #173,What is 'Moon' in Japanese?,_{月}_(_つき_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 2,Unit 1,Arithmetic Exercise #174,What is |4/2| + |3/4|?,|22/8|,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 2,English Exercise #175,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 2,Science Exercise #176,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 1,Science Exercise #177,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 1,Kanji Exercise #178,How do you read _{山}_(_やま_)?,Mountain,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 1,Unit 2,Arithmetic Exercise #179,What is |4/2| + |1/3|?,|14/6|,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 2,Science Exercise #180,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 1,Science Exercise #181,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 1,Science Exercise #182,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 2,Science Exercise #183,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 2,Kanji Exercise #184,How do you read _{火}_(_ひ_)?,Fire,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 1,Kanji Exercise #185,How do you read _{田}_(_た_)?,Rice Field,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 1,Science Exercise #186,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 1,Unit 2,Arithmetic Exercise #187,What is |3/4| + |2/3|?,|17/12|,|17/12|,|1/4|,|5/7|,|3/4|,|10/5|,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 2,English Exercise #188,What is 'Cat' in Japanese?,_{猫}_(_ねこ_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 1,Science Exercise #189,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 1,Science Exercise #190,What is 'Moon' in Japanese?,_{月}_(_つき_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 2,Science Exercise #191,What is 'Banana' in Japanese?,バナナ,,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 2,Unit 2,Arithmetic Exercise #192,What is 9 + 9?,18,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 1,English Exercise #193,What is 'Moon' in Japanese?,_{月}_(_つき_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 1,Kanji Exercise #194,How do you read _{火}_(_ひ_)?,Fire,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 2,Science Exercise #195,What is 'Cat' in Japanese?,_{猫}_(_ねこ_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 2,Unit 2,Arithmetic Exercise #196,What is |1/2| + |2/3|?,|7/6|,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 1,English Exercise #197,What is 'Banana' in Japanese?,バナナ,,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 1,English Exercise #198,What is 'Banana' in Japanese?,バナナ,,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 2,Science Exercise #199,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 2,Science Exercise #200,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 1,Science Exercise #201,What is 'Cat' in Japanese?,_{猫}_(_ねこ_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 1,Science Exercise #202,What is 'Cat' in Japanese?,_{猫}_(_ねこ_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 2,Kanji Exercise #203,How do you read _{川}_(_かわ_)?,River,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 2,English Exercise #204,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 1,Unit 1,Arithmetic Exercise #205,What is 17 - 8?,9,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 1,Science Exercise #206,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 2,Kanji Exercise #207,How do you read _{田}_(_た_)?,Rice Field,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 2,Kanji Exercise #208,How do you read _{水}_(_みず_)?,Water,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 1,Unit 1,Arithmetic Exercise #209,What is |2/5| + |3/2|?,|19/10|,|19/10|,|10/8|,|2/10|,|6/4|,|6/2|,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 2,Unit 1,Arithmetic Exercise #210,What is |4/4| + |1/5|?,|24/20|,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 2,Science Exercise #211,What is 'Moon' in Japanese?,_{月}_(_つき_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 2,English Exercise #212,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 1,English Exercise #213,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 2,Unit 1,Arithmetic Exercise #214,What is |2/5| + |1/2|?,|9/10|,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 1,Unit 2,Arithmetic Exercise #215,What is |4/5| + |2/2|?,|18/10|,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 2,Unit 2,Arithmetic Exercise #216,What is |1/4| + |1/4|?,|8/16|,|8/16|,|6/8|,|4/9|,|7/5|,|5/4|,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 1,Science Exercise #217,What is 'Moon' in Japanese?,_{月}_(_つき_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 1,Science Exercise #218,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 2,Science Exercise #219,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 2,Unit 2,Arithmetic Exercise #220,What is |3/5| + |2/3|?,|19/15|,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 1,Science Exercise #221,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 1,Kanji Exercise #222,How do you read _{火}_(_ひ_)?,Fire,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 2,English Exercise #223,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 2,English Exercise #224,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 1,Kanji Exercise #225,How do you read _{川}_(_かわ_)?,River,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 1,English Exercise #226,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 2,Science Exercise #227,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 2,Science Exercise #228,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 1,Unit 1,Arithmetic Exercise #229,What is |3/2| + |2/5|?,|19/10|,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 1,Kanji Exercise #230,How do you read _{水}_(_みず_)?,Water,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 2,Science Exercise #231,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 2,Unit 2,Arithmetic Exercise #232,What is |2/2| + |2/5|?,|14/10|,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 1,Kanji Exercise #233,How do you read _{一}_(_いち_)?,One,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 1,Science Exercise #234,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 2,Science Exercise #235,What is 'Moon' in Japanese?,_{月}_(_つき_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 2,Unit 2,Arithmetic Exercise #236,What is 15 - 5?,10,10,15,13,11,14,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 1,Unit 1,Arithmetic Exercise #237,What is |3/2| + |1/2|?,|8/4|,|8/4|,|5/3|,|4/8|,|1/5|,|3/6|,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 2,Unit 1,Arithmetic Exercise #238,What is 12 + 7?,19,19,14,24,16,18,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 1,Unit 2,Arithmetic Exercise #239,What is |2/3| + |3/4|?,|17/12|,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 2,Unit 2,Arithmetic Exercise #240,What is 13 + 6?,19,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 1,English Exercise #241,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 1,Kanji Exercise #242,How do you read _{田}_(_た_)?,Rice Field,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 2,English Exercise #243,What is 'Cat' in Japanese?,_{猫}_(_ねこ_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 2,Kanji Exercise #244,How do you read _{日}_(_ひ_)?,Sun,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 1,Unit 1,Arithmetic Exercise #245,What is |2/4| + |4/5|?,|26/20|,|26/20|,|2/8|,|2/6|,|9/3|,|7/3|,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 2,Unit 1,Arithmetic Exercise #246,What is |2/2| + |1/2|?,|6/4|,|6/4|,|2/9|,|5/8|,|6/7|,|10/3|,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 1,Unit 2,Arithmetic Exercise #247,What is |3/3| + |3/5|?,|24/15|,|24/15|,|9/2|,|7/3|,|9/7|,|5/5|,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 2,English Exercise #248,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 1,Kanji Exercise #249,How do you read _{一}_(_いち_)?,One,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 1,Science Exercise #250,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 2,Kanji Exercise #251,How do you read _{田}_(_た_)?,Rice Field,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 2,English Exercise #252,What is 'Moon' in Japanese?,_{月}_(_つき_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 1,English Exercise #253,What is 'Cat' in Japanese?,_{猫}_(_ねこ_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 2,Unit 1,Arithmetic Exercise #254,What is 17 + 1?,18,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 2,Science Exercise #255,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 2,Unit 2,Arithmetic Exercise #256,What is 4 - 1?,3,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 1,Unit 1,Arithmetic Exercise #257,What is |1/5| + |3/3|?,|18/15|,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 1,Science Exercise #258,What is 'Moon' in Japanese?,_{月}_(_つき_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 1,Unit 2,Arithmetic Exercise #259,What is |4/4| + |3/3|?,|24/12|,|24/12|,|7/7|,|7/6|,|1/6|,|1/7|,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 2,Unit 2,Arithmetic Exercise #260,What is |2/2| + |1/4|?,|10/8|,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 1,Kanji Exercise #261,How do you read _{水}_(_みず_)?,Water,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 1,Kanji Exercise #262,How do you read _{火}_(_ひ_)?,Fire,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 2,Kanji Exercise #263,How do you read _{水}_(_みず_)?,Water,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 2,Kanji Exercise #264,How do you read _{火}_(_ひ_)?,Fire,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 1,Science Exercise #265,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 1,English Exercise #266,What is 'Banana' in Japanese?,バナナ,,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 1,Unit 2,Arithmetic Exercise #267,What is 17 + 14?,31,31,34,36,35,29,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 2,English Exercise #268,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 1,Unit 1,Arithmetic Exercise #269,What is 19 - 10?,9,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 1,English Exercise #270,What is 'Banana' in Japanese?,バナナ,,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 1,Unit 2,Arithmetic Exercise #271,What is 2 + 19?,21,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 2,English Exercise #272,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 1,English Exercise #273,What is 'Cat' in Japanese?,_{猫}_(_ねこ_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 1,English Exercise #274,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 2,Kanji Exercise #275,How do you read _{月}_(_つき_)?,Moon,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 2,English Exercise #276,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 1,Kanji Exercise #277,How do you read _{三}_(_さん_)?,Three,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 2,Unit 1,Arithmetic Exercise #278,What is 5 + 12?,17,17,22,14,15,20,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 2,Science Exercise #279,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 2,Unit 2,Arithmetic Exercise #280,What is 1 + 6?,7,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 1,Science Exercise #281,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 1,English Exercise #282,What is 'Cat' in Japanese?,_{猫}_(_ねこ_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 2,Science Exercise #283,What is 'Banana' in Japanese?,バナナ,,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 2,Unit 2,Arithmetic Exercise #284,What is |4/5| + |3/4|?,|31/20|,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 1,Kanji Exercise #285,How do you read _{火}_(_ひ_)?,Fire,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 1,English Exercise #286,What is 'Moon' in Japanese?,_{月}_(_つき_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 2,Kanji Exercise #287,How do you read _{日}_(_ひ_)?,Sun,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 2,Kanji Exercise #288,How do you read _{一}_(_いち_)?,One,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 1,Unit 1,Arithmetic Exercise #289,What is 15 - 4?,11,11,15,9,10,12,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 1,Science Exercise #290,What is 'Cat' in Japanese?,_{猫}_(_ねこ_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 1,Unit 2,Arithmetic Exercise #291,What is 16 + 13?,29,29,32,31,28,30,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 2,English Exercise #292,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 1,Kanji Exercise #293,How do you read _{水}_(_みず_)?,Water,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 1,English Exercise #294,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 1,Unit 2,Arithmetic Exercise #295,What is 13 - 1?,12,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 2,Kanji Exercise #296,How do you read _{一}_(_いち_)?,One,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 1,Kanji Exercise #297,How do you read _{三}_(_さん_)?,Three,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 1,English Exercise #298,What is 'Moon' in Japanese?,_{月}_(_つき_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 2,Kanji Exercise #299,How do you read _{二}_(_に_)?,Two,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 2,Science Exercise #300,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 1,Kanji Exercise #301,How do you read _{月}_(_つき_)?,Moon,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 1,Science Exercise #302,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 1,Unit 2,Arithmetic Exercise #303,What is |1/4| + |3/5|?,|17/20|,|17/20|,|4/5|,|6/6|,|1/9|,|1/2|,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 2,English Exercise #304,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 1,Science Exercise #305,What is 'Moon' in Japanese?,_{月}_(_つき_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 1,Kanji Exercise #306,How do you read _{火}_(_ひ_)?,Fire,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 1,Unit 2,Arithmetic Exercise #307,What is |3/4| + |3/3|?,|21/12|,|21/12|,|4/5|,|8/3|,|6/4|,|7/3|,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 2,Kanji Exercise #308,How do you read _{月}_(_つき_)?,Moon,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 1,Kanji Exercise #309,How do you read _{田}_(_た_)?,Rice Field,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 2,Unit 1,Arithmetic Exercise #310,What is |1/3| + |2/3|?,|9/9|,|9/9|,|4/9|,|1/6|,|4/5|,|1/10|,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 2,English Exercise #311,What is 'Cat' in Japanese?,_{猫}_(_ねこ_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 2,Kanji Exercise #312,How do you read _{日}_(_ひ_)?,Sun,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 1,Science Exercise #313,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 1,Science Exercise #314,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 1,Unit 2,Arithmetic Exercise #315,What is 7 - 3?,4,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 2,English Exercise #316,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 1,English Exercise #317,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 1,Kanji Exercise #318,How do you read _{山}_(_やま_)?,Mountain,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 2,Science Exercise #319,What is 'Moon' in Japanese?,_{月}_(_つき_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 2,Science Exercise #320,What is 'Moon' in Japanese?,_{月}_(_つき_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 1,English Exercise #321,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 1,Kanji Exercise #322,How do you read _{月}_(_つき_)?,Moon,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 1,Unit 2,Arithmetic Exercise #323,What is 13 - 7?,6,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 2,Kanji Exercise #324,How do you read _{三}_(_さん_)?,Three,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 1,English Exercise #325,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 1,Kanji Exercise #326,How do you read _{月}_(_つき_)?,Moon,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 2,Kanji Exercise #327,How do you read _{山}_(_やま_)?,Mountain,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 2,Unit 2,Arithmetic Exercise #328,What is |4/5| + |1/2|?,|13/10|,|13/10|,|7/6|,|2/2|,|8/7|,|10/8|,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 1,English Exercise #329,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 1,Science Exercise #330,What is 'Cat' in Japanese?,_{猫}_(_ねこ_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 2,Science Exercise #331,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 2,Science Exercise #332,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 1,English Exercise #333,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 1,Kanji Exercise #334,How do you read _{三}_(_さん_)?,Three,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 2,Science Exercise #335,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 2,Unit 2,Arithmetic Exercise #336,What is |4/4| + |4/3|?,|28/12|,|28/12|,|2/6|,|2/9|,|4/8|,|6/3|,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 1,Science Exercise #337,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 1,Kanji Exercise #338,How do you read _{日}_(_ひ_)?,Sun,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 1,Unit 2,Arithmetic Exercise #339,What is |2/5| + |4/4|?,|28/20|,|28/20|,|3/4|,|7/6|,|4/6|,|3/7|,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 2,English Exercise #340,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 1,English Exercise #341,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 1,Science Exercise #342,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 1,Unit 2,Arithmetic Exercise #343,What is |4/2| + |4/4|?,|24/8|,|24/8|,|3/5|,|7/10|,|2/7|,|3/6|,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 2,Kanji Exercise #344,How do you read _{山}_(_やま_)?,Mountain,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 1,Kanji Exercise #345,How do you read _{山}_(_やま_)?,Mountain,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 1,Science Exercise #346,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 2,Science Exercise #347,What is 'Moon' in Japanese?,_{月}_(_つき_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 2,Science Exercise #348,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 1,Kanji Exercise #349,How do you read _{月}_(_つき_)?,Moon,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 1,Science Exercise #350,What is 'Cat' in Japanese?,_{猫}_(_ねこ_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 2,Science Exercise #351,What is 'Banana' in Japanese?,バナナ,,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 2,Science Exercise #352,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 1,Science Exercise #353,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 1,Science Exercise #354,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 2,English Exercise #355,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 2,Unit 2,Arithmetic Exercise #356,What is |4/3| + |3/4|?,|25/12|,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 1,English Exercise #357,What is 'Moon' in Japanese?,_{月}_(_つき_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 1,English Exercise #358,What is 'Moon' in Japanese?,_{月}_(_つき_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 2,Kanji Exercise #359,How do you read _{三}_(_さん_)?,Three,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 2,Unit 2,Arithmetic Exercise #360,What is |1/3| + |2/4|?,|10/12|,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 1,English Exercise #361,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 1,English Exercise #362,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 2,Science Exercise #363,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 2,Unit 2,Arithmetic Exercise #364,What is 3 + 4?,7,7,9,11,10,3,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 1,Unit 1,Arithmetic Exercise #365,What is 8 + 20?,28,28,25,31,26,33,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 1,Science Exercise #366,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 2,Science Exercise #367,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 2,Science Exercise #368,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 1,Kanji Exercise #369,How do you read _{山}_(_やま_)?,Mountain,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 1,English Exercise #370,What is 'Moon' in Japanese?,_{月}_(_つき_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 1,Unit 2,Arithmetic Exercise #371,What is |1/2| + |2/3|?,|7/6|,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 2,Science Exercise #372,What is 'Moon' in Japanese?,_{月}_(_つき_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 1,Unit 1,Arithmetic Exercise #373,What is |3/4| + |1/3|?,|13/12|,|13/12|,|4/9|,|5/3|,|10/10|,|10/9|,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 1,Kanji Exercise #374,How do you read _{二}_(_に_)?,Two,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 1,Unit 2,Arithmetic Exercise #375,What is 11 + 6?,17,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 2,Unit 2,Arithmetic Exercise #376,What is 16 + 3?,19,19,18,17,14,15,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 1,English Exercise #377,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 1,English Exercise #378,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 2,Kanji Exercise #379,How do you read _{田}_(_た_)?,Rice Field,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 2,Kanji Exercise #380,How do you read _{月}_(_つき_)?,Moon,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 1,Kanji Exercise #381,How do you read _{火}_(_ひ_)?,Fire,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 1,Kanji Exercise #382,How do you read _{田}_(_た_)?,Rice Field,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 2,English Exercise #383,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 2,Unit 2,Arithmetic Exercise #384,What is |1/3| + |2/4|?,|10/12|,|10/12|,|8/8|,|10/2|,|7/8|,|1/9|,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 1,Science Exercise #385,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 1,Kanji Exercise #386,How do you read _{三}_(_さん_)?,Three,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 1,Unit 2,Arithmetic Exercise #387,What is |1/3| + |3/5|?,|14/15|,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 2,English Exercise #388,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 1,Unit 1,Arithmetic Exercise #389,What is 15 + 10?,25,25,26,27,28,24,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 1,Kanji Exercise #390,How do you read _{日}_(_ひ_)?,Sun,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 2,Kanji Exercise #391,How do you read _{川}_(_かわ_)?,River,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 2,Science Exercise #392,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 1,English Exercise #393,What is 'Banana' in Japanese?,バナナ,,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 1,Kanji Exercise #394,How do you read _{日}_(_ひ_)?,Sun,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 2,Science Exercise #395,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 2,Unit 2,Arithmetic Exercise #396,What is 13 - 9?,4,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 1,English Exercise #397,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 1,English Exercise #398,What is 'Moon' in Japanese?,_{月}_(_つき_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 1,Unit 2,Arithmetic Exercise #399,What is |2/5| + |1/4|?,|13/20|,|13/20|,|5/3|,|3/3|,|9/8|,|6/9|,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 2,Unit 2,Arithmetic Exercise #400,What is 14 - 10?,4,4,2,8,5,3,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 1,Kanji Exercise #401,How do you read _{山}_(_やま_)?,Mountain,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 2,Unit 1,Arithmetic Exercise #402,What is |2/2| + |3/4|?,|14/8|,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 1,Unit 2,Arithmetic Exercise #403,What is 12 + 5?,17,17,16,22,18,14,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 2,English Exercise #404,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 1,Science Exercise #405,What is 'Banana' in Japanese?,バナナ,,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 1,Kanji Exercise #406,How do you read _{一}_(_いち_)?,One,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 2,Science Exercise #407,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 2,Kanji Exercise #408,How do you read _{火}_(_ひ_)?,Fire,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 1,English Exercise #409,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 2,Unit 1,Arithmetic Exercise #410,What is |1/3| + |3/2|?,|11/6|,|11/6|,|6/3|,|3/2|,|7/10|,|6/2|,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 1,Unit 2,Arithmetic Exercise #411,What is |4/2| + |1/4|?,|18/8|,|18/8|,|2/4|,|7/6|,|1/6|,|8/3|,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 2,Kanji Exercise #412,How do you read _{田}_(_た_)?,Rice Field,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 1,Science Exercise #413,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 1,English Exercise #414,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 2,Science Exercise #415,What is 'Cat' in Japanese?,_{猫}_(_ねこ_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 2,Science Exercise #416,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 1,Kanji Exercise #417,How do you read _{水}_(_みず_)?,Water,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 1,English Exercise #418,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 2,English Exercise #419,What is 'Banana' in Japanese?,バナナ,,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 2,Science Exercise #420,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 1,Kanji Exercise #421,How do you read _{三}_(_さん_)?,Three,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 1,Kanji Exercise #422,How do you read _{田}_(_た_)?,Rice Field,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 2,English Exercise #423,What is 'Cat' in Japanese?,_{猫}_(_ねこ_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 2,Science Exercise #424,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 1,Science Exercise #425,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 1,Science Exercise #426,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 2,Science Exercise #427,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 2,Science Exercise #428,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 1,English Exercise #429,What is 'Moon' in Japanese?,_{月}_(_つき_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 1,Science Exercise #430,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 2,Science Exercise #431,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 2,Unit 2,Arithmetic Exercise #432,What is 18 + 16?,34,34,31,30,35,39,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 1,Kanji Exercise #433,How do you read _{山}_(_やま_)?,Mountain,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 1,Science Exercise #434,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 1,Unit 2,Arithmetic Exercise #435,What is |3/3| + |1/4|?,|15/12|,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 2,Unit 2,Arithmetic Exercise #436,What is |4/4| + |1/4|?,|20/16|,|20/16|,|8/5|,|9/10|,|3/3|,|4/3|,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 1,Science Exercise #437,What is 'Banana' in Japanese?,バナナ,,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 1,English Exercise #438,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 2,English Exercise #439,What is 'Cat' in Japanese?,_{猫}_(_ねこ_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 2,Unit 2,Arithmetic Exercise #440,What is |2/3| + |3/2|?,|13/6|,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 1,Unit 1,Arithmetic Exercise #441,What is |2/4| + |4/3|?,|22/12|,|22/12|,|9/7|,|9/4|,|3/4|,|5/3|,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 1,English Exercise #442,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 2,Kanji Exercise #443,How do you read _{田}_(_た_)?,Rice Field,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 2,Kanji Exercise #444,How do you read _{日}_(_ひ_)?,Sun,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 1,English Exercise #445,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 1,Science Exercise #446,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 2,English Exercise #447,What is 'Moon' in Japanese?,_{月}_(_つき_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 2,Unit 2,Arithmetic Exercise #448,What is 20 - 14?,6,6,9,5,11,7,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 1,Kanji Exercise #449,How do you read _{三}_(_さん_)?,Three,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 1,English Exercise #450,What is 'Banana' in Japanese?,バナナ,,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 1,Unit 2,Arithmetic Exercise #451,What is |2/3| + |3/5|?,|19/15|,|19/15|,|6/8|,|4/7|,|3/8|,|10/6|,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 2,Unit 2,Arithmetic Exercise #452,What is |1/2| + |2/4|?,|8/8|,|8/8|,|6/10|,|6/2|,|3/9|,|4/3|,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 1,Unit 1,Arithmetic Exercise #453,What is |2/2| + |3/2|?,|10/4|,|10/4|,|2/3|,|10/3|,|3/10|,|3/5|,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 1,English Exercise #454,What is 'Banana' in Japanese?,バナナ,,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 2,Kanji Exercise #455,How do you read _{川}_(_かわ_)?,River,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 2,Unit 2,Arithmetic Exercise #456,What is 13 - 1?,12,12,17,11,13,8,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 1,Science Exercise #457,What is 'Cat' in Japanese?,_{猫}_(_ねこ_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 1,Science Exercise #458,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 2,Kanji Exercise #459,How do you read _{一}_(_いち_)?,One,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 2,Science Exercise #460,What is 'Banana' in Japanese?,バナナ,,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 1,English Exercise #461,What is 'Cat' in Japanese?,_{猫}_(_ねこ_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 1,Kanji Exercise #462,How do you read _{月}_(_つき_)?,Moon,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 2,Kanji Exercise #463,How do you read _{一}_(_いち_)?,One,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 2,English Exercise #464,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 1,Kanji Exercise #465,How do you read _{田}_(_た_)?,Rice Field,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 1,English Exercise #466,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 1,Unit 2,Arithmetic Exercise #467,What is 5 + 12?,17,17,21,13,12,16,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 2,English Exercise #468,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 1,Science Exercise #469,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 1,English Exercise #470,What is 'Moon' in Japanese?,_{月}_(_つき_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 2,Science Exercise #471,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 2,Kanji Exercise #472,How do you read _{月}_(_つき_)?,Moon,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 1,English Exercise #473,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 1,Kanji Exercise #474,How do you read _{川}_(_かわ_)?,River,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 1,Unit 2,Science Exercise #475,What is 'Banana' in Japanese?,バナナ,,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 2,Unit 2,Arithmetic Exercise #476,What is 14 - 10?,4,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 1,English Exercise #477,What is 'Moon' in Japanese?,_{月}_(_つき_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 1,English Exercise #478,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 1,Unit 2,Arithmetic Exercise #479,What is 19 - 12?,7,7,12,11,8,5,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 2,Unit 2,Arithmetic Exercise #480,What is |1/4| + |4/2|?,|18/8|,|18/8|,|7/10|,|10/5|,|9/10|,|7/3|,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 1,Kanji Exercise #481,How do you read _{田}_(_た_)?,Rice Field,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 2,Unit 1,Arithmetic Exercise #482,What is 6 - 5?,1,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Arithmetic,Grade 1,Unit 2,Arithmetic Exercise #483,What is |1/4| + |4/5|?,|21/20|,,,,,,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 2,English Exercise #484,What is 'Moon' in Japanese?,_{月}_(_つき_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 1,English Exercise #485,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 1,English Exercise #486,What is 'Moon' in Japanese?,_{月}_(_つき_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 2,Kanji Exercise #487,How do you read _{三}_(_さん_)?,Three,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 2,Kanji Exercise #488,How do you read _{一}_(_いち_)?,One,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 1,English Exercise #489,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 1,Science Exercise #490,What is 'Dog' in Japanese?,_{犬}_(_いぬ_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 2,English Exercise #491,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 2,Science Exercise #492,What is 'Banana' in Japanese?,バナナ,,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 1,Unit 1,Arithmetic Exercise #493,What is 11 + 3?,14,14,11,12,9,15,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 1,Kanji Exercise #494,How do you read _{火}_(_ひ_)?,Fire,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 1,Unit 2,Kanji Exercise #495,How do you read _{月}_(_つき_)?,Moon,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,1,Kanji,Grade 2,Unit 2,Kanji Exercise #496,How do you read _{一}_(_いち_)?,One,,,,,,Practice session for Kanji.,Keep up the good work!,0,0,,,,
+,2,Arithmetic,Grade 1,Unit 1,Arithmetic Exercise #497,What is 16 - 4?,12,12,9,10,11,14,Practice session for Arithmetic.,Keep up the good work!,0,0,,,,
+,1,English,Grade 2,Unit 1,English Exercise #498,What is 'Sun' in Japanese?,_{太陽}_(_たいよう_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,English,Grade 1,Unit 2,English Exercise #499,What is 'Apple' in Japanese?,_{林檎}_(_りんご_),,,,,,Practice session for English.,Keep up the good work!,0,0,,,,
+,1,Science,Grade 2,Unit 2,Science Exercise #500,What is 'Moon' in Japanese?,_{月}_(_つき_),,,,,,Practice session for Science.,Keep up the good work!,0,0,,,,

@@ -28,7 +28,7 @@
   "startPractice": "練習を始める",
   "startPracticeSubtitle": "パーソナライズされたカードプールに戻りましょう。",
   "subjects": "科目",
-  "subjectsSubtitle": "カテゴリとユニットでカードを閲覧。",
+  "subjectsSubtitle": "科目とカテゴリでカードを閲覧。",
   "cardMaintenance": "カードメンテナンス",
   "cardMaintenanceSubtitle": "フラッシュカードの管理、CSVのインポート・エクスポート。",
   "settingsSubtitle": "カスタマイズ、外観、データ。",
@@ -137,6 +137,9 @@
   "autoPlayAudio": "自動再生",
   "autoPlayAudioSub": "カードを自動的に音声で読み上げます",
   "premiumFeature": "プレミアム機能",
-  "premiumRequiredMsg": "すべての科目と機能を利用するには、プレミアム版にアップグレードしてください！"
+  "premiumRequiredMsg": "すべての科目と機能を利用するには、プレミアム版にアップグレードしてください！",
+  "categoryLabel": "カテゴリ",
+  "selectCategoryFirst": "まずカテゴリを選択してください",
+  "loadingAudioEngine": "音声エンジンを起動中..."
 }
 

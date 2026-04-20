@@ -5,14 +5,30 @@ import '../../data/providers/stats_provider.dart';
 import '../../data/providers/settings_provider.dart';
 import '../../l10n/app_localizations.dart';
 import '../widgets/ad_banner_widget.dart';
+import '../../core/services/tts_service.dart';
 
-class HomeScreen extends ConsumerWidget {
+class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends ConsumerState<HomeScreen> {
+  @override
+  void initState() {
+    super.initState();
+    // Start pre-warming the TTS engine as soon as the app reaches Home
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      ref.read(ttsServiceProvider).warmUp();
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final statsAsync = ref.watch(globalStatsProvider);
     final l10n = AppLocalizations.of(context)!;
+    final isTtsLoading = ref.watch(ttsLoadingProvider);
 
     return Scaffold(
       body: SafeArea(
@@ -25,8 +41,8 @@ class HomeScreen extends ConsumerWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Header with Language Switcher
-                _buildHeader(context, ref, l10n),
+                // Header with Language Switcher and TTS Loading State
+                _buildHeader(context, ref, l10n, isTtsLoading),
                 const SizedBox(height: 32),
   
                 // Global Progress Bar (Top)
@@ -78,92 +94,124 @@ class HomeScreen extends ConsumerWidget {
     );
   }
 
-  Widget _buildHeader(BuildContext context, WidgetRef ref, AppLocalizations l10n) {
+  Widget _buildHeader(BuildContext context, WidgetRef ref, AppLocalizations l10n, bool isTtsLoading) {
     final currentLocale = ref.watch(persistedLocaleProvider);
 
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // Greeting
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              l10n.greeting,
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.grey[600],
-                letterSpacing: 1.2,
+        if (isTtsLoading)
+          Padding(
+            padding: const EdgeInsets.only(bottom: 12.0),
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+              decoration: BoxDecoration(
+                color: Colors.blue.withAlpha(30),
+                borderRadius: BorderRadius.circular(20),
+                border: Border.all(color: Colors.blue.withAlpha(50)),
               ),
-            ),
-            Text(
-              l10n.yourLearning,
-              style: const TextStyle(
-                fontSize: 32,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ],
-        ),
-        // Language Switcher
-        Container(
-          decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.primaryContainer.withAlpha(100),
-            borderRadius: BorderRadius.circular(12),
-          ),
-          child: PopupMenuButton<String>(
-            initialValue: currentLocale,
-            onSelected: (code) {
-              ref.read(persistedLocaleProvider.notifier).setLocale(code);
-            },
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-            offset: const Offset(0, 40),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const Icon(Icons.language_rounded, size: 20),
-                  const SizedBox(width: 6),
+                  const SizedBox(
+                    width: 12,
+                    height: 12,
+                    child: CircularProgressIndicator(strokeWidth: 2, color: Colors.blue),
+                  ),
+                  const SizedBox(width: 8),
                   Text(
-                    currentLocale == 'ja' ? 'JA' : 'EN',
-                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+                    l10n.loadingAudioEngine,
+                    style: const TextStyle(fontSize: 12, color: Colors.blue, fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
             ),
-            itemBuilder: (context) => [
-              PopupMenuItem(
-                value: 'en',
-                child: Row(
-                  children: [
-                    Icon(
-                      currentLocale == 'en' ? Icons.check_circle : Icons.circle_outlined,
-                      size: 18,
-                      color: currentLocale == 'en' ? Theme.of(context).colorScheme.primary : Colors.grey,
-                    ),
-                    const SizedBox(width: 10),
-                    const Text('English'),
-                  ],
-                ),
-              ),
-              PopupMenuItem(
-                value: 'ja',
-                child: Row(
-                  children: [
-                    Icon(
-                      currentLocale == 'ja' ? Icons.check_circle : Icons.circle_outlined,
-                      size: 18,
-                      color: currentLocale == 'ja' ? Theme.of(context).colorScheme.primary : Colors.grey,
-                    ),
-                    const SizedBox(width: 10),
-                    const Text('日本語'),
-                  ],
-                ),
-              ),
-            ],
           ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Greeting
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  l10n.greeting,
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.grey[600],
+                    letterSpacing: 1.2,
+                  ),
+                ),
+                Text(
+                  l10n.yourLearning,
+                  style: const TextStyle(
+                    fontSize: 32,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+            // Language Switcher
+            Container(
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.primaryContainer.withAlpha(100),
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: PopupMenuButton<String>(
+                initialValue: currentLocale,
+                onSelected: (code) {
+                  ref.read(persistedLocaleProvider.notifier).setLocale(code);
+                },
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                offset: const Offset(0, 40),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Icon(Icons.language_rounded, size: 20),
+                      const SizedBox(width: 6),
+                      Text(
+                        currentLocale == 'ja' ? 'JA' : 'EN',
+                        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+                      ),
+                    ],
+                  ),
+                ),
+                itemBuilder: (context) => [
+                  PopupMenuItem(
+                    value: 'en',
+                    child: Row(
+                      children: [
+                        Icon(
+                          currentLocale == 'en' ? Icons.check_circle : Icons.circle_outlined,
+                          size: 18,
+                          color: currentLocale == 'en' ? Theme.of(context).colorScheme.primary : Colors.grey,
+                        ),
+                        const SizedBox(width: 10),
+                        const Text('English'),
+                      ],
+                    ),
+                  ),
+                  PopupMenuItem(
+                    value: 'ja',
+                    child: Row(
+                      children: [
+                        Icon(
+                          currentLocale == 'ja' ? Icons.check_circle : Icons.circle_outlined,
+                          size: 18,
+                          color: currentLocale == 'ja' ? Theme.of(context).colorScheme.primary : Colors.grey,
+                        ),
+                        const SizedBox(width: 10),
+                        const Text('日本語'),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ],
     );

@@ -78,7 +78,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get subjects => 'Subjects';
 
   @override
-  String get subjectsSubtitle => 'Browse cards by category and unit.';
+  String get subjectsSubtitle => 'Browse cards by subject and category.';
 
   @override
   String get cardMaintenance => 'Card Maintenance';
@@ -354,4 +354,13 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get premiumRequiredMsg =>
       'Unlock all subjects and features by upgrading to the Premium version!';
+
+  @override
+  String get categoryLabel => 'Category';
+
+  @override
+  String get selectCategoryFirst => 'Please select a category first';
+
+  @override
+  String get loadingAudioEngine => 'Loading audio engine...';
 }

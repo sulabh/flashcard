@@ -31,7 +31,7 @@
   "startPractice": "Start Practice",
   "startPracticeSubtitle": "Dive back into your personalized card pool.",
   "subjects": "Subjects",
-  "subjectsSubtitle": "Browse cards by category and unit.",
+  "subjectsSubtitle": "Browse cards by subject and category.",
   "cardMaintenance": "Card Maintenance",
   "cardMaintenanceSubtitle": "Manage flashcards, import, and export CSV data.",
   "settingsSubtitle": "Customization, appearance, and data.",
@@ -165,5 +165,8 @@
   "autoPlayAudio": "Auto-play Audio",
   "autoPlayAudioSub": "Automatically read cards aloud",
   "premiumFeature": "Premium Feature",
-  "premiumRequiredMsg": "Unlock all subjects and features by upgrading to the Premium version!"
+  "premiumRequiredMsg": "Unlock all subjects and features by upgrading to the Premium version!",
+  "categoryLabel": "Category",
+  "selectCategoryFirst": "Please select a category first",
+  "loadingAudioEngine": "Loading audio engine..."
 }

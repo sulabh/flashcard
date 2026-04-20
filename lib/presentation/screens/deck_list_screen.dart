@@ -12,7 +12,7 @@ class DeckListScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final cardsAsync = ref.watch(filteredFlashcardsProvider);
     final subject = ref.watch(selectedSubjectProvider);
-    final age = ref.watch(selectedAgeGroupProvider);
+    final category = ref.watch(selectedCategoryProvider);
     final unit = ref.watch(selectedUnitProvider);
     final l10n = AppLocalizations.of(context)!;
     final theme = Theme.of(context);
@@ -29,12 +29,13 @@ class DeckListScreen extends ConsumerWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text('${subject ?? ''}'),
-            Text(
-              '${age != null ? l10n.ageLabel(age) : ''}, ${localizeUnit(unit)}',
-              style: theme.textTheme.bodySmall?.copyWith(
-                color: theme.colorScheme.onSurface.withAlpha(160),
+            if (category != null || unit != null)
+              Text(
+                '${category ?? ''}${category != null && unit != null ? ', ' : ''}${localizeUnit(unit)}',
+                style: theme.textTheme.bodySmall?.copyWith(
+                  color: theme.colorScheme.onSurface.withAlpha(160),
+                ),
               ),
-            ),
           ],
         ),
         centerTitle: true,
@@ -109,7 +110,7 @@ class DeckListScreen extends ConsumerWidget {
                           ),
                         ),
                         title: AppFlashcardHtml(
-                          data: card.frontHtml,
+                          data: card.displayFront,
                         ),
                         children: [
                           const Divider(height: 1),
@@ -131,7 +132,7 @@ class DeckListScreen extends ConsumerWidget {
                                 ),
                                 const SizedBox(height: 8),
                                 AppFlashcardHtml(
-                                  data: card.backHtml,
+                                  data: card.displayBack,
                                 ),
                               ],
                             ),

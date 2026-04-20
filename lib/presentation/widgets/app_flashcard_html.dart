@@ -31,6 +31,11 @@ class AppFlashcardHtml extends StatelessWidget {
           margin: Margins.zero,
           lineHeight: LineHeight.number(1.6),
         ),
+        ".supplement": Style(
+          color: Colors.grey,
+          fontStyle: FontStyle.italic,
+          fontSize: FontSize(14.0),
+        ),
       },
     );
   }

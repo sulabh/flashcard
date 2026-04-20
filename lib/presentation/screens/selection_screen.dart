@@ -10,9 +10,9 @@ class SelectionScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final selectedAge = ref.watch(selectedAgeGroupProvider);
+    final selectedCategory = ref.watch(selectedCategoryProvider);
     final selectedUnit = ref.watch(selectedUnitProvider);
-    final ageGroupsAsync = ref.watch(availableAgeGroupsProvider);
+    final categoriesAsync = ref.watch(availableCategoriesProvider);
     final unitsAsync = ref.watch(availableUnitsProvider);
 
     final l10n = AppLocalizations.of(context)!;
@@ -35,21 +35,21 @@ class SelectionScreen extends ConsumerWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              _buildSectionTitle(l10n.ageGroup),
+              _buildSectionTitle(l10n.categoryLabel),
               const SizedBox(height: 12),
-              ageGroupsAsync.when(
-                data: (ages) {
-                  if (ages.isEmpty) return const Text('No age groups available');
+              categoriesAsync.when(
+                data: (categories) {
+                  if (categories.isEmpty) return const Text('No categories available');
                   return Wrap(
                     spacing: 16,
                     runSpacing: 16,
-                    children: ages.map((age) {
+                    children: categories.map((cat) {
                       return _buildOptionCard(
                         context: context,
-                        label: l10n.ageLabel(age),
-                        isSelected: selectedAge == age,
+                        label: cat,
+                        isSelected: selectedCategory == cat,
                         onTap: () {
-                          ref.read(selectedAgeGroupProvider.notifier).state = age;
+                          ref.read(selectedCategoryProvider.notifier).state = cat;
                           ref.read(selectedUnitProvider.notifier).state = null;
                         },
                       );
@@ -62,8 +62,8 @@ class SelectionScreen extends ConsumerWidget {
               const SizedBox(height: 32),
               _buildSectionTitle(l10n.unit),
               const SizedBox(height: 12),
-              if (selectedAge == null)
-                const Text('Please select an age group first', style: TextStyle(color: Colors.grey, fontStyle: FontStyle.italic))
+              if (selectedCategory == null)
+                Text(l10n.selectCategoryFirst, style: const TextStyle(color: Colors.grey, fontStyle: FontStyle.italic))
               else
                 unitsAsync.when(
                   data: (units) {
@@ -86,8 +86,8 @@ class SelectionScreen extends ConsumerWidget {
                 ),
               const Spacer(),
               ElevatedButton(
-                onPressed: (selectedAge != null && selectedUnit != null) 
-                    ? () => context.push('/deck')
+                onPressed: (selectedCategory != null && selectedUnit != null) 
+                    ? () => context.push(mode == 'maintenance' ? '/deck' : '/study')
                     : null,
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(vertical: 16),
@@ -97,7 +97,7 @@ class SelectionScreen extends ConsumerWidget {
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                 ),
                 child: Text(
-                  mode == 'maintenance' ? l10n.viewCards : l10n.nextCard,
+                  mode == 'maintenance' ? l10n.viewCards : l10n.startPractice,
                   style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ),

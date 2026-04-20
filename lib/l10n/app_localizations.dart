@@ -233,7 +233,7 @@ abstract class AppLocalizations {
   /// No description provided for @subjectsSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'Browse cards by category and unit.'**
+  /// **'Browse cards by subject and category.'**
   String get subjectsSubtitle;
 
   /// No description provided for @cardMaintenance.
@@ -733,6 +733,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Unlock all subjects and features by upgrading to the Premium version!'**
   String get premiumRequiredMsg;
+
+  /// No description provided for @categoryLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Category'**
+  String get categoryLabel;
+
+  /// No description provided for @selectCategoryFirst.
+  ///
+  /// In en, this message translates to:
+  /// **'Please select a category first'**
+  String get selectCategoryFirst;
+
+  /// No description provided for @loadingAudioEngine.
+  ///
+  /// In en, this message translates to:
+  /// **'Loading audio engine...'**
+  String get loadingAudioEngine;
 }
 
 class _AppLocalizationsDelegate

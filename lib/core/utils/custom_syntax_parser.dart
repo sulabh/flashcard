@@ -10,12 +10,13 @@ class CustomSyntaxParser {
     var result = input;
 
     // 1. Parse Furigana/Ruby syntax
-    // Pattern: _{base}_(_ruby_) or _{base}_(_ruby)_
+    // Pattern: _{base}_(_ruby_) or _{base}_(ruby)
+    // Matches: _{山}_(_やま_) , _{山}_(やま) , _{山 }_(やま)
     result = result.replaceAllMapped(
-      RegExp(r'_\{[ \t\n]*(.+?)[ \t\n]*\}_[ \t\n]*\([ \t\n]*_?[ \t\n]*(.+?)[ \t\n]*_?[ \t\n]*\)_?', dotAll: true),
+      RegExp(r'_\{[ \t\n]*(.+?)[ \t\n]*\}_[ \t\n]*\([ \t\n]*_?[ \t\n]*(.+?)[ \t\n]*_?[ \t\n]*\)', dotAll: true),
       (match) {
-        final base = match[1]!.trim();
-        final ruby = match[2]!.trim();
+        final base = match[1]!.trim().replaceAll('{', '').replaceAll('}', '');
+        final ruby = match[2]!.trim().replaceAll('{', '').replaceAll('}', '');
         return '<ruby>$base<rt>$ruby</rt></ruby>';
       },
     );

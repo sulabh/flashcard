@@ -93,7 +93,7 @@ class StudyController extends StateNotifier<StudyState> {
 
     final sessionChoices = sessionCards.map((card) {
       if (card.isMcq) {
-        return List<String>.from(card.choices)..shuffle();
+        return List<String>.from(card.mcqChoices)..shuffle();
       }
       return <String>[];
     }).toList();
@@ -161,7 +161,7 @@ class StudyController extends StateNotifier<StudyState> {
     final db = ref.read(databaseHelperProvider);
     
     for (final card in unstudiedCards) {
-      await db.updateFlashcardStats(card.id, card.repetitions + 1, card.correctCount);
+      await db.updateFlashcardStats(card.id, card.noOfTimesShown + 1, card.noOfTimesAttempted);
     }
     
     ref.invalidate(masteryStatsProvider);
@@ -178,7 +178,7 @@ class StudyController extends StateNotifier<StudyState> {
     final isCorrect = weight > 1; 
     
     final db = ref.read(databaseHelperProvider);
-    await db.updateFlashcardStats(card.id, card.repetitions + 1, card.correctCount + (isCorrect ? 1 : 0));
+    await db.updateFlashcardStats(card.id, card.noOfTimesShown + 1, card.noOfTimesAttempted + (isCorrect ? 1 : 0));
 
     ref.invalidate(masteryStatsProvider);
 
@@ -196,10 +196,10 @@ class StudyController extends StateNotifier<StudyState> {
     final card = state.currentCard;
     if (card == null || state.mcqSelectedOption != null) return;
 
-    final isCorrect = card.backHtml == option;
+    final isCorrect = card.correctAnswer == option;
     
     final db = ref.read(databaseHelperProvider);
-    await db.updateFlashcardStats(card.id, card.repetitions + 1, card.correctCount + (isCorrect ? 1 : 0));
+    await db.updateFlashcardStats(card.id, card.noOfTimesShown + 1, card.noOfTimesAttempted + (isCorrect ? 1 : 0));
 
     ref.invalidate(masteryStatsProvider);
 
@@ -235,7 +235,7 @@ class StudyController extends StateNotifier<StudyState> {
     } else if (state.skippedCards.isNotEmpty) {
       final retryCards = List<Flashcard>.from(state.skippedCards);
       final retryChoices = retryCards.map((card) {
-        if (card.isMcq) return List<String>.from(card.choices)..shuffle();
+        if (card.isMcq) return List<String>.from(card.mcqChoices)..shuffle();
         return <String>[];
       }).toList();
 
@@ -271,4 +271,3 @@ class StudyController extends StateNotifier<StudyState> {
 final studyControllerProvider = StateNotifierProvider<StudyController, StudyState>((ref) {
   return StudyController(ref);
 });
-

@@ -76,7 +76,7 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
     if (card == null) return;
     
     final localeCode = ref.read(persistedLocaleProvider);
-    final textToSpeak = isFlipped ? card.backHtml : card.frontHtml;
+    final textToSpeak = isFlipped ? card.displayBack : card.displayFront;
     
     ref.read(ttsServiceProvider).speak(textToSpeak, localeCode);
   }
@@ -220,7 +220,7 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
       child: Container(
         width: double.infinity,
-        padding: const EdgeInsets.all(24),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(24),
           gradient: LinearGradient(
@@ -282,17 +282,17 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             AppFlashcardHtml(
-              data: card.frontHtml,
+              data: card.displayFront,
               style: {
                 "body": Style(
-                  fontSize: FontSize(22.0), 
+                  fontSize: FontSize(18.0), 
                   textAlign: TextAlign.center, 
                   fontWeight: FontWeight.bold,
                   color: textColor,
                 )
               },
             ),
-            const SizedBox(height: 32),
+            const SizedBox(height: 16),
             ...state.currentChoices.map((option) => _buildMcqOption(option, state)),
           ],
         ),
@@ -310,7 +310,7 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               AppFlashcardHtml(
-                data: card.frontHtml,
+                data: card.displayFront,
                 style: {
                   "body": Style(
                     fontSize: FontSize(26.0), 
@@ -351,7 +351,7 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
           ],
   
           AppFlashcardHtml(
-            data: card.backHtml,
+            data: card.displayBack,
             style: {
               "body": Style(
                 fontSize: FontSize(28.0), 
@@ -414,7 +414,7 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
         : theme.dividerColor;
 
     return Padding(
-      padding: const EdgeInsets.only(bottom: 12.0),
+      padding: const EdgeInsets.only(bottom: 8.0),
       child: Material(
         color: baseColor,
         borderRadius: BorderRadius.circular(16),
@@ -423,7 +423,7 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
           onTap: isLocked ? null : () => ref.read(studyControllerProvider.notifier).selectMcqOption(option),
           borderRadius: BorderRadius.circular(16),
           child: Container(
-            padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
+            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
               border: Border.all(color: borderColor),
@@ -436,7 +436,7 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
                     textAlign: TextAlign.start,
                     style: {
                       "body": Style(
-                        fontSize: FontSize(16.0),
+                        fontSize: FontSize(15.0),
                         fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
                         color: theme.textTheme.bodyLarge?.color,
                         margin: Margins.zero,

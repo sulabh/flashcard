@@ -13,7 +13,7 @@ class SubjectScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final categoriesAsync = ref.watch(categoriesProvider);
+    final subjectsAsync = ref.watch(subjectsProvider);
     final l10n = AppLocalizations.of(context)!;
 
     // Refresh mastery stats when entering the screen
@@ -24,7 +24,7 @@ class SubjectScreen extends ConsumerWidget {
         title: Text(l10n.chooseSubject),
         centerTitle: true,
       ),
-      body: categoriesAsync.when(
+      body: subjectsAsync.when(
         data: (subjects) {
           if (subjects.isEmpty) {
             return const Center(child: Text('No subjects found. Please import data.'));
@@ -45,7 +45,7 @@ class SubjectScreen extends ConsumerWidget {
                 itemCount: subjects.length,
                 itemBuilder: (context, index) {
                   final name = subjects[index];
-                  final mastery = ref.watch(categoryMasteryProvider(name));
+                  final mastery = ref.watch(subjectMasteryProvider(name));
                   final masteryPercentage = (mastery * 100).toInt();
 
                   // Predefined icons and colors exactly like before
@@ -104,7 +104,7 @@ class SubjectScreen extends ConsumerWidget {
                       }
                       
                       ref.read(selectedSubjectProvider.notifier).state = name;
-                      ref.read(selectedAgeGroupProvider.notifier).state = null;
+                      ref.read(selectedCategoryProvider.notifier).state = null;
                       ref.read(selectedUnitProvider.notifier).state = null;
                       context.push('/selection?mode=$mode');
                     },

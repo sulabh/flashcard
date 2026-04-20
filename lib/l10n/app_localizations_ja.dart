@@ -77,7 +77,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get subjects => '科目';
 
   @override
-  String get subjectsSubtitle => 'カテゴリとユニットでカードを閲覧。';
+  String get subjectsSubtitle => '科目とカテゴリでカードを閲覧。';
 
   @override
   String get cardMaintenance => 'カードメンテナンス';
@@ -348,4 +348,13 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get premiumRequiredMsg => 'すべての科目と機能を利用するには、プレミアム版にアップグレードしてください！';
+
+  @override
+  String get categoryLabel => 'カテゴリ';
+
+  @override
+  String get selectCategoryFirst => 'まずカテゴリを選択してください';
+
+  @override
+  String get loadingAudioEngine => '音声エンジンを起動中...';
 }
