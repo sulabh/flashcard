@@ -169,5 +169,10 @@
   "categoryLabel": "Category",
   "selectCategoryFirst": "Please select a category first",
   "loadingAudioEngine": "Loading audio engine...",
-  "goBack": "Go Back"
+  "goBack": "Go Back",
+  "iDontKnow": "I don't know",
+  "yourSelection": "Your Selection",
+  "correctAnswerLabel": "Correct Answer",
+  "mcqCorrect": "CORRECT",
+  "mcqIncorrect": "INCORRECT"
 }

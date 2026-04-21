@@ -93,7 +93,11 @@ class StudyController extends StateNotifier<StudyState> {
 
     final sessionChoices = sessionCards.map((card) {
       if (card.isMcq) {
-        return List<String>.from(card.mcqChoices)..shuffle();
+        // Take 5 choices and shuffle them, then append the "I don't know" placeholder
+        final list = List<String>.from(card.mcqChoices)
+          ..shuffle()
+          ..take(5);
+        return [...list.take(5), '[[IDK]]'];
       }
       return <String>[];
     }).toList();

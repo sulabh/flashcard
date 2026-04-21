@@ -366,4 +366,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get goBack => 'Go Back';
+
+  @override
+  String get iDontKnow => 'I don\'t know';
+
+  @override
+  String get yourSelection => 'Your Selection';
+
+  @override
+  String get correctAnswerLabel => 'Correct Answer';
+
+  @override
+  String get mcqCorrect => 'CORRECT';
+
+  @override
+  String get mcqIncorrect => 'INCORRECT';
 }

@@ -63,11 +63,8 @@ class CsvHelper {
     List<List<dynamic>> rows = const CsvDecoder().convert(csvString);
     if (rows.isEmpty) return [];
 
-    // Detect header row
-    int startIndex = 0;
-    if (rows.isNotEmpty && (rows.first.contains('id') || rows.first.contains('subject') || rows.first.contains('type'))) {
-      startIndex = 1;
-    }
+    // Skip the first row (always treated as a header for consistency and to avoid importing Japanese headers as data)
+    int startIndex = 1;
 
     List<Flashcard> cards = [];
     for (int i = startIndex; i < rows.length; i++) {

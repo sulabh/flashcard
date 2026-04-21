@@ -13,9 +13,15 @@ class DatabaseHelper {
 
   DatabaseHelper._init();
 
+  Future<Database>? _initFuture;
+
   Future<Database> get database async {
     if (_database != null) return _database!;
-    _database = await _initDB('flashcards.db');
+    
+    // Ensure initialization only happens once
+    _initFuture ??= _initDB('flashcards.db');
+    _database = await _initFuture;
+    
     return _database!;
   }
 

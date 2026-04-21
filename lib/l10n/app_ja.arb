@@ -119,11 +119,36 @@
   "classicStudyNote": "頭の中で答えを思い浮かべてから、カードをタップして正解を確認してください。",
   "noCardsFound": "この条件に一致するカードが見つかりませんでした。",
   "flashcardsAvailable": "{count}枚のフラッシュカードが利用可能です",
+  "@flashcardsAvailable": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
   "errorLoading": "エラー: {error}",
+  "@errorLoading": {
+    "placeholders": {
+      "error": {"type": "String"}
+    }
+  },
   "errorLoadingStats": "統計データの読み込みエラー: {error}",
+  "@errorLoadingStats": {
+    "placeholders": {
+      "error": {"type": "String"}
+    }
+  },
   "newCards": "新規",
   "unitLabel": "ユニット {number}",
+  "@unitLabel": {
+    "placeholders": {
+      "number": {"type": "int"}
+    }
+  },
   "ageLabel": "{age}歳",
+  "@ageLabel": {
+    "placeholders": {
+      "age": {"type": "int"}
+    }
+  },
   "firstHalf": "前半",
   "secondHalf": "後半",
   "cardProgress": "カード {current} / {total}",
@@ -141,6 +166,10 @@
   "categoryLabel": "カテゴリ",
   "selectCategoryFirst": "まずカテゴリを選択してください",
   "loadingAudioEngine": "音声エンジンを起動中...",
-  "goBack": "戻る"
+  "goBack": "戻る",
+  "iDontKnow": "わかりません",
+  "yourSelection": "あなたの選択",
+  "correctAnswerLabel": "正解",
+  "mcqCorrect": "正解です",
+  "mcqIncorrect": "不正確です"
 }
-

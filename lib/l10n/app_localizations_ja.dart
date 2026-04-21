@@ -360,4 +360,19 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get goBack => '戻る';
+
+  @override
+  String get iDontKnow => 'わかりません';
+
+  @override
+  String get yourSelection => 'あなたの選択';
+
+  @override
+  String get correctAnswerLabel => '正解';
+
+  @override
+  String get mcqCorrect => '正解です';
+
+  @override
+  String get mcqIncorrect => '不正確です';
 }

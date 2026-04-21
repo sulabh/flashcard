@@ -10,10 +10,9 @@ import '../../data/providers/settings_provider.dart';
 import '../../l10n/app_localizations.dart';
 import '../widgets/ad_banner_widget.dart';
 import '../widgets/app_flashcard_html.dart';
-import '../controllers/study_controller.dart';
-import '../../core/services/tts_service.dart';
 import '../../data/providers/settings_provider.dart';
-import '../controllers/study_controller.dart' show StudyState;
+import '../../core/services/tts_service.dart';
+import '../controllers/study_controller.dart';
 
 
 class StudyScreen extends ConsumerStatefulWidget {
@@ -26,12 +25,14 @@ class StudyScreen extends ConsumerStatefulWidget {
 class _StudyScreenState extends ConsumerState<StudyScreen> {
   Timer? _timer;
   int _secondsRemaining = 0;
+  late TtsService _ttsService;
 
   AppLocalizations get l10n => AppLocalizations.of(context)!;
 
   @override
   void initState() {
     super.initState();
+    _ttsService = ref.read(ttsServiceProvider);
     // Initialize Timer if already set in settings, but we wait for cards to trigger session start
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final timerMinutes = ref.read(sessionTimerProvider);
@@ -61,7 +62,7 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
   void dispose() {
     _timer?.cancel();
     // Stop any ongoing speech when leaving the study screen
-    ref.read(ttsServiceProvider).stop();
+    _ttsService.stop();
     super.dispose();
   }
 
@@ -86,6 +87,13 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
     final state = ref.watch(studyControllerProvider);
     final card = state.currentCard;
 
+    // Handle session completion
+    ref.listen(studyControllerProvider, (previous, next) {
+      if (next.isCompleted && (previous == null || !previous.isCompleted)) {
+        if (mounted) context.go('/summary');
+      }
+    });
+
     // Handle initialization when data is ready
     ref.listen<AsyncValue<List<Flashcard>>>(filteredFlashcardsProvider, (previous, next) {
       next.whenData((cards) {
@@ -108,9 +116,6 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
     });
 
     if (state.isCompleted) {
-      Future.delayed(Duration.zero, () {
-        if (mounted) context.go('/summary');
-      });
       return const Scaffold(body: Center(child: CircularProgressIndicator()));
     }
 
@@ -342,7 +347,7 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
               },
             ),
             const SizedBox(height: 16),
-            ...state.currentChoices.map((option) => _buildMcqOption(option, state)),
+            ...state.currentChoices.asMap().entries.map((entry) => _buildMcqOption(entry.value, state, entry.key)),
           ],
         ),
       );
@@ -395,22 +400,58 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           if (card.isMcq) ...[
-            Text(l10n.answer, style: const TextStyle(color: Colors.grey, letterSpacing: 2, fontWeight: FontWeight.bold)),
-            const SizedBox(height: 12),
+            // Status Badge
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+              decoration: BoxDecoration(
+                color: state.isMcqCorrect == true ? Colors.green.withAlpha(40) : Colors.red.withAlpha(40),
+                borderRadius: BorderRadius.circular(30),
+                border: Border.all(color: state.isMcqCorrect == true ? Colors.green : Colors.red, width: 2),
+              ),
+              child: Text(
+                state.isMcqCorrect == true ? l10n.mcqCorrect : l10n.mcqIncorrect,
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: state.isMcqCorrect == true ? Colors.green : Colors.red,
+                ),
+              ),
+            ),
+            const SizedBox(height: 32),
+
+            // Selection Details
+            _buildResultDetail(
+              label: l10n.yourSelection,
+              content: state.mcqSelectedOption ?? '',
+              choices: state.currentChoices,
+              isCorrect: state.isMcqCorrect == true,
+            ),
+            
+            if (state.isMcqCorrect == false) ...[
+              const SizedBox(height: 16),
+              _buildResultDetail(
+                label: l10n.correctAnswerLabel,
+                content: card.correctAnswer,
+                choices: state.currentChoices,
+                isCorrect: true,
+                isHeader: true,
+              ),
+            ],
+            const SizedBox(height: 48),
           ],
   
-          AppFlashcardHtml(
-            data: card.displayBack,
-            style: {
-              "body": Style(
-                fontSize: FontSize(28.0), 
-                textAlign: TextAlign.center, 
-                fontWeight: FontWeight.bold,
-                color: textColor,
-              )
-            },
-          ),
-          const SizedBox(height: 48),
+          if (!card.isMcq)
+            AppFlashcardHtml(
+              data: card.displayBack,
+              style: {
+                "body": Style(
+                  fontSize: FontSize(28.0), 
+                  textAlign: TextAlign.center, 
+                  fontWeight: FontWeight.bold,
+                  color: textColor,
+                )
+              },
+            ),
           
           if (card.isMcq) ...[
              // Next button for MCQ after reveal
@@ -426,6 +467,7 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
                 ),
              ),
           ] else ...[
+            const SizedBox(height: 48),
             // Self-evaluation note
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24.0),
@@ -449,10 +491,59 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
     );
   }
 
-  Widget _buildMcqOption(String option, StudyState state) {
+  Widget _buildResultDetail({
+    required String label, 
+    required String content, 
+    required List<String> choices,
+    required bool isCorrect,
+    bool isHeader = false,
+  }) {
+    final index = choices.indexOf(content);
+    final letter = index != -1 ? _getLetter(index) : '?';
+    final theme = Theme.of(context);
+    final displayContent = content == '[[IDK]]' ? l10n.iDontKnow : content;
+
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: theme.colorScheme.surfaceVariant.withAlpha(100),
+        borderRadius: BorderRadius.circular(16),
+        border: isHeader ? Border.all(color: theme.colorScheme.primary.withAlpha(100)) : null,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(label, style: const TextStyle(fontSize: 12, color: Colors.grey, fontWeight: FontWeight.bold)),
+          const SizedBox(height: 4),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text("($letter) ", style: TextStyle(fontWeight: FontWeight.bold, color: isCorrect ? Colors.green : Colors.red)),
+              Expanded(
+                child: AppFlashcardHtml(
+                  data: displayContent,
+                  style: {"body": Style(fontSize: FontSize(16.0), margin: Margins.zero)},
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  String _getLetter(int index) {
+    if (index < 0 || index > 25) return '?';
+    return String.fromCharCode(65 + index); // 65 is 'A'
+  }
+
+  Widget _buildMcqOption(String option, StudyState state, int index) {
     final theme = Theme.of(context);
     final isSelected = state.mcqSelectedOption == option;
     final isLocked = state.mcqSelectedOption != null;
+    final letter = _getLetter(index);
+    final displayContent = option == '[[IDK]]' ? l10n.iDontKnow : option;
 
     final baseColor = isSelected 
         ? theme.colorScheme.primaryContainer 
@@ -480,18 +571,26 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
             child: Row(
               children: [
                 Expanded(
-                  child: AppFlashcardHtml(
-                    data: option,
-                    textAlign: TextAlign.start,
-                    style: {
-                      "body": Style(
-                        fontSize: FontSize(15.0),
-                        fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-                        color: theme.textTheme.bodyLarge?.color,
-                        margin: Margins.zero,
-                        padding: HtmlPaddings.zero,
-                      )
-                    },
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text("($letter) ", style: TextStyle(fontWeight: FontWeight.bold, color: isSelected ? theme.colorScheme.primary : null)),
+                      Expanded(
+                        child: AppFlashcardHtml(
+                          data: displayContent,
+                          textAlign: TextAlign.start,
+                          style: {
+                            "body": Style(
+                              fontSize: FontSize(15.0),
+                              fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+                              color: theme.textTheme.bodyLarge?.color,
+                              margin: Margins.zero,
+                              padding: HtmlPaddings.zero,
+                            )
+                          },
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 if (isSelected) Icon(Icons.touch_app, color: theme.colorScheme.primary),

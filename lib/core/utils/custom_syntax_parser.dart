@@ -10,15 +10,24 @@ class CustomSyntaxParser {
     var result = input;
 
     // 1. Parse Furigana/Ruby syntax
-    // Pattern: _{base}_(_ruby_) or _{base}_(ruby)
-    // Matches: _{山}_(_やま_) , _{山}_(やま) , _{山 }_(やま)
+    // We handle several variants found in client CSVs:
+    
+    // Variant A: _{BASE}__(RUBY)_
     result = result.replaceAllMapped(
-      RegExp(r'_\{[ \t\n]*(.+?)[ \t\n]*\}_[ \t\n]*\([ \t\n]*_?[ \t\n]*(.+?)[ \t\n]*_?[ \t\n]*\)', dotAll: true),
-      (match) {
-        final base = match[1]!.trim().replaceAll('{', '').replaceAll('}', '');
-        final ruby = match[2]!.trim().replaceAll('{', '').replaceAll('}', '');
-        return '<ruby>$base<rt>$ruby</rt></ruby>';
-      },
+      RegExp(r'_\{[ \t\n]*(.+?)[ \t\n]*\}__[ \t\n]*[\(（][ \t\n]*(.+?)[ \t\n]*[\)）]_', dotAll: true),
+      (match) => '<ruby>${match[1]!.trim()}<rt>${match[2]!.trim()}</rt></ruby>',
+    );
+
+    // Variant B: _{BASE}_(_RUBY_) or _{BASE}_(RUBY)
+    result = result.replaceAllMapped(
+      RegExp(r'_\{[ \t\n]*(.+?)[ \t\n]*\}_[ \t\n]*[\(（][ \t\n]*_?[ \t\n]*(.+?)[ \t\n]*_?[ \t\n]*[\)）]', dotAll: true),
+      (match) => '<ruby>${match[1]!.trim()}<rt>${match[2]!.trim()}</rt></ruby>',
+    );
+
+    // Variant C: BASE_(RUBY)_
+    result = result.replaceAllMapped(
+      RegExp(r'(\S)_[\(（][ \t\n]*(.+?)[ \t\n]*[\)）]_', dotAll: true),
+      (match) => '<ruby>${match[1]!.trim()}<rt>${match[2]!.trim()}</rt></ruby>',
     );
  
     // 2. Parse Fraction syntax

@@ -29,8 +29,7 @@ class CustomHtmlExtensions {
             final color = style?.color ?? Colors.black;
             final fontSize = style?.fontSize?.value ?? 20.0;
 
-            // In TagExtension builder for flutter_html 3.0.0, return a Widget directly.
-            // FlutterHtml will handle the necessary wrapping.
+            // Increase height to 1.2 to prevent clipping of ruby text above base text
             return RubyText(
               [
                 RubyTextData(
@@ -42,12 +41,12 @@ class CustomHtmlExtensions {
               style: TextStyle(
                 color: color,
                 fontSize: fontSize,
-                height: 1.0,
+                height: 1.2,
               ),
               rubyStyle: TextStyle(
                 color: color.withAlpha(200),
                 fontSize: fontSize * 0.5,
-                height: 1.0,
+                height: 1.2,
               ),
             );
           },

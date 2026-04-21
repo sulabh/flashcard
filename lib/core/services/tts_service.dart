@@ -202,11 +202,26 @@ class TtsService {
     // 1. Remove remaining HTML tags
     String text = processedHtml.replaceAll(RegExp(r'<[^>]*>|&[^;]+;'), ' ');
 
-    // 2. Handle Furigana: _{base}_(_ruby_) or _{base}_(ruby)
-    final rubyRegex = RegExp(r'_\{[ \t\n]*(.*?)[ \t\n]*\}_[ \t\n]*\([ \t\n]*_?[ \t\n]*(.*?)[ \t\n]*_?[ \t\n]*\)', dotAll: true);
-    text = text.replaceAllMapped(rubyRegex, (match) {
-      final base = (match.group(1) ?? '').replaceAll('{', '').replaceAll('}', '');
-      final ruby = (match.group(2) ?? '').replaceAll('{', '').replaceAll('}', '');
+    // 2. Handle Furigana: Supports multiple variants found in client CSVs
+    
+    // Variant A: _{BASE}__(RUBY)_
+    text = text.replaceAllMapped(RegExp(r'_\{[ \t\n]*(.*?)[ \t\n]*\}__[ \t\n]*\([ \t\n]*(.*?)[ \t\n]*\)_', dotAll: true), (match) {
+      final base = (match.group(1) ?? '');
+      final ruby = (match.group(2) ?? '');
+      return languageCode.startsWith('ja') ? ruby : base;
+    });
+
+    // Variant B: _{BASE}_(_RUBY_) or _{BASE}_(RUBY)
+    text = text.replaceAllMapped(RegExp(r'_\{[ \t\n]*(.*?)[ \t\n]*\}_[ \t\n]*\([ \t\n]*_?[ \t\n]*(.*?)[ \t\n]*_?[ \t\n]*\)', dotAll: true), (match) {
+      final base = (match.group(1) ?? '');
+      final ruby = (match.group(2) ?? '');
+      return languageCode.startsWith('ja') ? ruby : base;
+    });
+
+    // Variant C: BASE_(RUBY)_
+    text = text.replaceAllMapped(RegExp(r'(\S)_\([ \t\n]*(.*?)[ \t\n]*\)_', dotAll: true), (match) {
+      final base = (match.group(1) ?? '');
+      final ruby = (match.group(2) ?? '');
       return languageCode.startsWith('ja') ? ruby : base;
     });
 

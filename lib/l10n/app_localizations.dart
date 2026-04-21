@@ -757,6 +757,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Go Back'**
   String get goBack;
+
+  /// No description provided for @iDontKnow.
+  ///
+  /// In en, this message translates to:
+  /// **'I don\'t know'**
+  String get iDontKnow;
+
+  /// No description provided for @yourSelection.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Selection'**
+  String get yourSelection;
+
+  /// No description provided for @correctAnswerLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Correct Answer'**
+  String get correctAnswerLabel;
+
+  /// No description provided for @mcqCorrect.
+  ///
+  /// In en, this message translates to:
+  /// **'CORRECT'**
+  String get mcqCorrect;
+
+  /// No description provided for @mcqIncorrect.
+  ///
+  /// In en, this message translates to:
+  /// **'INCORRECT'**
+  String get mcqIncorrect;
 }
 
 class _AppLocalizationsDelegate
