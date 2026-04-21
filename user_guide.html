@@ -323,12 +323,60 @@
                             After tapping to reveal the answer, choose **"Correct"** or **"Incorrect"** based on your mental recall.
                         </li>
                         <li><strong>MCQ Study:</strong> 
-                            Grading is instant upon tapping an option. A manual "Next" button appears after reveal to allow for review.
+                            Grading is instant. If you are unsure, select **"I don't know"**. This reveals the answer and puts the card back into the "retry" pool for the end of the session.
                         </li>
                     </ul>
                     <div class="highlight-box">
                         <strong>Mastery Rule:</strong> Once a card achieves a 70% or higher cumulative correctness rate across sessions, it is marked as "Mastered" in your Global Stats.
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 7: TROUBLESHOOTING -->
+        <div class="section">
+            <div class="section-header">
+                <h2>7. Troubleshooting | トラブルシューティング</h2>
+            </div>
+            <div class="grid">
+                <div class="pane ja">
+                    <span class="badge badge-ja">日本語</span>
+                    <h3>音声が聞こえない場合 (Samsung / Android)</h3>
+                    <p>日本語の音声が聞こえない場合は、端末に音声データがインストールされていない可能性があります。</p>
+                    <ul>
+                        <li>設定 > 一般管理 > テキスト読み上げ を開きます。</li>
+                        <li>優先エンジン（Googleを推奨）の横の設定アイコンをタップします。</li>
+                        <li>「音声データをインストール」から「日本語（日本）」を選択しダウンロードしてください。</li>
+                    </ul>
+                </div>
+                <div class="pane en">
+                    <span class="badge badge-en">English</span>
+                    <h3>Missing Audio (Samsung / Android)</h3>
+                    <p>If you don't hear Japanese voices, you may need to download the voice pack manually:</p>
+                    <ul>
+                        <li>Go to Settings > General Management > Text-to-speech.</li>
+                        <li>Tap the gear icon next to your engine (Google Speech is recommended).</li>
+                        <li>Tap "Install voice data" and download the "Japanese (Japan)" package.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 8: CSV NOTES -->
+        <div class="section">
+            <div class="section-header">
+                <h2>8. CSV Import Rules | インポートの注意点</h2>
+            </div>
+            <div class="grid">
+                <div class="pane ja">
+                    <span class="badge badge-ja">日本語</span>
+                    <h3>ヘッダーの扱い</h3>
+                    <p>アプリはCSVの**最初の1行を常にヘッダー（見出し）として扱い、無視します**。したがって、1行目には必ず見出しを入れ、データは2行目から開始してください。</p>
+                </div>
+                <div class="pane en">
+                    <span class="badge badge-en">English</span>
+                    <h3>Header Handling</h3>
+                    <p>The app **always skips the first line** of your CSV, treating it as a header. Ensure your actual card data starts on line 2.</p>
                 </div>
             </div>
         </div>

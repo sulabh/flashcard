@@ -48,14 +48,9 @@ Because standard Flutter Text widgets do not natively support Furigana (interlin
 
 ---
 
-## 4. The Audio (TTS) System
-
-The app relies on `flutter_tts` (`lib/core/services/tts_service.dart`).
-To prevent bugs, ensure you adhere to these engineering choices made in `TtsService`:
-1. **Memory Caching**: `getVoices` is heavily cached on initialization to prevent the Android main thread from crashing (ANR) when users flip cards rapidly.
-2. **Overlap Locking**: `speak()` strictly `awaits` the `stop()` signal and uses `awaitSpeakCompletion(true)` to prevent the engine from canceling its own utterances.
-3. **Smart Script Detection**: `TtsService` uses regex `r'[\u3040-\u30FF\u4E00-\u9FAF]'` to detect Japanese inline. If found, it **forces** the TTS engine to `ja-JP` regardless of the app's structural English locale. Otherwise, Kanji is silently skipped by English parsers.
-4. **Math Overrides**: Hyphens `-` bordered by variables/digits are force-replaced with the string literal `minus` or `マイナス` before sending to the engine.
+5. **Smart Script Detection**: `TtsService` uses regex `r'[\u3040-\u30FF\u4E00-\u9FAF]'` to detect Japanese inline. If found, it **forces** the TTS engine to `ja-JP` regardless of the app's structural English locale.
+6. **Lifecycle Safety**: `TtsService` is cached in `initState` of `StudyScreen` to allow safe `stop()` calls during `dispose()` without triggering "ref already disposed" errors.
+7. **OS Support**: For Samsung devices, users may need to manually download Japanese voice data in System Settings (General Management > TTS).
 
 ---
 
@@ -76,6 +71,11 @@ Because subjects are dynamic, we could not hardcode "Premium" subjects. Therefor
 1. **No Rubber-Banding Scroll**: Stakeholders requested a rigid, non-bouncing UI. `ClampingScrollPhysics` is mandated across all `SingleChildScrollView` and `GridView` widgets. 
 2. **Scrollbars**: Permanent `thumbVisibility: true` `Scrollbar` widgets wrap the main content columns. **WARNING**: Do not nest `Scrollbar` widgets inside inner views where `ScrollPosition` cannot attach (this caused crashes previously).
 3. **Bilingual Requirement**: All text strings are hard-bound to `app_en.arb` and `app_ja.arb`. Never use inline strings for user-facing text.
+
+## 7. Known Gotchas & Recent Fixes
+- **Database Race Condition**: On cold starts, multiple providers trigger DB init. We use a `Future? _initFuture` cache in `DatabaseHelper` to ensure only ONE setup process runs. Do not remove this cache.
+- **CSV Header Skipping**: The `CsvHelper.importFromCsv` always skips the first line. This allows users to use headers in any language (Japanese/English) without them being imported as "ghost" subjects.
+- **Defunct Element Fix**: Never call `ref.read` directly inside `dispose()` in `StudyScreen`. Always cache the required service in `initState`.
 
 ## Recommended Next Steps (Phase 2 Prep)
 If instructed to proceed to Phase 2:

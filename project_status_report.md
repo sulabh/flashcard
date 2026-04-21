@@ -52,6 +52,13 @@ This report details the technical implementation and feature completion status o
 * **AdMob Integration**: `BannerAd` placeholders are fully integrated and functional in the `free` flavor. Logic is centrally managed via `AdBannerWidget`.
 * **Flavor Architecture**: Multi-flavor setup (`free`, `paid`) is complete with distinct entry points and configurations.
 
+### 7. Phase 1.5: Stability & Polish
+* **Thread-Safe DB Init**: Resolved the "loading hang" on first launch by implementing a Future-cache in `DatabaseHelper`.
+* **Zero-Crash Navigation**: Fixed the `defunct element` crash by refactoring `StudyScreen` lifecycle management.
+* **Localization Parity**: Synced English and Japanese `.arb` files to prevent "missing getter" generation errors.
+* **Smart CSV Import**: Updated CSV parser to always skip the first line, ensuring Japanese headers don't create "ghost" subjects.
+* **TTS Refinements**: Stopped audio persistence on screen exit and improved character sanitization for complex Ruby text.
+
 ---
 
 ## 🔲 Remaining Features & Requirement Gaps

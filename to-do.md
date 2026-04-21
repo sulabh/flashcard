@@ -43,6 +43,11 @@
 - [x] **15. Flavor Content Locking**
     - Free version limits access to the first 2 dynamically generated subjects.
     - Padlocks and route guards securely restrict premium content.
+- [x] **16. Phase 1.5 Stability & Logic Fixes**
+    - Thread-safe Database initialization (Fixed loading hang).
+    - Lifecycle-safe TTS (Fixed defunct element crash).
+    - Localization parity (Fixed missing l10n getters).
+    - Language-agnostic CSV Header (Fixed extra subject issue).
 
 ## Remaining 🔲
 *(All planned Phase 1 features are complete)*
