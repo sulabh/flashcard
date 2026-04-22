@@ -1,7 +1,5 @@
-import 'package:uuid/uuid.dart';
-
 class Flashcard {
-  final String id;
+  final int? id; // Auto-assigned by SQLite; null before first insert
   final int type; // 1 = normal flashcard, 2 = MCQ
   final String subject; // previously "category"
   final String category; // previously "ageGroup" (now a string)
@@ -23,8 +21,8 @@ class Flashcard {
   final String note1;
   final String note2;
 
-  Flashcard({
-    String? id,
+  const Flashcard({
+    this.id,
     this.type = 1,
     required this.subject,
     required this.category,
@@ -45,7 +43,7 @@ class Flashcard {
     this.needForReview = '',
     this.note1 = '',
     this.note2 = '',
-  }) : id = id ?? const Uuid().v4();
+  });
 
   // Convenience getters
   bool get isMcq => type == 2;
@@ -79,8 +77,7 @@ class Flashcard {
   }
 
   Map<String, dynamic> toMap() {
-    return {
-      'id': id,
+    final map = <String, dynamic>{
       'type': type,
       'subject': subject,
       'category': category,
@@ -102,11 +99,15 @@ class Flashcard {
       'note_1': note1,
       'note_2': note2,
     };
+    // Only include id when it's already assigned (not null).
+    // Omitting it lets SQLite auto-assign on insert.
+    if (id != null) map['id'] = id;
+    return map;
   }
 
   factory Flashcard.fromMap(Map<String, dynamic> map) {
     return Flashcard(
-      id: map['id'] as String?,
+      id: map['id'] as int?,
       type: (map['type'] as int?) ?? 1,
       subject: (map['subject'] as String?) ?? '',
       category: (map['category'] as String?) ?? '',

@@ -1,4 +1,3 @@
-import 'dart:math';
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -10,7 +9,6 @@ import '../../data/providers/settings_provider.dart';
 import '../../l10n/app_localizations.dart';
 import '../widgets/ad_banner_widget.dart';
 import '../widgets/app_flashcard_html.dart';
-import '../../data/providers/settings_provider.dart';
 import '../../core/services/tts_service.dart';
 import '../controllers/study_controller.dart';
 
@@ -197,7 +195,7 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
             ),
           if (_secondsRemaining > 0)
             Padding(
-              padding: const EdgeInsets.only(right: 16.0),
+              padding: const EdgeInsets.only(right: 8.0),
               child: Center(
                 child: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
@@ -225,15 +223,16 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
                 ),
               ),
             ),
+          IconButton(
+            icon: const Icon(Icons.home),
+            onPressed: () {
+              ref.read(ttsServiceProvider).stop(); // Kill audio on exit
+              ref.read(studyControllerProvider.notifier).reset();
+              context.go('/');
+            },
+          ),
         ],
-        leading: IconButton(
-          icon: const Icon(Icons.close),
-          onPressed: () {
-            ref.read(ttsServiceProvider).stop(); // Kill audio on exit
-            ref.read(studyControllerProvider.notifier).reset();
-            context.pop();
-          },
-        ),
+        automaticallyImplyLeading: false, // Removed leading close button
       ),
       body: Padding(
         padding: const EdgeInsets.all(24.0),
@@ -246,7 +245,20 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
               backgroundColor: Theme.of(context).colorScheme.surfaceVariant,
               valueColor: AlwaysStoppedAnimation<Color>(Theme.of(context).colorScheme.primary),
             ),
-            const SizedBox(height: 32),
+            const SizedBox(height: 8),
+            // Subject / Category / Unit shown below progress bar
+            Text(
+              '${card.subject}  /  ${card.category}  /  ${card.unit}',
+              style: TextStyle(
+                fontSize: 12,
+                color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.5),
+                fontWeight: FontWeight.w600,
+                letterSpacing: 0.5,
+              ),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
+            const SizedBox(height: 16),
             Expanded(
               child: _buildFlipCard(card, state),
             ),
@@ -291,16 +303,29 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
         ),
         child: Stack(
           children: [
+            // UUID at top right (next to volume button)
+            Positioned(
+              top: 0,
+              right: 48,
+              child: SelectableText(
+                card.id?.toString() ?? '-',
+                style: const TextStyle(fontSize: 8, color: Colors.grey),
+              ),
+            ),
+
             Center(
-              child: isBack 
-                  ? _buildBackContent(card, state)
-                  : _buildFrontContent(card, state),
+              child: Padding(
+                padding: const EdgeInsets.only(top: 16.0),
+                child: isBack 
+                    ? _buildBackContent(card, state)
+                    : _buildFrontContent(card, state),
+              ),
             ),
             
             // Manual Speak Button
             Positioned(
-              top: 0,
-              right: 0,
+              top: -12,
+              right: -12,
               child: IconButton(
                 icon: const Icon(Icons.volume_up, color: Colors.blueGrey, size: 28),
                 onPressed: () => _speakCurrentSide(card, isBack),
@@ -335,18 +360,48 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
           child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            AppFlashcardHtml(
-              data: card.displayFront,
-              style: {
-                "body": Style(
-                  fontSize: FontSize(18.0), 
-                  textAlign: TextAlign.center, 
-                  fontWeight: FontWeight.bold,
-                  color: textColor,
-                )
-              },
-            ),
-            const SizedBox(height: 16),
+            if (card.title.isNotEmpty) ...[
+              AppFlashcardHtml(
+                data: card.title,
+                style: {
+                  "body": Style(
+                    fontSize: FontSize(14.0), 
+                    textAlign: TextAlign.center, 
+                    fontWeight: FontWeight.normal,
+                    color: textColor.withOpacity(0.6),
+                  )
+                },
+              ),
+              const SizedBox(height: 8),
+            ],
+            if (card.problem.isNotEmpty) ...[
+              AppFlashcardHtml(
+                data: card.problem,
+                style: {
+                  "body": Style(
+                    fontSize: FontSize(18.0), 
+                    textAlign: TextAlign.center, 
+                    fontWeight: FontWeight.normal,
+                    color: textColor,
+                  )
+                },
+              ),
+              const SizedBox(height: 8),
+            ],
+            if (card.supplementProblem.isNotEmpty) ...[
+              AppFlashcardHtml(
+                data: card.supplementProblem,
+                style: {
+                  "body": Style(
+                    fontSize: FontSize(14.0), 
+                    textAlign: TextAlign.center, 
+                    fontWeight: FontWeight.normal,
+                    color: textColor.withOpacity(0.6),
+                  )
+                },
+              ),
+              const SizedBox(height: 16),
+            ],
             ...state.currentChoices.asMap().entries.map((entry) => _buildMcqOption(entry.value, state, entry.key)),
           ],
         ),
@@ -363,17 +418,48 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              AppFlashcardHtml(
-                data: card.displayFront,
-                style: {
-                  "body": Style(
-                    fontSize: FontSize(26.0), 
-                    textAlign: TextAlign.center,
-                    color: textColor,
-                    margin: Margins.zero,
-                  )
-                },
-              ),
+              if (card.title.isNotEmpty) ...[
+                AppFlashcardHtml(
+                  data: card.title,
+                  style: {
+                    "body": Style(
+                      fontSize: FontSize(16.0), 
+                      textAlign: TextAlign.center,
+                      color: textColor.withOpacity(0.6),
+                      margin: Margins.zero,
+                    )
+                  },
+                ),
+                const SizedBox(height: 12),
+              ],
+              if (card.problem.isNotEmpty) ...[
+                AppFlashcardHtml(
+                  data: card.problem,
+                  style: {
+                    "body": Style(
+                      fontSize: FontSize(26.0), 
+                      textAlign: TextAlign.center,
+                      fontWeight: FontWeight.normal,
+                      color: textColor,
+                      margin: Margins.zero,
+                    )
+                  },
+                ),
+                const SizedBox(height: 12),
+              ],
+              if (card.supplementProblem.isNotEmpty) ...[
+                AppFlashcardHtml(
+                  data: card.supplementProblem,
+                  style: {
+                    "body": Style(
+                      fontSize: FontSize(16.0), 
+                      textAlign: TextAlign.center,
+                      color: textColor.withOpacity(0.6),
+                      margin: Margins.zero,
+                    )
+                  },
+                ),
+              ],
               const SizedBox(height: 64),
               Text(
                 l10n.classicStudyNote,

@@ -39,17 +39,17 @@ class DatabaseHelper {
     final db = await helper.factory.openDatabase(
       path,
       options: OpenDatabaseOptions(
-        version: 3,
+        version: 5,
         onCreate: (db, version) async {
           await _createDB(db);
         },
         onUpgrade: (db, oldVersion, newVersion) async {
-          if (oldVersion < 3) {
-            // Drop old table and recreate with new schema
+          if (oldVersion < 5) {
+            // Schema migration only: drop and recreate with the new INTEGER PK.
+            // Do NOT seed initial data here — that would overwrite any user-imported data.
+            // Initial seeding only happens on a brand new install (isNew = true below).
             await db.execute('DROP TABLE IF EXISTS flashcards');
             await _createDB(db);
-            // Repopulate with fresh 22-column data
-            await _populateInitialData(db);
           }
         },
       ),
@@ -66,7 +66,7 @@ class DatabaseHelper {
   Future<void> _createDB(Database db) async {
     await db.execute('''
       CREATE TABLE flashcards (
-        id TEXT PRIMARY KEY,
+        id INTEGER PRIMARY KEY,
         type INTEGER NOT NULL DEFAULT 1,
         subject TEXT NOT NULL DEFAULT '',
         category TEXT NOT NULL DEFAULT '',
@@ -124,6 +124,8 @@ class DatabaseHelper {
   Future<void> clearAllData() async {
     final db = await instance.database;
     await db.delete('flashcards');
+    // With INTEGER PRIMARY KEY (no AUTOINCREMENT), SQLite naturally restarts
+    // IDs from 1 after all rows are deleted — no sequence reset needed.
   }
 
   Future<void> insertMultipleFlashcards(List<Flashcard> cards) async {
@@ -197,7 +199,7 @@ class DatabaseHelper {
     return result.map((json) => Flashcard.fromMap(json)).toList();
   }
 
-  Future<int> updateFlashcardStats(String id, int noOfTimesShown, int noOfTimesAttempted) async {
+  Future<int> updateFlashcardStats(int id, int noOfTimesShown, int noOfTimesAttempted) async {
     final db = await instance.database;
     return await db.update(
       'flashcards',

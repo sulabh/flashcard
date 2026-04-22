@@ -165,7 +165,8 @@ class StudyController extends StateNotifier<StudyState> {
     final db = ref.read(databaseHelperProvider);
     
     for (final card in unstudiedCards) {
-      await db.updateFlashcardStats(card.id, card.noOfTimesShown + 1, card.noOfTimesAttempted);
+      if (card.id == null) continue;
+      await db.updateFlashcardStats(card.id!, card.noOfTimesShown + 1, card.noOfTimesAttempted);
     }
     
     ref.invalidate(masteryStatsProvider);
@@ -181,8 +182,9 @@ class StudyController extends StateNotifier<StudyState> {
     // Weight 1 = Incorrect, Weight > 1 = Correct
     final isCorrect = weight > 1; 
     
+    if (card.id == null) return;
     final db = ref.read(databaseHelperProvider);
-    await db.updateFlashcardStats(card.id, card.noOfTimesShown + 1, card.noOfTimesAttempted + (isCorrect ? 1 : 0));
+    await db.updateFlashcardStats(card.id!, card.noOfTimesShown + 1, card.noOfTimesAttempted + (isCorrect ? 1 : 0));
 
     ref.invalidate(masteryStatsProvider);
 
@@ -202,8 +204,9 @@ class StudyController extends StateNotifier<StudyState> {
 
     final isCorrect = card.correctAnswer == option;
     
+    if (card.id == null) return;
     final db = ref.read(databaseHelperProvider);
-    await db.updateFlashcardStats(card.id, card.noOfTimesShown + 1, card.noOfTimesAttempted + (isCorrect ? 1 : 0));
+    await db.updateFlashcardStats(card.id!, card.noOfTimesShown + 1, card.noOfTimesAttempted + (isCorrect ? 1 : 0));
 
     ref.invalidate(masteryStatsProvider);
 
@@ -214,7 +217,7 @@ class StudyController extends StateNotifier<StudyState> {
       totalAnsweredCount: state.totalAnsweredCount + 1,
     );
 
-    Future.delayed(const Duration(milliseconds: 1000), () {
+    Future.delayed(const Duration(milliseconds: 500), () {
       if (mounted) state = state.copyWith(isFlipped: true);
     });
   }

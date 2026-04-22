@@ -76,7 +76,7 @@ class CsvHelper {
         int getInt(int index) => (index < row.length) ? (int.tryParse(row[index].toString()) ?? 0) : 0;
 
         cards.add(Flashcard(
-          id: getString(0).isNotEmpty ? getString(0) : null,
+          id: null, // Always let SQLite assign the integer ID on insert
           type: getInt(1) == 0 ? 1 : getInt(1), // Default to 1 (normal) if 0 or missing
           subject: getString(2),
           category: getString(3),
