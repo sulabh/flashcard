@@ -131,7 +131,7 @@ class DatabaseHelper {
     await db.transaction((txn) async {
       final batch = txn.batch();
       for (var card in cards) {
-        batch.insert('flashcards', card.toMap());
+        batch.insert('flashcards', card.toMap(), conflictAlgorithm: ConflictAlgorithm.replace);
       }
       await batch.commit(noResult: true);
     });

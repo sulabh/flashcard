@@ -56,7 +56,15 @@ class CsvHelper {
       ]);
     }
 
-    return const CsvEncoder().convert(rows);
+    // Manually build CSV string to ensure all fields are double-quoted per client request
+    return rows.map((row) {
+      return row.map((field) {
+        if (field == null) return '""';
+        // Escape any existing double quotes by doubling them, then wrap in quotes
+        final value = field.toString().replaceAll('"', '""');
+        return '"$value"';
+      }).join(',');
+    }).join('\n');
   }
 
   static List<Flashcard> importFromCsv(String csvString) {
@@ -75,8 +83,10 @@ class CsvHelper {
         String getString(int index) => (index < row.length) ? row[index].toString() : '';
         int getInt(int index) => (index < row.length) ? (int.tryParse(row[index].toString()) ?? 0) : 0;
 
+        int? parsedId = int.tryParse(row[0].toString());
+        
         cards.add(Flashcard(
-          id: null, // Always let SQLite assign the integer ID on insert
+          id: parsedId, // Use ID from CSV if present (enables overwriting)
           type: getInt(1) == 0 ? 1 : getInt(1), // Default to 1 (normal) if 0 or missing
           subject: getString(2),
           category: getString(3),
