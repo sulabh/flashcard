@@ -39,15 +39,13 @@ class DatabaseHelper {
     final db = await helper.factory.openDatabase(
       path,
       options: OpenDatabaseOptions(
-        version: 5,
+        version: 6,
         onCreate: (db, version) async {
           await _createDB(db);
         },
         onUpgrade: (db, oldVersion, newVersion) async {
-          if (oldVersion < 5) {
-            // Schema migration only: drop and recreate with the new INTEGER PK.
-            // Do NOT seed initial data here — that would overwrite any user-imported data.
-            // Initial seeding only happens on a brand new install (isNew = true below).
+          if (oldVersion < 6) {
+            // Force a clean state when upgrading to version 6
             await db.execute('DROP TABLE IF EXISTS flashcards');
             await _createDB(db);
           }

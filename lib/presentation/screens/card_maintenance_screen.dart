@@ -129,18 +129,44 @@ class CardMaintenanceScreen extends ConsumerWidget {
     
     final csvString = CsvHelper.exportToCsv(cards);
     
-    await FileSaver.saveAndShare(
-      fileName: 'flashcards_export.csv',
-      content: csvString,
-    );
+    try {
+      await FileSaver.saveAndShare(
+        fileName: 'flashcards_export.csv',
+        content: csvString,
+      );
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Saved to Downloads folder')),
+        );
+      }
+    } catch (e) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Export failed: $e')),
+        );
+      }
+    }
   }
 
   Future<void> _handleDownloadSample(BuildContext context, WidgetRef ref, AppLocalizations l10n) async {
     final csvString = await CsvHelper.getSampleCsvFromAssets();
-    await FileSaver.saveAndShare(
-      fileName: 'ruby_study_sample.csv',
-      content: csvString,
-    );
+    try {
+      await FileSaver.saveAndShare(
+        fileName: 'ruby_study_sample.csv',
+        content: csvString,
+      );
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Sample saved to Downloads folder')),
+        );
+      }
+    } catch (e) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Download failed: $e')),
+        );
+      }
+    }
   }
 
   Future<void> _handleImport(BuildContext context, WidgetRef ref, AppLocalizations l10n) async {
