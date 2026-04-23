@@ -43,11 +43,13 @@
 - [x] **15. Flavor Content Locking**
     - Free version limits access to the first 2 dynamically generated subjects.
     - Padlocks and route guards securely restrict premium content.
-- [x] **16. Phase 1.5 Stability & Logic Fixes**
-    - Thread-safe Database initialization (Fixed loading hang).
-    - Lifecycle-safe TTS (Fixed defunct element crash).
-    - Localization parity (Fixed missing l10n getters).
-    - Language-agnostic CSV Header (Fixed extra subject issue).
+- [x] **16. Phase 1.6 Reliability & Sync**
+    - [x] Migrate Flashcard IDs to Integers (DB v6).
+    - [x] Implement "ID Overwrite" logic in CSV imports.
+    - [x] Add "All" selection option for Categories and Units.
+    - [x] Fix Android storage permissions and Downloads saving.
+    - [x] Enforce double-quoting in CSV exports.
+    - [x] Correct Japanese translation for "Incorrect".
 
 ## Remaining 🔲
-*(All planned Phase 1 features are complete)*
+*(All planned Phase 1 and 1.6 stability features are complete)*

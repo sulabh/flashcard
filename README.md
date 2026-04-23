@@ -13,7 +13,8 @@ A standalone, offline-first professional flashcard application built with Flutte
 - **Bi-Flavor Strategy**:
   - `free`: Integrated with AdMob banner ads.
   - `paid`: Clean, ad-free experience.
-- **Data Portability**: Full CSV Import/Export system for easy content management.
+- **Data Portability & Sync**: Full CSV Import/Export system. Supports **ID Overwrite** logic: edit existing cards in Excel/Google Sheets and sync them back seamlessly.
+- **Flexible Filters**: Study entire subjects or grades at once with the new **"All" selection** option for Categories and Units.
 - **Localized UI**: Complete English and Japanese bilingual support.
 
 ---
@@ -93,11 +94,13 @@ flutter build appbundle --flavor free -t lib/main_free.dart
 
 ## 📊 Database Schema
 The app uses a single main table `flashcards`:
-- `category`: Subject (e.g., "Kanji")
-- `ageGroup`: Middle filter (e.g., 5, 6)
-- `unit`: Specific unit/lesson (e.g., "first_half")
-- `frontHtml`: The card question (HTML/Tags supported)
-- `backHtml`: The card answer
+- `id`: Unique integer key (enables overwrite/sync).
+- `subject`: Top-level subject (e.g., "Kanji").
+- `category`: Middle filter (e.g., "Grade 1").
+- `unit`: Specific unit/lesson (e.g., "Unit 1").
+- `title`: Card title or hint.
+- `problem`: The card question (HTML/Tags supported).
+- `answer`: The card answer.
 
 ---
 
@@ -202,7 +205,8 @@ Switch the language to the new one from the Home screen switcher. Verify all scr
 
 ## 📄 Maintenance
 - **Content Management**: Users should follow the **Export → Edit → Clear → Import** cycle for bulk data changes.
-- **Card Maintenance**: Use the dedicated Card Maintenance screen from the Home menu to import/export CSV files and view all cards.
+- **Syncing Changes**: When importing a CSV, if a row contains an existing ID, the app will update the local record. This allows you to fix typos or update card logic without losing study stats.
+- **Card Maintenance**: Use the dedicated Card Maintenance screen from the Home menu to import/export CSV files. On Android, files are saved directly to the system `Downloads` folder.
 
 ---
 © 2026 Flashcard App Development Team.

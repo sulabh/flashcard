@@ -24,11 +24,14 @@ This app was built to satisfy the following MVP constraints:
 ### Data & State
 - **Riverpod** is the state management solution. Use `FutureProvider` for DB reads and `StateProvider` for UI selections (e.g., `selectedSubjectProvider`).
 - **SQLite (`sqflite`)**: The entire source of truth. We use `database_helper.dart` as a singleton. 
-- **CRITICAL RULE**: The application generates its internal taxonomy (Categories -> Age Groups -> Units) **dynamically** via `SELECT DISTINCT` queries. ***Do not hardcode subjects into the UI.***
+- **CRITICAL RULE**: The application generates its internal taxonomy (Categories -> Units) **dynamically** via `SELECT DISTINCT` queries. ***Do not hardcode subjects into the UI.***
+- **ID Migration (v6)**: Flashcard IDs migrated from UUID `String` to `INTEGER PRIMARY KEY`. Database version is now **6**. Always use integers for foreign keys or lookups moving forward.
 
 ### CSV Initialization Pipeline
 - On the very first boot, if `flashcards.db` does not exist in the device storage, the app parses `assets/initial_data.csv` and auto-populates the SQLite database.
-- **Data Cleanup Cycle**: If a user wants to edit/delete cards, the system workflow is: Export local DB to CSV -> Edit on PC -> Clear Database via Settings -> Re-import CSV via Settings.
+- **Overwrite Logic**: CSV imports now use `ConflictAlgorithm.replace`. If an imported row contains an existing `id`, it **overwrites** the local record. This enables users to edit data in Excel and sync it back.
+- **Export Format**: Exports are manually formatted to ensure **all fields** are enclosed in double quotes (`" "`), ensuring 100% compatibility with legacy Excel and Google Sheets versions.
+- **Data Cleanup Cycle**: If a user wants a fresh start, they use the "Clear Database" button which drops and recreates the tables (Version 6 migration logic).
 
 ---
 
@@ -73,8 +76,9 @@ Because subjects are dynamic, we could not hardcode "Premium" subjects. Therefor
 3. **Bilingual Requirement**: All text strings are hard-bound to `app_en.arb` and `app_ja.arb`. Never use inline strings for user-facing text.
 
 ## 7. Known Gotchas & Recent Fixes
-- **Database Race Condition**: On cold starts, multiple providers trigger DB init. We use a `Future? _initFuture` cache in `DatabaseHelper` to ensure only ONE setup process runs. Do not remove this cache.
-- **CSV Header Skipping**: The `CsvHelper.importFromCsv` always skips the first line. This allows users to use headers in any language (Japanese/English) without them being imported as "ghost" subjects.
+- **Database Race Condition**: On cold starts, multiple providers trigger DB init. We use a `Future? _initFuture` cache in `DatabaseHelper` to ensure only ONE setup process runs.
+- **Android File Saving**: Saving to `Downloads` requires `MANAGE_EXTERNAL_STORAGE` on Android 11+. We use a custom direct-write approach with `permission_handler` to avoid the unreliable FilePicker save-sheet.
+- **"All" Filter Selection**: Users can now select "All" at Category/Unit levels. In the `filteredFlashcardsProvider`, the special `__ALL__` constant is converted to `null` before the DB query to return all records for that parent group.
 - **Defunct Element Fix**: Never call `ref.read` directly inside `dispose()` in `StudyScreen`. Always cache the required service in `initState`.
 
 ## Recommended Next Steps (Phase 2 Prep)

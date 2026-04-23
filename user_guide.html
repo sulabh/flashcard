@@ -223,10 +223,10 @@
                     <h3>ステップバイステップ</h3>
                     <ol>
                         <li><strong>科目選択:</strong> ホーム画面で「漢字」や「算数」などの科目を選びます。</li>
-                        <li><strong>年齢・ユニット選択:</strong> 
+                        <li><strong>カテゴリ・ユニット選択:</strong> 
                             <ul>
-                                <li><strong>サブカテゴリ:</strong> 年齢（5歳、6歳など）を選ぶと、その年齢に対応したユニット（第1期、第2期など）が表示されます。</li>
-                                <li>データベースに存在する組み合わせのみが表示されるため、空のセットが選ばれることはありません。</li>
+                                <li><strong>サブカテゴリ:</strong> 「Grade 1」や「Unit 1」などの分類を選びます。</li>
+                                <li><strong>「すべて (All)」機能:</strong> リストの先頭にある「すべて」を選ぶと、その科目内の全カード、またはカテゴリ内の全ユニットをまとめて学習できます。</li>
                             </ul>
                         </li>
                         <li><strong>開始:</strong> 「Start Practice」をタップして学習を開始します。</li>
@@ -239,8 +239,8 @@
                         <li><strong>Subject Selection:</strong> Choose a subject (e.g., Kanji, Arithmetic) from the home screen.</li>
                         <li><strong>Subcategories:</strong> 
                             <ul>
-                                <li>Select an **Age Group** first. The **Unit** selection will dynamically update to show only chapters available for that age.</li>
-                                <li>The UI prevents "empty sessions" by only showing valid combinations from the database.</li>
+                                <li>Select a **Category** (e.g., Grade 1) and then a **Unit**.</li>
+                                <li><strong>"All" Selection:</strong> Use the "All" option at the top of the lists to study an entire Subject or Category at once without drilling down.</li>
                             </ul>
                         </li>
                         <li><strong>Execution:</strong> Tap "Start Practice" to begin your session.</li>
@@ -389,24 +389,20 @@
             <div class="grid">
                 <div class="pane ja">
                     <span class="badge badge-ja" style="background-color: #fee2e2; color: #991b1b;">重要</span>
-                    <h3>CSV管理サイクル</h3>
-                    <p>特定の科目を削除したり内容を大幅に変更したりする場合は、以下のサイクルで行います：</p>
+                    <h3>CSV管理と自動上書き（同期）</h3>
+                    <p>特定の科目を削除したり、既存のカードを修正したりする場合は、以下の機能が利用可能です：</p>
                     <ol>
-                        <li><strong>Export:</strong> 現在のデータをCSVとしてエクスポート。</li>
-                        <li><strong>Edit:</strong> Excel等で開き、不要な行を削除。</li>
-                        <li><strong>Clear:</strong> アプリで「Clear Database」を実行。</li>
-                        <li><strong>Import:</strong> 編集したCSVを読み込む。</li>
+                        <li><strong>自動上書き:</strong> インポートするCSVに <code>id</code> が含まれている場合、アプリ内の同じIDのカードが自動的に更新されます。Excelで修正して再読込するだけでOKです。</li>
+                        <li><strong>完全リセット:</strong> 「Clear Database」を実行すると全データが消去されます。その後、修正したCSVをインポートしてください。</li>
                     </ol>
                 </div>
                 <div class="pane en">
                     <span class="badge badge-en" style="background-color: #fee2e2; color: #991b1b;">Crucial</span>
-                    <h3>CSV Editing Cycle</h3>
-                    <p>To safely delete specific subjects or cards, use the atomic workflow:</p>
+                    <h3>CSV Syncing & Management</h3>
+                    <p>To update existing cards or sync data from your computer, follow these rules:</p>
                     <ol>
-                        <li><strong>Export:</strong> Export your current data pool to CSV.</li>
-                        <li><strong>Edit:</strong> Delete rows/subjects in Excel.</li>
-                        <li><strong>Clear:</strong> Use "Clear Database" in Settings.</li>
-                        <li><strong>Import:</strong> Import the modified CSV.</li>
+                        <li><strong>ID Overwriting:</strong> If your CSV includes the <code>id</code> column, the app will update existing cards instead of creating duplicates. This is perfect for fixing typos.</li>
+                        <li><strong>Clean Reset:</strong> Use "Clear Database" to empty the app, then import your master CSV for a fresh start.</li>
                     </ol>
                 </div>
             </div>

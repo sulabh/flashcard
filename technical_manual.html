@@ -217,16 +217,20 @@ flutter build web --no-wasm-dry-run</pre>
                 <div class="pane ja">
                     <div class="labels"><span class="label label-ja">日本語</span></div>
                     <h3>スレッドセーフなDB初期化</h3>
-                    <p><code>DatabaseHelper</code> では、複数のプロバイダーが同時にDBを要求しても二重に初期化されないよう、<code>_initFuture</code> をキャッシュしています。これを変更するとコールドスタート時にフリーズする原因になります。</p>
-                    <h3>ライフサイクルとTTS</h3>
-                    <p><code>StudyScreen</code> の <code>dispose</code> 内で <code>ref</code> を直接使うと、ウィジェットが破棄済みであるというエラーが発生します。必ず <code>initState</code> で <code>ttsService</code> のインスタンスをローカル変数に確保してください。</p>
+                    <p><code>DatabaseHelper</code> では、<code>_initFuture</code> をキャッシュしています。これを変更するとコールドスタート時にフリーズする原因になります。</p>
+                    <h3>ID同期とオーバーライト</h3>
+                    <p>CSVインポート時には <code>ConflictAlgorithm.replace</code> を使用しています。CSV内に既存の <code>id</code> が含まれている場合、そのレコードは更新（オーバーライト）されます。これによりExcel等での外部編集が可能です。</p>
+                    <h3>Androidでのファイル保存</h3>
+                    <p>Android 11以降の制限に対応するため、<code>Downloads</code> フォルダへの直接保存を実装しています。<code>permission_handler</code> による実行時権限リクエストが必須です。</p>
                 </div>
                 <div class="pane en">
                     <div class="labels"><span class="label label-en">English</span></div>
                     <h3>Thread-Safe DB Init</h3>
-                    <p><code>DatabaseHelper</code> uses a <code>_initFuture</code> cache to prevent redundant initialization attempts. Removing this will cause the app to hang during the first practiced session of a new install.</p>
-                    <h3>Lifecycle & TTS</h3>
-                    <p>Never use <code>ref.read</code> directly inside <code>dispose()</code>. The <code>WidgetRef</code> is often invalidated before <code>dispose</code> finishes. Always cache a local reference to the service in <code>initState</code>.</p>
+                    <p><code>DatabaseHelper</code> uses a <code>_initFuture</code> cache to prevent redundant initialization. Removing this will cause the app to hang during cold starts.</p>
+                    <h3>ID Sync & Overwrite</h3>
+                    <p>CSV imports use <code>ConflictAlgorithm.replace</code>. If a row contains an existing <code>id</code>, the local record is overwritten. This enables robust synchronization with external data editors.</p>
+                    <h3>Android File Storage</h3>
+                    <p>To comply with modern Android storage rules, the app saves directly to the system <code>Downloads</code> folder. This requires explicit runtime permission handling via <code>permission_handler</code>.</p>
                 </div>
             </div>
         </div>
@@ -262,26 +266,26 @@ flutter build web --no-wasm-dry-run</pre>
             <div class="grid">
                 <div class="pane">
                     <div class="labels"><span class="label label-ja">日本語</span></div>
-                    <p><code>flashcards</code> テーブルの主なカラム:</p>
+                    <p><code>flashcards</code> テーブルの構成（DB Version 6）:</p>
                     <ul>
-                        <li><code>id</code>: ユニークID。</li>
-                        <li><code>frontHtml</code>: カード表面（Furigana/Fraction対応）。</li>
-                        <li><code>backHtml</code>: カード裏面。</li>
-                        <li><code>category</code>: 大分類（科目）。</li>
-                        <li><code>ageGroup</code>: 中分類（年齢）。</li>
-                        <li><code>unit</code>: 小分類（第1期/第2期など）。</li>
+                        <li><code>id</code>: 整数型主キー（手動指定で上書き可能）。</li>
+                        <li><code>subject</code>: 大分類（科目：Kanji, Arithmetic等）。</li>
+                        <li><code>category</code>: 中分類（カテゴリ：Grade 1等）。以前のageGroup。</li>
+                        <li><code>unit</code>: 小分類（ユニット：Unit 1等）。</li>
+                        <li><code>problem</code>: 問題文（HTMLタグ対応）。</li>
+                        <li><code>answer</code>: 解答。</li>
                     </ul>
                 </div>
                 <div class="pane">
                     <div class="labels"><span class="label label-en">English</span></div>
-                    <p>Key Columns in <code>flashcards</code> table:</p>
+                    <p>Key Columns in <code>flashcards</code> table (DB v6):</p>
                     <ul>
-                        <li><code>id</code>: Unique identifier.</li>
-                        <li><code>frontHtml</code>: Card front content (tags allowed).</li>
-                        <li><code>backHtml</code>: Card back content.</li>
-                        <li><code>category</code>: Subject level.</li>
-                        <li><code>ageGroup</code>: Middle filter level.</li>
-                        <li><code>unit</code>: Specific units/chapters.</li>
+                        <li><code>id</code>: INTEGER PRIMARY KEY (allows manual sync).</li>
+                        <li><code>subject</code>: Top-level subject group.</li>
+                        <li><code>category</code>: Middle filter level (formerly ageGroup).</li>
+                        <li><code>unit</code>: Specific unit/chapter level.</li>
+                        <li><code>problem</code>: Question content (Ruby/Math supported).</li>
+                        <li><code>answer</code>: Answer content.</li>
                     </ul>
                 </div>
             </div>

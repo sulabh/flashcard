@@ -22,6 +22,8 @@ This report details the technical implementation and feature completion status o
     * Enforced `ClampingScrollPhysics` and visible `Scrollbar` widgets across all scrollable screens (Study, Session, etc.) for a rigid, professional UI.
     * Fixed mobile browser viewport bouncing via `overscroll-behavior: none` in `web/index.html`.
 * **Mobile Responsiveness**: Refactored Settings and Selection screens to use vertical/wrapping layouts, ensuring text is never garbled on narrow mobile devices.
+* **Metadata Clarity**: Moved Subject/Grade/Unit metadata labels outside the flashcard component in `StudyScreen` to improve readability and prevent text overlap during animations.
+* **Flexible Filtering**: Added the **"All" option** to Category and Unit selection lists. Users can now choose to study an entire Subject or Category at once, significantly increasing study flexibility.
 
 ### 2. Rich Content & Formatting
 * **Furigana (Ruby Text)**: Custom syntax `_{base}_(_ruby_)` is fully supported across all cards and MCQ options.
@@ -38,6 +40,8 @@ This report details the technical implementation and feature completion status o
     * Implemented stable, colorful grid repetition logic for unlimited dynamic categories.
 * **CSV-Based Management & Deletion**: 
     * Fulfilled "deletion" requirement via unified CSV workflow (Export -> Edit in Excel -> Clear DB -> Re-import). 
+    * **ID Overwrite Logic**: Implemented record synchronization (upsert) in CSV imports. If a row contains an existing ID, the app updates the record; otherwise, it inserts a new one.
+    * **Strict Quoting**: Forced double-quoting on all exported fields to ensure 100% compatibility with legacy Excel, Google Sheets, and other spreadsheet software.
     * Database and UI now instantly reload upon import or clear operations, ensuring zero-latency data management.
 
 ### 4. Comprehensive Statistics & Analytics
@@ -52,12 +56,11 @@ This report details the technical implementation and feature completion status o
 * **AdMob Integration**: `BannerAd` placeholders are fully integrated and functional in the `free` flavor. Logic is centrally managed via `AdBannerWidget`.
 * **Flavor Architecture**: Multi-flavor setup (`free`, `paid`) is complete with distinct entry points and configurations.
 
-### 7. Phase 1.5: Stability & Polish
-* **Thread-Safe DB Init**: Resolved the "loading hang" on first launch by implementing a Future-cache in `DatabaseHelper`.
-* **Zero-Crash Navigation**: Fixed the `defunct element` crash by refactoring `StudyScreen` lifecycle management.
-* **Localization Parity**: Synced English and Japanese `.arb` files to prevent "missing getter" generation errors.
-* **Smart CSV Import**: Updated CSV parser to always skip the first line, ensuring Japanese headers don't create "ghost" subjects.
-* **TTS Refinements**: Stopped audio persistence on screen exit and improved character sanitization for complex Ruby text.
+### 7. Phase 1.6: Reliability & Sync
+* **Integer ID Migration**: Migrated flashcard IDs from UUID strings to `INTEGER PRIMARY KEY`. This resolves sorting issues and aligns with standard SQL optimization. (DB Version 6).
+* **Robust Android Downloads**: Fixed Android saving failures by implementing a direct-write strategy to the system `Downloads` folder using `permission_handler`.
+* **Synchronization Support**: The app now supports "editing in CSV" by using the ID as a unique key for overwriting existing records during import.
+* **Localization Polish**: Corrected Japanese translation errors and added the `all` keyword for localized filtering.
 
 ---
 
