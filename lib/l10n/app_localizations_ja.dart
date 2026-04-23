@@ -375,4 +375,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get mcqIncorrect => '不正確です';
+
+  @override
+  String get all => 'すべて';
 }

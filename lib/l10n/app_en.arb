@@ -174,5 +174,6 @@
   "yourSelection": "Your Selection",
   "correctAnswerLabel": "Correct Answer",
   "mcqCorrect": "CORRECT",
-  "mcqIncorrect": "INCORRECT"
+  "mcqIncorrect": "INCORRECT",
+  "all": "All"
 }

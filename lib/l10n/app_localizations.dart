@@ -787,6 +787,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'INCORRECT'**
   String get mcqIncorrect;
+
+  /// No description provided for @all.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get all;
 }
 
 class _AppLocalizationsDelegate

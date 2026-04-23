@@ -17,11 +17,12 @@ class SelectionScreen extends ConsumerWidget {
 
     final l10n = AppLocalizations.of(context)!;
     
-    // Attempt localizing common units
-    String localizeUnit(String unit) {
-      if (unit == 'first_half') return l10n.firstHalf;
-      if (unit == 'second_half') return l10n.secondHalf;
-      return unit;
+    // Attempt localizing common units and categories
+    String localizeOption(String value) {
+      if (value == ALL_VALUE) return l10n.all;
+      if (value == 'first_half') return l10n.firstHalf;
+      if (value == 'second_half') return l10n.secondHalf;
+      return value;
     }
 
     return Scaffold(
@@ -46,11 +47,12 @@ class SelectionScreen extends ConsumerWidget {
                     children: categories.map((cat) {
                       return _buildOptionCard(
                         context: context,
-                        label: cat,
+                        label: localizeOption(cat),
                         isSelected: selectedCategory == cat,
                         onTap: () {
                           ref.read(selectedCategoryProvider.notifier).state = cat;
-                          ref.read(selectedUnitProvider.notifier).state = null;
+                          // If "All" categories, also default to "All" units
+                          ref.read(selectedUnitProvider.notifier).state = (cat == ALL_VALUE) ? ALL_VALUE : null;
                         },
                       );
                     }).toList(),
@@ -74,7 +76,7 @@ class SelectionScreen extends ConsumerWidget {
                       children: units.map((unit) {
                         return _buildOptionCard(
                           context: context,
-                          label: localizeUnit(unit),
+                          label: localizeOption(unit),
                           isSelected: selectedUnit == unit,
                           onTap: () => ref.read(selectedUnitProvider.notifier).state = unit,
                         );

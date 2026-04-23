@@ -381,4 +381,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get mcqIncorrect => 'INCORRECT';
+
+  @override
+  String get all => 'All';
 }

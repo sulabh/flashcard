@@ -3,6 +3,8 @@ import '../database/database_helper.dart';
 import '../models/flashcard.dart';
 import '../../flavor_config.dart';
 
+const String ALL_VALUE = '__ALL__';
+
 final databaseHelperProvider = Provider<DatabaseHelper>((ref) {
   return DatabaseHelper.instance;
 });
@@ -59,7 +61,8 @@ final availableCategoriesProvider = FutureProvider<List<String>>((ref) async {
   final db = ref.watch(databaseHelperProvider);
   final subject = ref.watch(selectedSubjectProvider);
   if (subject == null) return [];
-  return await db.getDistinctCategories(subject);
+  final categories = await db.getDistinctCategories(subject);
+  return [ALL_VALUE, ...categories];
 });
 
 // Dynamic units provider based on selected subject and category
@@ -68,7 +71,12 @@ final availableUnitsProvider = FutureProvider<List<String>>((ref) async {
   final subject = ref.watch(selectedSubjectProvider);
   final category = ref.watch(selectedCategoryProvider);
   if (subject == null || category == null) return [];
-  return await db.getDistinctUnits(subject, category);
+  
+  // If "All" categories are selected, we show "All" units by default
+  if (category == ALL_VALUE) return [ALL_VALUE];
+
+  final units = await db.getDistinctUnits(subject, category);
+  return [ALL_VALUE, ...units];
 });
 
 // Flashcards provider based on selection
@@ -80,10 +88,14 @@ final filteredFlashcardsProvider = FutureProvider<List<Flashcard>>((ref) async {
   
   if (subject == null) return [];
 
+  // Treat ALL_VALUE as null for filtering (returns everything)
+  final effectiveCategory = category == ALL_VALUE ? null : category;
+  final effectiveUnit = unit == ALL_VALUE ? null : unit;
+
   return await db.getFilteredFlashcards(
     subject: subject,
-    category: category,
-    unit: unit,
+    category: effectiveCategory,
+    unit: effectiveUnit,
   );
 });
 

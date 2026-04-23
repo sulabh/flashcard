@@ -171,5 +171,6 @@
   "yourSelection": "あなたの選択",
   "correctAnswerLabel": "正解",
   "mcqCorrect": "正解です",
-  "mcqIncorrect": "不正確です"
+  "mcqIncorrect": "不正解です",
+  "all": "すべて"
 }
