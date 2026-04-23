@@ -30,64 +30,74 @@ class SelectionScreen extends ConsumerWidget {
         title: Text(l10n.setupSession),
         centerTitle: true,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(24.0),
-        child: SafeArea(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              _buildSectionTitle(l10n.categoryLabel),
-              const SizedBox(height: 12),
-              categoriesAsync.when(
-                data: (categories) {
-                  if (categories.isEmpty) return const Text('No categories available');
-                  return Wrap(
-                    spacing: 16,
-                    runSpacing: 16,
-                    children: categories.map((cat) {
-                      return _buildOptionCard(
-                        context: context,
-                        label: localizeOption(cat),
-                        isSelected: selectedCategory == cat,
-                        onTap: () {
-                          ref.read(selectedCategoryProvider.notifier).state = cat;
-                          // If "All" categories, also default to "All" units
-                          ref.read(selectedUnitProvider.notifier).state = (cat == ALL_VALUE) ? ALL_VALUE : null;
-                        },
-                      );
-                    }).toList(),
-                  );
-                },
-                loading: () => const Center(child: CircularProgressIndicator()),
-                error: (e, _) => Text('Error: $e'),
-              ),
-              const SizedBox(height: 32),
-              _buildSectionTitle(l10n.unit),
-              const SizedBox(height: 12),
-              if (selectedCategory == null)
-                Text(l10n.selectCategoryFirst, style: const TextStyle(color: Colors.grey, fontStyle: FontStyle.italic))
-              else
-                unitsAsync.when(
-                  data: (units) {
-                    if (units.isEmpty) return const Text('No units available');
-                    return Wrap(
-                      spacing: 16,
-                      runSpacing: 16,
-                      children: units.map((unit) {
-                        return _buildOptionCard(
-                          context: context,
-                          label: localizeOption(unit),
-                          isSelected: selectedUnit == unit,
-                          onTap: () => ref.read(selectedUnitProvider.notifier).state = unit,
+      body: SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Expanded(
+              child: SingleChildScrollView(
+                physics: const ClampingScrollPhysics(),
+                padding: const EdgeInsets.all(24.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    _buildSectionTitle(l10n.categoryLabel),
+                    const SizedBox(height: 12),
+                    categoriesAsync.when(
+                      data: (categories) {
+                        if (categories.isEmpty) return const Text('No categories available');
+                        return Wrap(
+                          spacing: 16,
+                          runSpacing: 16,
+                          children: categories.map((cat) {
+                            return _buildOptionCard(
+                              context: context,
+                              label: localizeOption(cat),
+                              isSelected: selectedCategory == cat,
+                              onTap: () {
+                                ref.read(selectedCategoryProvider.notifier).state = cat;
+                                // If "All" categories, also default to "All" units
+                                ref.read(selectedUnitProvider.notifier).state = (cat == ALL_VALUE) ? ALL_VALUE : null;
+                              },
+                            );
+                          }).toList(),
                         );
-                      }).toList(),
-                    );
-                  },
-                  loading: () => const Center(child: CircularProgressIndicator()),
-                  error: (e, _) => Text('Error: $e'),
+                      },
+                      loading: () => const Center(child: CircularProgressIndicator()),
+                      error: (e, _) => Text('Error: $e'),
+                    ),
+                    const SizedBox(height: 32),
+                    _buildSectionTitle(l10n.unit),
+                    const SizedBox(height: 12),
+                    if (selectedCategory == null)
+                      Text(l10n.selectCategoryFirst, style: const TextStyle(color: Colors.grey, fontStyle: FontStyle.italic))
+                    else
+                      unitsAsync.when(
+                        data: (units) {
+                          if (units.isEmpty) return const Text('No units available');
+                          return Wrap(
+                            spacing: 16,
+                            runSpacing: 16,
+                            children: units.map((unit) {
+                              return _buildOptionCard(
+                                context: context,
+                                label: localizeOption(unit),
+                                isSelected: selectedUnit == unit,
+                                onTap: () => ref.read(selectedUnitProvider.notifier).state = unit,
+                              );
+                            }).toList(),
+                          );
+                        },
+                        loading: () => const Center(child: CircularProgressIndicator()),
+                        error: (e, _) => Text('Error: $e'),
+                      ),
+                  ],
                 ),
-              const Spacer(),
-              ElevatedButton(
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(24, 8, 24, 24),
+              child: ElevatedButton(
                 onPressed: (selectedCategory != null && selectedUnit != null) 
                     ? () => context.push(mode == 'maintenance' ? '/deck' : '/study')
                     : null,
@@ -103,8 +113,8 @@ class SelectionScreen extends ConsumerWidget {
                   style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
 

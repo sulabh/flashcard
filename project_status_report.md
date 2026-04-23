@@ -59,6 +59,7 @@ This report details the technical implementation and feature completion status o
 ### 7. Phase 1.6: Reliability & Sync
 * **Integer ID Migration**: Migrated flashcard IDs from UUID strings to `INTEGER PRIMARY KEY`. This resolves sorting issues and aligns with standard SQL optimization. (DB Version 6).
 * **Robust Android Downloads**: Fixed Android saving failures by implementing a direct-write strategy to the system `Downloads` folder using `permission_handler`.
+* **Selection UI Polish**: Enabled vertical scrolling on the Category/Unit selection screen to support datasets with a large number of units, ensuring the 'Start Practice' button remains accessible at the bottom.
 * **Synchronization Support**: The app now supports "editing in CSV" by using the ID as a unique key for overwriting existing records during import.
 * **Localization Polish**: Corrected Japanese translation errors and added the `all` keyword for localized filtering.
 

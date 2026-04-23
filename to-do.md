@@ -50,6 +50,7 @@
     - [x] Fix Android storage permissions and Downloads saving.
     - [x] Enforce double-quoting in CSV exports.
     - [x] Correct Japanese translation for "Incorrect".
+    - [x] Enable scrolling on Selection Screen to handle large unit/category lists.
 
 ## Remaining 🔲
 *(All planned Phase 1 and 1.6 stability features are complete)*
