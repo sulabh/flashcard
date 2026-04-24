@@ -3,6 +3,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../data/providers/flashcard_provider.dart';
 import '../../l10n/app_localizations.dart';
+import '../controllers/study_controller.dart';
 
 class SelectionScreen extends ConsumerWidget {
   final String mode;
@@ -99,7 +100,10 @@ class SelectionScreen extends ConsumerWidget {
               padding: const EdgeInsets.fromLTRB(24, 8, 24, 24),
               child: ElevatedButton(
                 onPressed: (selectedCategory != null && selectedUnit != null) 
-                    ? () => context.push(mode == 'maintenance' ? '/deck' : '/study')
+                    ? () {
+                        ref.read(studyControllerProvider.notifier).reset();
+                        context.push(mode == 'maintenance' ? '/deck' : '/study');
+                      }
                     : null,
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(vertical: 16),

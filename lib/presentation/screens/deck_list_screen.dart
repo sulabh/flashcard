@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import '../../data/providers/flashcard_provider.dart';
 import '../../l10n/app_localizations.dart';
 import '../widgets/app_flashcard_html.dart';
+import '../controllers/study_controller.dart';
 
 class DeckListScreen extends ConsumerWidget {
   const DeckListScreen({super.key});
@@ -69,7 +70,10 @@ class DeckListScreen extends ConsumerWidget {
                     SizedBox(
                       width: double.infinity,
                       child: ElevatedButton.icon(
-                        onPressed: () => context.push('/study'),
+                        onPressed: () {
+                          ref.read(studyControllerProvider.notifier).reset();
+                          context.push('/study');
+                        },
                         icon: const Icon(Icons.play_arrow_rounded, size: 18),
                         label: Text(l10n.startPractice),
                         style: ElevatedButton.styleFrom(

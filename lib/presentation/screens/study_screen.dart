@@ -117,160 +117,171 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
       return const Scaffold(body: Center(child: CircularProgressIndicator()));
     }
 
-    return cardsAsync.when(
-      loading: () => Scaffold(
-        appBar: AppBar(title: Text(l10n.studySession)),
-        body: const Center(child: CircularProgressIndicator()),
-      ),
-      error: (err, stack) => Scaffold(
-        appBar: AppBar(title: Text(l10n.studySession)),
-        body: Center(child: Text('Error: $err')),
-      ),
-      data: (cards) {
-        if (cards.isEmpty) {
-          return Scaffold(
-            appBar: AppBar(title: Text(l10n.studySession)),
-            body: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Icon(Icons.search_off_rounded, size: 64, color: Colors.grey),
-                  const SizedBox(height: 16),
-                  Text(l10n.noCardsFound, style: const TextStyle(fontSize: 18, color: Colors.grey)),
-                  const SizedBox(height: 24),
-                  ElevatedButton(
-                    onPressed: () => context.pop(),
-                    child: Text(l10n.goBack),
-                  ),
-                ],
-              ),
-            ),
-          );
-        }
-
-        // Check if session actually started
-        if (card == null) {
-          // If we have data but state is empty, it means initialization hasn't happened or was bypassed
-          // We trigger it here just in case ref.listen was missed during first build
-          Future.delayed(Duration.zero, () {
-            if (mounted && state.cards.isEmpty) {
-              ref.read(studyControllerProvider.notifier).startSession(cards);
+    return PopScope(
+      onPopInvokedWithResult: (didPop, result) {
+        if (didPop) {
+          Future.microtask(() {
+            if (mounted) {
+              ref.read(studyControllerProvider.notifier).reset();
             }
           });
-          return Scaffold(
-            appBar: AppBar(title: Text(l10n.studySession)),
-            body: const Center(child: CircularProgressIndicator()),
-          );
         }
-
-    return Scaffold(
-      appBar: AppBar(
-        title: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              state.isRetryPhase ? l10n.retryPhase : l10n.studySession,
-              style: TextStyle(
-                fontSize: 14, 
-                color: state.isRetryPhase ? Colors.orange : Colors.grey,
-                fontWeight: state.isRetryPhase ? FontWeight.bold : FontWeight.normal,
-              ),
-            ),
-            Text(
-              state.isRetryPhase
-                ? '${l10n.cardProgress(state.currentIndex + 1, state.cards.length)} (${l10n.retrying})'
-                : l10n.cardProgress(state.currentIndex + 1, state.originalCardsCount),
-            ),
-          ],
+      },
+      child: cardsAsync.when(
+        loading: () => Scaffold(
+          appBar: AppBar(title: Text(l10n.studySession)),
+          body: const Center(child: CircularProgressIndicator()),
         ),
-        actions: [
-          if (state.isRetryPhase)
-            TextButton.icon(
-              onPressed: () {
-                _timer?.cancel();
-                ref.read(studyControllerProvider.notifier).forceFinishSession();
-              },
-              icon: const Icon(Icons.stop_circle_outlined, color: Colors.red, size: 20),
-              label: Text(l10n.endQuiz, style: const TextStyle(color: Colors.red, fontWeight: FontWeight.bold)),
-            ),
-          if (_secondsRemaining > 0)
-            Padding(
-              padding: const EdgeInsets.only(right: 8.0),
-              child: Center(
-                child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                  decoration: BoxDecoration(
-                    color: _secondsRemaining < 30 ? Colors.red.withAlpha(40) : Colors.blue.withAlpha(40),
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.timer_outlined, 
-                        size: 18, 
-                        color: _secondsRemaining < 30 ? Colors.red : Colors.blue,
-                      ),
-                      const SizedBox(width: 4),
-                      Text(
-                        _formatTime(_secondsRemaining),
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
+        error: (err, stack) => Scaffold(
+          appBar: AppBar(title: Text(l10n.studySession)),
+          body: Center(child: Text('Error: $err')),
+        ),
+        data: (cards) {
+          if (cards.isEmpty) {
+            return Scaffold(
+              appBar: AppBar(title: Text(l10n.studySession)),
+              body: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(Icons.search_off_rounded, size: 64, color: Colors.grey),
+                    const SizedBox(height: 16),
+                    Text(l10n.noCardsFound, style: const TextStyle(fontSize: 18, color: Colors.grey)),
+                    const SizedBox(height: 24),
+                    ElevatedButton(
+                      onPressed: () => context.pop(),
+                      child: Text(l10n.goBack),
+                    ),
+                  ],
+                ),
+              ),
+            );
+          }
+
+          // Check if session actually started
+          if (card == null) {
+            // If we have data but state is empty, it means initialization hasn't happened or was bypassed
+            // We trigger it here just in case ref.listen was missed during first build
+            Future.delayed(Duration.zero, () {
+              if (mounted && state.cards.isEmpty) {
+                ref.read(studyControllerProvider.notifier).startSession(cards);
+              }
+            });
+            return Scaffold(
+              appBar: AppBar(title: Text(l10n.studySession)),
+              body: const Center(child: CircularProgressIndicator()),
+            );
+          }
+
+      return Scaffold(
+        appBar: AppBar(
+          title: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                state.isRetryPhase ? l10n.retryPhase : l10n.studySession,
+                style: TextStyle(
+                  fontSize: 14, 
+                  color: state.isRetryPhase ? Colors.orange : Colors.grey,
+                  fontWeight: state.isRetryPhase ? FontWeight.bold : FontWeight.normal,
+                ),
+              ),
+              Text(
+                state.isRetryPhase
+                  ? '${l10n.cardProgress(state.currentIndex + 1, state.cards.length)} (${l10n.retrying})'
+                  : l10n.cardProgress(state.currentIndex + 1, state.originalCardsCount),
+              ),
+            ],
+          ),
+          actions: [
+            if (state.isRetryPhase)
+              TextButton.icon(
+                onPressed: () {
+                  _timer?.cancel();
+                  ref.read(studyControllerProvider.notifier).forceFinishSession();
+                },
+                icon: const Icon(Icons.stop_circle_outlined, color: Colors.red, size: 20),
+                label: Text(l10n.endQuiz, style: const TextStyle(color: Colors.red, fontWeight: FontWeight.bold)),
+              ),
+            if (_secondsRemaining > 0)
+              Padding(
+                padding: const EdgeInsets.only(right: 8.0),
+                child: Center(
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                    decoration: BoxDecoration(
+                      color: _secondsRemaining < 30 ? Colors.red.withAlpha(40) : Colors.blue.withAlpha(40),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.timer_outlined, 
+                          size: 18, 
                           color: _secondsRemaining < 30 ? Colors.red : Colors.blue,
                         ),
-                      ),
-                    ],
+                        const SizedBox(width: 4),
+                        Text(
+                          _formatTime(_secondsRemaining),
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: _secondsRemaining < 30 ? Colors.red : Colors.blue,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
+            IconButton(
+              icon: const Icon(Icons.home),
+              onPressed: () {
+                ref.read(ttsServiceProvider).stop(); // Kill audio on exit
+                ref.read(studyControllerProvider.notifier).reset();
+                context.go('/');
+              },
             ),
-          IconButton(
-            icon: const Icon(Icons.home),
-            onPressed: () {
-              ref.read(ttsServiceProvider).stop(); // Kill audio on exit
-              ref.read(studyControllerProvider.notifier).reset();
-              context.go('/');
-            },
-          ),
-        ],
-        automaticallyImplyLeading: false, // Removed leading close button
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(24.0),
-        child: Column(
-          children: [
-            LinearProgressIndicator(
-              value: state.originalCardsCount > 0 
-                  ? (state.totalAnsweredCount) / state.originalCardsCount 
-                  : 0,
-              backgroundColor: Theme.of(context).colorScheme.surfaceVariant,
-              valueColor: AlwaysStoppedAnimation<Color>(Theme.of(context).colorScheme.primary),
-            ),
-            const SizedBox(height: 8),
-            // Subject / Category / Unit shown below progress bar
-            Text(
-              '${card.subject}  /  ${card.category}  /  ${card.unit}',
-              style: TextStyle(
-                fontSize: 12,
-                color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.5),
-                fontWeight: FontWeight.w600,
-                letterSpacing: 0.5,
-              ),
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-            ),
-            const SizedBox(height: 16),
-            Expanded(
-              child: _buildFlipCard(card, state),
-            ),
-            _buildControls(state),
-            ],
-          ),
+          ],
+          automaticallyImplyLeading: false, // Removed leading close button
         ),
-        bottomNavigationBar: const AdBannerWidget(),
-      );
-    },
-  );
-}
+        body: Padding(
+          padding: const EdgeInsets.all(24.0),
+          child: Column(
+            children: [
+              LinearProgressIndicator(
+                value: state.originalCardsCount > 0 
+                    ? (state.totalAnsweredCount) / state.originalCardsCount 
+                    : 0,
+                backgroundColor: Theme.of(context).colorScheme.surfaceVariant,
+                valueColor: AlwaysStoppedAnimation<Color>(Theme.of(context).colorScheme.primary),
+              ),
+              const SizedBox(height: 8),
+              // Subject / Category / Unit shown below progress bar
+              Text(
+                '${card.subject}  /  ${card.category}  /  ${card.unit}',
+                style: TextStyle(
+                  fontSize: 12,
+                  color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.5),
+                  fontWeight: FontWeight.w600,
+                  letterSpacing: 0.5,
+                ),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
+              const SizedBox(height: 16),
+              Expanded(
+                child: _buildFlipCard(card, state),
+              ),
+              _buildControls(state),
+              ],
+            ),
+          ),
+          bottomNavigationBar: const AdBannerWidget(),
+        );
+      },
+    ),
+    );
+  }
 
   Widget _buildFlipCard(Flashcard card, StudyState state) {
     return _buildCardContent(card, state, state.isFlipped);

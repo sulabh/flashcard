@@ -118,7 +118,7 @@ class CsvHelper {
 
   static Future<String> getSampleCsvFromAssets() async {
     try {
-      return await rootBundle.loadString('assets/initial_data.csv');
+      return await rootBundle.loadString('assets/initial_data2.csv');
     } catch (e) {
       // Fallback to minimal sample if asset fails
       return generateSampleCsv();

@@ -54,7 +54,7 @@ class DatabaseHelper {
     );
 
     if (isNew) {
-      debugPrint('Fresh database created. Populating from assets/initial_data.csv...');
+      debugPrint('Fresh database created. Populating from assets/initial_data2.csv...');
       await _populateInitialData(db);
     }
 
@@ -91,7 +91,7 @@ class DatabaseHelper {
 
   Future<void> _populateInitialData(Database db) async {
     try {
-      final csvString = await rootBundle.loadString('assets/initial_data.csv');
+      final csvString = await rootBundle.loadString('assets/initial_data2.csv');
       final cards = CsvHelper.importFromCsv(csvString);
       
       await db.transaction((txn) async {

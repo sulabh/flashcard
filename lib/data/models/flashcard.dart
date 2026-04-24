@@ -48,15 +48,15 @@ class Flashcard {
   // Convenience getters
   bool get isMcq => type == 2;
 
-  /// Builds the shuffled list of MCQ choices from correct + incorrect answers.
+  /// Builds the unique shuffled list of MCQ choices from correct + incorrect answers.
   List<String> get mcqChoices {
-    final choices = <String>[];
+    final choices = <String>{};
     if (correctAnswer.isNotEmpty) choices.add(correctAnswer);
     if (incorrectAnswer1.isNotEmpty) choices.add(incorrectAnswer1);
     if (incorrectAnswer2.isNotEmpty) choices.add(incorrectAnswer2);
     if (incorrectAnswer3.isNotEmpty) choices.add(incorrectAnswer3);
     if (incorrectAnswer4.isNotEmpty) choices.add(incorrectAnswer4);
-    return choices;
+    return choices.toList();
   }
 
   /// Combines title + problem + supplement for the card front display.
