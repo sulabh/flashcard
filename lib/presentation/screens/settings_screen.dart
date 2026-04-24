@@ -45,8 +45,17 @@ class SettingsScreen extends ConsumerWidget {
                 onChanged: (value) => ref.read(sessionSizeProvider.notifier).setSessionSize(value.toInt()),
               ),
             ),
+
+            SwitchListTile(
+              title: Text(l10n.shuffleQuestionOrder),
+              subtitle: Text(l10n.shuffleQuestionOrderSub),
+              secondary: Icon(Icons.shuffle, color: Theme.of(context).colorScheme.primary),
+              value: ref.watch(shuffleProvider),
+              onChanged: (value) => ref.read(shuffleProvider.notifier).setShuffle(value),
+            ),
             
             const Divider(),
+
   
             // Timer Options
             Padding(

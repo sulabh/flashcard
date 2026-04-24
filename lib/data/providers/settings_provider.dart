@@ -88,3 +88,21 @@ final autoPlayAudioProvider = StateNotifierProvider<AutoPlayAudioNotifier, bool>
   final prefs = ref.watch(sharedPreferencesProvider);
   return AutoPlayAudioNotifier(prefs);
 });
+
+// Shuffle Provider
+class ShuffleNotifier extends StateNotifier<bool> {
+  final SharedPreferences prefs;
+
+  ShuffleNotifier(this.prefs) : super(prefs.getBool('shuffle_enabled') ?? true);
+
+  void setShuffle(bool value) {
+    state = value;
+    prefs.setBool('shuffle_enabled', value);
+  }
+}
+
+final shuffleProvider = StateNotifierProvider<ShuffleNotifier, bool>((ref) {
+  final prefs = ref.watch(sharedPreferencesProvider);
+  return ShuffleNotifier(prefs);
+});
+

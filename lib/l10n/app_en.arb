@@ -175,5 +175,7 @@
   "correctAnswerLabel": "Correct Answer",
   "mcqCorrect": "CORRECT",
   "mcqIncorrect": "INCORRECT",
-  "all": "All"
+  "all": "All",
+  "shuffleQuestionOrder": "Shuffle Question Order",
+  "shuffleQuestionOrderSub": "Randomize the order of cards in a session"
 }

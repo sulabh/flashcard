@@ -696,19 +696,6 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            // Shuffle Button
-            Column(
-              children: [
-                IconButton.filledTonal(
-                  icon: const Icon(Icons.shuffle_rounded),
-                  onPressed: state.currentIndex < state.cards.length - 1 
-                      ? () => ref.read(studyControllerProvider.notifier).shuffleCurrentCard()
-                      : null,
-                ),
-                Text(l10n.shuffle, style: const TextStyle(fontSize: 10, color: Colors.grey)),
-              ],
-            ),
-            
             // Skip Button (Hidden in Retry Phase)
             if (!state.isRetryPhase)
               Column(
@@ -723,6 +710,7 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
               ),
           ],
         ),
+
         const SizedBox(height: 16),
         Text(
           state.currentCard?.isMcq == true 

@@ -13,7 +13,10 @@ This report details the technical implementation and feature completion status o
     * **Rich Rendering**: MCQ options now support Furigana and Fractions using `AppFlashcardHtml`.
 * **Manual Navigation**: Manual "Next Card" button on MCQ cards allows for review before proceeding.
 * **Auto-Advance**: Classic cards automatically proceed to the next card after self-evaluation.
-* **Session Shuffling**: Users can shuffle unanswered cards.
+* **Session Shuffling & Sequencing**: 
+    * **Dynamic Shuffle**: Integrated with global settings. If enabled, the session pool is randomized.
+    * **Sequential Study**: If shuffle is disabled, the app prioritizes cards that have **not yet been attempted**, showing them in order (`id ASC`).
+    * **Auto-Fallback**: If all cards in a section are attempted, it automatically shows the full sequential list again.
 * **Custom Session Sizes**: Users can define batch sizes (10 to 40 cards) in persistent settings.
 * **Session Timers**: Configurable timer (5, 10, or 30 mins) with auto-evaluation on expiry.
 * **Subject-First Navigation**: The study setup flow now prioritizes Subject Selection followed by Age and Unit filters.
@@ -56,9 +59,13 @@ This report details the technical implementation and feature completion status o
 * **AdMob Integration**: `BannerAd` placeholders are fully integrated and functional in the `free` flavor. Logic is centrally managed via `AdBannerWidget`.
 * **Flavor Architecture**: Multi-flavor setup (`free`, `paid`) is complete with distinct entry points and configurations.
 
-### 7. Phase 1.6: Reliability & Sync
+### 7. Phase 1.6: Reliability & Sync (Zero-Permission Storage)
 * **Integer ID Migration**: Migrated flashcard IDs from UUID strings to `INTEGER PRIMARY KEY`. This resolves sorting issues and aligns with standard SQL optimization. (DB Version 6).
-* **Robust Android Downloads**: Fixed Android saving failures by implementing a direct-write strategy to the system `Downloads` folder using `permission_handler`.
+* **Zero-Permission Storage Strategy**: 
+    * Completely removed `permission_handler` and intrusive Android storage permissions.
+    * Implemented **Scoped Storage** and **System Save Dialogs** using `file_picker` 11.x.
+    * Users now pick their own save location via a native system dialog, which grants the app explicit permission only for that specific file.
+* **iOS File Sharing**: Enabled `UIFileSharingEnabled` and `LSSupportsOpeningDocumentsInPlace` in `Info.plist`, allowing app-internal files to be visible in the iOS 'Files' app.
 * **Selection UI Polish**: Enabled vertical scrolling on the Category/Unit selection screen to support datasets with a large number of units, ensuring the 'Start Practice' button remains accessible at the bottom.
 * **Synchronization Support**: The app now supports "editing in CSV" by using the ID as a unique key for overwriting existing records during import.
 * **Localization Polish**: Corrected Japanese translation errors and added the `all` keyword for localized filtering.

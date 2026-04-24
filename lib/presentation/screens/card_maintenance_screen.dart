@@ -136,7 +136,7 @@ class CardMaintenanceScreen extends ConsumerWidget {
       );
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Saved to Downloads folder')),
+          const SnackBar(content: Text('Export successful')),
         );
       }
     } catch (e) {
@@ -157,7 +157,7 @@ class CardMaintenanceScreen extends ConsumerWidget {
       );
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Sample saved to Downloads folder')),
+          const SnackBar(content: Text('Sample file ready')),
         );
       }
     } catch (e) {

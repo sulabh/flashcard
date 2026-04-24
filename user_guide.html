@@ -259,8 +259,8 @@
                     <span class="badge badge-ja">日本語</span>
                     <h3>画面上の機能</h3>
                     <ul>
-                        <li><strong>Shuffle (シャッフル):</strong> 
-                            タップすると、まだ回答していない残りカードの順番をランダムに入れ替えます。
+                        <li><strong>Shuffle (シャッフル設定):</strong> 
+                            設定画面で「シャッフル」をオンにすると、学習開始時にカードがランダムに入れ替わります。オフの場合は、**未学習のカードから順番に**出題されます。
                         </li>
                         <li><strong>Skip (スキップ):</strong> 
                             現在のカードを回答せずに飛ばします。このカードの成績は記録されず、最後に回されます。
@@ -277,8 +277,8 @@
                     <span class="badge badge-en">English</span>
                     <h3>Interactive Functions</h3>
                     <ul>
-                        <li><strong>Shuffle:</strong> 
-                            Randomizes the order of the remaining unstudied cards in the current set.
+                        <li><strong>Shuffle (Shuffle Setting):</strong> 
+                            Enable this in Settings to randomize your card pool. If disabled, the app **prioritizes unattempted cards** in their original sequential order.
                         </li>
                         <li><strong>Skip:</strong> 
                             Moves the current card to the end of the line without recording a result for it.
@@ -389,22 +389,25 @@
             <div class="grid">
                 <div class="pane ja">
                     <span class="badge badge-ja" style="background-color: #fee2e2; color: #991b1b;">重要</span>
-                    <h3>CSV管理と自動上書き（同期）</h3>
-                    <p>特定の科目を削除したり、既存のカードを修正したりする場合は、以下の機能が利用可能です：</p>
+                    <h3>CSV管理とゼロ権限ストレージ</h3>
+                    <p>プライバシー保護と使いやすさのため、本アプリは**ストレージ権限（ファイルの許可）を一切必要としません**。</p>
                     <ol>
-                        <li><strong>自動上書き:</strong> インポートするCSVに <code>id</code> が含まれている場合、アプリ内の同じIDのカードが自動的に更新されます。Excelで修正して再読込するだけでOKです。</li>
-                        <li><strong>完全リセット:</strong> 「Clear Database」を実行すると全データが消去されます。その後、修正したCSVをインポートしてください。</li>
+                        <li><strong>保存場所の選択:</strong> エクスポート時、端末標準の「保存ダイアログ」が表示されます。ダウンロードフォルダーやSDカードなど、お好きな場所を選んで保存できます。</li>
+                        <li><strong>自動上書き:</strong> CSVに <code>id</code> が含まれている場合、再読込時に同じIDのカードが自動更新されます。Excelで修正して上書きするだけで同期完了です。</li>
+                        <li><strong>完全リセット:</strong> 「Clear Database」を実行すると全データが消去されます。</li>
                     </ol>
                 </div>
                 <div class="pane en">
                     <span class="badge badge-en" style="background-color: #fee2e2; color: #991b1b;">Crucial</span>
-                    <h3>CSV Syncing & Management</h3>
-                    <p>To update existing cards or sync data from your computer, follow these rules:</p>
+                    <h3>CSV Syncing & Zero-Permission</h3>
+                    <p>For your privacy, this app **requires zero storage permissions** to function.</p>
                     <ol>
-                        <li><strong>ID Overwriting:</strong> If your CSV includes the <code>id</code> column, the app will update existing cards instead of creating duplicates. This is perfect for fixing typos.</li>
-                        <li><strong>Clean Reset:</strong> Use "Clear Database" to empty the app, then import your master CSV for a fresh start.</li>
+                        <li><strong>Choose Your Location:</strong> When exporting, a native system dialog will appear. You can pick exactly where to save your file (Downloads, iCloud, Google Drive, etc.).</li>
+                        <li><strong>ID Overwriting:</strong> If your CSV includes the <code>id</code> column, the app will update existing cards instead of creating duplicates. Perfect for bulk editing in Excel.</li>
+                        <li><strong>Clean Reset:</strong> Use "Clear Database" to empty the app before a fresh import.</li>
                     </ol>
                 </div>
+
             </div>
         </div>
 

@@ -192,6 +192,7 @@ class DatabaseHelper {
       'flashcards',
       where: whereClause.isEmpty ? null : whereClause,
       whereArgs: whereArgs.isEmpty ? null : whereArgs,
+      orderBy: 'id ASC',
     );
 
     return result.map((json) => Flashcard.fromMap(json)).toList();

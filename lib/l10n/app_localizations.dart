@@ -793,6 +793,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'All'**
   String get all;
+
+  /// No description provided for @shuffleQuestionOrder.
+  ///
+  /// In en, this message translates to:
+  /// **'Shuffle Question Order'**
+  String get shuffleQuestionOrder;
+
+  /// No description provided for @shuffleQuestionOrderSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Randomize the order of cards in a session'**
+  String get shuffleQuestionOrderSub;
 }
 
 class _AppLocalizationsDelegate

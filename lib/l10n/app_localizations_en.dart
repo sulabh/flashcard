@@ -384,4 +384,11 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get all => 'All';
+
+  @override
+  String get shuffleQuestionOrder => 'Shuffle Question Order';
+
+  @override
+  String get shuffleQuestionOrderSub =>
+      'Randomize the order of cards in a session';
 }

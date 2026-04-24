@@ -87,8 +87,21 @@ class StudyController extends StateNotifier<StudyState> {
 
   void startSession(List<Flashcard> originalCards) async {
     final sessionSize = ref.read(sessionSizeProvider);
+    final shuffleEnabled = ref.read(shuffleProvider);
     
-    final pool = List<Flashcard>.from(originalCards)..shuffle();
+    List<Flashcard> pool;
+    if (shuffleEnabled) {
+      pool = List<Flashcard>.from(originalCards)..shuffle();
+    } else {
+      // Show not yet attempted in sequential order
+      pool = originalCards.where((card) => card.noOfTimesAttempted == 0).toList();
+      
+      // If all cards in this selection have been attempted, fallback to original sequential list
+      if (pool.isEmpty) {
+        pool = List<Flashcard>.from(originalCards);
+      }
+    }
+    
     final sessionCards = pool.take(sessionSize).toList();
 
     final sessionChoices = sessionCards.map((card) {

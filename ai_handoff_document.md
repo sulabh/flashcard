@@ -81,6 +81,14 @@ Because subjects are dynamic, we could not hardcode "Premium" subjects. Therefor
 - **"All" Filter Selection**: Users can now select "All" at Category/Unit levels. In the `filteredFlashcardsProvider`, the special `__ALL__` constant is converted to `null` before the DB query to return all records for that parent group.
 - **Defunct Element Fix**: Never call `ref.read` directly inside `dispose()` in `StudyScreen`. Always cache the required service in `initState`.
 
+### Study Session Sequencing Logic
+- **Shuffle ON**: The `StudyController` randomizes the entire pool of filtered cards.
+- **Shuffle OFF**:
+    - The app **prioritizes unattempted cards** (`noOfTimesAttempted == 0`).
+    - These cards are shown in **sequential order** (`id ASC`).
+    - **Fallback**: If all cards in the selection have been attempted, the app falls back to showing the entire sequential list so the user can repeat the section.
+- **Database Consistency**: All filtered queries in `DatabaseHelper` now include an explicit `ORDER BY id ASC` to ensure stable sequencing when shuffle is disabled.
+
 ## Recommended Next Steps (Phase 2 Prep)
 If instructed to proceed to Phase 2:
 - You will need to upgrade `TtsService` to reach out to an external AI voice API (like OpenAI TTS or ElevenLabs) while maintaining the local `flutter_tts` as an offline fallback.

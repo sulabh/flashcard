@@ -172,5 +172,7 @@
   "correctAnswerLabel": "正解",
   "mcqCorrect": "正解です",
   "mcqIncorrect": "不正解です",
-  "all": "すべて"
+  "all": "すべて",
+  "shuffleQuestionOrder": "問題の順序をシャッフルする",
+  "shuffleQuestionOrderSub": "セッション内のカードの順序をランダム化する"
 }

@@ -378,4 +378,10 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get all => 'すべて';
+
+  @override
+  String get shuffleQuestionOrder => '問題の順序をシャッフルする';
+
+  @override
+  String get shuffleQuestionOrderSub => 'セッション内のカードの順序をランダム化する';
 }

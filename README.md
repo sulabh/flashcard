@@ -14,7 +14,10 @@ A standalone, offline-first professional flashcard application built with Flutte
   - `free`: Integrated with AdMob banner ads.
   - `paid`: Clean, ad-free experience.
 - **Data Portability & Sync**: Full CSV Import/Export system. Supports **ID Overwrite** logic: edit existing cards in Excel/Google Sheets and sync them back seamlessly.
-- **Flexible Filters**: Study entire subjects or grades at once with the new **"All" selection** option for Categories and Units.
+- **Flexible Filters & Sequencing**: 
+  - Study entire subjects or grades at once with the **"All" selection** option.
+  - **Sequential Study Mode**: Prioritizes unattempted cards in their original order when shuffle is disabled.
+  - **Fallback Logic**: Automatically repeats attempted cards if the section is completed.
 - **Localized UI**: Complete English and Japanese bilingual support.
 
 ---
@@ -203,10 +206,10 @@ Switch the language to the new one from the Home screen switcher. Verify all scr
 
 ---
 
-## 📄 Maintenance
-- **Content Management**: Users should follow the **Export → Edit → Clear → Import** cycle for bulk data changes.
+- **Maintenance**: Users should follow the **Export → Edit → Clear → Import** cycle for bulk data changes.
 - **Syncing Changes**: When importing a CSV, if a row contains an existing ID, the app will update the local record. This allows you to fix typos or update card logic without losing study stats.
-- **Card Maintenance**: Use the dedicated Card Maintenance screen from the Home menu to import/export CSV files. On Android, files are saved directly to the system `Downloads` folder.
+- **Zero-Permission Storage**: The app uses modern **Scoped Storage** and **System Save Dialogs**. On mobile, users pick their preferred save location (Downloads, Files app, etc.) via a native UI. This ensures the app never needs broad storage permissions, maximizing user privacy.
+- **iOS Files App**: Files saved by the app are visible in the iOS "Files" app under "On My iPhone" for easy management.
 
 ---
 © 2026 Flashcard App Development Team.

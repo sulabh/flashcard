@@ -220,8 +220,8 @@ flutter build web --no-wasm-dry-run</pre>
                     <p><code>DatabaseHelper</code> では、<code>_initFuture</code> をキャッシュしています。これを変更するとコールドスタート時にフリーズする原因になります。</p>
                     <h3>ID同期とオーバーライト</h3>
                     <p>CSVインポート時には <code>ConflictAlgorithm.replace</code> を使用しています。CSV内に既存の <code>id</code> が含まれている場合、そのレコードは更新（オーバーライト）されます。これによりExcel等での外部編集が可能です。</p>
-                    <h3>Androidでのファイル保存</h3>
-                    <p>Android 11以降の制限に対応するため、<code>Downloads</code> フォルダへの直接保存を実装しています。<code>permission_handler</code> による実行時権限リクエストが必須です。</p>
+                    <h3>ゼロ権限ストレージ戦略</h3>
+                    <p>最新のOS要件に対応するため、実行時権限（Storage Permission）を必要としない設計を採用しています。<code>file_picker</code> 11.x の「システム保存ダイアログ」を使用することで、ユーザーが明示的に保存場所を選択し、アプリにはそのファイルのみのアクセス権が与えられます。</p>
                 </div>
                 <div class="pane en">
                     <div class="labels"><span class="label label-en">English</span></div>
@@ -229,9 +229,10 @@ flutter build web --no-wasm-dry-run</pre>
                     <p><code>DatabaseHelper</code> uses a <code>_initFuture</code> cache to prevent redundant initialization. Removing this will cause the app to hang during cold starts.</p>
                     <h3>ID Sync & Overwrite</h3>
                     <p>CSV imports use <code>ConflictAlgorithm.replace</code>. If a row contains an existing <code>id</code>, the local record is overwritten. This enables robust synchronization with external data editors.</p>
-                    <h3>Android File Storage</h3>
-                    <p>To comply with modern Android storage rules, the app saves directly to the system <code>Downloads</code> folder. This requires explicit runtime permission handling via <code>permission_handler</code>.</p>
+                    <h3>Zero-Permission Storage</h3>
+                    <p>The app implements a modern "Zero-Permission" storage strategy using <code>file_picker</code> 11.x. Instead of requesting broad storage permissions, it triggers native system save dialogs. Users choose their own save location, granting the app specific access only to the exported file.</p>
                 </div>
+
             </div>
         </div>
 
