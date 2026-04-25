@@ -90,8 +90,16 @@ flutter build web --no-wasm-dry-run
 Generate a signed App Bundle (AAB):
 ```bash
 flutter build appbundle --flavor free -t lib/main_free.dart
+flutter build appbundle --flavor paid -t lib/main_paid.dart
 ```
-*Note: Ensure `android/key.properties` and your release keystore are configured.*
+
+*Note: Ensure you have generated a release keystore and placed a `key.properties` file in your `android/` directory with the following structure:*
+```properties
+storePassword=YOUR_STORE_PASSWORD
+keyPassword=YOUR_KEY_PASSWORD
+keyAlias=upload
+storeFile=upload-keystore.jks
+```
 
 ---
 

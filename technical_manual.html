@@ -301,8 +301,13 @@ flutter build web --no-wasm-dry-run</pre>
                     <h3>Androidアプリの署名</h3>
                     <p>1. <code>keytool</code> を使用してリリース用のKeystoreを生成します。</p>
                     <p>2. <code>android/key.properties</code> ファイルを作成し、パスワード等を記述します。</p>
+                    <pre>storePassword=YOUR_STORE_PASSWORD
+keyPassword=YOUR_KEY_PASSWORD
+keyAlias=upload
+storeFile=upload-keystore.jks</pre>
                     <p>3. 以下のコマンドでApp Bundleを生成し、Google Playにアップロードします。</p>
-                    <pre>flutter build appbundle --flavor free -t lib/main_free.dart</pre>
+                    <pre>flutter build appbundle --flavor free -t lib/main_free.dart
+flutter build appbundle --flavor paid -t lib/main_paid.dart</pre>
                     <h3>iOSアプリの配信</h3>
                     <p>1. Xcodeで <code>Runner.xcworkspace</code> を開きます。</p>
                     <p>2. 各Flavorの <code>Signing & Capabilities</code> を設定します。</p>
@@ -312,9 +317,14 @@ flutter build web --no-wasm-dry-run</pre>
                     <div class="labels"><span class="label label-en">English</span></div>
                     <h3>Android Release</h3>
                     <p>1. Generate a release Keystore using <code>keytool</code>.</p>
-                    <p>2. Create <code>android/key.properties</code> with your key details.</p>
+                    <p>2. Create <code>android/key.properties</code> with your key details:</p>
+                    <pre>storePassword=YOUR_STORE_PASSWORD
+keyPassword=YOUR_KEY_PASSWORD
+keyAlias=upload
+storeFile=upload-keystore.jks</pre>
                     <p>3. Generate the Android App Bundle (AAB):</p>
-                    <pre>flutter build appbundle --flavor free -t lib/main_free.dart</pre>
+                    <pre>flutter build appbundle --flavor free -t lib/main_free.dart
+flutter build appbundle --flavor paid -t lib/main_paid.dart</pre>
                     <h3>iOS Release</h3>
                     <p>1. Open <code>Runner.xcworkspace</code> in Xcode.</p>
                     <p>2. Configure <code>Signing & Capabilities</code> for the desired flavor.</p>

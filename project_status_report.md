@@ -58,6 +58,7 @@ This report details the technical implementation and feature completion status o
 ### 6. Monetization & Flavors
 * **AdMob Integration**: `BannerAd` placeholders are fully integrated and functional in the `free` flavor. Logic is centrally managed via `AdBannerWidget`.
 * **Flavor Architecture**: Multi-flavor setup (`free`, `paid`) is complete with distinct entry points and configurations.
+* **Android Release Signing**: Fully configured dynamic keystore loading via `key.properties` in `build.gradle.kts` for automated Play Store compliant App Bundle generation across all flavors.
 
 ### 7. Phase 1.6: Reliability & Sync (Zero-Permission Storage)
 * **Integer ID Migration**: Migrated flashcard IDs from UUID strings to `INTEGER PRIMARY KEY`. This resolves sorting issues and aligns with standard SQL optimization. (DB Version 6).
